@@ -232,7 +232,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Terbilang' => Riskihajar\Terbilang\Facades\Terbilang::class,
+        //'Terbilang' => Riskihajar\Terbilang\Facades\Terbilang::class,
 
     ],
 
