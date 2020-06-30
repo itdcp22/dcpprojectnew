@@ -33,7 +33,8 @@
             <th> Type </th>
             
             <th> Created Date </th>
-            <th> Verified Date</th>
+            <th> Status </th>
+            <th> Last Seen</th>
             
          
                 </tr>
@@ -42,34 +43,42 @@
                 
                 @if(count($users))
             
-            @foreach($users as $c)
+            @foreach($users as $user)
             
             <tr>
             
-                <td>{{ $c->id }}</td>
-                <td>{{ $c->name }}</td>
-                <td>{{ $c->email }}</td>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
                 <td>
                   
-                  @if($c->company =='1')
+                  @if($user->company =='1')
                     {{ "Al Jarwani"}}
-                  @elseif($c->company =='2')
+                  @elseif($user->company =='2')
                   {{"Mall Of Muscat"}}
-                  @elseif($c->company =='3')
+                  @elseif($user->company =='3')
                   {{"Oman Aquarium"}}
-                  @elseif($c->company =='4')
+                  @elseif($user->company =='4')
                   {{"Snow Village"}}
                   @endif
               
               </td>
 
 
-              <td>{{ $c->user_type}}</td>     
-              <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>   
+              <td>{{ $user->user_type}}</td>     
+              <td>{{ date('d-m-Y', strtotime($user->created_at)) }}</td> 
+              
+              <td>
+                @if(Cache::has('user-is-online-' . $user->id))
+                <span class="text-success">Online</span>
+            @else
+                <span class="text-secondary">Offline</span>
+            @endif  
+              </td>     
                 
-                <td>{{ date('d-m-Y', strtotime($c->email_verified_at)) }}</td>   
+              <td>{{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</td>
             
-            
+                
             
             </tr>
             @endforeach
@@ -77,6 +86,8 @@
             @else
             <tr><td colspan="11">No Record Found</td></tr>
             @endif
+
+            
 
                 </tbody>
                 <tfoot>
@@ -89,7 +100,8 @@
                     <th> Type </th>
                     
                     <th> Created Date </th>
-                    <th> Verified Date</th>
+                    <th> Status</th>
+                    <th> Last Seen</th>
                     
                 </tr>
                 </tfoot>

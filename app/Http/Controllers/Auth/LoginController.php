@@ -48,6 +48,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    // This below 2 lines used to limit the login - How to Limit Login Attempts in Laravel
+    protected $maxAttempts = 3; // default is 5
+    protected $decayMinutes = 2; // default is 1
+
   
 
 }

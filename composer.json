@@ -11,10 +11,12 @@
         "php": "^7.2",
         "barryvdh/laravel-dompdf": "^0.8.5",
         "fideloper/proxy": "^4.0",
+        "kwn/number-to-words": "^1.9",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
         "maatwebsite/excel": "^3.1",
+        "riskihajar/terbilang": "^1.2",
         "yajra/laravel-datatables-oracle": "^9.7"
     },
     "require-dev": {

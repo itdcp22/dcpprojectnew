@@ -24,7 +24,7 @@ class CreateChequesTable extends Migration
             $table->string('tran_number')->nullable();
             $table->string('name')->nullable();
             $table->date('chq_date')->nullable();
-            $table->integer('chq_amount')->nullable();
+            $table->double('chq_amount')->nullable();
             $table->string('chq_number')->unique();
             $table->string('reference')->nullable();
             $table->string('narration')->nullable();

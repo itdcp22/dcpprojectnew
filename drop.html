@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This should work</title>
+</head>
+<body>
+    <div class="form-group form-animate-text col-lg-6 col-xs-12 col-md-6">
+        <select class="form-text" id="val_equipfc" name="val_equipfc" onChange="checkOption(this)" required>
+            <option value="A">Yes</option>
+            <option value="B">No</option>
+        </select>
+        <span class="bar"></span>
+        <label><span style="color:red">*</span>With Equipment?</label>
+    </div>
+
+    <div class="form-group form-animate-text col-lg-6 col-xs-12 col-md-6">
+        <input type="text" class="form-text" id="val_equipnofc" name="val_equipnofc">
+        <span class="bar"></span>
+        <label><span style="color: red">*</span>Number of Equipment/s</label>
+    </div>
+
+    <script type="text/javascript">
+        function checkOption(obj) {
+            var input = document.getElementById("val_equipnofc");
+            input.disabled = obj.value == "B";
+        }
+    </script>
+</body>
+</html>
