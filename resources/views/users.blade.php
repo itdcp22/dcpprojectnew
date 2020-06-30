@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                 
-                @if(count($users))
+              
             
             @foreach($users as $user)
             
@@ -83,9 +83,7 @@
             </tr>
             @endforeach
             
-            @else
-            <tr><td colspan="11">No Record Found</td></tr>
-            @endif
+           
 
             
 
