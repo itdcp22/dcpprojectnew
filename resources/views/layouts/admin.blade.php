@@ -593,7 +593,7 @@
 
           @can('isTenant')
           <li class="nav-item">
-            <a href="{{route('mall.workpermit.index')}}" class="nav-link
+            <a href="{{route('mall.workpermit.create')}}" class="nav-link
             @if($segment=='workpermit')
             active
             @endif            
