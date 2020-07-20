@@ -571,9 +571,7 @@
               </li>
               
             </ul>
-          </li>
-
-        
+          </li>        
           @endcan
 
           @can('isAccess')
@@ -592,9 +590,26 @@
           </li>
           @endcan
 
+
+          @can('isTenant')
+          <li class="nav-item">
+            <a href="{{route('mall.workpermit.index')}}" class="nav-link
+            @if($segment=='workpermit')
+            active
+            @endif            
+            ">
+              <i class="nav-icon fas fa-lock"></i>
+              <p>
+                Work Permit
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          @endcan
+
           
         
-          
+          @can('isUser')
 
           <li class="nav-header">BOOKING - GUEST</li>
           <li class="nav-item">
@@ -687,7 +702,7 @@
           </li>
 
           
-       
+          @endcan
 
           
           

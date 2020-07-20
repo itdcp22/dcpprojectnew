@@ -82,7 +82,7 @@ $(function()
 
                               <div class="form-group">
                                 <div class = "row">
-                                <label class = "col-lg-1" for="">Company</label>
+                                <label class = "col-lg-1" for="">Designation</label>
                                 <div class = "col-lg-5">    
                                   <input type="email" class="form-control" id="validationCustom02" name="tb_cust_email" placeholder="Enter store manager" required>           
                                        
@@ -101,7 +101,7 @@ $(function()
 
                                 <div class="form-group">
                                 <div class = "row">
-                                <label class = "col-lg-1" for="">Designation</label>
+                                <label class = "col-lg-1" for="">Company</label>
                                 <div class = "col-lg-5">    
                                 <input type="text" class="form-control" id="validationCustom02" name="tb_kids" placeholder="Enter designation">
                                 </div>
