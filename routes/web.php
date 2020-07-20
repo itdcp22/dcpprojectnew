@@ -16,13 +16,18 @@ Route::resource('/admin/accounts', 'AccountsController');
 
 Route::get('/', function () {
     return view('welcome');
+
 });
 
 Route::get('/table', function () {
     return view('table');
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes([
+    'verify' => true,
+    'register' => false,
+    ]);
+
 Route::get('users', 'UserController@index')->name('users')->middleware('auth');
 Route::get('changeStatus', 'UserController@changeStatus');
 
@@ -73,6 +78,13 @@ Route::resource('/foh/cancelled', 'Foh\CancelledController', ['as'=>'foh'])->mid
 Route::resource('/hrms/employee', 'Hrms\EmployeeController', ['as'=>'hrms'])->middleware('auth');
 Route::resource('/hrms/survey', 'Hrms\SurveyController', ['as'=>'hrms'])->middleware('auth');
 Route::resource('/hrms/locker', 'Hrms\LockerController', ['as'=>'hrms'])->middleware('auth');
+
+
+
+//Mall - Work Permit
+Route::resource('/mall/workpermit', 'Mall\WorkpermitController', ['as'=>'mall'])->middleware('auth');
+
+
 
 
 
