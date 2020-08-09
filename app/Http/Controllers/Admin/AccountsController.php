@@ -11,15 +11,15 @@ use Carbon\Carbon;
 use App\Account;
 use App\Item;
 use App\Category;
-Use Auth;
-Use Gate;
+use Auth;
+use Gate;
 
 //we need to add the below if we create new excel export
-use App\Exports\AccountExport; 
-use App\Exports\PaidbillExport; 
-  use Maatwebsite\Excel\Facades\Excel; 
-  
-  
+use App\Exports\AccountExport;
+use App\Exports\PaidbillExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 
 
 
@@ -29,14 +29,14 @@ class AccountsController extends Controller
 
     public function export()
     {
-    return Excel::download(new AccountExport, 'Unpaid.xls'); 
-    } 
-    
+        return Excel::download(new AccountExport, 'Unpaid.xls');
+    }
+
 
     public function paidbillexport()
     {
-    return Excel::download(new PaidbillExport, 'Paid.xls'); 
-    } 
+        return Excel::download(new PaidbillExport, 'Paid.xls');
+    }
 
 
     public function __construct()
@@ -48,22 +48,21 @@ class AccountsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-  
+
 
 
     public function index()
-    { 
-        
-   
+    {
 
-           
-    $arr['accounts'] = Account::where('th_comp_code', auth()->user()->company)->where('th_emp_id', auth()->user()->id)
-    ->where('th_pay_status', 0)->orderBy('th_tran_no','desc')->get();
-    return view('admin.accounts.index')->with($arr);    
-    
+
+
+
+        $arr['accounts'] = Account::where('th_comp_code', auth()->user()->company)->where('th_emp_id', auth()->user()->id)
+            ->where('th_pay_status', 0)->orderBy('th_tran_no', 'desc')->get();
+        return view('admin.accounts.index')->with($arr);
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -81,45 +80,44 @@ class AccountsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
 
     public function store(Request $request, Account $account, Item $item)
-    {    
-        
-        
-        
+    {
+
+
+
         $id = Account::orderByDesc('th_tran_no')->first()->th_tran_no ?? date('Y') . 00000;
         $year = date('Y');
         $id_year = substr($id, 0, 4);
         $seq = $year <> $id_year ? 0 : +substr($id, -5);
-        $new_id = sprintf("%0+4u%0+6u", $year, $seq+1);      
+        $new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
 
 
 
-            $filename='';
+        $filename = '';
 
-            if( $request->hasFile('th_attach'))
-                {
-                  $file = $request->file('th_attach');
-                  $ext = $file->getClientOriginalExtension();
-                  $filename = date('YmdHis').rand(1,99999).'.'.$ext;
-                  $file->storeAs('public/categories', $filename);
-                }
-     
+        if ($request->hasFile('th_attach')) {
+            $file = $request->file('th_attach');
+            $ext = $file->getClientOriginalExtension();
+            $filename = date('YmdHis') . rand(1, 99999) . '.' . $ext;
+            $file->storeAs('public/categories', $filename);
+        }
 
-       
-      
-    
+
+
+
+
 
         $account->th_attach = $filename;
         $account->th_supp_name = $request->th_supp_name;
-        $account->th_supp_contact = $request->th_supp_contact;   
+        $account->th_supp_contact = $request->th_supp_contact;
 
-       // $date  = Carbon::createFromFormat('Y-m-d', $request->th_bill_dt); 
-       $date  = Carbon::createFromFormat('d-m-Y', $request->th_bill_dt);        
-       $account->th_bill_dt = $date;    
-       // $account->th_bill_dt = $request->th_bill_dt;    
-        
+        // $date  = Carbon::createFromFormat('Y-m-d', $request->th_bill_dt); 
+        $date  = Carbon::createFromFormat('d-m-Y', $request->th_bill_dt);
+        $account->th_bill_dt = $date;
+        // $account->th_bill_dt = $request->th_bill_dt;    
+
         $account->th_bill_amt = $request->th_bill_amt;
         $account->th_bill_total = $request->th_bill_total;
         $account->th_bill_no = $request->th_bill_no;
@@ -136,56 +134,45 @@ class AccountsController extends Controller
 
         $todaymnt = Carbon::now();
         $account->th_acc_month = $todaymnt->month;
-        
 
-        if (  ( Auth::user()->company )  == 1) {
-            
+
+        if ((Auth::user()->company)  == 1) {
+
             $account->th_comp_name = 'Al Jarwani';
-        }
-        else if (  ( Auth::user()->company )  == 2) {
+        } else if ((Auth::user()->company)  == 2) {
 
             $account->th_comp_name = 'Mall Of Muscat';
-
-        }
-
-        else if (  ( Auth::user()->company )  == 3) {
+        } else if ((Auth::user()->company)  == 3) {
 
             $account->th_comp_name = 'Oman Aquarium';
-
-        }
-
-        else if (  ( Auth::user()->company )  == 4) {
+        } else if ((Auth::user()->company)  == 4) {
 
             $account->th_comp_name = 'Snow Village';
-
         }
 
 
         $account->th_pay_status = 0;
-        
-        
-        
-        $account->save();       
-        
+
+
+
+        $account->save();
+
         //dd($request->td_item_desc); 
 
-        foreach ($request->td_item_desc as $key =>$name) 
-        {
+        foreach ($request->td_item_desc as $key => $name) {
 
-            if($request->td_qty[$key]) {
-                $item = resolve(Item::class);     
-                $item->td_item_desc = trim($name,'"');    
-                $item->td_qty = $request->td_qty[$key] ;    
-                $item->td_unit_price = $request->td_unit_price[$key] ;
-                $item->td_unit_amt = $item->td_unit_price * $item->td_qty ;
-                $item->td_tran_no = $new_id; 
+            if ($request->td_qty[$key]) {
+                $item = resolve(Item::class);
+                $item->td_item_desc = trim($name, '"');
+                $item->td_qty = $request->td_qty[$key];
+                $item->td_unit_price = $request->td_unit_price[$key];
+                $item->td_unit_amt = $item->td_unit_price * $item->td_qty;
+                $item->td_tran_no = $new_id;
                 $item->save();
                 $account->item()->save($item);
-              }
-
-     
-        }         
-        return redirect('admin/accounts')->with('success','Transaction created successfully!');
+            }
+        }
+        return redirect('admin/accounts')->with('success', 'Transaction created successfully!');
     }
 
     /**
@@ -211,26 +198,23 @@ class AccountsController extends Controller
         //$arr['item'] = $item;
         //return view('admin.accounts.edit')->with($arr);
 
-        
-
-        $items = Item::where('td_tran_no', $account->th_tran_no)->Get();     
-        return view('admin.accounts.edit')->with(['item' => $items, 'account' => $account]); 
+        $items = Item::where('td_tran_no', $account->th_tran_no)->Get();
+        return view('admin.accounts.edit')->with(['item' => $items, 'account' => $account]);
     }
 
 
-    public function print(Account $account, Item $item) 
-    { 
-       
-        $items = Item::where('td_tran_no', $account->th_tran_no)->orderBy('id','asc')->Get();     
-        $items_total = $items->sum('td_unit_amt'); 
-            
+    public function print(Account $account, Item $item)
+    {
+
+        $items = Item::where('td_tran_no', $account->th_tran_no)->orderBy('id', 'asc')->Get();
+        $items_total = $items->sum('td_unit_amt');
+
         return view('admin.accounts.print')
-        ->with(['item' => $items,'items_total' => $items_total,'account' => $account]); 
-    
+            ->with(['item' => $items, 'items_total' => $items_total, 'account' => $account]);
     }
 
-    
-  
+
+
 
     /**
      * Update the specified resource in storage.
@@ -242,33 +226,32 @@ class AccountsController extends Controller
     public function update(Request $request, Account $account, Item $item)
     {
 
-        $filename='test';
+        $filename = 'test';
 
-        if( $request->hasFile('th_attach'))
-            {
-              $file = $request->file('th_attach');
-              $ext = $file->getClientOriginalExtension();
-              $filename = date('YmdHis').rand(1,99999).'.'.$ext;
-              $file->storeAs('public/categories', $filename);
-            }
+        if ($request->hasFile('th_attach')) {
+            $file = $request->file('th_attach');
+            $ext = $file->getClientOriginalExtension();
+            $filename = date('YmdHis') . rand(1, 99999) . '.' . $ext;
+            $file->storeAs('public/categories', $filename);
+        }
 
-           
 
-       // $account->th_attach = $filename;
-        $account->th_supp_name = $request->th_supp_name;   
-        $account->th_supp_contact = $request->th_supp_contact;    
 
-       $date  = Carbon::createFromFormat('d-m-Y', $request->th_bill_dt);        
-       $account->th_bill_dt = $date;          
-        
+        // $account->th_attach = $filename;
+        $account->th_supp_name = $request->th_supp_name;
+        $account->th_supp_contact = $request->th_supp_contact;
+
+        $date  = Carbon::createFromFormat('d-m-Y', $request->th_bill_dt);
+        $account->th_bill_dt = $date;
+
         $account->th_bill_no = $request->th_bill_no;
         $account->th_bill_amt = $request->th_bill_amt;
-       
+
         $account->th_item_type = $request->th_item_type;
-        $account->th_purpose = $request->th_purpose;        
+        $account->th_purpose = $request->th_purpose;
         $account->save();
-        
-        return redirect()->route('admin.accounts.index')->with('info','Transaction updated successfully!');
+
+        return redirect()->route('admin.accounts.index')->with('info', 'Transaction updated successfully!');
     }
 
     /**
@@ -279,17 +262,16 @@ class AccountsController extends Controller
      */
     public function destroy($id)
     {
-        
-        
 
-       // Account::destroy($id);                  
-       // return redirect()->route('admin.accounts.index')->with('error','Transaction deleted successfully!');  
-        
+
+
+        // Account::destroy($id);                  
+        // return redirect()->route('admin.accounts.index')->with('error','Transaction deleted successfully!');  
+
         Account::find($id)->delete();
-    
 
-    //Account::find($request->id)->delete();
-    return redirect()->route('admin.accounts.index')->with('success','Transaction deleted successfully');
 
+        //Account::find($request->id)->delete();
+        return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully');
     }
 }

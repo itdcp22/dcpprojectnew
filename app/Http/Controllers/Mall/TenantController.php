@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Mall;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Carbon\Carbon;
-use App\Advance;
-Use Auth;
+use App\Tenant;
+use Auth;
+use App\User;
+use Gate;
 
-class AdvanceallnewController extends Controller
+class TenantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +20,8 @@ class AdvanceallnewController extends Controller
      */
     public function index()
     {
-        $arr['advances'] = Advance::all();
-        return view('admin.alladvances.index')->with($arr);   
+        $arr['tenant'] = Tenant::All();
+        return view('mall.tenant.index')->with($arr);
     }
 
     /**
@@ -29,7 +31,7 @@ class AdvanceallnewController extends Controller
      */
     public function create()
     {
-        //
+        return view('mall.tenant.create');
     }
 
     /**
@@ -38,9 +40,19 @@ class AdvanceallnewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Tenant $tenant)
     {
-        //
+        $tenant->tm_name = $request->tm_name;
+        $tenant->tm_contact = $request->tm_contact;
+        $tenant->tm_tel = $request->tm_tel;
+        $tenant->tm_mobile = $request->tm_mobile;
+        $tenant->tm_address = $request->tm_address;
+        $tenant->tm_email = $request->tm_email;
+        $tenant->tm_comments = $request->tm_comments;
+        $tenant->tm_created_uid = Auth::user()->name;
+
+        $tenant->save();
+        return redirect('mall/tenant')->with('success', 'Transaction created successfully!');
     }
 
     /**
@@ -60,10 +72,9 @@ class AdvanceallnewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Advance $advance)
+    public function edit($id)
     {
-        $arr['advance'] = $advance;
-        return view('admin.alladvancesnew.edit')->with($arr);
+        //
     }
 
     /**

@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Mall;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Carbon\Carbon;
-use App\Advance;
-Use Auth;
+use App\Brand;
+use App\Tenant;
+use Auth;
+use App\User;
+use Gate;
 
-class AdvanceallnewController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +21,8 @@ class AdvanceallnewController extends Controller
      */
     public function index()
     {
-        $arr['advances'] = Advance::all();
-        return view('admin.alladvances.index')->with($arr);   
+        $arr['brand'] = Brand::All();
+        return view('mall.brand.index')->with($arr);
     }
 
     /**
@@ -29,7 +32,8 @@ class AdvanceallnewController extends Controller
      */
     public function create()
     {
-        //
+        $arr['tenant'] = Tenant::all();
+        return view('mall.brand.create')->with($arr);
     }
 
     /**
@@ -38,9 +42,24 @@ class AdvanceallnewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Brand $brand)
     {
-        //
+        $brand->bm_name = $request->bm_name;
+        $brand->bm_location = $request->bm_location;
+        $brand->bm_contact = $request->bm_contact;
+        $brand->bm_designation = $request->bm_designation;
+        $brand->bm_tel = $request->bm_tel;
+        $brand->bm_mobile = $request->bm_mobile;
+        $brand->bm_email = $request->bm_email;
+        $brand->bm_tm_name = $request->bm_tm_name;
+        $brand->bm_tm_id = $request->bm_tm_id;
+        $brand->bm_status = 1;
+
+        $brand->bm_created_uid = Auth::user()->name;
+
+
+        $brand->save();
+        return redirect('mall/brand')->with('success', 'Transaction created successfully!');
     }
 
     /**
@@ -60,10 +79,9 @@ class AdvanceallnewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Advance $advance)
+    public function edit($id)
     {
-        $arr['advance'] = $advance;
-        return view('admin.alladvancesnew.edit')->with($arr);
+        //
     }
 
     /**

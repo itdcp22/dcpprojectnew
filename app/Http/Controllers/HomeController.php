@@ -47,6 +47,11 @@ class HomeController extends Controller
         //Users::where('id', 1)->count();
         return view('homeicc');
     }
+    public function mallwp(Request $request)
+    {
+        //Users::where('id', 1)->count();
+        return view('mallwp');
+    }
 
 
     
