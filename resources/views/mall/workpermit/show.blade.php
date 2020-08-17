@@ -265,6 +265,43 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <p class="bg-primary text-white"><strong>Mall Status</strong>
+        </p>
+
+        <div class="row">
+
+          <label class="col" for="">Status</label>
+          <div class="col border-bottom">
+            <label for=""> : {{ $workpermit->wp_status}}</label>
+
+          </div>
+          <label class="col" for="">Approved By</label>
+          <div class="col border-bottom">
+            <label for=""> : {{ $workpermit->wp_approved_name}} </label>
+
+          </div>
+
+          <label class="col" for="">Approved Date</label>
+          <div class="col border-bottom">
+            <label for=""> :
+
+              @if ( !empty ( $workpermit->wp_approved_date ) )
+              {{ date('d-m-Y', strtotime($workpermit->wp_approved_date)) }}
+              @endif
+
+            </label>
+
+          </div>
+        </div>
+        <div class="row">
+          <label class="col" for="">Mall Remarks:</label>
+          <textarea class="form-control" name="wp_approved_remark" rows="3" id="comment" placeholder="Mall Remarks"
+            readonly>{{$workpermit->wp_approved_remark}}</textarea>
+          </p>
+        </div>
+      </div>
+
       <div class="form-group">
         <strong>  Terms & Conditions:</strong> 
 
@@ -292,23 +329,24 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="form-group">
           <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
 
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
+
+
 
 
 

@@ -45,7 +45,7 @@ class CreateWorkpermitsTable extends Migration
             $table->string('wp_approved_uid')->nullable();
             $table->string('wp_approved_name')->nullable();
             $table->dateTime('wp_approved_date')->nullable();
-            $table->dateTime('wp_approved_remark')->nullable();
+            $table->string('wp_approved_remark')->nullable();
 
             $table->string('wp_security_uid')->nullable();
 

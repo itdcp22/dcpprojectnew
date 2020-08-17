@@ -34,8 +34,8 @@
                 <th>Time From</th>
                 <th>Time To</th>
                 <th>Status</th>
-                <th>Approved By</th>
-                <th>Approved Date</th>
+                <th>App / Rej By</th>
+                <th>App / Rej Date</th>
                 <th> Action </th>
               </tr>
             </thead>
@@ -59,7 +59,6 @@
                 <td>{{ date('h:i A', strtotime($c->wp_to_time)) }}</td>
 
                 <td>
-
                   @if($c->wp_status =='Pending')
                   <div class="text-success">
                     Pending
@@ -68,49 +67,30 @@
                   <div class="text-primary">
                     Approved
                   </div>
-
                   @else
                   <div class="text-danger">
                     Rejected
                   </div>
                   @endif
-
                 </td>
 
                 <td>{{ $c->wp_approved_name }}</td>
-                <td>{{ date('d-m-Y', strtotime($c->wp_approved_date)) }}</td>
-
-
-
-
-
                 <td>
-
+                  @if ( !empty ( $c->wp_approved_date ) )
+                  {{ date('d-m-Y', strtotime($c->wp_approved_date)) }}
+                  @endif
+                <td>
                   <a href="{{ route('mall.workpermit.show',$c->id) }}">
                     <i class="fa fa-print text-green"></i>
-
                   </a>
-
                   /
-
-
                   <a href="{{ route('mall.workpermitapp.edit',$c->id) }}">
                     <i class="fa fa-edit"></i>
-
                   </a>
-
-
                   /
-
-
-
                   <a data-catid={{$c->id}} data-toggle="modal" data-target="#delete">
                     <i class="fa fa-trash text-red"></i>
-
                   </a>
-
-
-
                 </td>
 
               </tr>
@@ -136,8 +116,8 @@
                 <th>Time From</th>
                 <th>Time To</th>
                 <th>Status</th>
-                <th>Approved By</th>
-                <th>Approved Date</th>
+                <th>App / Rej By</th>
+                <th>App / Rej Date</th>
                 <th> Action </th>
 
               </tr>

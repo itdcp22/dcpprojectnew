@@ -83,7 +83,7 @@ class WorkpermitappController extends Controller
     {
         $workpermit = Workpermit::where('id', $workpermitapp)->firstOrFail();
 
-        $workpermit->wp_applicant = $request->wp_applicant;
+
         $workpermit->wp_status = $request->wp_status;
         $workpermit->wp_approved_uid = Auth::user()->id;
         $workpermit->wp_approved_name = Auth::user()->name;
@@ -91,6 +91,7 @@ class WorkpermitappController extends Controller
         $apprdate  = Carbon::now();
         $workpermit->wp_approved_date = $apprdate;
 
+        $workpermit->wp_approved_remark = $request->wp_approved_remark;
 
 
 

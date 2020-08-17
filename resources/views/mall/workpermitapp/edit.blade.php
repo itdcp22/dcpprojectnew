@@ -232,25 +232,12 @@
 
       <div class="form-group">
         <p class="bg-warning text-white"><strong>Work Category</strong>
+
+
+          <input type="text" class="form-control" id="wp_category" name="wp_category"
+            value="{{ $workpermit->wp_category}}" placeholder="Work Category">
+
         </p>
-        <div class="col-sm-12">
-          <div class="d-flex mb-3">
-
-
-            <div class="p-2 flex-fill"><input type="checkbox" value="Carpentry" name="wp_category[]">Carpentry</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Fit-Out" name="wp_category[]">Fit-Out</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Painting" name="wp_category[]">Painting</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Promotion" name="wp_category[]">Promotion</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Plumbing" name="wp_category[]">Plumbing</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Hot Work" name="wp_category[]">Hot Work</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Electrical / HVAC" name="wp_category[]">Electrical
-              /
-              HVAC</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Stock Taking" name="wp_category[]">Stock Taking
-            </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Others" name="wp_category[]">Others</div>
-          </div>
-        </div>
       </div>
 
       <div class="form-group">
@@ -315,7 +302,7 @@
           </div>
           <label class="col-lg-1" for="">Comments</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="wp_cont_person"
+            <input type="text" class="form-control" id="validationCustom02" name="wp_approved_remark"
               placeholder="Enter comments">
           </div>
 
