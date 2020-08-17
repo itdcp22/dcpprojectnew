@@ -100,6 +100,7 @@ Route::get('/mall/approved', 'Mall\WorkpermitController@approved')->name('workpe
 
 
 
+
 //Export Route
 Route::get('/showdata', 'CsvController@showdata');
 Route::get('/export', 'Admin\AccountsController@export')->name('admin.accounts.export');

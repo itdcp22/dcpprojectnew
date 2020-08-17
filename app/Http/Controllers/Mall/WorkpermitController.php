@@ -46,7 +46,7 @@ class WorkpermitController extends Controller
                 ->where('wp_status', 'Approved')
                 ->orWhere('wp_status', 'Rejected')
                 ->orderBy('id', 'desc')->get();
-            return view('mall.workpermit.index')->with($arr);
+            return view('mall.workpermit.approved')->with($arr);
         } else {
             $arr['workpermit'] = Workpermit::where('wp_status', 'Approved')
                 ->orWhere('wp_status', 'Rejected')
@@ -184,7 +184,7 @@ class WorkpermitController extends Controller
         $workpermit->wp_cont_mobile = $request->wp_cont_mobile;
         $workpermit->wp_no_workers = $request->wp_no_workers;
 
-        $workpermit->wp_created_uid = Auth::user()->name;
+
 
 
         $fromdate  = Carbon::createFromFormat('d-m-Y', $request->wp_from_date);
