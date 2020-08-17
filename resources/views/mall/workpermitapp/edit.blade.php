@@ -94,12 +94,12 @@
           <label class="col-lg-1" for="">Applicant</label>
           <div class="col-lg-5">
             <input type="text" class="form-control" id="validationCustom02" name="wp_applicant"
-              value="{{ $workpermit->wp_applicant}}" placeholder="Enter name of applicant" tabindex="1" required>
+              value="{{ $workpermit->wp_applicant}}" placeholder="Enter name of applicant" tabindex="1" readonly>
           </div>
           <label class="col-lg-1" for="">Designation</label>
           <div class="col-lg-5">
             <input type="text" class="form-control" id="validationCustom02" name="wp_designation"
-              value="{{ $workpermit->wp_designation}}" placeholder="Enter designation name" tabindex="2" required>
+              value="{{ $workpermit->wp_designation}}" placeholder="Enter designation name" tabindex="2" readonly>
           </div>
         </div>
       </div>
@@ -109,13 +109,13 @@
           <label class="col-lg-1" for="">Mobile</label>
           <div class="col-lg-5">
             <input type="text" class="form-control" id="validationCustom02" name="wp_mobile"
-              value="{{ $workpermit->wp_mobile}}" placeholder="Enter mobile number" tabindex="3" required>
+              value="{{ $workpermit->wp_mobile}}" placeholder="Enter mobile number" tabindex="3" readonly>
 
           </div>
           <label class="col-lg-1" for="">Email</label>
           <div class="col-lg-5">
             <input type="email" class="form-control" id="validationCustom02" name="wp_email"
-              value="{{ $workpermit->wp_email}}" placeholder="Enter email address" tabindex="4" required>
+              value="{{ $workpermit->wp_email}}" placeholder="Enter email address" tabindex="4" readonly>
 
 
           </div>
@@ -174,14 +174,9 @@
 
 
             <input class="form-control datepicker" id="datepicker" name="wp_from_date" placeholder="dd-mm-yyyy"
-              value="{{ date('d-m-Y', strtotime($workpermit->wp_from_date)) }}" required>
+              value="{{ date('d-m-Y', strtotime($workpermit->wp_from_date)) }}" readonly>
 
-            <script>
-              $('#datepicker').datepicker({
-                 format: 'dd-mm-yyyy',
-                   uiLibrary: 'bootstrap4'
-               });
-            </script>
+
 
 
           </div>
@@ -190,16 +185,11 @@
 
 
             <input class="form-control datepicker" id="datepicker1" name="wp_to_date"
-              value="{{ date('d-m-Y', strtotime($workpermit->wp_to_date)) }}" placeholder="dd-mm-yyyy" required>
+              value="{{ date('d-m-Y', strtotime($workpermit->wp_to_date)) }}" placeholder="dd-mm-yyyy" readonly>
 
 
 
-            <script>
-              $('#datepicker1').datepicker({
-                 format: 'dd-mm-yyyy',
-                   uiLibrary: 'bootstrap4'
-               });
-            </script>
+
 
 
           </div>
@@ -207,7 +197,7 @@
           <label class="col-lg-1" for="">Time From</label>
           <div class="col-lg-2">
             <input type="time" class="form-control timepicker" id="validationCustom02" name="wp_from_time"
-              value="{{ $workpermit->wp_from_time}}" placeholder="Enter time to">
+              value="{{ $workpermit->wp_from_time}}" placeholder="Enter time to" readonly>
 
           </div>
 
@@ -225,7 +215,7 @@
           <label class="col-lg-1" for="">Time To</label>
           <div class="col-lg-2">
             <input type="time" class="form-control" id="validationCustom02" name="wp_to_time"
-              value="{{ $workpermit->wp_to_time}}" placeholder="Enter time to">
+              value="{{ $workpermit->wp_to_time }}" placeholder="Enter time to" readonly>
           </div>
         </div>
       </div>
@@ -235,7 +225,7 @@
 
 
           <input type="text" class="form-control" id="wp_category" name="wp_category"
-            value="{{ $workpermit->wp_category}}" placeholder="Work Category">
+            value="{{ $workpermit->wp_category}}" placeholder="Work Category" readonly>
 
         </p>
       </div>
@@ -244,7 +234,7 @@
         <p class="bg-warning text-white"><strong>Description of Work</strong>
 
           <input type="text" class="form-control" id="wp_description" name="wp_description"
-            value="{{ $workpermit->wp_description}}" placeholder="Enter work description in detail">
+            value="{{ $workpermit->wp_description}}" placeholder="Enter work description in detail" readonly>
 
 
 
@@ -260,24 +250,24 @@
           <label class="col-lg-1" for="">Company</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="wp_cont_comp"
-              value="{{ $workpermit->wp_cont_comp}}" placeholder="Enter company name">
+              value="{{ $workpermit->wp_cont_comp}}" placeholder="Enter company name" readonly>
           </div>
           <label class="col-lg-1" for="">Person Name</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="wp_cont_person"
-              value="{{ $workpermit->wp_cont_person}}" placeholder="Enter person name">
+              value="{{ $workpermit->wp_cont_person}}" placeholder="Enter person name" readonly>
           </div>
 
           <label class="col-lg-1" for="">Mobile Number</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="wp_cont_mobile"
-              value="{{ $workpermit->wp_cont_mobile}}" placeholder="Enter mobile number">
+              value="{{ $workpermit->wp_cont_mobile}}" placeholder="Enter mobile number" readonly>
           </div>
 
           <label class="col-lg-1" for="">No. Workers</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="wp_no_workers"
-              value="{{ $workpermit->wp_no_workers}}" placeholder="Enter number of workers">
+              value="{{ $workpermit->wp_no_workers}}" placeholder="Enter number of workers" readonly>
           </div>
         </div>
       </div>

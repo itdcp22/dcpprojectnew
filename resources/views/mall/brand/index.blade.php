@@ -56,12 +56,7 @@
 
                 <td>
 
-                  <a href="{{ route('foh.booking.show',$c->id) }}">
-                    <i class="fa fa-print text-green"></i>
 
-                  </a>
-
-                  /
 
 
                   <a href="{{ route('foh.booking.edit',$c->id) }}">

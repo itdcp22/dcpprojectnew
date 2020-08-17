@@ -97,7 +97,7 @@
           <label class="col-lg-2" for="">Address</label>
           <div class="col-lg-8">
             <input type="text" class="form-control" id="validationCustom02" name="tm_address"
-              placeholder="Enter address details" required>
+              placeholder="Enter address details">
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -131,12 +131,12 @@
           <label class="col-lg-2" for="">Telephone Number</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="tm_tel"
-              placeholder="Enter telephone Number" required>
+              placeholder="Enter telephone Number">
           </div>
           <label class="col-lg-2" for="">Mobile Number</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="tm_mobile"
-              placeholder="Enter mobile number" required>
+              placeholder="Enter mobile number">
           </div>
         </div>
       </div>
