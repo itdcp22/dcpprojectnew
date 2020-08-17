@@ -23,8 +23,36 @@ class WorkpermitController extends Controller
      */
     public function index()
     {
-        $arr['workpermit'] = Workpermit::All();
-        return view('mall.workpermit.index')->with($arr);
+
+        if ((Auth::user()->user_type) == 'tenant') {
+
+
+            $arr['workpermit'] = Workpermit::where('wp_comp_code', auth()->user()->company)->where('wp_created_uid', auth()->user()->id)
+                ->where('wp_status', 'Pending')->orderBy('id', 'desc')->get();
+            return view('mall.workpermit.index')->with($arr);
+        } else {
+            $arr['workpermit'] = Workpermit::where('wp_status', 'Pending')->orderBy('id', 'desc')->get();
+            return view('mall.workpermitapp.index')->with($arr);
+        }
+    }
+
+    public function approved()
+    {
+
+        if ((Auth::user()->user_type) == 'tenant') {
+
+
+            $arr['workpermit'] = Workpermit::where('wp_comp_code', auth()->user()->company)->where('wp_created_uid', auth()->user()->id)
+                ->where('wp_status', 'Approved')
+                ->orWhere('wp_status', 'Rejected')
+                ->orderBy('id', 'desc')->get();
+            return view('mall.workpermit.index')->with($arr);
+        } else {
+            $arr['workpermit'] = Workpermit::where('wp_status', 'Approved')
+                ->orWhere('wp_status', 'Rejected')
+                ->orderBy('id', 'desc')->get();
+            return view('mall.workpermitapp.index')->with($arr);
+        }
     }
 
     /**
@@ -65,6 +93,7 @@ class WorkpermitController extends Controller
         $workpermit->wp_email = $request->wp_email;
 
         $workpermit->wp_comp_name = $request->wp_comp_name;
+        $workpermit->wp_comp_code = Auth::user()->company;
         $workpermit->wp_brand_name = $request->wp_brand_name;
         $workpermit->wp_manager = $request->wp_manager;
         $workpermit->wp_manager_contact = $request->wp_manager_contact;
@@ -75,14 +104,17 @@ class WorkpermitController extends Controller
 
         $workpermit->wp_category = $categirystring;
 
+        $workpermit->wp_description = $request->wp_description;
+
 
 
         $workpermit->wp_cont_comp = $request->wp_cont_comp;
         $workpermit->wp_cont_person = $request->wp_cont_person;
         $workpermit->wp_cont_mobile = $request->wp_cont_mobile;
         $workpermit->wp_no_workers = $request->wp_no_workers;
-        $workpermit->wp_status = 0;
-        $workpermit->wp_created_uid = Auth::user()->name;
+        $workpermit->wp_status = "Pending";
+        $workpermit->wp_created_uid = Auth::user()->id;
+        $workpermit->wp_created_name = Auth::user()->name;
 
 
         $fromdate  = Carbon::createFromFormat('d-m-Y', $request->wp_from_date);
@@ -106,9 +138,9 @@ class WorkpermitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Workpermit $workpermit)
     {
-        //
+        return view('mall.workpermit.show', compact('workpermit'));
     }
 
     /**
@@ -117,9 +149,11 @@ class WorkpermitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Workpermit $workpermit)
     {
-        //
+
+        $arr['workpermit'] = $workpermit;
+        return view('mall.workpermit.edit')->with($arr);
     }
 
     /**
@@ -129,9 +163,43 @@ class WorkpermitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Workpermit $workpermit)
     {
-        //
+        $workpermit->wp_applicant = $request->wp_applicant;
+        $workpermit->wp_designation = $request->wp_designation;
+        $workpermit->wp_mobile = $request->wp_mobile;
+        $workpermit->wp_email = $request->wp_email;
+
+
+
+
+        //$categirystring = implode(",", $request->get('wp_category'));
+        //$workpermit->wp_category = $categirystring;
+
+        $workpermit->wp_description = $request->wp_description;
+
+
+        $workpermit->wp_cont_comp = $request->wp_cont_comp;
+        $workpermit->wp_cont_person = $request->wp_cont_person;
+        $workpermit->wp_cont_mobile = $request->wp_cont_mobile;
+        $workpermit->wp_no_workers = $request->wp_no_workers;
+
+        $workpermit->wp_created_uid = Auth::user()->name;
+
+
+        $fromdate  = Carbon::createFromFormat('d-m-Y', $request->wp_from_date);
+        $workpermit->wp_from_date = $fromdate;
+
+        $todate  = Carbon::createFromFormat('d-m-Y', $request->wp_to_date);
+        $workpermit->wp_to_date = $todate;
+
+        $workpermit->wp_from_time = $request->wp_from_time;
+        $workpermit->wp_to_time = $request->wp_to_time;
+
+
+
+        $workpermit->save();
+        return redirect('mall/workpermit')->with('info', 'Transaction updated successfully!');
     }
 
     /**
@@ -140,8 +208,11 @@ class WorkpermitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $workpermit = Workpermit::findOrFail($request->category_id);
+        $workpermit->delete();
+
+        return redirect()->route('mall.workpermit.index')->with('success', 'Transaction deleted successfully!');
     }
 }

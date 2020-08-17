@@ -34,6 +34,8 @@
                 <th>Time From</th>
                 <th>Time To</th>
                 <th>Status</th>
+                <th>Approved By</th>
+                <th>Approved Date</th>
                 <th> Action </th>
               </tr>
             </thead>
@@ -75,7 +77,8 @@
 
                 </td>
 
-
+                <td>{{ $c->wp_approved_name }}</td>
+                <td>{{ date('d-m-Y', strtotime($c->wp_approved_date)) }}</td>
 
 
 
@@ -91,7 +94,7 @@
                   /
 
 
-                  <a href="{{ route('mall.workpermit.edit',$c->id) }}">
+                  <a href="{{ route('mall.workpermitapp.edit',$c->id) }}">
                     <i class="fa fa-edit"></i>
 
                   </a>
@@ -133,6 +136,8 @@
                 <th>Time From</th>
                 <th>Time To</th>
                 <th>Status</th>
+                <th>Approved By</th>
+                <th>Approved Date</th>
                 <th> Action </th>
 
               </tr>

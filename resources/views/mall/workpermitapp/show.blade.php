@@ -188,32 +188,19 @@
         <div class="row">
           <label class="col" for="">Date From</label>
           <div class="col border-bottom">
-
             <label for=""> : {{ date('d-m-Y', strtotime($workpermit->wp_from_date)) }} </label>
-
-
           </div>
           <label class="col" for="">Date To</label>
           <div class="col border-bottom">
-
             <label for=""> : {{ date('d-m-Y', strtotime($workpermit->wp_to_date)) }} </label>
-
-
-
-
           </div>
-
           <label class="col" for="">Time From</label>
           <div class="col border-bottom">
-
             <label for=""> : {{ date('h:i A', strtotime($workpermit->wp_from_time)) }} </label>
-
           </div>
-
           <label class="col" for="">Time To</label>
           <div class="col border-bottom">
             <label for=""> : {{ date('h:i A', strtotime($workpermit->wp_to_time)) }} </label>
-
           </div>
         </div>
       </div>
@@ -280,29 +267,6 @@
           <li>Please report to the security if any incident/damage to the property.</li>
         </ol>
          <p align="center"> Above said terms and conditions agreed. </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <div class="form-group">

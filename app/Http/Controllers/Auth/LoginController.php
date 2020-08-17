@@ -27,18 +27,19 @@ class LoginController extends Controller
      */
     //protected $redirectTo = '/admin';
 
-    public function authenticated($request , $user){
-        if($user->user_type=='guest'){
-            return redirect()->route('homeicc') ;
-        }elseif($user->user_type=='admin'){
-            return redirect()->route('home') ;
-        }elseif($user->user_type=='user'){
-            return redirect()->route('home') ;
+    public function authenticated($request, $user)
+    {
+        if ($user->user_type == 'guest') {
+            return redirect()->route('homeicc');
+        } elseif ($user->user_type == 'admin') {
+            return redirect()->route('home');
+        } elseif ($user->user_type == 'user') {
+            return redirect()->route('home');
+        } elseif ($user->user_type == 'tenant') {
+            return redirect()->route('mallwp');
+        } elseif ($user->user_type == 'mall') {
+            return redirect()->route('mallwp');
         }
-        elseif($user->user_type=='tenant'){
-            return redirect()->route('mallwp') ;
-        }
-        
     }
 
     /**
@@ -55,6 +56,6 @@ class LoginController extends Controller
     protected $maxAttempts = 3; // default is 5
     protected $decayMinutes = 2; // default is 1
 
-  
+
 
 }

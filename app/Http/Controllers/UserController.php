@@ -1,11 +1,11 @@
 <?php
-     
+
 namespace App\Http\Controllers;
-     
+
 use App\User;
 use Illuminate\Http\Request;
 use DataTables;
-     
+
 class UserController extends Controller
 {
     /**
@@ -19,6 +19,12 @@ class UserController extends Controller
         return view('users')->with($arr);
     }
 
+    public function index1(Request $request)
+    {
+        $arr['users'] = User::all();
+        return view('tenantusers')->with($arr);
+    }
+
     public function userOnlineStatus()
     {
         $users = User::all();
@@ -30,5 +36,4 @@ class UserController extends Controller
                 echo $user->name . " is offline. Last seen: " . Carbon::parse($user->last_seen)->diffForHumans() . " <br>";
         }
     }
-    
 }

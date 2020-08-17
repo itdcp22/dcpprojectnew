@@ -36,13 +36,19 @@ class CreateWorkpermitsTable extends Migration
             $table->string('wp_cont_mobile')->nullable();
             $table->string('wp_no_workers')->nullable();
             $table->string('wp_status')->nullable();
-            $table->dateTime('wp_status_date')->nullable();
+
             $table->string('wp_remarks')->nullable();
             $table->string('wp_others')->nullable();
             $table->string('wp_created_uid')->nullable();
+            $table->string('wp_created_name')->nullable();
             $table->dateTime('wp_created_date')->nullable();
             $table->string('wp_approved_uid')->nullable();
+            $table->string('wp_approved_name')->nullable();
+            $table->dateTime('wp_approved_date')->nullable();
+            $table->dateTime('wp_approved_remark')->nullable();
+
             $table->string('wp_security_uid')->nullable();
+
             $table->string('wp_flex1')->nullable();
             $table->string('wp_flex2')->nullable();
             $table->string('wp_flex3')->nullable();

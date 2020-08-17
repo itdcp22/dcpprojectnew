@@ -34,7 +34,13 @@
             <h3>
 
 
-              5
+
+
+              @if($user->user_type =='mall')
+              {{$pendingwpmall}}
+              @else
+              {{$pendingwp}}
+              @endif
 
 
 
@@ -53,13 +59,15 @@
 
           @if($user->user_type =='admin')
 
-          <!--{{route('mall.unpaidbills.index')}}-->
 
-          <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
+          <a href="{{route('mall.workpermitapp.index')}}" class="small-box-footer">More info <i
+              class="fas fa-arrow-circle-right"></i></a>
 
 
           @else
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="{{route('mall.workpermit.index')}}" class="small-box-footer">More info <i
+              class="fas fa-arrow-circle-right"></i></a>
           @endif
 
 
@@ -72,8 +80,13 @@
           <div class="inner">
             <h3>
 
+              @if($user->user_type =='mall')
+              {{$approvedwpmall}}
+              @else
+              {{$approvedwp}}
+              @endif
 
-              5
+
 
 
 
@@ -85,15 +98,15 @@
             <i class="ion ion-stats-bars"></i>
           </div>
 
-          @if($user->user_type =='admin')
+          @if($user->user_type =='mall')
 
 
-          <a href="{{route('admin.allpaidbills.index')}}" class="small-box-footer">More info <i
+          <a href="{{route('mall.workpermitapp.index')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
 
 
           @else
-          <a href="{{route('admin.paidbills.index')}}" class="small-box-footer">More info <i
+          <a href="{{route('mall.workpermit.index')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
           @endif
 
@@ -107,23 +120,27 @@
         <div class="small-box bg-warning">
           <div class="inner">
             <h3>
-              3
+              @if($user->user_type =='mall')
+              {{$rejectedwpmall}}
+              @else
+              {{$rejectedwp}}
+              @endif
             </h3>
 
-            <p>Pending Work Permit</p>
+            <p>Work Permit Rejected</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          @if($user->user_type =='admin')
+          @if($user->user_type =='mall')
 
 
-          <a href="{{route('admin.advanceall.index')}}" class="small-box-footer">More info <i
+          <a href="{{route('mall.workpermitapp.index')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
 
 
           @else
-          <a href="{{route('admin.advances.index')}}" class="small-box-footer">More info <i
+          <a href="{{route('mall.workpermit.index')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
           @endif
         </div>
@@ -136,7 +153,7 @@
             <h3>
 
 
-              4
+              0
 
 
 

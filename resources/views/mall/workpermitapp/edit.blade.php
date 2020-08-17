@@ -80,21 +80,26 @@
 
 <section class="content">
   <div class="container-fluid">
-    <form class="needs-validation" name="myform" id="myform" novalidate method="post"
-      action="{{ route('mall.workpermit.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
+
+
+    <form class="needs-validation" novalidate method="POST"
+      action="{{ route('mall.workpermitapp.update', $workpermit->id) }}">
+      @method('PUT')
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-1" for="">Applicant</label>
           <div class="col-lg-5">
             <input type="text" class="form-control" id="validationCustom02" name="wp_applicant"
-              placeholder="Enter name of applicant" tabindex="1" required>
+              value="{{ $workpermit->wp_applicant}}" placeholder="Enter name of applicant" tabindex="1" required>
           </div>
           <label class="col-lg-1" for="">Designation</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control" id="wp_designation" name="wp_designation"
-              placeholder="Enter designation name" tabindex="2" required>
+            <input type="text" class="form-control" id="validationCustom02" name="wp_designation"
+              value="{{ $workpermit->wp_designation}}" placeholder="Enter designation name" tabindex="2" required>
           </div>
         </div>
       </div>
@@ -103,14 +108,14 @@
         <div class="row">
           <label class="col-lg-1" for="">Mobile</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control" id="wp_mobile" name="wp_mobile" placeholder="Enter mobile number"
-              tabindex="3" required>
+            <input type="text" class="form-control" id="validationCustom02" name="wp_mobile"
+              value="{{ $workpermit->wp_mobile}}" placeholder="Enter mobile number" tabindex="3" required>
 
           </div>
           <label class="col-lg-1" for="">Email</label>
           <div class="col-lg-5">
-            <input type="email" class="form-control" id="wp_email" name="wp_email" placeholder="Enter email address"
-              tabindex="4" required>
+            <input type="email" class="form-control" id="validationCustom02" name="wp_email"
+              value="{{ $workpermit->wp_email}}" placeholder="Enter email address" tabindex="4" required>
 
 
           </div>
@@ -124,19 +129,14 @@
 
 
 
-            <input type="text" class="form-control" id="wp_comp_name" name="wp_comp_name" value="{{ $tenant->tm_name}}"
-              placeholder="Enter company name" readonly>
+            <input type="text" class="form-control" id="validationCustom02" name="wp_comp_name"
+              value="{{ $workpermit->wp_comp_name}}" placeholder="Enter company name" readonly>
           </div>
           <label class="col-lg-1" for="">Brand</label>
           <div class="col-lg-5">
 
-            <select class="custom-select" name="wp_brand_name" id="wp_brand_name" tabindex="5" required>
-              <option value="" selected disabled hidden>Please select</option>
-              @foreach($brand as $c)
-              <option value="{{ $c->bm_name}}">{{ $c->bm_name}}</option>
-              @endforeach
-
-            </select>
+            <input type="text" class="form-control" id="validationCustom02" name="wp_brand_name"
+              value="{{ $workpermit->wp_brand_name}}" placeholder="Enter brand name" readonly>
 
 
           </div>
@@ -148,16 +148,16 @@
         <div class="row">
           <label class="col-lg-1" for="">Manager</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control" id="wp_manager" name="wp_manager" value="{{ $tenant->tm_contact}}"
-              placeholder="Enter manager name">
+            <input type="text" class="form-control" id="validationCustom02" name="wp_manager"
+              value="{{ $workpermit->wp_manager}}" placeholder="Enter manager name" readonly>
           </div>
           <label class="col-lg-1" for="">Contact</label>
           <div class="col-lg-5">
 
 
 
-            <input type="text" class="form-control" id="wp_manager_contact" name="wp_manager_contact"
-              value="{{ $tenant->tm_mobile}}" placeholder="Enter manager name">
+            <input type="text" class="form-control" id="validationCustom02" name="wp_manager"
+              value="{{ $workpermit->wp_manager_contact}}" placeholder="Enter manager contact" readonly>
 
 
           </div>
@@ -174,7 +174,7 @@
 
 
             <input class="form-control datepicker" id="datepicker" name="wp_from_date" placeholder="dd-mm-yyyy"
-              tabindex="6" required>
+              value="{{ date('d-m-Y', strtotime($workpermit->wp_from_date)) }}" required>
 
             <script>
               $('#datepicker').datepicker({
@@ -189,8 +189,9 @@
           <div class="col-lg-2">
 
 
-            <input class="form-control datepicker" id="datepicker1" name="wp_to_date" placeholder="dd-mm-yyyy"
-              tabindex="7" required>
+            <input class="form-control datepicker" id="datepicker1" name="wp_to_date"
+              value="{{ date('d-m-Y', strtotime($workpermit->wp_to_date)) }}" placeholder="dd-mm-yyyy" required>
+
 
 
             <script>
@@ -205,8 +206,8 @@
 
           <label class="col-lg-1" for="">Time From</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control timepicker" id="wp_from_time" name="wp_from_time" tabindex="8"
-              placeholder="Enter time to">
+            <input type="time" class="form-control timepicker" id="validationCustom02" name="wp_from_time"
+              value="{{ $workpermit->wp_from_time}}" placeholder="Enter time to">
 
           </div>
 
@@ -223,8 +224,8 @@
 
           <label class="col-lg-1" for="">Time To</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control" id="wp_to_time" name="wp_to_time" placeholder="Enter time to"
-              tabindex="9">
+            <input type="time" class="form-control" id="validationCustom02" name="wp_to_time"
+              value="{{ $workpermit->wp_to_time}}" placeholder="Enter time to">
           </div>
         </div>
       </div>
@@ -236,52 +237,30 @@
           <div class="d-flex mb-3">
 
 
-            <div class="p-2 flex-fill" options><input type="checkbox" value="Carpentry" name="wp_category[]">Carpentry
-            </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Fit-Out" name="wp_category[]">Fit-Out
-            </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Painting" name="wp_category[]">Painting
-            </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Promotion" name="wp_category[]">Promotion
-            </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Plumbing" name="wp_category[]">Plumbing
-            </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Hot Work" name="wp_category[]">Hot Work
-            </div>
+            <div class="p-2 flex-fill"><input type="checkbox" value="Carpentry" name="wp_category[]">Carpentry</div>
+            <div class="p-2 flex-fill "><input type="checkbox" value="Fit-Out" name="wp_category[]">Fit-Out</div>
+            <div class="p-2 flex-fill "><input type="checkbox" value="Painting" name="wp_category[]">Painting</div>
+            <div class="p-2 flex-fill "><input type="checkbox" value="Promotion" name="wp_category[]">Promotion</div>
+            <div class="p-2 flex-fill "><input type="checkbox" value="Plumbing" name="wp_category[]">Plumbing</div>
+            <div class="p-2 flex-fill "><input type="checkbox" value="Hot Work" name="wp_category[]">Hot Work</div>
             <div class="p-2 flex-fill "><input type="checkbox" value="Electrical / HVAC" name="wp_category[]">Electrical
               /
               HVAC</div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Stock Taking" name="wp_category[]">Stock
-              Taking
+            <div class="p-2 flex-fill "><input type="checkbox" value="Stock Taking" name="wp_category[]">Stock Taking
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Others" name="wp_category[]">Others
-            </div>
+            <div class="p-2 flex-fill "><input type="checkbox" value="Others" name="wp_category[]">Others</div>
           </div>
         </div>
       </div>
 
-
-      <script>
-        $(function(){
-var requiredCheckboxes = $('.options :checkbox[required]');
-requiredCheckboxes.change(function(){
-    if(requiredCheckboxes.is(':checked')) {
-        requiredCheckboxes.removeAttr('required');
-    } else {
-        requiredCheckboxes.attr('required', 'required');
-    }
-});
-});
-  
-      </script>
-
-
-
-
       <div class="form-group">
         <p class="bg-warning text-white"><strong>Description of Work</strong>
-          <textarea class="form-control" name="wp_description" rows="3" id="wp_description"
-            placeholder="Enter work description in detail" tabindex="10" required></textarea>
+
+          <input type="text" class="form-control" id="wp_description" name="wp_description"
+            value="{{ $workpermit->wp_description}}" placeholder="Enter work description in detail">
+
+
+
         </p>
       </div>
 
@@ -293,75 +272,90 @@ requiredCheckboxes.change(function(){
 
           <label class="col-lg-1" for="">Company</label>
           <div class="col-lg-2">
-            <input type="text" class="form-control" id="wp_cont_comp" name="wp_cont_comp" tabindex="11"
-              placeholder="Enter company name">
+            <input type="text" class="form-control" id="validationCustom02" name="wp_cont_comp"
+              value="{{ $workpermit->wp_cont_comp}}" placeholder="Enter company name">
           </div>
           <label class="col-lg-1" for="">Person Name</label>
           <div class="col-lg-2">
-            <input type="text" class="form-control" id="wp_cont_person" name="wp_cont_person" tabindex="12"
-              placeholder="Enter person name">
+            <input type="text" class="form-control" id="validationCustom02" name="wp_cont_person"
+              value="{{ $workpermit->wp_cont_person}}" placeholder="Enter person name">
           </div>
 
           <label class="col-lg-1" for="">Mobile Number</label>
           <div class="col-lg-2">
-            <input type="text" class="form-control" id="wp_cont_mobile" name="wp_cont_mobile" tabindex="13"
-              placeholder="Enter mobile number">
+            <input type="text" class="form-control" id="validationCustom02" name="wp_cont_mobile"
+              value="{{ $workpermit->wp_cont_mobile}}" placeholder="Enter mobile number">
           </div>
 
           <label class="col-lg-1" for="">No. Workers</label>
           <div class="col-lg-2">
-            <input type="text" class="form-control" id="wp_no_workers" name="wp_no_workers" tabindex="14"
-              placeholder="Enter number of workers">
+            <input type="text" class="form-control" id="validationCustom02" name="wp_no_workers"
+              value="{{ $workpermit->wp_no_workers}}" placeholder="Enter number of workers">
           </div>
         </div>
       </div>
 
-      <div class="form-group">
-        <strong>  Terms & Conditions:</strong> 
+      <div class="form-group">
+        <p class="bg-primary text-white"><strong>Approval / Reject </strong>
+        </p>
 
-        <ol>
-          <li>Work permit requests should be submitted to the Mall Management at least 24 hours prior to
-            the
-            commencement of the work.</li>
-          <li>Work ID copy should be submitted to the security department to get access into the mall</li>
-          <li>Delivery of materials and all noisy works should be carried out after the mall trading hours
-            only.</li>
-          <li>No material and shop fixtures to be left in the mall common areas.</li>
-          <li>All workers must follow the safety and security rules and regulations.</li>
-          <li>Please report to the security if any incident/damage to the property.</li>
-        </ol>
-         <p align="center"> Above said terms and conditions agreed. </p>
+        <div class="row">
+
+          <label class="col-lg-1" for="">Action</label>
+          <div class="col-lg-2">
+
+            <select class="custom-select" name="wp_status" id="wp_status" required>
+              <option value="" selected disabled hidden>Please select</option>
+              <option value="Approved">Approve</option>
+              <option value="Rejected">Reject</option>
 
 
+            </select>
 
-
-
-
-
-
-
-
+          </div>
+          <label class="col-lg-1" for="">Comments</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="validationCustom02" name="wp_cont_person"
+              placeholder="Enter comments">
+          </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary" Value="Save">
-          <a href="{{route('foh.booking.index')}}" class="btn btn-warning" role="button">Cancel</a>
         </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" Value="Save">
+        <a href="{{route('foh.booking.index')}}" class="btn btn-warning" role="button">Cancel</a>
+      </div>
     </form>
   </div>
+
+
 
 
 

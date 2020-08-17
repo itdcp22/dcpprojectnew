@@ -28,6 +28,8 @@ Auth::routes([
 ]);
 
 Route::get('users', 'UserController@index')->name('users')->middleware('auth');
+Route::get('tenantusers', 'UserController@index1')->name('tenantusers')->middleware('auth');
+
 Route::get('changeStatus', 'UserController@changeStatus');
 
 Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
@@ -85,8 +87,13 @@ Route::resource('/hrms/locker', 'Hrms\LockerController', ['as' => 'hrms'])->midd
 
 //Mall - Work Permit
 Route::resource('/mall/workpermit', 'Mall\WorkpermitController', ['as' => 'mall'])->middleware('auth');
+Route::resource('/mall/workpermitapp', 'Mall\WorkpermitappController', ['as' => 'mall'])->middleware('auth');
+
 Route::resource('/mall/tenant', 'Mall\TenantController', ['as' => 'mall'])->middleware('auth');
 Route::resource('/mall/brand', 'Mall\BrandController', ['as' => 'mall'])->middleware('auth');
+
+Route::get('/mall/approved', 'Mall\WorkpermitController@approved')->name('workpermit.approved')->middleware('auth');
+
 
 
 

@@ -138,24 +138,9 @@
               <?php
               $segment = Request::segment(2);
               ?>
-              @can('isAdmin')
-              <li class="nav-item">
-                <a href=" {{ route('home') }}" class="nav-link
-                @if(!$segment)
-                active
-                @endif            
-                ">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Dashboard
-                  </p>
-                </a>
-              </li>
 
 
-              @endcan
 
-              @can('isTenant')
 
               <li class="nav-item">
                 <a href=" {{ route('mallwp') }}" class="nav-link
@@ -185,31 +170,83 @@
 
               <li class="nav-item">
                 <a href="{{route('mall.workpermit.index')}}" class="nav-link
+                @if($segment=='workpermit')
+                active
+                @endif
                 ">
                   <i class="nav-icon fas fa-hourglass-half"></i>
+
                   <p>
                     Pending
+                    <span class="right badge badge-warning">{{$pendingwp}}</span>
                   </p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{route('mall.workpermit.index')}}" class="nav-link
+                <a href="{{route('workpermit.approved')}}" class="nav-link
+                @if($segment=='approved')
+                active
+                @endif
                 ">
-                  <i class="nav-icon fas fa-check"></i>
+                  <i class="nav-icon fas fa-calendar-check"></i>
+
+
                   <p>
-                    Approved
-                    <span class="right badge badge-warning">2</span>
+                    Approved/Rejected
+                    <span class="right badge badge-success">{{$approvedwp + $rejectedwp}}</span>
+                  </p>
+                </a>
+              </li>
+
+              @can('isMall')
+
+              <li class="font-weight-bold nav-header">MALL MASTER</li>
+
+              <li class="nav-item">
+                <a href="{{route('mall.tenant.index')}}" class="nav-link
+                @if($segment=='tenant')
+                active
+                @endif
+                ">
+                  <i class="nav-icon fas fa-building"></i>
+
+
+                  <p>
+                    Tenant
+                    <span class="right badge badge-success">{{$teneantcount}}</span>
                   </p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{route('mall.workpermit.index')}}" class="nav-link
+                <a href="{{route('mall.brand.index')}}" class="nav-link
+                @if($segment=='brand')
+                active
+                @endif
                 ">
-                  <i class="nav-icon fas fa-ban "></i>
+                  <i class="nav-icon fas fa-coffee"></i>
+
+
                   <p>
-                    Rejected
+                    Brand
+                    <span class="right badge badge-success">{{$brandcount}}</span>
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('tenantusers') }}" class="nav-link  
+                @if($segment=='tenantusers')
+                active
+                @endif            
+                ">
+                  <i class="nav-icon fas fa-users"></i>
+
+
+                  <p>
+                    Users
+                    <span class="right badge badge-success">0</span>
                   </p>
                 </a>
               </li>
@@ -221,6 +258,8 @@
 
 
             </ul>
+
+
           </nav>
 
 
@@ -243,7 +282,7 @@
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.0.0
       </div>
-      <strong>Copyright &copy; 2019-2020 <a href="http://omanaquarium.om">Oman Aquarium</a>.</strong> All rights
+      <strong>Copyright &copy; 2019-2020 <a href="http://omanaquarium.om">Thamani</a>.</strong> All rights
       reserved.
     </footer>
 
@@ -291,6 +330,20 @@
       });
     });
   </script>
+
+  <script>
+    $('#delete').on('show.bs.modal', function (event) {
+
+      var button = $(event.relatedTarget)
+
+      var cat_id = button.data('catid')
+      var modal = $(this)
+
+      modal.find('.modal-body #cat_id').val(cat_id);
+  })
+
+  </script>
+
 </body>
 
 </html>
