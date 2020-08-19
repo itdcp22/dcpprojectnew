@@ -102,12 +102,12 @@
           @if($user->user_type =='mall')
 
 
-          <a href="{{route('mall.workpermitapp.index')}}" class="small-box-footer">More info <i
+          <a href="{{route('workpermit.approved')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
 
 
           @else
-          <a href="{{route('mall.workpermit.index')}}" class="small-box-footer">More info <i
+          <a href="{{route('workpermit.approved')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
           @endif
 
