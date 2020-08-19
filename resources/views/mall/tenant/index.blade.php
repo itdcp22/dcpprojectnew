@@ -57,7 +57,7 @@
 
 
 
-                  <a href="{{ route('foh.booking.edit',$c->id) }}">
+                  <a href="{{ route('mall.tenant.edit',$c->id) }}">
                     <i class="fa fa-edit"></i>
 
                   </a>
