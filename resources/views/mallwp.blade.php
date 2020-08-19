@@ -54,7 +54,7 @@
             <p>Work Permit Request</p>
           </div>
           <div class="icon">
-            <i class="ion ion-bag"></i>
+            <i class="fas fa-tools"></i>
           </div>
 
           @if($user->user_type =='admin')
@@ -95,7 +95,8 @@
             <p>Work Permit Approved</p>
           </div>
           <div class="icon">
-            <i class="ion ion-stats-bars"></i>
+
+            <i class="fas fa-thumbs-up"></i>
           </div>
 
           @if($user->user_type =='mall')
@@ -130,7 +131,8 @@
             <p>Work Permit Rejected</p>
           </div>
           <div class="icon">
-            <i class="ion ion-person-add"></i>
+
+            <i class="fas fa-ban"></i>
           </div>
           @if($user->user_type =='mall')
 
@@ -163,7 +165,8 @@
             <p>Work Completed</p>
           </div>
           <div class="icon">
-            <i class="ion ion-pie-graph"></i>
+
+            <i class="fas fa-check"></i>
           </div>
           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
