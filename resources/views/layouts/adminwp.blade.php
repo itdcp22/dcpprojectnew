@@ -282,7 +282,7 @@
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.0.0
       </div>
-      <strong>Copyright &copy; 2019-2020 <a href="http://omanaquarium.om">Thamani</a>.</strong> All rights
+      <strong>Copyright &copy; 2019-2020 <a href="http://mallofmuscat.com">Tamani</a>.</strong> All rights
       reserved.
     </footer>
 

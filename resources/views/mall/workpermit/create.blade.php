@@ -68,7 +68,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
 
-          <li class="breadcrumb-item"><a href="{{route('foh.booking.index')}}">Booking</a></li>
+          <li class="breadcrumb-item"><a href="{{route('mall.workpermit.index')}}">Pending</a></li>
 
 
         </ol>
@@ -358,7 +358,7 @@ requiredCheckboxes.change(function(){
 
         <div class="form-group">
           <input type="submit" class="btn btn-primary" Value="Save">
-          <a href="{{route('foh.booking.index')}}" class="btn btn-warning" role="button">Cancel</a>
+          <a href="{{route('mall.workpermit.index')}}" class="btn btn-warning" role="button">Cancel</a>
         </div>
     </form>
   </div>
