@@ -67,7 +67,7 @@ class WorkpermitController extends Controller
         $tenant = Tenant::where('id', '=', $comp_id)->first();
         $brand = Brand::where('bm_tm_id', '=', $tenant->id)->get();
 
-        return view('mall.workpermit.create')->with(['tenant' => $tenant, 'brand' => $brand]);;
+        return view('mall.workpermit.create')->with(['tenant' => $tenant, 'brand' => $brand]);
     }
 
     /**
