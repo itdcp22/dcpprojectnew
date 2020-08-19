@@ -102,7 +102,7 @@
 
           <img src={{asset('dist/img/jarwani.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
 
-          <span>Jarwani Group</span>
+          <span>Tamani Group</span>
         </a>
 
         <!-- Sidebar -->
