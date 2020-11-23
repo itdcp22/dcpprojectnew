@@ -88,11 +88,12 @@ Route::resource('/hrms/locker', 'Hrms\LockerController', ['as' => 'hrms'])->midd
 //Mall - Work Permit
 Route::resource('/mall/workpermit', 'Mall\WorkpermitController', ['as' => 'mall'])->middleware('auth');
 Route::resource('/mall/workpermitapp', 'Mall\WorkpermitappController', ['as' => 'mall'])->middleware('auth');
-
 Route::resource('/mall/tenant', 'Mall\TenantController', ['as' => 'mall'])->middleware('auth');
 Route::resource('/mall/brand', 'Mall\BrandController', ['as' => 'mall'])->middleware('auth');
-
 Route::get('/mall/approved', 'Mall\WorkpermitController@approved')->name('workpermit.approved')->middleware('auth');
+
+//Purchase Request
+Route::resource('/mall/purchaserequest', 'Mall\PurchaserequestController', ['as' => 'mall'])->middleware('auth');
 
 
 
