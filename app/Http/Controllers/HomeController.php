@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use App\Account;
 use App\Cashtopup;
 use App\Item;
-Use Auth;
-Use Gate;
+use Auth;
+use Gate;
 use PDF;
 
 
@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -54,7 +54,7 @@ class HomeController extends Controller
     }
 
 
-    
+
 
     public function about()
     {
@@ -70,10 +70,7 @@ class HomeController extends Controller
     {
         $data = ['title' => 'Welcome to HDTuto.com'];
         $pdf = PDF::loadView('myPDF', $data);
-  
+
         return $pdf->download('bill.pdf');
     }
-
-    
- 
 }
