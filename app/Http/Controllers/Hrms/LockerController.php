@@ -8,22 +8,22 @@ use Carbon\Carbon;
 
 use App\Locker;
 
-Use Auth;
+use Auth;
 use App\User;
 
-Use Gate;
+use Gate;
 
 //we need to add the below if we create new excel export
-use App\Exports\LockerExport; 
-use Maatwebsite\Excel\Facades\Excel; 
+use App\Exports\LockerExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LockerController extends Controller
 {
 
     public function lockerexport()
     {
-    return Excel::download(new LockerExport, 'Locker.xls'); 
-    } 
+        return Excel::download(new LockerExport, 'Locker.xls');
+    }
 
 
     /**
@@ -34,7 +34,7 @@ class LockerController extends Controller
     public function index()
     {
         $arr['locker'] = Locker::All();
-        return view('hrms.locker.index')->with($arr); 
+        return view('hrms.locker.index')->with($arr);
     }
 
     /**
@@ -77,7 +77,6 @@ class LockerController extends Controller
      */
     public function edit(Locker $locker)
 
-
     {
 
         $this->authorize('isAccess');
@@ -94,23 +93,21 @@ class LockerController extends Controller
      */
     public function update(Request $request, Locker $locker)
     {
-        $locker->name = $request->name;   
-        $locker->title = $request->title;   
-        $locker->department = $request->department;   
-        $locker->lockerno = $request->lockerno;          
-        $locker->remarks = $request->remarks;  
+        $locker->name = $request->name;
+        $locker->title = $request->title;
+        $locker->department = $request->department;
+        $locker->lockerno = $request->lockerno;
+        $locker->remarks = $request->remarks;
 
-        $date  = Carbon::createFromFormat('d-m-Y', $request->issued_date);        
-        $locker->issued_date = $date;  
+        $date  = Carbon::createFromFormat('d-m-Y', $request->issued_date);
+        $locker->issued_date = $date;
 
 
-        $locker->updated_userid  = Auth::user()->name;  
-        
+        $locker->updated_userid  = Auth::user()->name;
+
 
         $locker->save();
-        return redirect()->route('hrms.locker.index')->with('info','Transaction updated successfully!');
-        
-
+        return redirect()->route('hrms.locker.index')->with('info', 'Transaction updated successfully!');
     }
 
     /**

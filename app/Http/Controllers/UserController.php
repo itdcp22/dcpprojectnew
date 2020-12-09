@@ -21,7 +21,10 @@ class UserController extends Controller
 
     public function index1(Request $request)
     {
-        $arr['users'] = User::all();
+
+
+        $arr['users'] = User::where('user_type', 'tenant')->whereNull('email_verified_at')
+            ->get();
         return view('tenantusers')->with($arr);
     }
 

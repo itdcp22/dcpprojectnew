@@ -1,4 +1,4 @@
-@extends('layouts.adminwp')
+@extends('layouts.admin')
 @section('content')
 
 
@@ -17,7 +17,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Pending User List</h3>
+                    <h3 class="card-title">User List</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -26,14 +26,15 @@
                         <thead>
                             <tr>
 
-                                <TH>ID</TH>
+                                <th> User ID </th>
                                 <th> User Name </th>
                                 <th> Email </th>
                                 <th> Company Name </th>
                                 <th> Type </th>
-                                <th> Created Date </th>
-                                <th>Approve</th>
 
+                                <th> Created Date </th>
+                                <th> Status </th>
+                                <th> Last Seen</th>
 
 
                             </tr>
@@ -49,15 +50,33 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->dept }}</td>
+                                <td>
+
+                                    @if($user->company =='1')
+                                    {{ "Al Jarwani"}}
+                                    @elseif($user->company =='2')
+                                    {{"Mall Of Muscat"}}
+                                    @elseif($user->company =='3')
+                                    {{"Oman Aquarium"}}
+                                    @elseif($user->company =='4')
+                                    {{"Snow Village"}}
+                                    @endif
+
+                                </td>
+
 
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ date('d-m-Y', strtotime($user->created_at)) }}</td>
 
-                                <td> <a href="">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
+                                <td>
+                                    @if(Cache::has('user-is-online-' . $user->id))
+                                    <span class="text-success">Online</span>
+                                    @else
+                                    <span class="text-secondary">Offline</span>
+                                    @endif
                                 </td>
+
+                                <td>{{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</td>
 
 
 
@@ -72,14 +91,15 @@
                         <tfoot>
                             <tr>
 
-                                <th>ID</th>
+                                <th> User ID </th>
                                 <th> User Name </th>
                                 <th> Email </th>
                                 <th> Company Name </th>
                                 <th> Type </th>
-                                <th> Created Date </th>
-                                <th>Approve</th>
 
+                                <th> Created Date </th>
+                                <th> Status</th>
+                                <th> Last Seen</th>
 
                             </tr>
                         </tfoot>

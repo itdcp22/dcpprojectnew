@@ -27,7 +27,9 @@ Auth::routes([
     'register' => true,
 ]);
 
-Route::get('users', 'UserController@index')->name('users')->middleware('auth');
+
+
+Route::get('/users', 'UserController@index')->name('users')->middleware('auth');
 Route::get('tenantusers', 'UserController@index1')->name('tenantusers')->middleware('auth');
 
 Route::get('changeStatus', 'UserController@changeStatus');

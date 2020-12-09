@@ -46,6 +46,8 @@
                             <div class="col-md-6">
 
 
+
+
                                 <select class="custom-select" name="company" required>
                                     <option value="" selected disabled hidden>Please select</option>
                                     <option value="1">Jarwani</option>
@@ -54,7 +56,6 @@
                                     <option value="4">Snow Village</option>
                                     <option value="5">Sohar Mall</option>
                                 </select>
-
 
 
 
