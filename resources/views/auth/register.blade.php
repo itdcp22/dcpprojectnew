@@ -40,33 +40,7 @@
                         </div>
 
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Company') }}</label>
 
-                            <div class="col-md-6">
-
-
-
-
-                                <select class="custom-select" name="company" required>
-                                    <option value="" selected disabled hidden>Please select</option>
-                                    <option value="1">Jarwani</option>
-                                    <option value="2">Muscat Mall</option>
-                                    <option value="3">Oman Aquarium</option>
-                                    <option value="4">Snow Village</option>
-                                    <option value="5">Sohar Mall</option>
-                                </select>
-
-
-
-
-                                @error('company')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
 
 
 
@@ -126,6 +100,28 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
                                     name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Company') }}</label>
+
+                            <div class="col-md-6">
+
+
+
+                                <select class="custom-select" name="company" id="company" onchange="calc4()" required>
+                                    <option value="" selected disabled hidden>Please select</option>
+                                    @foreach($tenants as $c)
+                                    <option value="{{ $c->id}}">{{ $c->tm_name}}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('company')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 

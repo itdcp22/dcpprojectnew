@@ -60,14 +60,14 @@ class WorkpermitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Tenant $tenant, Brand $brand)
+    public function create(Tenant $tenant, Brand $brand, User $user)
     {
 
         $comp_id = Auth::user()->company;
         $tenant = Tenant::where('id', '=', $comp_id)->first();
-        $brand = Brand::where('bm_tm_id', '=', $tenant->id)->get();
+        $brand = Brand::where('bm_tm_id', '=', $tenant->id)->orderBy('bm_name', 'asc')->get();
 
-        return view('mall.workpermit.create')->with(['tenant' => $tenant, 'brand' => $brand]);
+        return view('mall.workpermit.create')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
     }
 
     /**

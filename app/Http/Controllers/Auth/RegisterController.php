@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Vanguard\Repositories\Country\CountryRepository;
+
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -60,12 +62,27 @@ class RegisterController extends Controller
         ]);
     }
 
+
+
+    public function showRegistrationForm()
+    {
+
+        $arr['tenants'] = Tenant::where('tm_status', 1)->orderBy('tm_name', 'asc')->get();
+        return view('auth.register')->with($arr);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
+
+
+
+
+
+
     protected function create(array $data)
     {
 
@@ -77,14 +94,5 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    }
-
-    public function edit(User $user)
-
-    {
-
-
-        $arr['user'] = $user;
-        return view('auth.user.edit')->with($arr);
     }
 }

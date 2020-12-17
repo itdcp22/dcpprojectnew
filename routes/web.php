@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 
+
+
+
 Route::resource('/admin/accounts', 'AccountsController');
 
 */
@@ -22,10 +25,13 @@ Route::get('/table', function () {
     return view('table');
 });
 
+
 Auth::routes([
     'verify' => true,
     'register' => true,
 ]);
+
+
 
 
 

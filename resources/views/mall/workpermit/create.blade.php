@@ -88,7 +88,7 @@
         <div class="row">
           <label class="col-lg-1" for="">Applicant</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control" id="validationCustom02" name="wp_applicant"
+            <input type="text" class="form-control" id="validationCustom02" name="wp_applicant" value="{{ $user->name}}"
               placeholder="Enter name of applicant" tabindex="1" required>
           </div>
           <label class="col-lg-1" for="">Designation</label>
@@ -104,13 +104,13 @@
           <label class="col-lg-1" for="">Mobile</label>
           <div class="col-lg-5">
             <input type="text" class="form-control" id="wp_mobile" name="wp_mobile" placeholder="Enter mobile number"
-              tabindex="3" required>
+              value="{{ $user->mobile}}" tabindex="3" required>
 
           </div>
           <label class="col-lg-1" for="">Email</label>
           <div class="col-lg-5">
             <input type="email" class="form-control" id="wp_email" name="wp_email" placeholder="Enter email address"
-              tabindex="4" required>
+              value="{{ $user->email}}" tabindex="4" required>
 
 
           </div>
