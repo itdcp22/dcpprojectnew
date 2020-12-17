@@ -50,6 +50,7 @@ class TenantController extends Controller
         $tenant->tm_email = $request->tm_email;
         $tenant->tm_comments = $request->tm_comments;
         $tenant->tm_created_uid = Auth::user()->name;
+        $tenant->tm_status = '1';
 
         $tenant->save();
         return redirect('mall/tenant')->with('success', 'Transaction created successfully!');
