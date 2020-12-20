@@ -71,6 +71,23 @@ class RegisterController extends Controller
         return view('auth.register')->with($arr);
     }
 
+    public function edit(User $user)
+    {
+        $arr['user'] = Auth::user();
+        return view('users.edit')->with($arr);
+    }
+
+
+    public function update(Request $request, User $user)
+    {
+        $user->name = request('name');
+
+        $user->save();
+
+        return back();
+    }
+
+
     /**
      * Create a new user instance after a valid registration.
      *

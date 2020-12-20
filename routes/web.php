@@ -32,6 +32,11 @@ Auth::routes([
 ]);
 
 
+Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+Route::PUT('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+
+//Route::resource('/users', 'UserController', ['as' => 'users'])->middleware('auth');
+
 
 
 

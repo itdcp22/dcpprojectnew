@@ -54,9 +54,14 @@
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ date('d-m-Y', strtotime($user->created_at)) }}</td>
 
-                                <td> <a href="">
+                                <td>
+
+
+                                    <a href="{{ route('users.edit',$user->id) }}">
                                         <i class="fa fa-edit"></i>
                                     </a>
+
+
                                 </td>
 
 

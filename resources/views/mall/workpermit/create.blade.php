@@ -94,7 +94,7 @@
           <label class="col-lg-1" for="">Designation</label>
           <div class="col-lg-5">
             <input type="text" class="form-control" id="wp_designation" name="wp_designation"
-              placeholder="Enter designation name" tabindex="2" required>
+              placeholder="Enter designation" tabindex="2" required>
           </div>
         </div>
       </div>
