@@ -117,6 +117,20 @@
                                     @endforeach
                                 </select>
 
+                                <input type="hidden" id="dept" name="dept">
+
+                                <script>
+                                    $('#company').on('change', function() 
+                                        {
+                                            var selectedName = $('#company option:selected').text();
+                                            $('#dept').val(selectedName);
+                                        }
+                                      )
+                                </script>
+
+
+
+
                                 @error('company')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

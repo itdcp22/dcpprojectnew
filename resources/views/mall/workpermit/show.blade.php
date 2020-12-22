@@ -65,28 +65,32 @@
 
 <section class="content">
 
-  <div class="row">
-    <div class="col text-center">
-      <img src={{asset('dist/img/printjarwani2.png')}}>
+
+
+
+  <div class="container-fluid border border-secondary">
+
+    <div class="row border">
+      <div class="col text-center">
+        <img src={{asset('dist/img/printjarwani2.png')}}>
+      </div>
+      <div class="col">
+        <h1 class="m-0 text-dark text-center">Al Jarwani Group</h1>
+        <h2 class="m-0 text-dark text-center">Mall Of Muscat</h2>
+
+      </div>
+      <div class="col text-center">
+
+        <img src={{asset('dist/img/printmall.png')}}>
+
+
+
+
+
+      </div>
     </div>
-    <div class="col">
-      <h1 class="m-0 text-dark text-center">Al Jarwani Group</h1>
-      <h2 class="m-0 text-dark text-center">Mall Of Muscat</h2>
-
-    </div>
-    <div class="col text-center">
-
-      <img src={{asset('dist/img/printmall.png')}}>
 
 
-
-
-
-    </div>
-  </div>
-
-
-  <div class="container-fluid">
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
       action="{{ route('mall.workpermit.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -95,13 +99,13 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Work Permit ID</label>
-          <div class="col">
+          <label class="col" for="">Document No</label>
+          <div class="col text-danger">
             <label for="">: {{ $workpermit->wp_request_id}}</label>
 
           </div>
           <label class="col" for="">Date</label>
-          <div class="col">
+          <div class="col text-danger">
             <label for="">: {{ date('d-m-Y', strtotime($workpermit->created_at)) }}</label>
 
           </div>
@@ -111,12 +115,12 @@
       <div class="form-group">
         <div class="row">
           <label class="col" for="">Applicant</label>
-          <div class="col">
+          <div class="col text-danger">
             <label for="">: {{ $workpermit->wp_applicant}}</label>
 
           </div>
           <label class="col" for="">Designation</label>
-          <div class="col">
+          <div class="col text-danger">
             <label for="">: {{ $workpermit->wp_designation}}</label>
 
           </div>
@@ -126,13 +130,13 @@
       <div class="form-group">
         <div class="row">
           <label class="col" for="">Mobile</label>
-          <div class="col">
+          <div class="col text-danger">
             <label for="">: {{ $workpermit->wp_mobile}}</label>
 
 
           </div>
           <label class="col" for="">Email</label>
-          <div class="col">
+          <div class="col text-danger">
             <label for="">: {{ $workpermit->wp_email}}</label>
 
 
@@ -144,14 +148,14 @@
       <div class="form-group">
         <div class="row">
           <label class="col" for="">Company</label>
-          <div class="col">
+          <div class="col text-danger">
 
 
             <label for="">: {{ $workpermit->wp_comp_name}}</label>
 
           </div>
           <label class="col" for="">Brand</label>
-          <div class="col">
+          <div class="col text-danger">
 
             <label for="">: {{ $workpermit->wp_brand_name}}</label>
 
@@ -166,12 +170,12 @@
       <div class="form-group">
         <div class="row">
           <label class="col" for="">Manager</label>
-          <div class="col">
+          <div class="col text-danger">
             <label for="">: {{ $workpermit->wp_manager}}</label>
 
           </div>
           <label class="col" for="">Contact</label>
-          <div class="col">
+          <div class="col text-danger">
 
 
             <label for="">: {{ $workpermit->wp_manager_contact}}</label>
@@ -187,14 +191,14 @@
       <div class="form-group">
         <div class="row">
           <label class="col" for="">Date From</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
 
             <label for=""> : {{ date('d-m-Y', strtotime($workpermit->wp_from_date)) }} </label>
 
 
           </div>
           <label class="col" for="">Date To</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
 
             <label for=""> : {{ date('d-m-Y', strtotime($workpermit->wp_to_date)) }} </label>
 
@@ -203,15 +207,15 @@
 
           </div>
 
-          <label class="col" for="">Time From</label>
-          <div class="col border-bottom">
+          <label class="col" for="">Start Time</label>
+          <div class="col border-bottom text-danger">
 
             <label for=""> : {{ date('h:i A', strtotime($workpermit->wp_from_time)) }} </label>
 
           </div>
 
-          <label class="col" for="">Time To</label>
-          <div class="col border-bottom">
+          <label class="col" for="">End Time</label>
+          <div class="col border-bottom text-danger">
             <label for=""> : {{ date('h:i A', strtotime($workpermit->wp_to_time)) }} </label>
 
           </div>
@@ -241,24 +245,24 @@
         <div class="row">
 
           <label class="col" for="">Company</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_cont_comp}}</label>
 
           </div>
           <label class="col" for="">Person Name</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_cont_person}} </label>
 
           </div>
 
           <label class="col" for="">Mobile Number</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_cont_mobile}}</label>
 
           </div>
 
           <label class="col" for="">No. Workers</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_no_workers}}</label>
 
           </div>
@@ -272,18 +276,18 @@
         <div class="row">
 
           <label class="col" for="">Status</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_status}}</label>
 
           </div>
           <label class="col" for="">Approved By</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_approved_name}} </label>
 
           </div>
 
           <label class="col" for="">Approved Date</label>
-          <div class="col border-bottom">
+          <div class="col border-bottom text-danger">
             <label for=""> :
 
               @if ( !empty ( $workpermit->wp_approved_date ) )
@@ -294,57 +298,59 @@
 
           </div>
         </div>
-        <div class="row">
-          <label class="col" for="">Mall Remarks:</label>
-          <textarea class="form-control" name="wp_approved_remark" rows="3" id="comment" placeholder="Mall Remarks"
-            readonly>{{$workpermit->wp_approved_remark}}</textarea>
-          </p>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <strong>  Terms & Conditions:</strong> 
-
-        <ol>
-          <li>Work permit requests should be submitted to the Mall Management at least 24 hours prior to
-            the
-            commencement of the work.</li>
-          <li>Work ID copy should be submitted to the security department to get access into the mall</li>
-          <li>Delivery of materials and all noisy works should be carried out after the mall trading hours
-            only.</li>
-          <li>No material and shop fixtures to be left in the mall common areas.</li>
-          <li>All workers must follow the safety and security rules and regulations.</li>
-          <li>Please report to the security if any incident/damage to the property.</li>
-        </ol>
-         <p align="center"> Above said terms and conditions agreed. </p>
-
-
-
-
-
-
-
-
-
 
 
 
         <div class="form-group">
-          <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <p class="bg-primary text-white"><strong>Mall Remarks:</strong>
+            <textarea class="form-control" name="wp_approved_remark" rows="3" id="comment" placeholder="Mall Remarks"
+              readonly>{{$workpermit->wp_approved_remark}}</textarea>
+          </p>
         </div>
+
+        <div class="form-group">
+          <strong>  Terms & Conditions:</strong> 
+
+          <ol>
+            <li>Work permit requests should be submitted to the Mall Management at least 24 hours prior to
+              the
+              commencement of the work.</li>
+            <li>Work ID copy should be submitted to the security department to get access into the mall</li>
+            <li>Delivery of materials and all noisy works should be carried out after the mall trading hours
+              only.</li>
+            <li>No material and shop fixtures to be left in the mall common areas.</li>
+            <li>All workers must follow the safety and security rules and regulations.</li>
+            <li>Please report to the security if any incident/damage to the property.</li>
+          </ol>
+           <p align="center"> Above said terms and conditions agreed. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="form-group">
+            <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
 
 
 

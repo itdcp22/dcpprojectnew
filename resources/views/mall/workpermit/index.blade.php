@@ -25,6 +25,7 @@
             <thead>
               <tr>
                 <th> WP ID </th>
+                <th> WP Date </th>
                 <th> Company </th>
                 <th> Brand</th>
                 <th> Applicant </th>
@@ -45,6 +46,7 @@
 
               <tr>
                 <td>{{ $c->wp_request_id }}</td>
+                <td>{{ $c->wp_created_at }}</td>
                 <td>{{ $c->wp_comp_name }}</td>
 
                 <td>{{ $c->wp_brand_name }}</td>
@@ -123,7 +125,8 @@
             <tfoot>
               <tr>
 
-                <th> Request ID </th>
+                <th> WP ID </th>
+                <th> WP Date </th>
                 <th> Company </th>
                 <th> Brand</th>
                 <th> Applicant </th>

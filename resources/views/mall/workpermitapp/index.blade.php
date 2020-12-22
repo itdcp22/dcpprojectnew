@@ -24,15 +24,16 @@
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th> WP ID </th>
+                <th> ID </th>
+                <th> Date </th>
                 <th> Company </th>
                 <th> Brand</th>
                 <th> Applicant </th>
                 <th> Mobile </th>
                 <th> Date From</th>
                 <th> Date To</th>
-                <th>Time From</th>
-                <th>Time To</th>
+                <th>Start Time</th>
+                <th>End Time</th>
                 <th>Status</th>
                 <th>App / Rej By</th>
                 <th>App / Rej Date</th>
@@ -47,6 +48,8 @@
 
               <tr>
                 <td>{{ $c->wp_request_id }}</td>
+                <td>{{ date('d-m-Y h:i A', strtotime($c->created_at)) }}</td>
+
                 <td>{{ $c->wp_comp_name }}</td>
 
                 <td>{{ $c->wp_brand_name }}</td>
@@ -106,15 +109,16 @@
             <tfoot>
               <tr>
 
-                <th> Request ID </th>
+                <th> ID </th>
+                <th> Date </th>
                 <th> Company </th>
                 <th> Brand</th>
                 <th> Applicant </th>
                 <th> Mobile </th>
                 <th> Date From</th>
                 <th> Date To</th>
-                <th>Time From</th>
-                <th>Time To</th>
+                <th>Start Time</th>
+                <th>End Time</th>
                 <th>Status</th>
                 <th>App / Rej By</th>
                 <th>App / Rej Date</th>
