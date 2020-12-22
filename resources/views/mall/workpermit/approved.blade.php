@@ -32,8 +32,8 @@
                                 <th> Mobile </th>
                                 <th> Date From</th>
                                 <th> Date To</th>
-                                <th>Time From</th>
-                                <th>Time To</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
                                 <th>Status</th>
                                 <th> Action </th>
                             </tr>
@@ -46,7 +46,7 @@
 
                             <tr>
                                 <td>{{ $c->wp_request_id }}</td>
-                                <td>{{ $c->wp_created_at }}</td>
+                                <td>{{ date('d-m-Y h:i A', strtotime($c->created_at)) }}</td>
                                 <td>{{ $c->wp_comp_name }}</td>
 
                                 <td>{{ $c->wp_brand_name }}</td>
