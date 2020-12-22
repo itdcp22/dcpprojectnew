@@ -32,7 +32,13 @@ class BrandController extends Controller
      */
     public function create()
     {
-        $arr['tenant'] = Tenant::all();
+
+
+        $arr['tenant'] = Tenant::where('tm_status', 1)->orderBy('tm_name', 'asc')->get();
+
+
+
+
         return view('mall.brand.create')->with($arr);
     }
 
