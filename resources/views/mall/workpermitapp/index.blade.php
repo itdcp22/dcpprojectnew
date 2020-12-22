@@ -50,6 +50,7 @@
                 <td>{{ $c->wp_request_id }}</td>
                 <td>{{ date('d-m-Y h:i A', strtotime($c->created_at)) }}</td>
 
+
                 <td>{{ $c->wp_comp_name }}</td>
 
                 <td>{{ $c->wp_brand_name }}</td>

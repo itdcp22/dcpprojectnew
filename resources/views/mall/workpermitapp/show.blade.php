@@ -266,7 +266,8 @@
           <li>All workers must follow the safety and security rules and regulations.</li>
           <li>Please report to the security if any incident/damage to the property.</li>
         </ol>
-         <p align="center"> Above said terms and conditions agreed. </p>
+         <p align="center"> I understand & accept all the responsibilities as explained in work permit terms and
+          Conditions. </p>
 
 
         <div class="form-group">
