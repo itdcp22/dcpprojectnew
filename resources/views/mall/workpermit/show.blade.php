@@ -281,8 +281,14 @@
           </div>
 
 
-
+          @if($workpermit->wp_status =='Approved')
           <label class="col" for="">Approved Date</label>
+          @else
+          <label class="col" for="">Rejected Date</label>
+          @endif
+
+
+
           <div class="col border-bottom text-danger">
             <label for=""> :
               @if ( !empty ( $workpermit->wp_approved_date ) )
@@ -291,7 +297,14 @@
             </label>
           </div>
 
+          @if($workpermit->wp_status =='Approved')
           <label class="col" for="">Approved By</label>
+          @else
+          <label class="col" for="">Rejected By</label>
+          @endif
+
+
+
           <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_approved_name}} </label>
           </div>
