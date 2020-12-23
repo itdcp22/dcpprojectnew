@@ -35,10 +35,6 @@ class BrandController extends Controller
 
 
         $arr['tenant'] = Tenant::where('tm_status', 1)->orderBy('tm_name', 'asc')->get();
-
-
-
-
         return view('mall.brand.create')->with($arr);
     }
 
@@ -85,9 +81,14 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Brand $brand)
     {
-        //
+
+
+
+
+        $arr['brand'] = $brand;
+        return view('mall.brand.edit')->with($arr);
     }
 
     /**
@@ -97,9 +98,22 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brand $brand)
     {
-        //
+        $brand->bm_name = $request->bm_name;
+        $brand->bm_location = $request->bm_location;
+        $brand->bm_contact = $request->bm_contact;
+        $brand->bm_designation = $request->bm_designation;
+        $brand->bm_tel = $request->bm_tel;
+        $brand->bm_mobile = $request->bm_mobile;
+        $brand->bm_email = $request->bm_email;
+        $brand->bm_flex1 = $request->bm_comments;
+
+
+        $brand->bm_status = 1;
+
+        $brand->save();
+        return redirect()->route('mall.brand.index')->with('info', 'Transaction updated successfully!');
     }
 
     /**

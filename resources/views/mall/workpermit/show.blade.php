@@ -278,25 +278,46 @@
           <label class="col" for="">Status</label>
           <div class="col border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_status}}</label>
-
           </div>
-          <label class="col" for="">Approved By</label>
-          <div class="col border-bottom text-danger">
-            <label for=""> : {{ $workpermit->wp_approved_name}} </label>
 
-          </div>
+
 
           <label class="col" for="">Approved Date</label>
           <div class="col border-bottom text-danger">
             <label for=""> :
-
               @if ( !empty ( $workpermit->wp_approved_date ) )
               {{ date('d-m-Y', strtotime($workpermit->wp_approved_date)) }}
               @endif
-
             </label>
+          </div>
+
+          <label class="col" for="">Approved By</label>
+          <div class="col border-bottom text-danger">
+            <label for=""> : {{ $workpermit->wp_approved_name}} </label>
+          </div>
+
+          <label class="col" for="">Signature</label>
+          <div class="col border-bottom text-danger">:
+
+            @if($workpermit->wp_approved_uid =='52')
+            <img src={{asset('dist/img/cheatannewbg.png')}}>
+
+            @elseif($workpermit->wp_approved_uid =='53')
+
+            <img src={{asset('dist/img/hussainjamal1.png')}}>
+
+
+
+            @else
+            No Signature
+
+            @endif
+
+
+
 
           </div>
+
         </div>
 
 

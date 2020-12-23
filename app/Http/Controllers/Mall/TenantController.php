@@ -73,9 +73,10 @@ class TenantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tenant $tenant)
     {
-        //
+        $arr['tenant'] = $tenant;
+        return view('mall.tenant.edit')->with($arr);
     }
 
     /**
@@ -85,9 +86,18 @@ class TenantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tenant $tenant)
     {
-        //
+        $tenant->tm_name = $request->tm_name;
+        $tenant->tm_contact = $request->tm_contact;
+        $tenant->tm_tel = $request->tm_tel;
+        $tenant->tm_mobile = $request->tm_mobile;
+        $tenant->tm_address = $request->tm_address;
+        $tenant->tm_email = $request->tm_email;
+        $tenant->tm_comments = $request->tm_comments;
+
+        $tenant->save();
+        return redirect()->route('mall.tenant.index')->with('info', 'Transaction updated successfully!');
     }
 
     /**
