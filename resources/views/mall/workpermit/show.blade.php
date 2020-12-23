@@ -299,10 +299,10 @@
           <label class="col" for="">Signature</label>
           <div class="col border-bottom text-danger">:
 
-            @if($workpermit->wp_approved_uid =='52')
+            @if($workpermit->wp_approved_uid =='38')
             <img src={{asset('dist/img/cheatannewbg.png')}}>
 
-            @elseif($workpermit->wp_approved_uid =='53')
+            @elseif($workpermit->wp_approved_uid =='37')
 
             <img src={{asset('dist/img/hussainjamal1.png')}}>
 

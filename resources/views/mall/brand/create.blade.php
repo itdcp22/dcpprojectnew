@@ -110,7 +110,7 @@
           <label class="col-lg-2" for="">Designation</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="bm_designation"
-              placeholder="Enter designation" required>
+              placeholder="Enter designation">
           </div>
         </div>
       </div>
@@ -120,12 +120,12 @@
           <label class="col-lg-2" for="">Telephone Number</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="bm_tel"
-              placeholder="Enter telephone Number" required>
+              placeholder="Enter telephone Number">
           </div>
           <label class="col-lg-2" for="">Mobile Number</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="bm_mobile"
-              placeholder="Enter mobile number" required>
+              placeholder="Enter mobile number">
           </div>
         </div>
       </div>
@@ -135,7 +135,7 @@
           <label class="col-lg-2" for="">Email</label>
           <div class="col-lg-3">
             <input type="email" class="form-control" id="validationCustom02" name="bm_email"
-              placeholder="Enter email address" required>
+              placeholder="Enter email address">
           </div>
           <label class="col-lg-2" for="">Company Name</label>
           <div class="col-lg-3">
