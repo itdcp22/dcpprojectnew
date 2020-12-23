@@ -86,7 +86,7 @@
         @if (Route::has('login'))
         <div class="top-right links">
             @auth
-            <a href="{{ url('/mall/workpermit') }}">Home</a>
+            <a href="{{ url('/mallwp') }}">Home</a>
             @else
             <a href="{{ route('login') }}">Login</a>
 
