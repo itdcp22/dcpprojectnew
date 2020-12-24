@@ -117,16 +117,6 @@
                                     @endforeach
                                 </select>
 
-                                <input type="hidden" id="dept" name="dept">
-
-                                <script>
-                                    $('#company').on('change', function() 
-                                        {
-                                            var selectedName = $('#company option:selected').text();
-                                            $('#dept').val(selectedName);
-                                        }
-                                      )
-                                </script>
 
 
 

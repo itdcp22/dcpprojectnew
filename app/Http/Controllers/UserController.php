@@ -48,7 +48,8 @@ class UserController extends Controller
     {
 
 
-        $arr['users'] = User::where('user_type', 'tenant')->whereNotNull('email_verified_at')
+
+        $arr['users'] = User::where('user_type', 'tenant')->Orwhere('user_type', 'mall')->whereNotNull('email_verified_at')
             ->get();
         return view('tenantusers')->with($arr);
     }

@@ -35,6 +35,9 @@
                                 <th> Type </th>
                                 <th> Created Date </th>
                                 <th> Verified Date </th>
+                                <th> Last Seen</th>
+                                <th> Status </th>
+
 
 
 
@@ -53,11 +56,21 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->mobile }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->dept }}</td>
+                                <td>{{ $user->company }}</td>
 
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ date('d-m-Y', strtotime($user->created_at)) }}</td>
                                 <td>{{ date('d-m-Y', strtotime($user->email_verified_at)) }}</td>
+                                <td>{{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</td>
+
+                                <td>
+                                    @if(Cache::has('user-is-online-' . $user->id))
+                                    <span class="text-success">Online</span>
+                                    @else
+                                    <span class="text-secondary">Offline</span>
+                                    @endif
+                                </td>
+
 
 
 
@@ -82,6 +95,9 @@
                                 <th> Type </th>
                                 <th> Created Date </th>
                                 <th> Verified Date </th>
+                                <th> Last Seen</th>
+                                <th> Status </th>
+
 
 
                             </tr>

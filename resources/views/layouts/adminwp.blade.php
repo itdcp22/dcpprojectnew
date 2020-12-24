@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tamani</title>
+  <title>Jarwani</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,7 +102,7 @@
 
           <img src={{asset('dist/img/jarwani.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
 
-          <span>Tamani Group</span>
+          <span>Jarwani Group</span>
         </a>
 
         <!-- Sidebar -->
@@ -118,7 +118,7 @@
 
               <img src={{asset('dist/img/malllogonew.PNG class=img-circle elevation-2 alt=MallLogo')}}>
               @else
-              <img src={{asset('dist/img/jarwani.png class=img-circle elevation-2 alt=Logo')}}>
+              <img src={{asset('dist/img/malllogonew.PNG elevation-2 alt=MallLogo')}}>
               @endif
 
 
