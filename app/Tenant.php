@@ -10,4 +10,9 @@ class Tenant extends Model
     {
         return $this->hasMany('App\Brand');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

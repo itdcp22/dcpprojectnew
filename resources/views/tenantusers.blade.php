@@ -17,7 +17,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Pending User List</h3>
+                    <h3 class="card-title">Tenant List</h3>
 
                 </div>
                 <!-- /.card-header -->
@@ -28,11 +28,14 @@
 
                                 <TH>ID</TH>
                                 <th> User Name </th>
+                                <th> Mobile</th>
+
                                 <th> Email </th>
                                 <th> Company Name </th>
                                 <th> Type </th>
                                 <th> Created Date </th>
-                                <th>Approve</th>
+                                <th> Verified Date </th>
+
 
 
 
@@ -48,21 +51,15 @@
 
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->mobile }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->dept }}</td>
 
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ date('d-m-Y', strtotime($user->created_at)) }}</td>
-
-                                <td>
-
-
-                                    <a href="{{ route('users.edit',$user->id) }}">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
+                                <td>{{ date('d-m-Y', strtotime($user->email_verified_at)) }}</td>
 
 
-                                </td>
 
 
 
@@ -79,11 +76,12 @@
 
                                 <th>ID</th>
                                 <th> User Name </th>
+                                <th> Mobile</th>
                                 <th> Email </th>
                                 <th> Company Name </th>
                                 <th> Type </th>
                                 <th> Created Date </th>
-                                <th>Approve</th>
+                                <th> Verified Date </th>
 
 
                             </tr>

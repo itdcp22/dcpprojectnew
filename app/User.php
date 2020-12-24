@@ -37,4 +37,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tenant()
+    {
+        return $this->hasOne('App\Tenant');
+    }
 }

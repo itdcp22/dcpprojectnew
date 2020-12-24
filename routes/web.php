@@ -31,6 +31,8 @@ Auth::routes([
     'register' => true,
 ]);
 
+Route::resource('contacts', 'ContactController')->middleware('auth');
+Route::apiResource('contacts', 'ContactController')->middleware('auth');
 
 Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
 Route::PUT('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
@@ -42,6 +44,14 @@ Route::PUT('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserContr
 
 Route::get('/users', 'UserController@index')->name('users')->middleware('auth');
 Route::get('tenantusers', 'UserController@index1')->name('tenantusers')->middleware('auth');
+
+//Route::resource('/tenantusers', 'UserController', ['as' => 'user'])->middleware('auth');
+
+
+Route::get('users/edit/{id}', 'UsersController@show');
+//Route::put('users/edit', 'UsersController@update');
+Route::put('editusers/{id}', 'UsersController@update');
+
 
 Route::get('changeStatus', 'UserController@changeStatus');
 
