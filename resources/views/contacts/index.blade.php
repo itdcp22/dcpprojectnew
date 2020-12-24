@@ -16,7 +16,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">User Details
+                    <h3 class="card-title">Pending User Details
                     </h3>
                 </div>
                 <!-- /.card-header -->

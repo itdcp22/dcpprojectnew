@@ -245,8 +245,24 @@
 
 
                   <p>
-                    Users
-                    <span class="right badge badge-success">0</span>
+                    Approved Users
+
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/contacts" class="nav-link  
+                @if($segment=='contacts')
+                active
+                @endif            
+                ">
+                  <i class="nav-icon fas fa-user"></i>
+
+
+                  <p>
+                    Pending Users
+
                   </p>
                 </a>
               </li>
