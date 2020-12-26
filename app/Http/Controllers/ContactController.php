@@ -17,9 +17,13 @@ class ContactController extends Controller
      */
     public function index()
     {
-
+        //  $arr['tenants'] = Tenant::with('tenant')->get();;
         $contacts = User::where('user_type', 'tenant')->whereNull('email_verified_at')
             ->get();
+
+        // $tenants = Tenant::all();
+
+        //$contacts = User::all();
         return view('contacts.index', compact('contacts'));
     }
 

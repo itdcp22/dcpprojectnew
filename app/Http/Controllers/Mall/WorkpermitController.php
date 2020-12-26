@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mall;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
 use App\Workpermit;
@@ -12,6 +13,8 @@ use App\Brand;
 use Auth;
 use App\User;
 use Gate;
+
+use App\Mail\NewBill;
 
 
 class WorkpermitController extends Controller
@@ -79,6 +82,13 @@ class WorkpermitController extends Controller
     public function store(Request $request, Workpermit $workpermit)
     {
 
+        $request->validate([
+
+            'wp_applicant' => ['required'],
+
+        ]);
+
+
         $id = Workpermit::orderByDesc('wp_request_id')->first()->wp_request_id ?? date('Y') . 00000;
         $year = date('Y');
         $id_year = substr($id, 0, 4);
@@ -126,9 +136,11 @@ class WorkpermitController extends Controller
         $workpermit->wp_from_time = $request->wp_from_time;
         $workpermit->wp_to_time = $request->wp_to_time;
 
-
-
         $workpermit->save();
+
+        //return $workpermit;
+        Mail::send(new NewBill($workpermit));
+
         return redirect('mall/workpermit')->with('success', 'Transaction created successfully!');
     }
 

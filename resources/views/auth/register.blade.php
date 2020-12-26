@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <!-- This script is used to allow only number in the bill amount field -->
 <script>
     function isNumberKey(evt)
@@ -110,12 +113,18 @@
 
 
 
-                                <select class="custom-select" name="company" id="company" onchange="calc4()" required>
+
+
+
+                                <select class="custom-select" name="company" id="company" required>
                                     <option value="" selected disabled hidden>Please select</option>
-                                    @foreach($tenants as $c)
-                                    <option value="{{ $c->id}}">{{ $c->tm_name}}</option>
+
+                                    @foreach($tenants as $t)
+                                    <option value="{{ $t->id}}">{{ $t->tm_name}}</option>
                                     @endforeach
+
                                 </select>
+
 
 
 

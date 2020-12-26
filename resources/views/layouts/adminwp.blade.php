@@ -69,6 +69,19 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
 
+          <a class="nav-link" href="/change-password">
+
+            <i class="fas fa-key"></i>
+            {{ __('Change Password') }}
+          </a>
+
+
+
+
+        </li>
+
+        <li class="nav-item">
+
           <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                        document.getElementById('logout-form').submit();">
             <i class="fas fa-power-off" style="color:red"></i>

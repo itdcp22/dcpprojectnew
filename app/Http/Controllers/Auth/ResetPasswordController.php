@@ -27,17 +27,19 @@ class ResetPasswordController extends Controller
      */
     //protected $redirectTo = '/home';
 
-    public function authenticated($request , $user){
-        if($user->user_type=='guest'){
-            return redirect()->route('homeicc') ;
-        }elseif($user->user_type=='admin'){
-            return redirect()->route('home') ;
-        }elseif($user->user_type=='user'){
-            return redirect()->route('home') ;
+    public function authenticated($request, $user)
+    {
+        if ($user->user_type == 'guest') {
+            return redirect()->route('homeicc');
+        } elseif ($user->user_type == 'admin') {
+            return redirect()->route('home');
+        } elseif ($user->user_type == 'user') {
+            return redirect()->route('home');
+        } elseif ($user->user_type == 'tenant') {
+            return redirect()->route('mallwp');
         }
-        
     }
-    
+
 
     /**
      * Create a new controller instance.

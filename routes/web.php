@@ -31,6 +31,9 @@ Auth::routes([
     'register' => true,
 ]);
 
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+
 Route::resource('contacts', 'ContactController')->middleware('auth');
 Route::apiResource('contacts', 'ContactController')->middleware('auth');
 

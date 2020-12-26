@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\User;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Tenant extends Model
@@ -13,6 +15,7 @@ class Tenant extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMany(User::class);
+        // return $this->belongsTo('App\User');
     }
 }

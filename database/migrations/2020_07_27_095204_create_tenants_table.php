@@ -31,6 +31,7 @@ class CreateTenantsTable extends Migration
             $table->string('tm_flex3')->nullable();
             $table->string('tm_flex4')->nullable();
             $table->string('tm_flex5')->nullable();
+
             $table->timestamps();
         });
     }

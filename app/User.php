@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Tenant;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -38,8 +40,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function tenant()
+    public function tenants()
     {
-        return $this->hasOne('App\Tenant');
+        //return $this->belongsTo('App\Tenant');
+        return $this->belongsTo(Tenant::class);
+
+        //return $this->hasMany('App\User');
     }
 }

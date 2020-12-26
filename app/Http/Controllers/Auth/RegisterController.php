@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'company' => ['required', 'string'],
+
         ]);
     }
 
@@ -81,9 +82,7 @@ class RegisterController extends Controller
     public function update(Request $request, User $user)
     {
         $user->name = request('name');
-
         $user->save();
-
         return back();
     }
 
@@ -109,7 +108,6 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'mobile' => $data['mobile'],
             'company' => $data['company'],
-            'dept' => $data['dept'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

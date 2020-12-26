@@ -283,8 +283,10 @@
 
           @if($workpermit->wp_status =='Approved')
           <label class="col" for="">Approved Date</label>
-          @else
+          @elseif($workpermit->wp_status =='Rejected')
           <label class="col" for="">Rejected Date</label>
+          @else
+          <label class="col" for=""></label>
           @endif
 
 
@@ -299,8 +301,10 @@
 
           @if($workpermit->wp_status =='Approved')
           <label class="col" for="">Approved By</label>
-          @else
+          @elseif($workpermit->wp_status =='Rejected')
           <label class="col" for="">Rejected By</label>
+          @else
+          <label class="col" for=""></label>
           @endif
 
 
@@ -309,7 +313,17 @@
             <label for=""> : {{ $workpermit->wp_approved_name}} </label>
           </div>
 
+
+
+          @if($workpermit->wp_status =='Approved')
           <label class="col" for="">Signature</label>
+          @elseif($workpermit->wp_status =='Rejected')
+          <label class="col" for="">Signature</label>
+          @else
+          <label class="col" for=""></label>
+          @endif
+
+
           <div class="col border-bottom text-danger">:
 
             @if($workpermit->wp_approved_uid =='38')
@@ -322,7 +336,7 @@
 
 
             @else
-            No Signature
+
 
             @endif
 
