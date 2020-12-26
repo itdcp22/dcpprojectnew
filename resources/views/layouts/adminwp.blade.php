@@ -69,7 +69,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
 
-          <a class="nav-link" href="/change-password">
+          <a class="nav-link" href="/changepassword">
 
             <i class="fas fa-key"></i>
             {{ __('Change Password') }}
