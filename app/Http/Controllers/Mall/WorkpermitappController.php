@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mall;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
 use App\Workpermit;
@@ -12,6 +13,8 @@ use App\Brand;
 use App\User;
 use Auth;
 use Gate;
+
+use App\Mail\Wpapproved;
 
 class WorkpermitappController extends Controller
 {
@@ -96,6 +99,10 @@ class WorkpermitappController extends Controller
 
 
         $workpermit->save();
+
+        Mail::send(new wpapproved($workpermit));
+
+
         return redirect('mall/workpermit')->with('info', 'Transaction updated successfully!');
     }
 
