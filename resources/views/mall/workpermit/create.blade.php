@@ -87,59 +87,56 @@
       <div class="form-group">
         <div class="row">
           <label class="col-lg-1" for="">Applicant</label>
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <input type="text" class="form-control" id="validationCustom02" name="wp_applicant" value="{{ $user->name}}"
               placeholder="Enter name of applicant" tabindex="1" required>
           </div>
+          <label class="col-lg-1" for="">:اسم مقدم الطلب</label>
           <label class="col-lg-1" for="">Designation</label>
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <input type="text" class="form-control" id="wp_designation" name="wp_designation"
               placeholder="Enter designation" tabindex="2" required>
           </div>
+          <label class="col-lg-1" for="">:الوظيفة</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-1" for="">Mobile</label>
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <input type="text" class="form-control" id="wp_mobile" name="wp_mobile" placeholder="Enter mobile number"
               value="{{ $user->mobile}}" tabindex="3" required>
-
           </div>
+          <label class="col-lg-1" for="">:رقم الهاتف</label>
           <label class="col-lg-1" for="">Email</label>
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <input type="email" class="form-control" id="wp_email" name="wp_email" placeholder="Enter email address"
               value="{{ $user->email}}" tabindex="4" required>
-
-
           </div>
+          <label class="col-lg-1" for="">:بريد</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-1" for="">Company</label>
-          <div class="col-lg-5">
-
-
-
+          <div class="col-lg-4">
             <input type="text" class="form-control" id="wp_comp_name" name="wp_comp_name" value="{{ $tenant->tm_name}}"
               placeholder="Enter company name" readonly>
           </div>
+          <label class="col-lg-1" for="">:الشركة</label>
           <label class="col-lg-1" for="">Brand</label>
-          <div class="col-lg-5">
-
+          <div class="col-lg-4">
             <select class="custom-select" name="wp_brand_name" id="wp_brand_name" tabindex="5" required>
               <option value="" selected disabled hidden>Please select</option>
               @foreach($brand as $c)
               <option value="{{ $c->bm_name}}">{{ $c->bm_name}}</option>
               @endforeach
-
             </select>
-
-
           </div>
+          <label class="col-lg-1" for="">:علامة تجارية
+          </label>
         </div>
       </div>
 
@@ -147,24 +144,21 @@
       <div class="form-group">
         <div class="row">
           <label class="col-lg-1" for="">Manager</label>
-          <div class="col-lg-5">
+          <div class="col-lg-4">
             <input type="text" class="form-control" id="wp_manager" name="wp_manager" value="{{ $tenant->tm_contact}}"
               placeholder="Enter manager name">
           </div>
+          <label class="col-lg-1" for="">:مدير المحل</label>
           <label class="col-lg-1" for="">Contact</label>
-          <div class="col-lg-5">
-
-
-
+          <div class="col-lg-4">
             <input type="text" class="form-control" id="wp_manager_contact" name="wp_manager_contact"
               value="{{ $tenant->tm_mobile}}" placeholder="Enter manager name">
-
-
           </div>
+          <label class="col-lg-1" for="">:اتصل</label>
         </div>
       </div>
 
-      <p class="bg-warning text-white"><strong>Work Duration</strong>
+      <p class="bg-warning text-white"><strong>Work Duration - مدة العمل</strong>
       </p>
 
       <div class="form-group">
@@ -230,31 +224,33 @@
       </div>
 
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Work Category</strong>
+        <p class="bg-warning text-white"><strong>Work Category - تصنيف العمل )ضع علامة على العمود)</strong>
         </p>
         <div class="col-sm-12">
           <div class="d-flex mb-3">
 
 
-            <div class="p-2 flex-fill" options><input type="checkbox" value="Carpentry" name="wp_category[]">Carpentry
+            <div class="p-2 flex-fill" options><input type="checkbox" value="Carpentry" name="wp_category[]">Carpentry -
+              أعمال نجارة
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Fit-Out" name="wp_category[]">Fit-Out
+            <div class="p-2 flex-fill "><input type="checkbox" value="Fit-Out" name="wp_category[]">Fit-Out - تشطيبات
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Painting" name="wp_category[]">Painting
+            <div class="p-2 flex-fill "><input type="checkbox" value="Painting" name="wp_category[]">Painting - صبغ
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Promotion" name="wp_category[]">Promotion
+            <div class="p-2 flex-fill "><input type="checkbox" value="Promotion" name="wp_category[]">Promotion - العروض
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Plumbing" name="wp_category[]">Plumbing
+            <div class="p-2 flex-fill "><input type="checkbox" value="Plumbing" name="wp_category[]">Plumbing - سباكة
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Hot Work" name="wp_category[]">Hot Work
+            <div class="p-2 flex-fill "><input type="checkbox" value="Hot Work" name="wp_category[]">Hot Work - أعمال
+              لحام
             </div>
             <div class="p-2 flex-fill "><input type="checkbox" value="Electrical / HVAC" name="wp_category[]">Electrical
               /
-              HVAC</div>
+              HVAC تكييف/ كهرباء</div>
             <div class="p-2 flex-fill "><input type="checkbox" value="Stock Taking" name="wp_category[]">Stock
-              Taking
+              Taking - المخزن
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Others" name="wp_category[]">Others
+            <div class="p-2 flex-fill "><input type="checkbox" value="Others" name="wp_category[]">Others - أخرى
             </div>
           </div>
         </div>
@@ -284,7 +280,7 @@ requiredCheckboxes.change(function(){
 
 
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Description of Work</strong>
+        <p class="bg-warning text-white"><strong>Description of Work - وصف العمل</strong>
           <textarea class="form-control" name="wp_description" rows="3" id="wp_description"
             placeholder="Enter work description in detail" tabindex="10" value="{{ old('wp_description') }}"
             required></textarea>
@@ -292,7 +288,7 @@ requiredCheckboxes.change(function(){
       </div>
 
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Contractor Details </strong>
+        <p class="bg-warning text-white"><strong>Contractor Details - بيانات المقاول</strong>
         </p>
 
         <div class="row">

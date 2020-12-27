@@ -84,98 +84,87 @@
       action="{{ route('mall.workpermit.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-      <p class="bg-warning" align="center"><strong>Work Permit Form</strong></p>
+      <p class="bg-warning" align="center"><strong>Work Permit Form - استمارة تصريح العمل
+        </strong></p>
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Document No</label>
+          <label class="col" for="">Document No:</label>
           <div class="col text-danger">
-            <label for="">: {{ $workpermit->wp_request_id}}</label>
-
+            <label for=""> {{ $workpermit->wp_request_id}}</label>
           </div>
-          <label class="col" for="">Date</label>
+          <label class="col" for="">:رقم المستند
+          </label>
+          <label class="col" for="">Date:</label>
           <div class="col text-danger">
-            <label for="">: {{ date('d-m-Y', strtotime($workpermit->created_at)) }}</label>
-
+            <label for=""> {{ date('d-m-Y', strtotime($workpermit->created_at)) }}</label>
           </div>
+          <label class="col" for="">:تاريخ</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Applicant</label>
+          <label class="col" for="">Applicant:</label>
           <div class="col text-danger">
-            <label for="">: {{ $workpermit->wp_applicant}}</label>
-
+            <label for=""> {{ $workpermit->wp_applicant}}</label>
           </div>
-          <label class="col" for="">Designation</label>
+          <label class="col" for="">:اسم مقدم الطلب</label>
+          <label class="col" for="">Designation:</label>
           <div class="col text-danger">
-            <label for="">: {{ $workpermit->wp_designation}}</label>
-
+            <label for=""> {{ $workpermit->wp_designation}}</label>
           </div>
+          <label class="col" for="">:الوظيفة</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Mobile</label>
+          <label class="col" for="">Mobile:</label>
           <div class="col text-danger">
-            <label for="">: {{ $workpermit->wp_mobile}}</label>
-
-
+            <label for=""> {{ $workpermit->wp_mobile}}</label>
           </div>
-          <label class="col" for="">Email</label>
+          <label class="col" for="">:رقم الهاتف</label>
+          <label class="col" for="">Email:</label>
           <div class="col text-danger">
-            <label for="">: {{ $workpermit->wp_email}}</label>
-
-
-
+            <label for=""> {{ $workpermit->wp_email}}</label>
           </div>
+          <label class="col" for="">:بريد</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Company</label>
+          <label class="col" for="">Company:</label>
           <div class="col text-danger">
-
-
-            <label for="">: {{ $workpermit->wp_comp_name}}</label>
-
+            <label for=""> {{ $workpermit->wp_comp_name}}</label>
           </div>
-          <label class="col" for="">Brand</label>
+          <label class="col" for="">:الشركة</label>
+          <label class="col" for="">Brand:</label>
           <div class="col text-danger">
-
-            <label for="">: {{ $workpermit->wp_brand_name}}</label>
-
-
-
-
+            <label for=""> {{ $workpermit->wp_brand_name}}</label>
           </div>
+          <label class="col" for="">:اسم المحل</label>
         </div>
       </div>
 
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Manager</label>
+          <label class="col" for="">Manager:</label>
           <div class="col text-danger">
-            <label for="">: {{ $workpermit->wp_manager}}</label>
-
+            <label for=""> {{ $workpermit->wp_manager}}</label>
           </div>
-          <label class="col" for="">Contact</label>
+          <label class="col" for="">:مدير المحل</label>
+          <label class="col" for="">Contact:</label>
           <div class="col text-danger">
-
-
-            <label for="">: {{ $workpermit->wp_manager_contact}}</label>
-
-
-
+            <label for=""> {{ $workpermit->wp_manager_contact}}</label>
           </div>
+          <label class="col" for="">:اتصل</label>
         </div>
       </div>
 
-      <p class="bg-warning text-white"><strong>Work Duration</strong></p>
+      <p class="bg-warning text-white"><strong>Work Duration - مدة العمل</strong></p>
 
       <div class="form-group">
         <div class="row">
@@ -214,21 +203,21 @@
 
 
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Work Category</strong>
+        <p class="bg-warning text-white"><strong>Work Category - تصنيف العمل )ضع علامة على العمود)</strong>
           <textarea class="form-control" name="wp_category" rows="3" id="comment" placeholder="Work Category"
             readonly>{{$workpermit->wp_category}}</textarea>
         </p>
       </div>
 
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Description of Work</strong>
+        <p class="bg-warning text-white"><strong>Description of Work - وصف العمل</strong>
           <textarea class="form-control" name="wp_description" rows="3" id="comment"
             placeholder="Enter work description in detail" readonly>{{$workpermit->wp_description}}</textarea>
         </p>
       </div>
 
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Contractor Details </strong>
+        <p class="bg-warning text-white"><strong>Contractor Details - بيانات المقاول </strong>
         </p>
 
         <div class="row">
