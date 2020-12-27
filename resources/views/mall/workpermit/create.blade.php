@@ -174,7 +174,7 @@
 
 
             <input class="form-control datepicker" id="datepicker" name="wp_from_date" placeholder="dd-mm-yyyy"
-              tabindex="6" required>
+              tabindex="6" value="{{ old('wp_from_date') }}" required>
 
             <script>
               $('#datepicker').datepicker({
@@ -190,7 +190,7 @@
 
 
             <input class="form-control datepicker" id="datepicker1" name="wp_to_date" placeholder="dd-mm-yyyy"
-              tabindex="7" required>
+              tabindex="7" value="{{ old('wp_to_date') }}" required>
 
 
             <script>
@@ -206,7 +206,7 @@
           <label class="col-lg-1" for="">Time From</label>
           <div class="col-lg-2">
             <input type="time" class="form-control timepicker" id="wp_from_time" name="wp_from_time" tabindex="8"
-              placeholder="Enter time to">
+              placeholder="Enter time to" value="{{ old('wp_from_time') }}">
 
           </div>
 
@@ -224,7 +224,7 @@
           <label class="col-lg-1" for="">Time To</label>
           <div class="col-lg-2">
             <input type="time" class="form-control" id="wp_to_time" name="wp_to_time" placeholder="Enter time to"
-              tabindex="9">
+              value="{{ old('wp_to_time') }}" tabindex="9">
           </div>
         </div>
       </div>
@@ -275,13 +275,19 @@ requiredCheckboxes.change(function(){
   
       </script>
 
+      @error('wp_category')
+      <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+      </span>
+      @enderror
 
 
 
       <div class="form-group">
         <p class="bg-warning text-white"><strong>Description of Work</strong>
           <textarea class="form-control" name="wp_description" rows="3" id="wp_description"
-            placeholder="Enter work description in detail" tabindex="10" required></textarea>
+            placeholder="Enter work description in detail" tabindex="10" value="{{ old('wp_description') }}"
+            required></textarea>
         </p>
       </div>
 
@@ -294,24 +300,24 @@ requiredCheckboxes.change(function(){
           <label class="col-lg-1" for="">Company</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="wp_cont_comp" name="wp_cont_comp" tabindex="11"
-              placeholder="Enter company name">
+              placeholder="Enter company name" value="{{ old('wp_cont_comp') }}">
           </div>
           <label class="col-lg-1" for="">Person Name</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="wp_cont_person" name="wp_cont_person" tabindex="12"
-              placeholder="Enter person name">
+              placeholder="Enter person name" value="{{ old('wp_cont_person') }}">
           </div>
 
           <label class="col-lg-1" for="">Mobile Number</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="wp_cont_mobile" name="wp_cont_mobile" tabindex="13"
-              placeholder="Enter mobile number">
+              placeholder="Enter mobile number" value="{{ old('wp_cont_mobile') }}">
           </div>
 
           <label class="col-lg-1" for="">No. Workers</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="wp_no_workers" name="wp_no_workers" tabindex="14"
-              placeholder="Enter number of workers">
+              placeholder="Enter number of workers" value="{{ old('wp_no_workers') }}">
           </div>
         </div>
       </div>

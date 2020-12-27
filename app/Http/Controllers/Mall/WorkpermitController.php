@@ -85,6 +85,7 @@ class WorkpermitController extends Controller
         $request->validate([
 
             'wp_applicant' => ['required'],
+            'wp_category' => ['required'],
 
         ]);
 
