@@ -131,7 +131,7 @@
 
               <img src={{asset('dist/img/malllogonew.PNG class=img-circle elevation-2 alt=MallLogo')}}>
               @else
-              <img src={{asset('dist/img/malllogonew.PNG elevation-2 alt=MallLogo')}}>
+              <img src={{asset('dist/img/avatar5.png elevation-2 alt=MallLogo')}}>
               @endif
 
 
@@ -311,7 +311,7 @@
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.0.0
       </div>
-      <strong>Copyright &copy; 2019-2020 <a href="http://mallofmuscat.com">Tamani</a>.</strong> All rights
+      <strong>Copyright &copy; 2019-2021 <a href="http://mallofmuscat.com">MOM</a>.</strong> All rights
       reserved.
     </footer>
 
