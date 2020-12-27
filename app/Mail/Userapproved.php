@@ -33,7 +33,7 @@ class Userapproved extends Mailable
      */
     public function build()
     {
-        return $this->from('info@omanaquarium.om', 'Workpermit Approved')
+        return $this->from('info@mallofmuscat.com', 'Workpermit Approved')
             ->to(auth()->user()->email, auth()->user()->name)
             ->subject($this->user->name)
             ->view('email.wpapproved.approved');
