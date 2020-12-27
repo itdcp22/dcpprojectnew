@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Jarwani</title>
+  <title>MOM</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -113,9 +113,9 @@
           @endif
 
 
-          <img src={{asset('dist/img/jarwani.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
+          <img src={{asset('dist/img/malllogonew.PNG class=brand-image img-circle elevation-3 style=opacity: .8')}}>
 
-          <span>Jarwani Group</span>
+          <span>Mall Of Muscat</span>
         </a>
 
         <!-- Sidebar -->

@@ -47,10 +47,13 @@ class UserController extends Controller
     public function index1(Request $request)
     {
 
-
-
-        $arr['users'] = User::where('user_type', 'tenant')->Orwhere('user_type', 'mall')->whereNotNull('email_verified_at')
-            ->get();
+        $arr['users'] = User::whereNotNull('email_verified_at')
+        ->where(function($query)
+        {
+            $query->where('user_type','=','Mall')
+            ->orWhere('user_type','=','Tenant')
+        })
+        ->get();
         return view('tenantusers')->with($arr);
     }
 

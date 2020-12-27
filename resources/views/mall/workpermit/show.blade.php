@@ -71,23 +71,12 @@
   <div class="container-fluid border border-secondary">
 
     <div class="row border">
-      <div class="col text-center">
-        <img src={{asset('dist/img/printjarwani2.png')}}>
-      </div>
-      <div class="col">
-        <h1 class="m-0 text-dark text-center">Al Jarwani Group</h1>
-        <h2 class="m-0 text-dark text-center">Mall Of Muscat</h2>
 
-      </div>
       <div class="col text-center">
-
         <img src={{asset('dist/img/printmall.png')}}>
 
-
-
-
-
       </div>
+
     </div>
 
 
@@ -369,6 +358,7 @@
             <li>No material and shop fixtures to be left in the mall common areas.</li>
             <li>All workers must follow the safety and security rules and regulations.</li>
             <li>Please report to the security if any incident/damage to the property.</li>
+            <li>Responsible if in case of any damage in surrounding area.</li>
           </ol>
            <p align="center"> I understand & accept all the responsibilities as explained in work permit terms and
             Conditions. </p>
