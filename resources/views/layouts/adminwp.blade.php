@@ -354,6 +354,9 @@
         "lengthChange": false,
         "searching": false,
         "ordering": true,
+        "order": [
+          [1,"desc"]
+        ],
         "info": true,
         "autoWidth": false,
       });

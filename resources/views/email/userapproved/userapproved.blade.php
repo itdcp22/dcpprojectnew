@@ -387,8 +387,9 @@
                                                         <span style="font-size: 16px;">If you have any questions do not
                                                             hesitate to <a
                                                                 style="text-decoration: underline; color: #ffffff;"
-                                                                title="hey@example.com"
-                                                                href="mailto:hey@example.com">reach out to us</a></span>
+                                                                title="info@mallofmuscat.com"
+                                                                href="mailto:info@mallofmuscat.com">reach out to
+                                                                us</a></span>
                                                     </p>
                                                 </div>
                                             </div>
