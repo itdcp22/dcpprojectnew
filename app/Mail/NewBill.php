@@ -33,7 +33,7 @@ class NewBill extends Mailable
      */
     public function build()
     {
-        return $this->from('info@omanaquarium.om', 'Workpermit Request')
+        return $this->from('info@mallofmuscat.com', 'Workpermit Request')
             ->to(auth()->user()->email, auth()->user()->name)
             ->subject($this->workpermit->wp_comp_name)
             ->view('email.newbill.added');
