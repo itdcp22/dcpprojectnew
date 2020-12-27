@@ -335,6 +335,8 @@ requiredCheckboxes.change(function(){
           <li>No material and shop fixtures to be left in the mall common areas.</li>
           <li>All workers must follow the safety and security rules and regulations.</li>
           <li>Please report to the security if any incident/damage to the property.</li>
+          <li>Responsible if in case of any damage in surrounding area.</li>
+          <li>For HOT work permits, valid fire extingusher and first aid kit has to be stored at work place</li>
         </ol>
          <p align="center"> I understand & accept all the responsibilities as explained in work permit terms and
           Conditions. </p>
