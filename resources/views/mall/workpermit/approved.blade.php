@@ -26,7 +26,7 @@
                             <tr>
                                 <th> ID </th>
                                 <th> Date </th>
-                                <th> Company </th>
+
                                 <th> Brand</th>
                                 <th> Applicant </th>
                                 <th> Mobile </th>
@@ -47,7 +47,7 @@
                             <tr>
                                 <td>{{ $c->wp_request_id }}</td>
                                 <td>{{ date('d-m-Y h:i A', strtotime($c->created_at)) }}</td>
-                                <td>{{ $c->wp_comp_name }}</td>
+
 
                                 <td>{{ $c->wp_brand_name }}</td>
                                 <td>{{ $c->wp_applicant }}</td>
@@ -110,7 +110,7 @@
 
                                 <th> ID </th>
                                 <th> Date </th>
-                                <th> Company </th>
+
                                 <th> Brand</th>
                                 <th> Applicant </th>
                                 <th> Mobile </th>
