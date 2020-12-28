@@ -3,6 +3,7 @@
 
 
 
+
 <!-- This script is used to allow only number in the bill amount field -->
 <script>
   function isNumberKey(evt)
@@ -94,7 +95,7 @@
           <label class="col-lg-1" for="">:اسم مقدم الطلب</label>
           <label class="col-lg-1" for="">Designation</label>
           <div class="col-lg-4">
-            <input type="text" class="form-control" id="wp_designation" name="wp_designation"
+            <input type="text" class="form-control" id="wp_designation" name="wp_designation" value="{{ $user->dept}}"
               placeholder="Enter designation" tabindex="2" required>
           </div>
           <label class="col-lg-1" for="">:الوظيفة</label>
@@ -167,14 +168,18 @@
           <div class="col-lg-2">
 
 
-            <input class="form-control datepicker" id="datepicker" name="wp_from_date" placeholder="dd-mm-yyyy"
+            <input class="form-control datepicker" id="datepicker2" name="wp_from_date" placeholder="dd-mm-yyyy"
               tabindex="6" value="{{ old('wp_from_date') }}" required>
 
             <script>
-              $('#datepicker').datepicker({
+              var date = new Date();
+            var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+              $('#datepicker2').datepicker({
                  format: 'dd-mm-yyyy',
-                   uiLibrary: 'bootstrap4'
-               });
+                   uiLibrary: 'bootstrap4',
+                   minDate: today  
+
+               });               
             </script>
 
 
@@ -188,9 +193,12 @@
 
 
             <script>
+              var date1 = new Date();
+            var today1 = new Date(date.getFullYear(), date.getMonth(), date.getDate());
               $('#datepicker1').datepicker({
                  format: 'dd-mm-yyyy',
-                   uiLibrary: 'bootstrap4'
+                   uiLibrary: 'bootstrap4',
+                   minDate: today1  
                });
             </script>
 
@@ -199,32 +207,65 @@
 
           <label class="col-lg-1" for="">Time From</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control timepicker" id="wp_from_time" name="wp_from_time" tabindex="8"
-              placeholder="Enter time to" value="{{ old('wp_from_time') }}">
+
+
+
+
+            <select class="custom-select" name="wp_from_time" id="wp_from_time" tabindex="5" required>
+              <option value="" selected disabled hidden>Please select</option>
+
+              <option value="11:00 PM">11:00 PM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 AM">01:00 AM</option>
+              <option value="02:00 AM">02:00 AM</option>
+              <option value="03:00 AM">03:00 AM</option>
+              <option value="04:00 AM">04:00 AM</option>
+              <option value="05:00 AM">05:00 AM</option>
+              <option value="06:00 AM">06:00 AM</option>
+              <option value="07:00 AM">07:00 AM</option>
+
+            </select>
+
+
+
 
           </div>
 
-          <script type="text/javascript">
-            $(document).ready(function() {
-              $('.timepicker').timepicker({
-                     timeFormat: 'HH:mm',
-                     interval: 60,
-                     defaultTime: '10',
-                   });
+          <script>
+            $('#time').timepicker({
+                format: 'hh:mm',
             });
           </script>
 
 
           <label class="col-lg-1" for="">Time To</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control" id="wp_to_time" name="wp_to_time" placeholder="Enter time to"
-              value="{{ old('wp_to_time') }}" tabindex="9">
+
+
+            <select class="custom-select" name="wp_to_time" id="wp_to_time" tabindex="9" value="{{ old('wp_to_time') }}"
+              required>
+              <option value="" selected disabled hidden>Please select</option>
+
+
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 AM">01:00 AM</option>
+              <option value="02:00 AM">02:00 AM</option>
+              <option value="03:00 AM">03:00 AM</option>
+              <option value="04:00 AM">04:00 AM</option>
+              <option value="05:00 AM">05:00 AM</option>
+              <option value="06:00 AM">06:00 AM</option>
+              <option value="07:00 AM">07:00 AM</option>
+
+            </select>
+
+
           </div>
         </div>
       </div>
 
+
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Work Category - تصنيف العمل )ضع علامة على العمود)</strong>
+        <p class="bg-warning text-white"><strong>Work Category - ضع علامة على العمود</strong>
         </p>
         <div class="col-sm-12">
           <div class="d-flex mb-3">
@@ -317,6 +358,18 @@ requiredCheckboxes.change(function(){
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="row">
+
+          <label class="col-lg-1" for="">Upload</label>
+          <div class="col-md-6">
+            <input type="file" id="validationCustom01" name="th_attach">
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
 
       <div class="form-group">
         <strong>  Terms & Conditions:</strong> 

@@ -283,8 +283,8 @@
 
             <select class="custom-select" name="wp_status" id="wp_status" required>
               <option value="" selected disabled hidden>Please select</option>
-              <option value="Approved">Approve</option>
-              <option value="Rejected">Reject</option>
+              <option value="Approved">Approved</option>
+              <option value="Not_Approved">Not Approved - Need more info</option>
 
 
             </select>

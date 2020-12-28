@@ -206,26 +206,52 @@
 
           <label class="col-lg-1" for="">Time From</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control timepicker" id="validationCustom02" name="wp_from_time"
-              value="{{ $workpermit->wp_from_time}}" placeholder="Enter time to">
+
+            <select class="custom-select" name="wp_from_time" id="wp_from_time" tabindex="9"
+              value="{{ $workpermit->wp_from_time}}" required>
+
+              <option value="{{ $workpermit->wp_from_time}}">{{ $workpermit->wp_from_time}}</option>
+              <option value="11:00 PM">11:00 PM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 AM">01:00 AM</option>
+              <option value="02:00 AM">02:00 AM</option>
+              <option value="03:00 AM">03:00 AM</option>
+              <option value="04:00 AM">04:00 AM</option>
+              <option value="05:00 AM">05:00 AM</option>
+              <option value="06:00 AM">06:00 AM</option>
+              <option value="07:00 AM">07:00 AM</option>
+
+            </select>
+
+
+
 
           </div>
 
-          <script type="text/javascript">
-            $(document).ready(function() {
-              $('.timepicker').timepicker({
-                     timeFormat: 'HH:mm',
-                     interval: 60,
-                     defaultTime: '10',
-                   });
-            });
-          </script>
 
 
           <label class="col-lg-1" for="">Time To</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control" id="validationCustom02" name="wp_to_time"
-              value="{{ $workpermit->wp_to_time}}" placeholder="Enter time to">
+
+
+            <select class="custom-select" name="wp_to_time" id="wp_to_time" tabindex="9"
+              value="{{ $workpermit->wp_to_time}}" required>
+
+              <option value="{{ $workpermit->wp_to_time}}">{{ $workpermit->wp_to_time}}</option>
+
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 AM">01:00 AM</option>
+              <option value="02:00 AM">02:00 AM</option>
+              <option value="03:00 AM">03:00 AM</option>
+              <option value="04:00 AM">04:00 AM</option>
+              <option value="05:00 AM">05:00 AM</option>
+              <option value="06:00 AM">06:00 AM</option>
+              <option value="07:00 AM">07:00 AM</option>
+
+            </select>
+
+
+
           </div>
         </div>
       </div>

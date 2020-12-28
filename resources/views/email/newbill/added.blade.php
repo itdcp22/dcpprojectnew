@@ -440,15 +440,7 @@
                                                         style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: 18px; margin: 0;">
                                                         <span style="font-size: 12px;">© Copyright 2021
                                                             www.momcrm.com</span></p>
-                                                    <p
-                                                        style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: 18px; margin: 0;">
-                                                        <span style="font-size: 12px;"><a
-                                                                style="text-decoration: none; color: #b0a7b7;"
-                                                                href="http://www.example.com/" target="_blank"
-                                                                rel="noopener">Manage Preferences</a> | <a
-                                                                style="text-decoration: none; color: #b0a7b7;"
-                                                                href="http://www.example.com/" target="_blank"
-                                                                rel="noopener">Unsubscribe</a></span></p>
+
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->

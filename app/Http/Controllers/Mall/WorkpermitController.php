@@ -31,10 +31,14 @@ class WorkpermitController extends Controller
 
 
             $arr['workpermit'] = Workpermit::where('wp_comp_code', auth()->user()->company)->where('wp_created_uid', auth()->user()->id)
-                ->where('wp_status', 'Pending')->orderBy('id', 'desc')->get();
+                ->where('wp_status', 'Pending')
+                ->Orwhere('wp_status', 'Not_Approved')
+                ->orderBy('id', 'desc')->get();
             return view('mall.workpermit.index')->with($arr);
         } else {
-            $arr['workpermit'] = Workpermit::where('wp_status', 'Pending')->orderBy('id', 'desc')->get();
+            $arr['workpermit'] = Workpermit::where('wp_status', 'Pending')
+                ->Orwhere('wp_status', 'Not_Approved')
+                ->orderBy('id', 'desc')->get();
             return view('mall.workpermitapp.index')->with($arr);
         }
     }
@@ -89,6 +93,17 @@ class WorkpermitController extends Controller
 
         ]);
 
+        $filename = '';
+
+        if ($request->hasFile('th_attach')) {
+            $file = $request->file('th_attach');
+            $ext = $file->getClientOriginalExtension();
+            $filename = date('YmdHis') . rand(1, 99999) . '.' . $ext;
+            $file->storeAs('public/categories', $filename);
+        }
+
+
+        $workpermit->wp_flex1 = $filename;
 
         $id = Workpermit::orderByDesc('wp_request_id')->first()->wp_request_id ?? date('Y') . 00000;
         $year = date('Y');

@@ -26,7 +26,7 @@
               <tr>
                 <th> ID </th>
                 <th> Date </th>
-                <th> Company </th>
+
                 <th> Brand</th>
                 <th> Applicant </th>
                 <th> Mobile </th>
@@ -47,11 +47,26 @@
               @foreach($workpermit as $c)
 
               <tr>
-                <td>{{ $c->wp_request_id }}</td>
+
+
+
+
+
+                <td>
+
+                  @if( !empty($c->wp_flex1))
+
+                  <a href="{{ url('storage/categories/'.$c->wp_flex1) }}" target="_blank">{{ $c->wp_request_id }}</a>
+                  @else
+                  {{ $c->wp_request_id }}
+                  @endif
+
+
+                </td>
                 <td>{{ date('d-m-Y h:i A', strtotime($c->created_at)) }}</td>
 
 
-                <td>{{ $c->wp_comp_name }}</td>
+
 
                 <td>{{ $c->wp_brand_name }}</td>
                 <td>{{ $c->wp_applicant }}</td>
@@ -73,7 +88,7 @@
                   </div>
                   @else
                   <div class="text-danger">
-                    Rejected
+                    Not Approved
                   </div>
                   @endif
                 </td>
@@ -112,7 +127,7 @@
 
                 <th> ID </th>
                 <th> Date </th>
-                <th> Company </th>
+
                 <th> Brand</th>
                 <th> Applicant </th>
                 <th> Mobile </th>
