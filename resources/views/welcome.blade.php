@@ -20,7 +20,7 @@
             font-weight: 200;
             height: 100vh;
             margin: 0;
-            background: url('malllogo.png') no-repeat center center fixed;
+            background: url('mallhome.png') no-repeat center center fixed;
 
         }
 
