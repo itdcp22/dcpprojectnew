@@ -51,6 +51,10 @@
                 text-align: center;
             }
 
+            .line-break {
+                line-height: 40px;
+            }
+
             .title {
                 font-size: 84px;
             }
@@ -101,7 +105,7 @@
 
     </div>
 
-
+    <br class="line-break">
 
     <div align="center">
         <img src="mallhome12.PNG" style="max-width:100%;height:auto;">
