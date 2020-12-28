@@ -190,7 +190,7 @@
                   <i class="nav-icon fas fa-hourglass-half"></i>
 
                   <p>
-                    Pending
+                    Pending/Not Approved
 
 
                     @if((Auth::user()->user_type) == 'tenant')
@@ -217,7 +217,7 @@
 
 
                   <p>
-                    Approved/Rejected
+                    Approved
 
                     @if((Auth::user()->user_type) == 'tenant')
                     <span class="right badge badge-success">{{$approvedwp}}</span>
