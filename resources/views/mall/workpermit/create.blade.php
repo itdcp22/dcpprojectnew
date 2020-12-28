@@ -215,14 +215,14 @@
               <option value="" selected disabled hidden>Please select</option>
 
               <option value="11:00 PM">11:00 PM</option>
-              <option value="12:00 PM">12:00 PM</option>
+              <option value="12:00 AM">12:00 AM</option>
               <option value="01:00 AM">01:00 AM</option>
               <option value="02:00 AM">02:00 AM</option>
               <option value="03:00 AM">03:00 AM</option>
               <option value="04:00 AM">04:00 AM</option>
               <option value="05:00 AM">05:00 AM</option>
               <option value="06:00 AM">06:00 AM</option>
-              <option value="07:00 AM">07:00 AM</option>
+
 
             </select>
 
@@ -247,7 +247,7 @@
               <option value="" selected disabled hidden>Please select</option>
 
 
-              <option value="12:00 PM">12:00 PM</option>
+              <option value="12:00 AM">12:00 AM</option>
               <option value="01:00 AM">01:00 AM</option>
               <option value="02:00 AM">02:00 AM</option>
               <option value="03:00 AM">03:00 AM</option>

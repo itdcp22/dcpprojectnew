@@ -15,6 +15,7 @@ use Auth;
 use Gate;
 
 use App\Mail\Wpapproved;
+use App\Mail\Wpneedinfo;
 
 class WorkpermitappController extends Controller
 {
@@ -100,7 +101,14 @@ class WorkpermitappController extends Controller
 
         $workpermit->save();
 
-        Mail::send(new wpapproved($workpermit));
+        if ($request->wp_status  == "Approved") {
+
+            Mail::send(new wpapproved($workpermit));
+        } elseif ($request->wp_status  == "Not_Approved") {
+            Mail::send(new wpneedinfo($workpermit));
+        }
+
+
 
 
         return redirect('mall/workpermit')->with('info', 'Transaction updated successfully!');

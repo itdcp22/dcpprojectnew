@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Account;
+
 use App\Workpermit;
 
 use Illuminate\Bus\Queueable;
@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewBill extends Mailable
+class Wpneedinfo extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,11 +33,11 @@ class NewBill extends Mailable
      */
     public function build()
     {
-        return $this->from('info@mallofmuscat.com', 'Workpermit Request')
+        return $this->from('info@mallofmuscat.com', 'Workpermit Need More Info')
             ->to(auth()->user()->email, auth()->user()->name)
-            ->cc('cheatan@mallofmuscat.com', 'Cheatan')
-            ->bcc('hussain@mallofmuscat.com', 'Hussain')
+            ->cc('info@mallofmuscat.com', 'Info')
+            ->cc('security@mallofmuscat.com', 'Security')
             ->subject($this->workpermit->wp_brand_name)
-            ->view('email.newbill.added');
+            ->view('email.wpneedinfo.wpneedinfo');
     }
 }
