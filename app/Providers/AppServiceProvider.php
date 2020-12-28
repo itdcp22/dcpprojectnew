@@ -204,26 +204,27 @@ class AppServiceProvider extends ServiceProvider
 
 
         view()->composer('*', function ($view) {
-            $view->with('pendingwp', \App\Workpermit::where('wp_comp_code', optional(auth()->user())->company)
+            $view->with('pendingwp', \App\Workpermit::where('wp_created_uid', optional(auth()->user())->id)
                 ->where('wp_status', 'Pending')
+                ->Orwhere('wp_status', 'Not_Approved')
                 ->count('ID'));
         });
 
         view()->composer('*', function ($view) {
-            $view->with('approvedwp', \App\Workpermit::where('wp_comp_code', optional(auth()->user())->company)
+            $view->with('approvedwp', \App\Workpermit::where('wp_created_uid', optional(auth()->user())->id)
                 ->where('wp_status', 'Approved')
                 ->count('ID'));
         });
 
         view()->composer('*', function ($view) {
-            $view->with('rejectedwp', \App\Workpermit::where('wp_comp_code', optional(auth()->user())->company)
-                ->where('wp_status', 'Rejected')
+            $view->with('rejectedwp', \App\Workpermit::where('wp_created_uid', optional(auth()->user())->id)
+                ->where('wp_status', 'Not_Approved')
                 ->count('ID'));
         });
 
 
         view()->composer('*', function ($view) {
-            $view->with('pendingwpmall', \App\Workpermit::where('wp_status', 'Pending')->count('ID'));
+            $view->with('pendingwpmall', \App\Workpermit::where('wp_status', 'Pending')->Orwhere('wp_status', 'Not_Approved')->count('ID'));
         });
 
         view()->composer('*', function ($view) {
@@ -231,7 +232,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('*', function ($view) {
-            $view->with('rejectedwpmall', \App\Workpermit::where('wp_status', 'Rejected')->count('ID'));
+            $view->with('rejectedwpmall', \App\Workpermit::where('wp_status', 'Not_Approved')->count('ID'));
         });
 
         view()->composer('*', function ($view) {

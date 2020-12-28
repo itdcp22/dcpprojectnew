@@ -30,7 +30,7 @@ class WorkpermitController extends Controller
         if ((Auth::user()->user_type) == 'tenant') {
 
 
-            $arr['workpermit'] = Workpermit::where('wp_comp_code', auth()->user()->company)->where('wp_created_uid', auth()->user()->id)
+            $arr['workpermit'] = Workpermit::where('wp_created_uid', auth()->user()->id)
                 ->where('wp_status', 'Pending')
                 ->Orwhere('wp_status', 'Not_Approved')
                 ->orderBy('id', 'desc')->get();
@@ -49,14 +49,12 @@ class WorkpermitController extends Controller
         if ((Auth::user()->user_type) == 'tenant') {
 
 
-            $arr['workpermit'] = Workpermit::where('wp_comp_code', auth()->user()->company)->where('wp_created_uid', auth()->user()->id)
+            $arr['workpermit'] = Workpermit::where('wp_created_uid', auth()->user()->id)
                 ->where('wp_status', 'Approved')
-                ->orWhere('wp_status', 'Rejected')
                 ->orderBy('id', 'desc')->get();
             return view('mall.workpermit.approved')->with($arr);
         } else {
             $arr['workpermit'] = Workpermit::where('wp_status', 'Approved')
-                ->orWhere('wp_status', 'Rejected')
                 ->orderBy('id', 'desc')->get();
             return view('mall.workpermitapp.index')->with($arr);
         }

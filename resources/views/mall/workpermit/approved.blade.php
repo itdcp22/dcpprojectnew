@@ -68,7 +68,10 @@
                                     <div class="text-primary">
                                         Approved
                                     </div>
-
+                                    @elseif($c->wp_status =='Not_Approved')
+                                    <div class="text-danger">
+                                        Not Approved
+                                    </div>
                                     @else
                                     <div class="text-danger">
                                         Rejected

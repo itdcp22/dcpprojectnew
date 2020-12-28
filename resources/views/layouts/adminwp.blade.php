@@ -191,8 +191,19 @@
 
                   <p>
                     Pending
+
+
+                    @if((Auth::user()->user_type) == 'tenant')
                     <span class="right badge badge-warning">{{$pendingwp}}</span>
+                    @elseif((Auth::user()->user_type) == 'mall')
+                    <span class="right badge badge-warning">{{$pendingwpmall}}</span>
+                    @endif
+
+
+
                   </p>
+
+
                 </a>
               </li>
 
@@ -207,7 +218,15 @@
 
                   <p>
                     Approved/Rejected
-                    <span class="right badge badge-success">{{$approvedwp + $rejectedwp}}</span>
+
+                    @if((Auth::user()->user_type) == 'tenant')
+                    <span class="right badge badge-success">{{$approvedwp}}</span>
+                    @elseif((Auth::user()->user_type) == 'mall')
+                    <span class="right badge badge-success">{{$approvedwpmall}}</span>
+                    @endif
+
+
+
                   </p>
                 </a>
               </li>

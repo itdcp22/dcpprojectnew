@@ -128,7 +128,7 @@
               @endif
             </h3>
 
-            <p>Work Permit Rejected</p>
+            <p>Work Permit Not Approved</p>
           </div>
           <div class="icon">
 

@@ -203,7 +203,7 @@
 
 
       <div class="form-group">
-        <p class="bg-warning text-white"><strong>Work Category - تصنيف العمل )ضع علامة على العمود)</strong>
+        <p class="bg-warning text-white"><strong>Work Category - تصنيف العمل</strong>
           <textarea class="form-control" name="wp_category" rows="3" id="comment" placeholder="Work Category"
             readonly>{{$workpermit->wp_category}}</textarea>
         </p>
