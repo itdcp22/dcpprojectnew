@@ -205,7 +205,7 @@
 
           </div>
 
-          <label class="col-lg-1" for="">Time From</label>
+          <label class="col-lg-1" for="">Start Time</label>
           <div class="col-lg-2">
 
 
@@ -238,7 +238,7 @@
           </script>
 
 
-          <label class="col-lg-1" for="">Time To</label>
+          <label class="col-lg-1" for="">End Time</label>
           <div class="col-lg-2">
 
 
