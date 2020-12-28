@@ -62,7 +62,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Work Permit Form</h1>
+        <h1 class="m-0 text-dark">Work Permit Form - Edit</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -334,8 +334,11 @@
           <li>No material and shop fixtures to be left in the mall common areas.</li>
           <li>All workers must follow the safety and security rules and regulations.</li>
           <li>Please report to the security if any incident/damage to the property.</li>
+          <li>Responsible if in case of any damage in surrounding area.</li>
+          <li>For HOT work permits, valid fire extingusher and first aid kit has to be stored at work place</li>
         </ol>
-         <p align="center"> Above said terms and conditions agreed. </p>
+         <p align="center"> I understand & accept all the responsibilities as explained in work permit terms and
+          Conditions. </p>
 
 
 
