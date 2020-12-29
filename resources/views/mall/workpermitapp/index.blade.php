@@ -35,8 +35,8 @@
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Status</th>
-                <th>App / Rej By</th>
-                <th>App / Rej Date</th>
+                <th>App / NA By</th>
+                <th>App / NA Date</th>
                 <th> Action </th>
               </tr>
             </thead>
@@ -136,8 +136,8 @@
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Status</th>
-                <th>App / Rej By</th>
-                <th>App / Rej Date</th>
+                <th>App / NA By</th>
+                <th>App / NA Date</th>
                 <th> Action </th>
 
               </tr>
