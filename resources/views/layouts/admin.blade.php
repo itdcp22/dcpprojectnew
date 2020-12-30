@@ -181,19 +181,7 @@
                 </a>
 
               </li>
-              <li class="nav-item">
-                <a href=" {{ route('homeicc') }}" class="nav-link
-            @if(!$segment)
-            active
-            @endif            
-            ">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                    Dashboard - Booking
-                  </p>
-                </a>
 
-              </li>
               @endcan
 
               @can('isGuest')
@@ -274,16 +262,7 @@
                     </a>
                   </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('hrms.locker.index')}}" class="nav-link
-            @if($segment=='locker')                
-            active
-            @endif">
-                      <i class="nav-icon fas fa-lock text-danger"></i>
 
-                      <p class="text">Locker</p>
-                    </a>
-                  </li>
 
                   @endif
 
@@ -615,100 +594,6 @@
 
 
 
-              @can('isUser')
-
-              <li class="nav-header">BOOKING - GUEST</li>
-              <li class="nav-item">
-                <a href="{{route('foh.booking.create')}}" class="nav-link
-            @if($segment=='booking')
-            active
-            @endif">
-                  <i class="nav-icon fas fa-file"></i>
-                  <p>New Booking</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('foh.booking.index')}}" class="nav-link
-            @if($segment=='booking.create')
-            active
-            @endif">
-                  <i class="nav-icon far fa-circle text-warning"></i>
-                  <p>Booking Details</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('foh.pending.index')}}" class="nav-link
-            @if($segment=='pending')
-            active
-            @endif">
-                  <i class="nav-icon fas fa-circle text-info"></i>
-
-
-                  <p>Pending Approval</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('foh.bookinghistory.index')}}" class="nav-link
-            @if($segment=='bookinghistory')
-            active
-            @endif">
-                  <i class="nav-icon far fa-circle"></i>
-                  <p>Booking History</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('foh.cancel.index')}}" class="nav-link
-            @if($segment=='cancel')
-            active
-            @endif">
-                  <i class="nav-icon far fa-circle"></i>
-                  <p>Booking Cancel</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('foh.cancelled.index')}}" class="nav-link
-            @if($segment=='cancelled')
-            active
-            @endif">
-                  <i class="nav-icon far fa-circle"></i>
-                  <p>Booking Cancelled</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href='{!! url('/calendar') !!}' class="nav-link">
-
-                  <i class="far fa fa-calendar-alt nav-icon"></i>
-                  <p>Calander</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('foh.addon.index')}}" class="nav-link
-            @if($segment=='addon')
-            active
-            @endif">
-                  <i class="nav-icon fas fa-plus text-danger"></i>
-                  <p>Addons</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href=" {{ route('users') }}" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-
-                  <p>Users</p>
-                </a>
-              </li>
-
-
-              @endcan
 
 
 
