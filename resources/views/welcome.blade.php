@@ -81,16 +81,20 @@
 
 <body>
 
-    <div class="flex-center position-ref">
+    <div class="flex-center position-ref lead">
         @if (Route::has('login'))
         <div class="top-right links">
+
+
+
+
             @auth
             <a href="{{ url('/mallwp') }}">Home</a>
             @else
-            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('login') }}"><strong><mark>Login</mark></strong></a>
 
             @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
+            <a href="{{ route('register') }}"><strong><mark>Register</mark></strong></a>
             @endif
             @endauth
 
