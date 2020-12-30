@@ -52,7 +52,7 @@
             }
 
             .line-break {
-                line-height: 40px;
+                line-height: 80px;
             }
 
             .title {
@@ -108,7 +108,8 @@
 
 
     </div>
-
+    <br>
+    <br>
     <br class="line-break">
 
     <div align="center">
