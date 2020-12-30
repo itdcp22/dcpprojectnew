@@ -218,7 +218,7 @@
                 </a>
                 <ul class="nav nav-treeview">
 
-                  @if(Gate::check('isUser') || Gate::check('isAdmin'))
+                  @if(Gate::check('isUser') || Gate::check('isAdmin') || Gate::check('isMall'))
 
 
                   <li class="nav-item">
@@ -261,6 +261,20 @@
                       <p>Advances</p>
                     </a>
                   </li>
+
+                  @can('isMall')
+                  <li class="nav-item">
+
+                    <a href="{{route('mall.workpermit.index')}}" class="nav-link 
+            
+            @if($segment=='workpermit')                
+            active
+            @endif">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Work Permit</p>
+                    </a>
+                  </li>
+                  @endif
 
 
 

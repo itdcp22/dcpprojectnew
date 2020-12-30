@@ -299,6 +299,59 @@
                 </a>
               </li>
 
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Petty Cash
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('admin.accounts.create')}}" class="nav-link">
+                      <i class="nav-icon far fa-circle text-warning"></i>
+                      <p>Add Bill</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('admin.accounts.index')}}" class="nav-link
+            @if($segment=='accounts')                
+            active
+            @endif">
+                      <i class="nav-icon far fa-circle text-info"></i>
+                      <p>Unpaid Bills</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('admin.paidbills.index')}}" class="nav-link
+            @if($segment=='paidbills')                
+            active
+            @endif">
+                      <i class="nav-icon far fa-circle text-danger"></i>
+                      <p class="text">Paid Bills</p>
+                    </a>
+                  </li>
+
+
+
+                  <li class="nav-item">
+
+                    <a href="{{route('admin.advances.index')}}" class="nav-link 
+            
+            @if($segment=='advances')                
+            active
+            @endif">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Advances</p>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
 
               @endcan
 
