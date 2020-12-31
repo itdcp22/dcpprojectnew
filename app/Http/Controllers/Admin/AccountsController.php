@@ -160,13 +160,13 @@ class AccountsController extends Controller
         if ((Auth::user()->company)  == 1) {
 
             $account->th_comp_name = 'Al Jarwani';
-        } else if ((Auth::user()->company)  == 2) {
+        } else if ((Auth::user()->company)  == 92) {
 
             $account->th_comp_name = 'Mall Of Muscat';
-        } else if ((Auth::user()->company)  == 3) {
+        } else if ((Auth::user()->company)  == 34) {
 
             $account->th_comp_name = 'Oman Aquarium';
-        } else if ((Auth::user()->company)  == 4) {
+        } else if ((Auth::user()->company)  == 35) {
 
             $account->th_comp_name = 'Snow Village';
         }
