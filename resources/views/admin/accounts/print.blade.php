@@ -62,9 +62,9 @@
       <h4 class="m-0 text-dark text-center">Claim Form</h4>
     </div>
     <div class="col text-center">
-      @if($account->th_comp_code =='2')
+      @if($account->th_comp_code =='92')
       <img src={{asset('dist/img/printmall.png')}}>
-      @elseif($account->th_comp_code =='3')
+      @elseif($account->th_comp_code =='34')
       <img src={{asset('dist/img/printaqua.png')}}>
       @else
       <img src={{asset('dist/img/printjarwani.png class=img-circle elevation-2 alt=Logo')}}>
