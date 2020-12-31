@@ -184,6 +184,23 @@
 
               @endcan
 
+              @can('isMall')
+              <li class="nav-item">
+                <a href=" {{ route('home') }}" class="nav-link
+            @if(!$segment)
+            active
+            @endif            
+            ">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                  </p>
+                </a>
+
+              </li>
+
+              @endcan
+
               @can('isGuest')
               <li class="nav-item">
                 <a href=" {{ route('homeicc') }}" class="nav-link

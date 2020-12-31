@@ -157,18 +157,15 @@ class AccountsController extends Controller
         $account->th_acc_month = $todaymnt->month;
 
 
-        if ((Auth::user()->company)  == 1) {
-
-            $account->th_comp_name = 'Al Jarwani';
-        } else if ((Auth::user()->company)  == 92) {
+        if ((Auth::user()->company)  == 92) {
 
             $account->th_comp_name = 'Mall Of Muscat';
         } else if ((Auth::user()->company)  == 34) {
 
             $account->th_comp_name = 'Oman Aquarium';
-        } else if ((Auth::user()->company)  == 35) {
+        } else {
 
-            $account->th_comp_name = 'Snow Village';
+            $account->th_comp_name = 'Al Jarwani';
         }
 
 
