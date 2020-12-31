@@ -86,13 +86,33 @@ class AccountsController extends Controller
     {
 
 
-
-
-        $id = Account::orderByDesc('th_tran_no')->first()->th_tran_no ?? date('Y') . 00000;
+        $id = Account::where('th_comp_code', auth()->user()->company)
+            ->orderByDesc('th_tran_no')->first()->th_tran_no ?? date('Y') . 00000;
         $year = date('Y');
         $id_year = substr($id, 0, 4);
         $seq = $year <> $id_year ? 0 : +substr($id, -5);
-        $new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
+        // $new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
+        //$account->th_tran_no = $new_id;    
+
+
+        $lastAccountForCurrentYear = Account::where('th_comp_code', auth()->user()->company)
+            ->where('th_tran_no', 'like', date('Y') . '%') // filter for current year numbers
+            ->orderByDesc('th_tran_no', 'desc') // the biggist one first
+            ->first();
+
+        $account->th_tran_no = $lastAccountForCurrentYear
+            ? ($lastAccountForCurrentYear->th_tran_no + 1) // just increase value to 1
+            : (date('Y') . $digitRepresentingASerie . '00001');
+
+        $new_id = $account->th_tran_no;
+
+
+
+        // $id = Account::orderByDesc('th_tran_no')->first()->th_tran_no ?? date('Y') . 00000;
+        // $year = date('Y');
+        //$id_year = substr($id, 0, 4);
+        //$seq = $year <> $id_year ? 0 : +substr($id, -5);
+        //$new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
 
 
 
@@ -124,7 +144,7 @@ class AccountsController extends Controller
         $account->th_bill_no = $request->th_bill_no;
         $account->th_pay_mode = $request->th_pay_mode;
         $account->th_purpose = $request->th_purpose;
-        $account->th_tran_no = $new_id;
+        //$account->th_tran_no = $new_id;
         $account->th_emp_id = Auth::user()->id;
         $account->th_emp_name = Auth::user()->name;
         $account->th_dept_code = Auth::user()->dept;
