@@ -201,7 +201,6 @@ class AccountsController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -278,18 +277,16 @@ class AccountsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
 
 
 
-        // Account::destroy($id);                  
-        // return redirect()->route('admin.accounts.index')->with('error','Transaction deleted successfully!');  
+        dd($request->category_id);
+        $account = Account::findOrFail($request->category_id);
 
-        Account::find($id)->delete();
+        $account->delete();
 
-
-        //Account::find($request->id)->delete();
-        return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully');
+        return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully!');
     }
 }

@@ -83,13 +83,11 @@
                   /
 
 
-                  <form onsubmit="return confirm('Do you really want to delete?');"
-                    action="{{ route('admin.accounts.destroy',$c->id) }}" method="POST">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="_method" value="DELETE" />
+                  <a data-catid={{$c->id}} data-toggle="modal" data-target="#delete">
+                    <i class="fa fa-trash text-red"></i>
 
-                    <button type="submit"><i class="fa fa-trash text-red" /></i></button>
-                  </form>
+                  </a>
+
 
 
 
@@ -142,6 +140,36 @@
   </div>
   <!-- /.row -->
 </section>
+
+
+<!-- Modal -->
+<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h4 class="modal-title text-left" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      <form action="{{route('admin.accounts.destroy','test')}}" method="post">
+        {{method_field('delete')}}
+        {{csrf_field()}}
+        <div class="modal-body">
+          <p class="text-left">
+            Are you sure you want to delete this transaction?
+          </p>
+          <input type="hidden" name="category_id" id="cat_id" value="">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-warning">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 
 
 @endsection

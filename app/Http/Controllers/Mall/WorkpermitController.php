@@ -236,6 +236,7 @@ class WorkpermitController extends Controller
      */
     public function destroy(Request $request)
     {
+        //dd($request->category_id);
         $workpermit = Workpermit::findOrFail($request->category_id);
         $workpermit->delete();
 

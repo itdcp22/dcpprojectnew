@@ -59,7 +59,7 @@
     <div class="col">
       <h1 class="m-0 text-dark text-center">Al Jarwani Group</h1>
       <h2 class="m-0 text-dark text-center">{{ $account->th_comp_name}}</h2>
-      <h4 class="m-0 text-dark text-center">Claim Form</h4>
+      <h4 class="m-0 text-dark text-center">Petty Cash Claim Form</h4>
     </div>
     <div class="col text-center">
       @if($account->th_comp_code =='92')
