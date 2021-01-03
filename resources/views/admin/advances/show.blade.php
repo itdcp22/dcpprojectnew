@@ -62,9 +62,9 @@
             <h4 class="m-0 text-dark text-center">Advance Request</h4>
         </div>
         <div class="col text-center">
-            @if($advance->th_comp_code =='92')
+            @if($advance->ca_comp_code =='92')
             <img src={{asset('dist/img/printmall.png')}}>
-            @elseif($advance->th_comp_code =='34')
+            @elseif($advance->ca_comp_code =='34')
             <img src={{asset('dist/img/printaqua.png')}}>
             @else
             <img src={{asset('dist/img/printjarwani.png class=img-circle elevation-2 alt=Logo')}}>
