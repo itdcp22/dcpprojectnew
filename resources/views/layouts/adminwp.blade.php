@@ -295,6 +295,8 @@
                   <p>
                     Pending Users
 
+                    <span class="right badge badge-warning">{{$pendingusers}}</span>
+
                   </p>
                 </a>
               </li>

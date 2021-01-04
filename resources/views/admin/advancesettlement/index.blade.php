@@ -68,6 +68,8 @@
 
                   </a>
 
+                  /
+
                   <a href="{{ route('admin.advances.edit',$c->id) }}"><i class="fa fa-edit"></i></a>
 
                   <form action="{{ route('admin.advances.destroy', $c->id)}}" method="POST">

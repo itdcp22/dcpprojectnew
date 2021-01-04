@@ -242,5 +242,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with('brandcount', \App\Brand::count('ID'));
         });
+
+        view()->composer('*', function ($view) {
+            $view->with('pendingusers', \App\User::where('user_type', 'tenant')->whereNull('email_verified_at')->count('ID'));
+        });
     }
 }
