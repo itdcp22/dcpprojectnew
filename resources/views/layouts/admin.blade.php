@@ -95,533 +95,536 @@
 
       @if(auth()->user()->type =='user')
       <a href=" {{ route('home') }}" class="brand-link">
-        @else(auth()->user()->type =='tenant')
-        <a href=" {{ route('mallwp') }}" class="brand-link">
-          @endif
+        @elseif(auth()->user()->type =='admin')
+        <a href=" {{ route('home') }}" class="brand-link">
+          @else(auth()->user()->type =='tenant')
+          <a href=" {{ route('mallwp') }}" class="brand-link">
+            @endif
 
 
-          <img src={{asset('dist/img/jarwani.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
+            <img src={{asset('dist/img/jarwani.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
 
-          <span>Jarwani Group</span>
-        </a>
+            <span>Jarwani Group</span>
+          </a>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <!-- Sidebar -->
+          <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
-            <div class="image">
+              <div class="image">
 
-              @if(auth()->user()->company =='3')
-              <img src={{asset('dist/img/logo.png class=img-circle elevation-2 alt=Logo')}}>
-              @elseif(auth()->user()->company =='2')
+                @if(auth()->user()->company =='3')
+                <img src={{asset('dist/img/logo.png class=img-circle elevation-2 alt=Logo')}}>
+                @elseif(auth()->user()->company =='2')
 
-              <img src={{asset('dist/img/malllogonew.PNG class=img-circle elevation-2 alt=MallLogo')}}>
-              @else
-              <img src={{asset('dist/img/jarwani.png class=img-circle elevation-2 alt=Logo')}}>
-              @endif
-
-
+                <img src={{asset('dist/img/malllogonew.PNG class=img-circle elevation-2 alt=MallLogo')}}>
+                @else
+                <img src={{asset('dist/img/jarwani.png class=img-circle elevation-2 alt=Logo')}}>
+                @endif
 
 
 
+
+
+              </div>
+              <div class="info">
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+              </div>
             </div>
-            <div class="info">
-              <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-            </div>
-          </div>
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-              <!-- Add icons to the links using the .nav-icon class
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-              <?php
+                <?php
               $segment = Request::segment(2);              
             ?>
-              @can('isAdmin')
-              <li class="nav-item">
-                <a href=" {{ route('home') }}" class="nav-link
+                @can('isAdmin')
+                <li class="nav-item">
+                  <a href=" {{ route('home') }}" class="nav-link
                 @if(!$segment)
                 active
                 @endif            
                 ">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Dashboard
-                  </p>
-                </a>
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      Dashboard
+                    </p>
+                  </a>
 
-              </li>
-              <li class="nav-item">
-                <a href=" {{ route('homeicc') }}" class="nav-link
+                </li>
+                <li class="nav-item">
+                  <a href=" {{ route('homeicc') }}" class="nav-link
                 @if(!$segment)
                 active
                 @endif            
                 ">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                    Dashboard - Booking
-                  </p>
-                </a>
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                      Dashboard - Booking
+                    </p>
+                  </a>
 
-              </li>
-              @endcan
+                </li>
+                @endcan
 
-              @can('isUser')
-              <li class="nav-item">
-                <a href=" {{ route('home') }}" class="nav-link
+                @can('isUser')
+                <li class="nav-item">
+                  <a href=" {{ route('home') }}" class="nav-link
             @if(!$segment)
             active
             @endif            
             ">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Dashboard
-                  </p>
-                </a>
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      Dashboard
+                    </p>
+                  </a>
 
-              </li>
+                </li>
 
-              @endcan
+                @endcan
 
-              @can('isMall')
-              <li class="nav-item">
-                <a href=" {{ route('home') }}" class="nav-link
+                @can('isMall')
+                <li class="nav-item">
+                  <a href=" {{ route('home') }}" class="nav-link
             @if(!$segment)
             active
             @endif            
             ">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Dashboard
-                  </p>
-                </a>
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      Dashboard
+                    </p>
+                  </a>
 
-              </li>
+                </li>
 
-              @endcan
+                @endcan
 
-              @can('isGuest')
-              <li class="nav-item">
-                <a href=" {{ route('homeicc') }}" class="nav-link
+                @can('isGuest')
+                <li class="nav-item">
+                  <a href=" {{ route('homeicc') }}" class="nav-link
             @if(!$segment)
             active
             @endif            
             ">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Dashboard - Booking
-                  </p>
-                </a>
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      Dashboard - Booking
+                    </p>
+                  </a>
 
-              </li>
-              @endcan
-
-
+                </li>
+                @endcan
 
 
 
 
 
 
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                    Acccounts
-                    <i class="fas fa-angle-left right"></i>
-                    <span class="badge badge-info right">4</span>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-
-                  @if(Gate::check('isUser') || Gate::check('isAdmin') || Gate::check('isMall'))
 
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.accounts.create')}}" class="nav-link">
-                      <i class="nav-icon far fa-circle text-warning"></i>
-                      <p>Add Bill</p>
-                    </a>
-                  </li>
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-copy"></i>
+                    <p>
+                      Acccounts
+                      <i class="fas fa-angle-left right"></i>
+                      <span class="badge badge-info right">4</span>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.accounts.index')}}" class="nav-link
+                    @if(Gate::check('isUser') || Gate::check('isAdmin') || Gate::check('isMall'))
+
+
+                    <li class="nav-item">
+                      <a href="{{route('admin.accounts.create')}}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p>Add Bill</p>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="{{route('admin.accounts.index')}}" class="nav-link
             @if($segment=='accounts')                
             active
             @endif">
-                      <i class="nav-icon far fa-circle text-info"></i>
-                      <p>Unpaid Bills</p>
-                    </a>
-                  </li>
+                        <i class="nav-icon far fa-circle text-info"></i>
+                        <p>Unpaid Bills</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.paidbills.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.paidbills.index')}}" class="nav-link
             @if($segment=='paidbills')                
             active
             @endif">
-                      <i class="nav-icon far fa-circle text-danger"></i>
-                      <p class="text">Paid Bills</p>
-                    </a>
-                  </li>
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p class="text">Paid Bills</p>
+                      </a>
+                    </li>
 
 
 
-                  <li class="nav-item">
+                    <li class="nav-item">
 
-                    <a href="{{route('admin.advances.index')}}" class="nav-link 
+                      <a href="{{route('admin.advances.index')}}" class="nav-link 
             
             @if($segment=='advances')                
             active
             @endif">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Advances</p>
-                    </a>
-                  </li>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Advances</p>
+                      </a>
+                    </li>
 
-                  @can('isMall')
-                  <li class="nav-item">
+                    @can('isMall')
+                    <li class="nav-item">
 
-                    <a href="{{route('mall.workpermit.index')}}" class="nav-link 
+                      <a href="{{route('mall.workpermit.index')}}" class="nav-link 
             
             @if($segment=='workpermit')                
             active
             @endif">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Work Permit</p>
-                    </a>
-                  </li>
-                  @endif
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Work Permit</p>
+                      </a>
+                    </li>
+                    @endif
 
 
 
-                  @endif
+                    @endif
 
 
 
 
-                  @can('isAdmin')
-                  <li class="nav-item">
+                    @can('isAdmin')
+                    <li class="nav-item">
 
-                    <a href="{{route('admin.unpaidbills.index')}}" class="nav-link 
+                      <a href="{{route('admin.unpaidbills.index')}}" class="nav-link 
                 
                 @if($segment=='unpaidbills')                
                 active
                 @endif">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Unpaid Bills - All</p>
-                    </a>
-                  </li>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Unpaid Bills - All</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.allpaidbills.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.allpaidbills.index')}}" class="nav-link
                 @if($segment=='allpaidbills')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Paid Bills - All</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Paid Bills - All</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.advanceall.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.advanceall.index')}}" class="nav-link
                 @if($segment=='advanceall')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Advance Request</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Advance Request</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.advancesettlement.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.advancesettlement.index')}}" class="nav-link
                 @if($segment=='advancesettlement')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Advance Settlement</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Advance Settlement</p>
+                      </a>
+                    </li>
 
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.advancehistory.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.advancehistory.index')}}" class="nav-link
                 @if($segment=='advancehistory')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Advance History</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Advance History</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.cashtopups.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.cashtopups.index')}}" class="nav-link
                 @if($segment=='cashtopups')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Cash Topup</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Cash Topup</p>
+                      </a>
+                    </li>
 
 
-                  <li class="nav-item">
-                    <a href="{{route('cash')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('cash')}}" class="nav-link
                 @if($segment=='coh')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Cash On Hand</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Cash On Hand</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.expense.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.expense.index')}}" class="nav-link
                 @if($segment=='expense')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Expanse Analysis</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Expanse Analysis</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.categories.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.categories.index')}}" class="nav-link
                 @if($segment=='categories')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Category</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Category</p>
+                      </a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.beneficiary.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('admin.beneficiary.index')}}" class="nav-link
                 @if($segment=='beneficiary')                
                 active
                 @endif                
                 ">
 
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Beneficiary</p>
-                    </a>
-                  </li>
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Beneficiary</p>
+                      </a>
+                    </li>
 
 
 
 
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.cheque.index')}}" class="nav-link 
+                    <li class="nav-item">
+                      <a href="{{route('admin.cheque.index')}}" class="nav-link 
                 @if($segment=='cheque')                
                 active
                 @endif ">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Cheque</p>
-                    </a>
-                  </li>
-                  @endcan
-                </ul>
-              </li>
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Cheque</p>
+                      </a>
+                    </li>
+                    @endcan
+                  </ul>
+                </li>
 
-              @can('isAdmin')
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-chart-pie"></i>
-                  <p>
-                    HR
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/charts/chartjs.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Biodata</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/charts/flot.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Leave Form</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/charts/inline.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Public Holidays</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+                @can('isAdmin')
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                      HR
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/charts/chartjs.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Biodata</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/charts/flot.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Leave Form</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/charts/inline.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Public Holidays</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tree"></i>
-                  <p>
-                    FOH
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('foh.booking.create')}}" class="nav-link
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tree"></i>
+                    <p>
+                      FOH
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{route('foh.booking.create')}}" class="nav-link
                 ">
-                      <i class="nav-icon fas fa-file"></i>
-                      <p>New Booking</p>
-                    </a>
-                  </li>
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>New Booking</p>
+                      </a>
+                    </li>
 
 
 
 
-                  <li class="nav-item">
-                    <a href="{{route('foh.booking.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('foh.booking.index')}}" class="nav-link
                 ">
-                      <i class="nav-icon far fa-circle text-warning"></i>
-                      <p>Booking Details</p>
-                    </a>
-                  </li>
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p>Booking Details</p>
+                      </a>
+                    </li>
 
 
 
 
-                  <li class="nav-item">
-                    <a href="{{route('foh.bookinghistory.index')}}" class="nav-link
+                    <li class="nav-item">
+                      <a href="{{route('foh.bookinghistory.index')}}" class="nav-link
                 @if($segment=='bookinghistory')
                 active
                 @endif">
-                      <i class="nav-icon far fa-circle "></i>
+                        <i class="nav-icon far fa-circle "></i>
 
-                      <p>Booking History</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href='{!! url('/calendar') !!}' class="nav-link">
-                      <i class="far fa fa-calendar-alt nav-icon"></i>
-                      <p>Calendar</p>
-                    </a>
-                  </li>
+                        <p>Booking History</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href='{!! url('/calendar') !!}' class="nav-link">
+                        <i class="far fa fa-calendar-alt nav-icon"></i>
+                        <p>Calendar</p>
+                      </a>
+                    </li>
 
-                </ul>
-              </li>
+                  </ul>
+                </li>
 
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>
-                    BOH
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/forms/general.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Schedule</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/forms/advanced.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Fish Movement</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/forms/editors.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Fish Collection</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>
+                      BOH
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/forms/general.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Schedule</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/forms/advanced.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Fish Movement</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/forms/editors.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Fish Collection</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-table"></i>
-                  <p>
-                    IT
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/tables/simple.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Support</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/tables/data.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Access Request</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="pages/tables/jsgrid.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Policy</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href=" {{ route('users') }}" class="nav-link">
-                      <i class="nav-icon fas fa-file"></i>
-                      <p>Users</p>
-                    </a>
-                  </li>
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-table"></i>
+                    <p>
+                      IT
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/tables/simple.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Support</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/tables/data.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Access Request</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/tables/jsgrid.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Policy</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href=" {{ route('users') }}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Users</p>
+                      </a>
+                    </li>
 
-                </ul>
-              </li>
-              @endcan
+                  </ul>
+                </li>
+                @endcan
 
-              @can('isAccess')
-              <li class="nav-item">
-                <a href="{{route('hrms.locker.index')}}" class="nav-link
+                @can('isAccess')
+                <li class="nav-item">
+                  <a href="{{route('hrms.locker.index')}}" class="nav-link
             @if($segment=='locker')
             active
             @endif            
             ">
-                  <i class="nav-icon fas fa-lock"></i>
-                  <p>
-                    Locker
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
-              @endcan
+                    <i class="nav-icon fas fa-lock"></i>
+                    <p>
+                      Locker
+                      <span class="right badge badge-danger">New</span>
+                    </p>
+                  </a>
+                </li>
+                @endcan
 
 
-              @can('isTenant')
-              <li class="nav-item">
-                <a href="{{route('mall.workpermit.create')}}" class="nav-link
+                @can('isTenant')
+                <li class="nav-item">
+                  <a href="{{route('mall.workpermit.create')}}" class="nav-link
             @if($segment=='workpermit')
             active
             @endif            
             ">
-                  <i class="nav-icon fas fa-lock"></i>
-                  <p>
-                    Work Permit
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
-              @endcan
+                    <i class="nav-icon fas fa-lock"></i>
+                    <p>
+                      Work Permit
+                      <span class="right badge badge-danger">New</span>
+                    </p>
+                  </a>
+                </li>
+                @endcan
 
 
 
@@ -629,14 +632,14 @@
 
 
 
-            </ul>
-          </nav>
+              </ul>
+            </nav>
 
 
 
-          <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
+            <!-- /.sidebar-menu -->
+          </div>
+          <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
