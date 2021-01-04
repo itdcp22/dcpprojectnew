@@ -133,8 +133,13 @@
                             <div class="row">
                                 <label class="col" for="">Reason </label>
                                 <div class="col">
-                                    <input class="form-control" id="datepicker" name="bill_date"
-                                        value="{{ $advance->ca_purpose}}" readonly>
+
+
+                                    <textarea class="form-control" name="wp_description" rows="3" id="comment"
+                                        placeholder="Enter work description in detail"
+                                        readonly>{{$advance->ca_purpose}}</textarea>
+
+
                                 </div>
 
 
@@ -162,34 +167,69 @@
                                     </div>
                                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-                                 
-
-
-
-
-
-
                                 <div class="form-group">
+                                    <div class="row">
+                                        <label class="col" for="">Cash Received By: </label>
+                                        <div class="col">
+                                            <input class="form-control" id="datepicker" name="bill_date" value=""
+                                                readonly>
+                                        </div>
 
 
 
-                                    <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
+                                        <label class="col" for=""> </label>
+                                        <div class="col">
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="col" for="">Receiver Signature: </label>
+                                            <div class="col">
+                                                <input class="form-control" id="datepicker" name="bill_date" value=""
+                                                    readonly>
+                                            </div>
+
+
+
+                                            <label class="col" for=""> </label>
+                                            <div class="col">
+
+
+                                            </div>
+                                        </div>
 
 
 
 
-                                </div>
+
+
+
+
+
+
+
+
+                                         
+
+
+
+
+
+
+                                        <div class="form-group">
+
+
+
+                                            <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
+
+
+
+
+                                        </div>
 
 
 
