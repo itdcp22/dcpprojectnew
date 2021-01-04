@@ -355,7 +355,10 @@
 
 
 
+          <div class="col text-center">
+            <img src={{asset('dist/img/qr.png')}}>
 
+          </div>
 
 
 
