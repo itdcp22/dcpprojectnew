@@ -93,9 +93,9 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
 
-      @if(auth()->user()->type =='user')
+      @if(auth()->user()->user_type =='user')
       <a href=" {{ route('home') }}" class="brand-link">
-        @elseif(auth()->user()->type =='admin')
+        @elseif(auth()->user()->user_type =='admin')
         <a href=" {{ route('home') }}" class="brand-link">
           @else(auth()->user()->type =='tenant')
           <a href=" {{ route('mallwp') }}" class="brand-link">
