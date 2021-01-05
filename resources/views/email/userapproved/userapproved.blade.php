@@ -301,7 +301,7 @@
                                                     <p
                                                         style="font-size: 26px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 31px; margin: 0;">
                                                         <span style="font-size: 26px;"><strong><span style>Hello
-                                                                    {{$user->name}}
+
                                                                 </span></strong></span></p>
                                                 </div>
                                             </div>
@@ -337,7 +337,7 @@
                                                     style="line-height: 1.5; font-size: 12px; font-family: Verdana, Geneva, sans-serif; color: #ffffff; mso-line-height-alt: 18px;">
                                                     <p
                                                         style="font-size: 14px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Verdana, Geneva, sans-serif; mso-line-height-alt: 21px; margin: 0;">
-                                                        <em>*You can also check the status online</em></p>
+                                                        <em>*You can login now</em></p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -371,8 +371,7 @@
                                                     style="line-height: 1.5; font-size: 12px; font-family: 'Ubuntu', Tahoma, Verdana, Segoe, sans-serif; color: #ffffff; mso-line-height-alt: 18px;">
                                                     <p
                                                         style="font-size: 18px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 27px; margin: 0;">
-                                                        <span style="font-size: 18px;">We will send you the notification
-                                                            once it is approved:</span></p>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -433,21 +432,13 @@
                                                     style="line-height: 1.5; font-size: 12px; color: #b0a7b7; font-family: Poppins, Arial, Helvetica, sans-serif; mso-line-height-alt: 18px;">
                                                     <p
                                                         style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: 18px; margin: 0;">
-                                                        <span style="font-size: 12px;">Mall Of Muscat, Al Mabela,
-                                                            Muscat, Sultanate Of Oman</span></p>
+                                                        <span style="font-size: 12px;">Mall Of Muscat, Sultanate Of
+                                                            Oman</span></p>
                                                     <p
                                                         style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: 18px; margin: 0;">
                                                         <span style="font-size: 12px;">© Copyright 2021
                                                             www.momcrm.com</span></p>
-                                                    <p
-                                                        style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: 18px; margin: 0;">
-                                                        <span style="font-size: 12px;"><a
-                                                                style="text-decoration: none; color: #b0a7b7;"
-                                                                href="http://www.example.com/" target="_blank"
-                                                                rel="noopener">Manage Preferences</a> | <a
-                                                                style="text-decoration: none; color: #b0a7b7;"
-                                                                href="http://www.example.com/" target="_blank"
-                                                                rel="noopener">Unsubscribe</a></span></p>
+
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
