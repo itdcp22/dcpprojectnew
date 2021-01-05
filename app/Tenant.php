@@ -15,7 +15,6 @@ class Tenant extends Model
 
     public function user()
     {
-        return $this->hasMany(User::class);
-        // return $this->belongsTo('App\User');
+        return $this->hasMany('App\User');
     }
 }

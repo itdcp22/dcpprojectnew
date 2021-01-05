@@ -29,7 +29,7 @@
 
                 <th> Brand</th>
                 <th> Applicant </th>
-                <th> Mobile </th>
+
                 <th> Date From</th>
                 <th> Date To</th>
                 <th>Start Time</th>
@@ -70,7 +70,7 @@
 
                 <td>{{ $c->wp_brand_name }}</td>
                 <td>{{ $c->wp_applicant }}</td>
-                <td>{{ $c->wp_mobile }}</td>
+
 
                 <td>{{ date('d-m-Y', strtotime($c->wp_from_date)) }}</td>
                 <td>{{ date('d-m-Y', strtotime($c->wp_to_date)) }}</td>
@@ -130,7 +130,7 @@
 
                 <th> Brand</th>
                 <th> Applicant </th>
-                <th> Mobile </th>
+
                 <th> Date From</th>
                 <th> Date To</th>
                 <th>Start Time</th>

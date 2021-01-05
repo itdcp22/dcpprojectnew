@@ -40,11 +40,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function tenants()
+    public function tenant()
     {
-        //return $this->belongsTo('App\Tenant');
-        return $this->belongsTo(Tenant::class);
 
-        //return $this->hasMany('App\User');
+        return $this->belongsTo('App\Tenant');
     }
 }

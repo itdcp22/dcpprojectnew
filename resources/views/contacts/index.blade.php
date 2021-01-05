@@ -43,6 +43,7 @@
                                 <td>{{$contact->mobile}}</td>
                                 <td>{{$contact->email}}</td>
                                 <td>{{$contact->company}}</td>
+
                                 <td>{{$contact->created_at}}</td>
 
                                 <td>
