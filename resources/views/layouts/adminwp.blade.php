@@ -267,21 +267,7 @@
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="{{ route('tenantusers') }}" class="nav-link  
-                @if($segment=='tenantusers')
-                active
-                @endif            
-                ">
-                  <i class="nav-icon fas fa-users"></i>
 
-
-                  <p>
-                    Approved Users
-
-                  </p>
-                </a>
-              </li>
 
               <li class="nav-item">
                 <a href="/contacts" class="nav-link  
@@ -296,6 +282,22 @@
                     Pending Users
 
                     <span class="right badge badge-warning">{{$pendingusers}}</span>
+
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('tenantusers') }}" class="nav-link  
+                @if($segment=='tenantusers')
+                active
+                @endif            
+                ">
+                  <i class="nav-icon fas fa-users"></i>
+
+
+                  <p>
+                    Approved Users
 
                   </p>
                 </a>
