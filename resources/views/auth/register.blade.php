@@ -100,7 +100,7 @@
 
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-mobile-alt"></span>
+                                <span class="fas fa-mobile-alt" style="font-size:24px"></span>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
 
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-coffee"></span>
+                                <span class="fas fa-coffee" aria-hidden="true"></span>
                             </div>
                         </div>
                     </div>
