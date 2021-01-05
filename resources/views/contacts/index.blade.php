@@ -28,7 +28,7 @@
                                 <td>Name</td>
                                 <td>Mobile</td>
                                 <td>Email</td>
-                                <td>Company</td>
+                                <td>Brand</td>
                                 <td>Created Date</td>
                                 <td colspan=2>Actions</td>
                             </tr>
@@ -42,7 +42,7 @@
                                 <td>{{$contact->name}}</td>
                                 <td>{{$contact->mobile}}</td>
                                 <td>{{$contact->email}}</td>
-                                <td>{{$contact->company}}</td>
+                                <td>{{$contact->brand_name}}</td>
 
                                 <td>{{$contact->created_at}}</td>
 
@@ -78,7 +78,7 @@
                                 <td>Name</td>
                                 <td>Mobile</td>
                                 <td>Email</td>
-                                <td>Company</td>
+                                <td>Brand</td>
                                 <td>Created Date</td>
                                 <td colspan=2>Actions</td>
 

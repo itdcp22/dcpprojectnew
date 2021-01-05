@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\User;
+use App\Tenant;
 
 use Illuminate\Http\Request;
 use DataTables;
@@ -19,7 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $arr['users'] = User::all();
+        $arr['users'] = User::All();
         return view('users')->with($arr);
     }
 

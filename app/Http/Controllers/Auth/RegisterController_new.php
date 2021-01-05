@@ -99,23 +99,29 @@ class RegisterController extends Controller
 
 
 
-    protected function create(array $data)
+    public function create()
     {
+        return view('mall.tenant.create');
+    }
+
+    public function store(Request $request, User $user)
+    {
+        $user->name = $request->name;
+        $user->mobile = $request->mobile;
+        $user->company = $request->company;
+        $user->dept = $request->dept;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
 
-        //  $companyName = Tenant::where('tm_code', $data['company'])->findorfail();
 
-        // dd($companyName);
 
-        return User::create([
-            'name' => $data['name'],
-            'mobile' => $data['mobile'],
-            'company' => $data['company'],
-            'brand_name' => $data['brand_name'],
-            'dept' => $data['dept'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
 
-        ]);
+
+
+
+
+        $user->save();
+        return redirect('mall/tenant')->with('success', 'Transaction created successfully!');
     }
 }

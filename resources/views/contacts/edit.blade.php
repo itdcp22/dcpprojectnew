@@ -35,8 +35,8 @@
             </div>
 
             <div class="form-group">
-                <label for="country">Company</label>
-                <input type="text" class="form-control" name="company" value={{ $contact->company }} readonly />
+                <label for="country">Brand</label>
+                <input type="text" class="form-control" name="brand_name" value={{ $contact->brand_name }} readonly />
             </div>
 
             <button type="submit" class="btn btn-primary">Approve</button>

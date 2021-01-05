@@ -160,6 +160,28 @@
 
                     <div class="input-group mb-3">
 
+
+                        <input id="brand_name" type="text"
+                            class="form-control @error('brand_name') is-invalid @enderror" name="brand_name"
+                            value="{{ old('brand_name') }}" required autocomplete="brand_name" placeholder="Shop name"
+                            autofocus>
+
+                        @error('brand_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
+
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-coffee"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+
                         <select class="custom-select" name="company" id="company" required>
                             <option value="" selected disabled hidden>Select company</option>
 

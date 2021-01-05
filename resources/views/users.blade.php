@@ -26,7 +26,7 @@
             <thead>
               <tr>
 
-                <th> User ID </th>
+                <th> User ID 1</th>
                 <th> User Name </th>
                 <th> Email </th>
                 <th> Company Name </th>
@@ -51,20 +51,8 @@
                 <td>{{ $c->id }}</td>
                 <td>{{ $c->name }}</td>
                 <td>{{ $c->email }}</td>
-                <td>
 
-                  @if($c->company =='1')
-                  {{ "Al Jarwani"}}
-                  @elseif($c->company =='2')
-                  {{"Mall Of Muscat"}}
-                  @elseif($c->company =='3')
-                  {{"Oman Aquarium"}}
-                  @elseif($c->company =='4')
-                  {{"Snow Village"}}
-                  @endif
-
-                </td>
-
+                <td>{{ $c->company }}</td>
 
                 <td>{{ $c->user_type}}</td>
                 <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>
