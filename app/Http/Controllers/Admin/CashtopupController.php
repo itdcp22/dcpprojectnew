@@ -6,20 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Cashtopup;
-Use Auth;
-Use Gate;
+use Auth;
+use Gate;
 
 //we need to add the below if we create new excel export
-use App\Exports\CashtopupExport; 
-use Maatwebsite\Excel\Facades\Excel; 
+use App\Exports\CashtopupExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CashtopupController extends Controller
 {
 
     public function cashtopupexport()
     {
-    return Excel::download(new CashtopupExport, 'Cashtopup.xls'); 
-    } 
+        return Excel::download(new CashtopupExport, 'Cashtopup.xls');
+    }
 
 
     /**
@@ -29,13 +29,12 @@ class CashtopupController extends Controller
      */
     public function index()
     {
-        if(!Gate::allows('isAdmin'))
-        {
-            abort(404,"Sorry you are not allowed");
+        if (!Gate::allows('isAdmin')) {
+            abort(404, "Sorry you are not allowed");
         }
-        
-        
-        $arr['cashtopups'] = Cashtopup::all();
+
+
+        $arr['cashtopups'] = Cashtopup::where('comp_code', auth()->user()->company)->get();
         return view('admin.cashtopups.index')->with($arr);
     }
 
@@ -55,11 +54,11 @@ class CashtopupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Cashtopup $cashtopup)
+    public function store(Request $request, Cashtopup $cashtopup)
     {
 
-        $date  = Carbon::createFromFormat('d-m-Y', $request->topup_dt);        
-        $cashtopup->topup_dt = $date;  
+        $date  = Carbon::createFromFormat('d-m-Y', $request->topup_dt);
+        $cashtopup->topup_dt = $date;
 
         //$cashtopup->topup_dt = $request->topup_dt;
         $cashtopup->cheque_no = $request->cheque_no;
@@ -72,9 +71,9 @@ class CashtopupController extends Controller
         $cashtopup->emp_name = Auth::user()->name;
         $cashtopup->dept_code = Auth::user()->dept;
         $cashtopup->comp_code = Auth::user()->company;
-        
-        $cashtopup->save();  
-        return redirect('admin/cashtopups')->with('success','Transaction created successfully!'); 
+
+        $cashtopup->save();
+        return redirect('admin/cashtopups')->with('success', 'Transaction created successfully!');
     }
 
     /**
