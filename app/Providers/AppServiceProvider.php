@@ -86,6 +86,15 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('home', function ($view) {
+            $view->with('advance_notsettled', \App\Advance::where('ca_comp_code', auth()->user()->company)
+                ->where('ca_emp_id', auth()->user()->id)
+                ->where('ca_status', 0)
+                ->where('ca_pay_status', 1)
+                ->sum('ca_adv_amt'));
+        });
+
+
+        view()->composer('home', function ($view) {
             $view->with('advanceall', \App\Advance::where('ca_comp_code', auth()->user()->company)
                 ->where('ca_status', 0)
                 ->where('ca_pay_status', 0)

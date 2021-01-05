@@ -160,7 +160,9 @@
 
 
               @else
-              0
+
+              {{ number_format($advance_notsettled,3) }}
+
               @endif
 
 
@@ -168,13 +170,37 @@
 
             </h3>
 
+            @if($user->user_type =='admin')
+
+
             <p>Cash Topup</p>
+
+
+            @else
+            <p>Unsettled Advance Amount</p>
+            @endif
+
+
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
           </div>
+
+
+          @if($user->user_type =='admin')
+
+
+
           <a href="{{route('admin.cashtopups.index')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
+
+          @else
+
+          <a href="{{route('admin.advances.index')}}" class="small-box-footer">More info <i
+              class="fas fa-arrow-circle-right"></i></a>
+          @endif
+
+
         </div>
       </div>
       <!-- ./col -->
@@ -265,7 +291,7 @@
       <!-- /.col -->
     </div>
 
-    
+
     <!-- /.row -->
   </div>
 
