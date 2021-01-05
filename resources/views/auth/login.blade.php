@@ -36,11 +36,7 @@
                             class="form-control @error('email') is-invalid @enderror" name="email"
                             value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+
 
 
                         <div class="input-group-append">
@@ -48,6 +44,13 @@
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
+
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
                     </div>
                     <div class="input-group mb-3">
 
@@ -56,11 +59,7 @@
                             class="form-control @error('password') is-invalid @enderror" name="password" required
                             autocomplete="current-password">
 
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+
 
 
                         <div class="input-group-append">
@@ -68,6 +67,13 @@
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
                     </div>
                     <div class="row">
                         <div class="col-8">

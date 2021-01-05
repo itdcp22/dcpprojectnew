@@ -83,6 +83,8 @@
                         </div>
                     </div>
 
+
+
                     <div class="input-group mb-3">
 
 
@@ -111,11 +113,7 @@
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+
 
 
                         <div class="input-group-append">
@@ -123,6 +121,13 @@
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
+
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
                     </div>
                     <div class="input-group mb-3">
 
