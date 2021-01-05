@@ -27,11 +27,11 @@
                             <tr>
 
                                 <TH>ID</TH>
-                                <th> User Name </th>
+                                <th> Name </th>
                                 <th> Mobile</th>
 
                                 <th> Email </th>
-                                <th> Company Name </th>
+                                <th> Brand </th>
                                 <th> Type </th>
                                 <th> Created Date </th>
                                 <th> Verified Date </th>
@@ -56,7 +56,7 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->mobile }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->company }}</td>
+                                <td>{{ $user->brand_name }}</td>
 
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ date('d-m-Y', strtotime($user->created_at)) }}</td>
@@ -88,10 +88,10 @@
                             <tr>
 
                                 <th>ID</th>
-                                <th> User Name </th>
+                                <th> Name </th>
                                 <th> Mobile</th>
                                 <th> Email </th>
-                                <th> Company Name </th>
+                                <th> Brand </th>
                                 <th> Type </th>
                                 <th> Created Date </th>
                                 <th> Verified Date </th>
