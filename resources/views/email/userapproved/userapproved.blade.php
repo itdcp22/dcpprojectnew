@@ -301,7 +301,7 @@
                                                     <p
                                                         style="font-size: 26px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 31px; margin: 0;">
                                                         <span style="font-size: 26px;"><strong><span style>Hello
-                                                                    {{$workpermit->wp_applicant}}
+                                                                    {{$user->name}}
                                                                 </span></strong></span></p>
                                                 </div>
                                             </div>
@@ -313,8 +313,7 @@
                                                     style="line-height: 1.2; font-size: 12px; font-family: 'Ubuntu', Tahoma, Verdana, Segoe, sans-serif; color: #ffffff; mso-line-height-alt: 14px;">
                                                     <p
                                                         style="font-size: 24px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 29px; margin: 0;">
-                                                        <span style="font-size: 24px;"><span style>Your work permit
-                                                                request has
+                                                        <span style="font-size: 24px;"><span style>Your account has
                                                                 been approved successfully.
                                                             </span><span style><em>.</em></span></span></p>
                                                 </div>

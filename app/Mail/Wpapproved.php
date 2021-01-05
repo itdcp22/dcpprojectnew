@@ -34,11 +34,13 @@ class Wpapproved extends Mailable
     public function build()
     {
         return $this->from('info@mallofmuscat.com', 'Workpermit Approved')
-            ->to(auth()->user()->email, auth()->user()->name)
+            ->to($this->workpermit->wp_email, $this->workpermit->wp_applicant)
             ->cc('info@mallofmuscat.com', 'Info')
+            ->cc('hussain@mallofmuscat.com', 'Hussain')
             ->cc('security@mallofmuscat.com', 'Security')
             ->cc('cr.mallofmusct@gmail.com', 'Control')
             ->cc('sec.superviser.mallofmuscat@gmail.com', 'Supervisor')
+            ->bcc('itmom20@gmail.com', 'IT')
             ->subject($this->workpermit->wp_brand_name)
             ->view('email.wpapproved.approved');
     }

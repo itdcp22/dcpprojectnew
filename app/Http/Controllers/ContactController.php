@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Http\Request;
 use App\Contact;
 use App\User;
 use App\Tenant;
 use Carbon\Carbon;
+
+use App\Mail\Userapproved;
 
 class ContactController extends Controller
 {
@@ -106,6 +110,8 @@ class ContactController extends Controller
         $contact->mobile = $request->get('mobile');
         $contact->email_verified_at = Carbon::now();
         $contact->save();
+
+        Mail::send(new Userapproved($contact));
 
         return redirect('/contacts')->with('success', 'Contact updated!');
     }
