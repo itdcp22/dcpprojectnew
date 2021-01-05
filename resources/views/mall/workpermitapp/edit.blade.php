@@ -196,7 +196,7 @@
 
           <label class="col-lg-1" for="">Time From</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control timepicker" id="validationCustom02" name="wp_from_time"
+            <input type="text" class="form-control timepicker" id="validationCustom02" name="wp_from_time"
               value="{{ $workpermit->wp_from_time}}" placeholder="Enter time to" readonly>
 
           </div>
@@ -214,7 +214,7 @@
 
           <label class="col-lg-1" for="">Time To</label>
           <div class="col-lg-2">
-            <input type="time" class="form-control" id="validationCustom02" name="wp_to_time"
+            <input type="text" class="form-control" id="validationCustom02" name="wp_to_time"
               value="{{ $workpermit->wp_to_time }}" placeholder="Enter time to" readonly>
           </div>
         </div>

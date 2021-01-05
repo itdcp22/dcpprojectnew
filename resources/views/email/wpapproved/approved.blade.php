@@ -372,8 +372,7 @@
                                                     style="line-height: 1.5; font-size: 12px; font-family: 'Ubuntu', Tahoma, Verdana, Segoe, sans-serif; color: #ffffff; mso-line-height-alt: 18px;">
                                                     <p
                                                         style="font-size: 18px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 27px; margin: 0;">
-                                                        <span style="font-size: 18px;">We will send you the notification
-                                                            once it is approved:</span></p>
+                                                        <span style="font-size: 18px;"></span></p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
