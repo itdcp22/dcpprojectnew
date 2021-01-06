@@ -168,8 +168,8 @@
 
                         <input id="brand_name" type="text"
                             class="form-control @error('brand_name') is-invalid @enderror" name="brand_name"
-                            value="{{ old('brand_name') }}" required autocomplete="brand_name" placeholder="Shop name"
-                            autofocus>
+                            value="{{ old('brand_name') }}" required autocomplete="brand_name"
+                            placeholder="Shop name / Brand" autofocus>
 
                         @error('brand_name')
                         <span class="invalid-feedback" role="alert">
