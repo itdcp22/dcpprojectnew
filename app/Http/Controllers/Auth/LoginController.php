@@ -39,6 +39,8 @@ class LoginController extends Controller
             return redirect()->route('mallwp');
         } elseif ($user->user_type == 'mall') {
             return redirect()->route('mallwp');
+        } elseif ($user->user_type == 'access') {
+            return redirect()->route('home');
         }
     }
 
