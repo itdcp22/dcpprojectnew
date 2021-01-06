@@ -180,7 +180,8 @@
 
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-coffee" aria-hidden="true"></span>
+                                <span class="fa fa-shopping-cart"></span>
+
                             </div>
                         </div>
                     </div>

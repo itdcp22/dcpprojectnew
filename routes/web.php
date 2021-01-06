@@ -51,9 +51,9 @@ Route::get('tenantusers', 'UserController@index1')->name('tenantusers')->middlew
 //Route::resource('/tenantusers', 'UserController', ['as' => 'user'])->middleware('auth');
 
 
-Route::get('users/edit/{id}', 'UsersController@show');
+//Route::get('users/edit/{id}', 'UsersController@show');
 //Route::put('users/edit', 'UsersController@update');
-Route::put('editusers/{id}', 'UsersController@update');
+//Route::put('editusers/{id}', 'UsersController@update');
 
 
 Route::get('changeStatus', 'UserController@changeStatus');
