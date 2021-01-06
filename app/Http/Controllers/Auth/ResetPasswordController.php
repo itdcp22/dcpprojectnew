@@ -26,7 +26,7 @@ class ResetPasswordController extends Controller
      * @var string
      */
 
-    protected $redirectTo = '/mallwp';
+    // protected $redirectTo = '/mallwp';
 
     public function authenticated($request, $user)
     {
