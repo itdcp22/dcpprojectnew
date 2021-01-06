@@ -9,6 +9,7 @@ use App\Contact;
 use App\User;
 use App\Tenant;
 use Carbon\Carbon;
+use Auth;
 
 use App\Mail\Userapproved;
 
@@ -110,6 +111,9 @@ class ContactController extends Controller
         $contact->name =  $request->get('name');
         $contact->mobile = $request->get('mobile');
         $contact->email_verified_at = Carbon::now();
+
+        $contact->flex1 = Auth::user()->name;
+
         $contact->save();
 
         Mail::send(new Userapproved($contact));
