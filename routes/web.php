@@ -31,6 +31,15 @@ Auth::routes([
     'register' => true,
 ]);
 
+Route::get('email-test', function () {
+
+    $details['email'] = 'bhhussain@gmail.com';
+
+    dispatch(new App\Jobs\SendEmailJob($details));
+
+    dd('done');
+});
+
 Route::get('changepassword', 'ChangePasswordController@index');
 Route::post('changepassword', 'ChangePasswordController@store')->name('change.password');
 

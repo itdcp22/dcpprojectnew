@@ -1,5 +1,5 @@
 <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
       'use strict';
       window.addEventListener('load', function() {
@@ -17,11 +17,10 @@
         });
       }, false);
     })();
-    </script>
-    
-    <script>
-    
-      $(function(){
+</script>
+
+<script>
+  $(function(){
                   $('#cost_aed, #tax_per,#profit_perc,#profit_perc,#courier').keyup(function()
                   {
                      var cost_aed = parseFloat($('#cost_aed').val()) || 0;
@@ -59,12 +58,12 @@
                       
                   });
                });
-      </script>
-    
-    <!-- This below code is used to calculate the amount field  -->
-    
-    <script>
-        function calc1() 
+</script>
+
+<!-- This below code is used to calculate the amount field  -->
+
+<script>
+  function calc1() 
         {
     
     
@@ -399,11 +398,11 @@
          document.getElementById('amount9').value = textValue17 * textValue18;
         } 
     
-        </script>
-        <!-- End -->
-        <!-- This script is used to allow only number in the bill amount field -->
-        <script>    
-                function isNumberKey(evt)
+</script>
+<!-- End -->
+<!-- This script is used to allow only number in the bill amount field -->
+<script>
+  function isNumberKey(evt)
                 {
                     var charCode = (evt.which) ? evt.which : evt.keyCode;
                     if (charCode != 46 && charCode > 31 
@@ -411,11 +410,11 @@
                     return false;
                     return true;
                 }  
-        </script>
-        <!-- End -->
-    
-        <script>    
-                function bill_total()
+</script>
+<!-- End -->
+
+<script>
+  function bill_total()
                 {
                     var textValue1 = document.getElementById('qty1').value;
             var textValue2 = document.getElementById('price1').value;
@@ -458,223 +457,268 @@
             var total = one ;
             document.getElementById('td_total').value = one;
                 }  
-        </script>
-    
-        <!-- End -->
-    
-    
-    @extends('layouts.admin')
-    @section('content')
-    
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Add Bill</h1>
-              </div><!-- /.col -->
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="{{route('admin.paidbills.index')}}">Paid Bills</a></li>
-                  <li class="breadcrumb-item"><a href="{{route('admin.accounts.index')}}">Unpaid Bills</a></li>
-                  
-    
-                  
-                </ol>
-              </div><!-- /.col -->
-            </div><!-- /.row -->
-          </div><!-- /.container-fluid -->
+</script>
+
+<!-- End -->
+
+
+@extends('layouts.admin')
+@section('content')
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Add Bill</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="{{route('admin.paidbills.index')}}">Paid Bills</a></li>
+          <li class="breadcrumb-item"><a href="{{route('admin.accounts.index')}}">Unpaid Bills</a></li>
+
+
+
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<section class="content">
+  <div class="container-fluid">
+    <form class="needs-validation" novalidate method="post" action="{{ route('admin.accounts.store') }}"
+      enctype="multipart/form-data" autocomplete="off">
+
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-1" for="">Supplier Name *</label>
+          <div class="col-lg-2">
+            <input class="form-control" data-error="Please enter name field." type="text" name="th_supp_name"
+              class="form-control" tabindex="1" autofocus="autofocus" placeholder="Enter Supplier name" required>
+
+
+
+          </div>
+
+
+          <label class="col-lg-1" for="">Contact Number</label>
+          <div class="col-lg-2">
+            <input type="text" name="th_supp_contact" tabindex="2" class="form-control"
+              placeholder="Enter supplier contact number">
+            <div class="clear-fix"></div>
+          </div>
         </div>
-        <!-- /.content-header -->
-    
-        <section class="content">
-          <div class="container-fluid">
-         <form class="needs-validation" novalidate method = "post" action="{{ route('admin.accounts.store') }}" enctype="multipart/form-data" autocomplete="off">
-          
-         <input type="hidden" name="_token" value = "{{ csrf_token() }}">
-         
-    
-    
-         <div class="form-group">
-         <div class = "row">
-         <label class = "col-lg-1" for="">Supplier Name *</label>
-         <div class = "col-lg-2">
-         <input class="form-control" data-error="Please enter name field." type="text" name = "th_supp_name" class = "form-control" placeholder="Enter Supplier name" required>
-             
-      
-        
-      </div>
-         
-    
-         <label class = "col-lg-1" for="">Contact Number</label>
-         <div class = "col-lg-2">
-         <input type="text" name = "th_supp_contact" class = "form-control" placeholder="Enter supplier contact number">
-         <div class = "clear-fix"></div>
-        </div>
-    </div>
-        
-    
-    
-    
-    
-         <div class="form-group">
-         <div class = "row">
-         <label class = "col-lg-1" for="">Bill Date *</label>
-         <div class = "col-lg-2">
-         <input class = "form-control datepicker" id="datepicker" name = "th_bill_dt" placeholder="dd-mm-yyyy" required>  
-             
-         <script>
-          $('#datepicker').datepicker({
+
+
+
+
+
+        <div class="form-group">
+          <div class="row">
+            <label class="col-lg-1" for="">Bill Date *</label>
+            <div class="col-lg-2">
+              <input class="form-control datepicker" tabindex="3" id="datepicker" name="th_bill_dt"
+                placeholder="dd-mm-yyyy" required>
+
+              <script>
+                $('#datepicker').datepicker({
             format: 'dd-mm-yyyy',
               uiLibrary: 'bootstrap4'
           });
-      </script>
-        
-      </div>
-         
-    
-         <label class = "col-lg-1" for="">Bill Number *</label>
-         <div class = "col-lg-2">
-         <input type="text" name = "th_bill_no" class = "form-control" placeholder="Enter bill number" required>
-         <div class = "clear-fix"></div>
-        </div>
-    </div>
-        
-        <div class="form-group">
-         <div class = "row">
-         <label class = "col-lg-1" for="">Bill Amount *</label>
-         <div class = "col-lg-2">
-         
-         <input type="text" name = "th_bill_amt" onkeypress="return isNumberKey(event)" class = "form-control "  placeholder="Enter bill amount" required> </div>
-         
-    
-         <label class = "col-lg-1" for="">Payment Mode</label>
-         <div class = "col-lg-2">
-          <select class="custom-select" name="th_pay_mode">
-            <option>Cash</option>
-            <option>Card</option>
-            <option>Others</option>        
-          </select>
-         <div class = "clear-fix"></div>
-        </div>
-        </div>
-    
-        
-                
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th >S.No</th>
-            <th class="w-50">Item Description</th>
-            <th class="w-20">Quantity</th>
-            <th class="w-20">Unit Price</th>
-            <th class="w-20">Amount</th>
-          </tr>
-        </thead>
-        <tbody>    
-          <tr>       
-            <td class="text-center">1</td>        
-            <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row1" required></td>
-            <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]"  id="qty1" onkeyup="calc1()" value="" required></td>
-            <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price1" onkeyup="calc1()" value="" required></td>
-            <td > <input class="form-control text-right" type="text" name="amount" id="amount1"   disabled></td>
-          </tr> 
-           <tr>
-            <td class="text-center">2</td>        
-            <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row2"></td>
-            <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty2" onkeyup="calc2()" value=""></td>
-            <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price2" onkeyup="calc2()" value=""></td>        
-            <td > <input class="form-control text-right" type="text" name="amount" id="amount2" value="" disabled></td>
-          </tr>
-           <tr>
-           <td class="text-center">3</td>        
-            <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row3"></td>
-            <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty3" onkeyup="calc3()" value=""></td>
-            <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price3" onkeyup="calc3()" value=""></td>
-            <td > <input class="form-control text-right" type="text" name="amount" id="amount3" value="" disabled></td>
-          </tr>
-    
-            <tr>
-             <td class="text-center">4</td>        
-              <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row4"></td>
-              <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty4" onkeyup="calc4()" value=""></td>
-              <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price4" onkeyup="calc4()" value=""></td>
-              <td > <input class="form-control text-right" type="text" name="amount" id="amount4" value="" disabled></td>
-            </tr>
-    
-            <tr>
-               <td class="text-center">5</td>        
-                <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row5"></td>
-                <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty5" onkeyup="calc5()" value=""></td>
-                <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price5" onkeyup="calc5()" value=""></td>
-                <td > <input class="form-control text-right" type="text" name="amount" id="amount5" value="" disabled></td>
-              </tr>
-    
-        <tr>
-                 <td class="text-center">6</td>        
-                  <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row6"></td>
-                  <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty6" onkeyup="calc6()" value=""></td>
-                  <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price6" onkeyup="calc6()" value=""></td>
-                  <td > <input class="form-control text-right" type="text" name="amount" id="amount6" value="" disabled></td>
-                </tr>
-    
-          <tr>
-                   <td class="text-center">7</td>        
-                    <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row7"></td>
-                    <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty7" onkeyup="calc7()" value=""></td>
-                    <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price7" onkeyup="calc7()" value=""></td>
-                    <td > <input class="form-control text-right" type="text" name="amount" id="amount7" value="" disabled></td>
-                  </tr>
-              
-            <tr>
-                     <td class="text-center">8</td>        
-                      <td ><input type="text" class="form-control" name = "td_item_desc[]" id="row8"></td>
-                      <td ><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty8" onkeyup="calc8()" value=""></td>
-                      <td ><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price8" onkeyup="calc8()" value=""></td>
-                      <td > <input class="form-control text-right" type="text" name="amount" id="amount8" value="" disabled></td>
-                    </tr>
-            
-    
-            <tr>
-            <td class="text-center"></td>
-            <td class="text-right" colspan="3"><label>Total</label></td>
-            <td><input  type="text" class="form-control text-right" onkeypress="return isNumberKey(event)" name = "th_bill_total" onkeyup="bill_total()" id="total" disabled></td>        
-          </tr>
-    
-        </tbody>
-      </table>
-    
-    <div class="form-group">
-         <div class = "row">
-         
-         <label class = "col-lg-1" for="">Attach Bill</label>
-         <div class = "col-md-6">    
-         <input type="file" id="validationCustom01" name="th_attach">
-         <div class = "clear-fix"></div>
-         </div>     
-         </div>
-         </div>
-      
-    <div class="form-group">
-      <label for="comment">Justification:</label>
-      <textarea name = "th_purpose" class="form-control" rows="2" id="comment" placeholder="Enter the purpose of the purchase" required></textarea>
-    </div>
-    
-    
-    </div>
-        
-    
-        <div class="form-group">
-        <input type="submit" class = "btn btn-primary" Value ="Save">
-        <a href="{{route('admin.accounts.index')}}" class="btn btn-warning" role="button">Cancel</a>
-        </div>
-         
-    
-    
-         </form>
+              </script>
+
+            </div>
+
+
+            <label class="col-lg-1" for="">Bill Number *</label>
+            <div class="col-lg-2">
+              <input type="text" name="th_bill_no" tabindex="4" class="form-control" placeholder="Enter bill number"
+                required>
+              <div class="clear-fix"></div>
+            </div>
           </div>
-    
-    
-          
-        </section>
-    @endsection
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-lg-1" for="">Bill Amount *</label>
+              <div class="col-lg-2">
+
+                <input type="text" name="th_bill_amt" tabindex="5" onkeypress="return isNumberKey(event)"
+                  class="form-control " placeholder="Enter bill amount" required> </div>
+
+
+              <label class="col-lg-1" for="">Payment Mode</label>
+              <div class="col-lg-2">
+                <select class="custom-select" name="th_pay_mode" tabindex="6">
+                  <option>Cash</option>
+                  <option>Card</option>
+                  <option>Others</option>
+                </select>
+                <div class="clear-fix"></div>
+              </div>
+            </div>
+
+
+                       
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>S.No</th>
+                          <th class="w-50">Item Description</th>
+                          <th class="w-20">Quantity</th>
+                          <th class="w-20">Unit Price</th>
+                          <th class="w-20">Amount</th>
+                        </tr>
+                    </thead>
+                  <tbody>   
+                      <tr>       
+                          <td class="text-center">1</td>        
+                          <td><input type="text" tabindex="7" class="form-control" name="td_item_desc[]" id="row1"
+                      required></td>
+                          <td><input class="form-control text-center" tabindex="8" type="text"
+                      onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty1" onkeyup="calc1()" value=""
+                      required></td>
+                          <td><input class="form-control text-right" tabindex="9" type="text"
+                      onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price1" onkeyup="calc1()"
+                      value="" required></td>
+                          <td> <input class="form-control text-right" type="text" name="amount" id="amount1" disabled>
+                  </td>
+                        </tr> 
+                       <tr>
+                  <td class="text-center">2</td>        
+                          <td><input type="text" class="form-control" tabindex="10" name="td_item_desc[]" id="row2">
+                  </td>
+                          <td><input class="form-control text-center" type="text" tabindex="11"
+                      onkeypress="return isNumberKey(event)" name="td_qty[]" id="qty2" onkeyup="calc2()" value=""></td>
+                          <td><input class="form-control text-right" type="text" tabindex="12"
+                      onkeypress="return isNumberKey(event)" name="td_unit_price[]" id="price2" onkeyup="calc2()"
+                      value=""></td>
+                          <td> <input class="form-control text-right" type="text" name="amount" id="amount2" value=""
+                      disabled></td>
+                       
+                </tr>
+                       <tr>
+                         <td class="text-center">3</td>        
+                          <td><input type="text" class="form-control" name="td_item_desc[]" id="row3"></td>
+                          <td><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_qty[]" id="qty3" onkeyup="calc3()" value=""></td>
+                          <td><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_unit_price[]" id="price3" onkeyup="calc3()" value=""></td>
+                  <td> <input class="form-control text-right" type="text" name="amount" id="amount3" value="" disabled>
+                  </td>
+                       
+                </tr>
+
+                <tr>
+                         <td class="text-center">4</td>        
+                          <td><input type="text" class="form-control" name="td_item_desc[]" id="row4"></td>
+                          <td><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_qty[]" id="qty4" onkeyup="calc4()" value=""></td>
+                          <td><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_unit_price[]" id="price4" onkeyup="calc4()" value=""></td>
+                  <td> <input class="form-control text-right" type="text" name="amount" id="amount4" value="" disabled>
+                  </td>
+                       
+                </tr>
+
+                <tr>
+                         <td class="text-center">5</td>        
+                          <td><input type="text" class="form-control" name="td_item_desc[]" id="row5"></td>
+                          <td><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_qty[]" id="qty5" onkeyup="calc5()" value=""></td>
+                          <td><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_unit_price[]" id="price5" onkeyup="calc5()" value=""></td>
+                  <td> <input class="form-control text-right" type="text" name="amount" id="amount5" value="" disabled>
+                  </td>
+                       
+                </tr>
+
+                <tr>
+                         <td class="text-center">6</td>        
+                          <td><input type="text" class="form-control" name="td_item_desc[]" id="row6"></td>
+                          <td><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_qty[]" id="qty6" onkeyup="calc6()" value=""></td>
+                          <td><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_unit_price[]" id="price6" onkeyup="calc6()" value=""></td>
+                  <td> <input class="form-control text-right" type="text" name="amount" id="amount6" value="" disabled>
+                  </td>
+                       
+                </tr>
+
+                <tr>
+                         <td class="text-center">7</td>        
+                          <td><input type="text" class="form-control" name="td_item_desc[]" id="row7"></td>
+                          <td><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_qty[]" id="qty7" onkeyup="calc7()" value=""></td>
+                          <td><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_unit_price[]" id="price7" onkeyup="calc7()" value=""></td>
+                  <td> <input class="form-control text-right" type="text" name="amount" id="amount7" value="" disabled>
+                  </td>
+                       
+                </tr>
+                        
+                <tr>
+                         <td class="text-center">8</td>        
+                          <td><input type="text" class="form-control" name="td_item_desc[]" id="row8"></td>
+                          <td><input class="form-control text-center" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_qty[]" id="qty8" onkeyup="calc8()" value=""></td>
+                          <td><input class="form-control text-right" type="text" onkeypress="return isNumberKey(event)"
+                      name="td_unit_price[]" id="price8" onkeyup="calc8()" value=""></td>
+                  <td> <input class="form-control text-right" type="text" name="amount" id="amount8" value="" disabled>
+                  </td>
+                       
+                </tr>
+                        
+
+                <tr>
+                          <td class="text-center"></td>
+                          <td class="text-right" colspan="3"><label>Total</label></td>
+                          <td><input type="text" class="form-control text-right" onkeypress="return isNumberKey(event)"
+                      name="th_bill_total" onkeyup="bill_total()" id="total" disabled></td>       
+                        </tr>
+
+                   
+              </tbody>
+                </table>
+
+            <div class="form-group">
+              <div class="row">
+
+                <label class="col-lg-1" for="">Attach Bill</label>
+                <div class="col-md-6">
+                  <input type="file" id="validationCustom01" name="th_attach">
+                  <div class="clear-fix"></div>
+                </div>
+              </div>
+            </div>
+             
+            <div class="form-group">
+              <label for="comment">Justification:</label>
+              <textarea name="th_purpose" class="form-control" rows="2" id="comment"
+                placeholder="Enter the purpose of the purchase" required></textarea>
+            </div>
+
+
+          </div>
+
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" Value="Save">
+            <a href="{{route('admin.accounts.index')}}" class="btn btn-warning" role="button">Cancel</a>
+          </div>
+
+
+
+    </form>
+  </div>
+
+
+
+</section>
+@endsection

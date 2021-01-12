@@ -150,7 +150,7 @@
               placeholder="Enter manager name">
           </div>
           <label class="col-lg-1" for="">:مدير المحل</label>
-          <label class="col-lg-1" for="">Contact</label>
+          <label class="col-lg-1" for="">Contact No.</label>
           <div class="col-lg-4">
             <input type="text" class="form-control" id="wp_manager_contact" name="wp_manager_contact"
               value="{{ $tenant->tm_mobile}}" placeholder="Enter manager name">

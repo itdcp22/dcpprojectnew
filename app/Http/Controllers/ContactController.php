@@ -10,6 +10,7 @@ use App\User;
 use App\Tenant;
 use Carbon\Carbon;
 use Auth;
+use App\Jobs\SendEmailJob;
 
 use App\Mail\Userapproved;
 
@@ -110,15 +111,22 @@ class ContactController extends Controller
         $contact = User::find($id);
         $contact->name =  $request->get('name');
         $contact->mobile = $request->get('mobile');
+        $contact->email = $request->get('email');
         $contact->email_verified_at = Carbon::now();
 
         $contact->flex1 = Auth::user()->name;
 
         $contact->save();
 
-        Mail::send(new Userapproved($contact));
+        // Mail::send(new Userapproved($contact));
 
-        return redirect('/contacts')->with('success', 'Contact updated!');
+
+        $details['email'] = $contact->email;
+        // $details['subject'] = "Account Approved";
+
+        dispatch(new SendEmailJob($details));
+
+        return redirect('/contacts')->with('success', 'User Account Approved!');
     }
 
     /**
