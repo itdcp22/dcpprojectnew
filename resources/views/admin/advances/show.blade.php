@@ -78,11 +78,13 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
+
+
             <div class="form-group">
                 <div class="row">
                     <label class="col" for="">Name</label>
                     <div class="col">
-                        <input class="form-control" id="datepicker" name="bill_date" value="{{ $advance->ca_emp_name}}"
+                        <input class="form-control" id="datepicker" name="name" value="{{$advance->ca_emp_name}}"
                             readonly>
                     </div>
 

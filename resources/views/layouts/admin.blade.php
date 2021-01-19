@@ -431,12 +431,12 @@
 
 
                     <li class="nav-item">
-                      <a href="{{route('admin.cheque.index')}}" class="nav-link 
-                @if($segment=='cheque')                
+                      <a href="{{route('admin.payments.index')}}" class="nav-link 
+                @if($segment=='payments')                
                 active
                 @endif ">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Cheque</p>
+                        <p>Payments</p>
                       </a>
                     </li>
                     @endcan

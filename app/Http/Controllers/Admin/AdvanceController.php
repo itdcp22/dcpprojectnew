@@ -96,6 +96,8 @@ class AdvanceController extends Controller
      */
     public function show(Advance $advance)
     {
+        //dd($advance);
+
         return view('admin.advances.show', compact('advance'));
     }
 
