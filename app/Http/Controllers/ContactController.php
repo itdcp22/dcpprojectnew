@@ -115,6 +115,7 @@ class ContactController extends Controller
         $contact->email_verified_at = Carbon::now();
 
         $contact->flex1 = Auth::user()->name;
+        $contact->user_type = $request->user_type;
 
         $contact->save();
 

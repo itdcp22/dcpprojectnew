@@ -117,7 +117,21 @@
         <div class="row">
           <label class="col-lg-2" for="">Account Name</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" name="pay_supp_acc_name" placeholder="Enter account name" required>
+
+            <select class="custom-select" name="pay_supp_acc_name" id="pay_supp_acc_name" required>
+              <option value="" selected disabled hidden>Please select</option>
+
+              @foreach($supplier as $s)
+              <option value="{{ $s->supp_acc_no}}">{{ $s->supp_comp_name}}</option>
+              @endforeach
+
+            </select>
+
+
+
+
+
+
             <div class="clear-fix"></div>
           </div>
         </div>

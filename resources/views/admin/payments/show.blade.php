@@ -153,7 +153,7 @@ function numberTowords(float $amount)
                     <p>To,</br>
                         The Manager </br>
                         {{$payment->bank_name}} </br>
-                        Sultanate Of Oman
+                        Sultanate Of Oman.
                     </p>
                 </div>
 
@@ -202,10 +202,11 @@ function numberTowords(float $amount)
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <div class="row">
-                    <div class="col-2 text-left">
+                    <div class="col-3 text-left c">
+
                         <label>Name</label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 c">
                         <label>: {{$payment->pay_supp_acc_name}}</label>
                     </div>
                 </div>
@@ -213,10 +214,10 @@ function numberTowords(float $amount)
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col-2 text-left">
+                    <div class="col-3 text-left c">
                         <label>Account Number</label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 c">
                         <label>: {{$payment->pay_supp_acc_no}}</label>
                     </div>
 
@@ -225,10 +226,10 @@ function numberTowords(float $amount)
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col-2 text-left">
-                        <label>Bank Number</label>
+                    <div class="col-3 text-left c">
+                        <label>Bank Name</label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 c">
                         <label>: {{$payment->pay_supp_bank_name}}</label>
                     </div>
                 </div>
@@ -237,10 +238,10 @@ function numberTowords(float $amount)
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col-2 text-left">
+                    <div class="col-3 text-left c">
                         <label>Swift Code</label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 c">
                         <label>: {{$payment->pay_supp_swift_code}}</label>
                     </div>
                 </div>
@@ -253,10 +254,10 @@ function numberTowords(float $amount)
                 <div class="row">
 
 
-                    <div class="col-2 text-left">
+                    <div class="col-3 text-left c">
                         <label>IBAN</label>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 c">
                         <label>: {{$payment->pay_supp_iban}}</label>
                     </div>
                 </div>

@@ -39,6 +39,25 @@
                 <input type="text" class="form-control" name="brand_name" value={{ $contact->brand_name }} readonly />
             </div>
 
+            <div class="form-group">
+                <label for="country">User Type</label>
+
+                <select class="custom-select" name="user_type" id="user_type" required>
+                    <option value="" selected disabled hidden>Please select</option>
+
+
+                    <option value="tenant">Tenant</option>
+                    <option value="user">User</option>
+                    <option value="mall">Mall</option>
+                    <option value="admin">Admin</option>
+
+
+                </select>
+
+
+
+            </div>
+
             <button type="submit" class="btn btn-primary">Approve</button>
             <a href="{{route('contacts.index')}}" class="btn btn-warning" role="button">Cancel</a>
         </form>
