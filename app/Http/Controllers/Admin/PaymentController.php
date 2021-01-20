@@ -38,6 +38,7 @@ class PaymentController extends Controller
     public function create()
     {
 
+
         $arr['bank'] = Bank::where('bank_comp_code', auth()->user()->company)->get();
         $arr['supplier'] = Supplier::where('supp_comp_code', auth()->user()->company)->get();
         return view('admin.payments.create')->with($arr);
@@ -144,5 +145,10 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeCompanyName(Request $request)
+    {
+        return Supplier::findOrFail($request->id);
     }
 }

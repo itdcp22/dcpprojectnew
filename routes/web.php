@@ -26,6 +26,8 @@ Route::get('/table', function () {
 });
 
 
+
+
 Auth::routes([
     'verify' => true,
     'register' => true,
@@ -98,6 +100,7 @@ Route::resource('/admin/allpaidbills', 'Admin\AllpaidController', ['as' => 'admi
 Route::resource('/admin/expense', 'Admin\ExpenseController', ['as' => 'admin'])->middleware('auth');
 
 Route::resource('/admin/payments', 'Admin\PaymentController', ['as' => 'admin'])->middleware('auth');
+Route::post('supplierdetails', 'Admin\PaymentController@changeCompanyName');
 
 //Cheque
 Route::resource('/admin/cheque', 'Admin\ChequeController', ['as' => 'admin'])->middleware('auth');

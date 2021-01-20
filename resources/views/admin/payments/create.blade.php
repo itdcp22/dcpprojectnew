@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 @section('content')
 
+
+<head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
+
+
+
 <!-- This script is used to allow only number in the bill amount field -->
 <script>
   function isNumberKey(evt)
@@ -28,6 +35,7 @@
       });	
 });
 </script>
+
 
 
 
@@ -80,7 +88,9 @@
   <div class="container-fluid">
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
       action="{{ route('admin.payments.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      @csrf
+
+
 
       <div class="form-group">
         <div class="row">
@@ -118,17 +128,23 @@
           <label class="col-lg-2" for="">Account Name</label>
           <div class="col-lg-8">
 
-            <select class="custom-select" name="pay_supp_acc_name" id="pay_supp_acc_name" required>
+            <select class="custom-select" id="companyID" name="pay_supp_acc_id" onchange="getCompanyName();" required>
               <option value="" selected disabled hidden>Please select</option>
-
               @foreach($supplier as $s)
-              <option value="{{ $s->supp_acc_no}}">{{ $s->supp_comp_name}}</option>
+              <option value="{{ $s->id}}">{{ $s->supp_comp_name}}</option>
               @endforeach
-
             </select>
 
+            <input type="hidden" id="pay_supp_acc_name" name="pay_supp_acc_name">
 
-
+            <script>
+              $('#companyID').on('change', function() 
+                                           {
+                                             var selectedName = $('#companyID option:selected').text();
+                                            $('#pay_supp_acc_name').val(selectedName);
+                                                      }
+                                            )
+            </script>
 
 
 
@@ -137,13 +153,13 @@
         </div>
       </div>
 
-
+      <div></div>
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Account Number</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="pay_supp_acc_no"
+            <input type="text" id="supp_acc_no" class="form-control" name="pay_supp_acc_no"
               placeholder="Enter account number" required>
             <div class="clear-fix"></div>
           </div>
@@ -154,7 +170,7 @@
         <div class="row">
           <label class="col-lg-2" for="">Bank Name</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="pay_supp_bank_name"
+            <input type="text" id="supp_bank_name" class="form-control" name="pay_supp_bank_name"
               placeholder="Enter bank name" required>
             <div class="clear-fix"></div>
           </div>
@@ -168,13 +184,11 @@
         <div class="row">
           <label class="col-lg-2" for="">SWIFT</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="pay_supp_swift_code"
-              placeholder="Enter SWIFT" required>
+            <input type="text" class="form-control" name="pay_supp_swift_code" placeholder="Enter SWIFT">
           </div>
           <label class="col-lg-2" for="">IBAN</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="pay_supp_iban"
-              placeholder="Enter IBAN" required>
+            <input type="text" class="form-control" name="pay_supp_iban" placeholder="Enter IBAN">
           </div>
         </div>
       </div>
@@ -183,24 +197,16 @@
         <div class="row">
           <label class="col-lg-2" for="">Currency</label>
           <div class="col-lg-3">
-
             <select class="custom-select" name="pay_supp_currency" id="pay_supp_currency" required>
               <option value="" selected disabled hidden>Please select</option>
-
-
               <option value="OMR">OMR</option>
               <option value="AED">AED</option>
               <option value="USD">USD</option>
-
-
             </select>
-
-
           </div>
           <label class="col-lg-2" for="">Amount</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="pay_supp_amount"
-              placeholder="Enter amount" required>
+            <input type="text" class="form-control" name="pay_supp_amount" placeholder="Enter amount" required>
           </div>
         </div>
       </div>
@@ -213,8 +219,7 @@
         <div class="row">
           <label class="col-lg-2" for="">Reference No</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="pay_supp_ref_no"
-              placeholder="Enter reference number">
+            <input type="text" class="form-control" name="pay_supp_ref_no" placeholder="Enter reference number">
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -231,7 +236,7 @@
         <div class="row">
           <label class="col-lg-2" for="">Comments</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="remarks" placeholder="Enter remarks">
+            <input type="text" class="form-control" name="remarks" placeholder="Enter remarks">
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -253,3 +258,25 @@
   </div>
 </section>
 @endsection
+
+<script type="text/javascript">
+  function getCompanyName()
+  {
+  var companyID = document.getElementById("companyID").value;
+  $.ajax({
+  headers:{
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  
+  },
+  method: "POST",
+  url: "{{URL::to('supplierdetails')}}",
+  data: {
+  'id': companyID
+  },
+  success:function(data){
+    $('#supp_acc_no').val(data.supp_acc_no);
+    $('#supp_bank_name').val(data.supp_bank_name);
+  }
+  });
+  }
+</script>

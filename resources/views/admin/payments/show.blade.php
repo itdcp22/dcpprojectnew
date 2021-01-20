@@ -1,46 +1,64 @@
 <?php
-// Create a function for converting the amount in words
-function numberTowords(float $amount)
-{
-   $amount_after_decimal = round($amount - ($num = floor($amount)), 2) * 100;
-   // Check if there is any number after decimal
-   $amt_hundred = null;
-   $count_length = strlen($num);
-   $x = 0;
-   $string = array();
-   $change_words = array(0 => '', 1 => 'One', 2 => 'Two',
-     3 => 'Three', 4 => 'Four', 5 => 'Five', 6 => 'Six',
-     7 => 'Seven', 8 => 'Eight', 9 => 'Nine',
-     10 => 'Ten', 11 => 'Eleven', 12 => 'Twelve',
-     13 => 'Thirteen', 14 => 'Fourteen', 15 => 'Fifteen',
-     16 => 'Sixteen', 17 => 'Seventeen', 18 => 'Eighteen',
-     19 => 'Nineteen', 20 => 'Twenty', 30 => 'Thirty',
-     40 => 'Forty', 50 => 'Fifty', 60 => 'Sixty',
-     70 => 'Seventy', 80 => 'Eighty', 90 => 'Ninety');
-  $here_digits = array('', 'Hundred','Thousand','Lakh', 'Crore');
-  while( $x < $count_length ) {
-       $get_divider = ($x == 2) ? 10 : 100;
-       $amount = floor($num % $get_divider);
-       $num = floor($num / $get_divider);
-       $x += $get_divider == 10 ? 1 : 2;
-       if ($amount) {
-         $add_plural = (($counter = count($string)) && $amount > 9) ? 's' : null;
-         $amt_hundred = ($counter == 1 && $string[0]) ? ' and ' : null;
-         $string [] = ($amount < 21) ? $change_words[$amount].' '. $here_digits[$counter]. $add_plural.' 
-         '.$amt_hundred:$change_words[floor($amount / 10) * 10].' '.$change_words[$amount % 10]. ' 
-         '.$here_digits[$counter].$add_plural.' '.$amt_hundred;
-         }else $string[] = null;
-       }
-   $implode_to_Rupees = implode('', array_reverse($string));
-   $get_paise = ($amount_after_decimal > 0) ? "And " . ($change_words[$amount_after_decimal / 10] . " 
-   " . $change_words[$amount_after_decimal % 10]) . ' Paise' : '';
-   return ($implode_to_Rupees ? $implode_to_Rupees . '' : '') . $get_paise;
+
+
+define("MAJOR", 'And');
+define("MINOR", ' Baisa Only');
+class toWords{
+           var $pounds;
+           var $pence;
+           var $major;
+           var $minor;
+           var $words = '';
+           var $number;
+           var $magind;
+           var $units = array('','One','Two','Three','Four','Five','Six','Seven','Eight','Nine');
+           var $teens = array('Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen');
+           var $tens = array('','Ten','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety');
+           var $mag = array('','Thousand','Million','Billion','Trillion');
+   public function __construct($amount, $major=MAJOR, $minor=MINOR) {
+             $this->major = $major;
+             $this->minor = $minor;
+             $this->number = number_format($amount,3);
+             list($this->pounds,$this->pence) = explode('.',$this->number);
+             $this->words = " $this->major $this->pence$this->minor";
+             if ($this->pounds==0)
+                 $this->words = "Zero $this->words";
+             else {
+                 $groups = explode(',',$this->pounds);
+                 $groups = array_reverse($groups);
+                 for ($this->magind=0; $this->magind<count($groups); $this->magind++) {
+                      if (($this->magind==1)&&(strpos($this->words,'Hundred') === false)&&($groups[0]!='000'))
+                           $this->words = ' And ' . $this->words;
+                      $this->words = $this->_build($groups[$this->magind]).$this->words;
+                 }
+             }
+    }
+    function _build($n) {
+             $res = '';
+             $na = str_pad("$n",3,"0",STR_PAD_LEFT);
+             if ($na == '000') return '';
+             if ($na{0} != 0)
+                 $res = ' '.$this->units[$na{0}] . ' Hundred';
+             if (($na{1}=='0')&&($na{2}=='0'))
+                  return $res . ' ' . $this->mag[$this->magind];
+             $res .= $res==''? '' : '';
+             $t = (int)$na{1}; $u = (int)$na{2};
+             switch ($t) {
+                     case 0: $res .= ' ' . $this->units[$u]; break;
+                     case 1: $res .= ' ' . $this->teens[$u]; break;
+                     default:$res .= ' ' . $this->tens[$t] . ' ' . $this->units[$u] ; break;
+             }
+             $res .= ' ' . $this->mag[$this->magind];
+             return $res;
+    }
 }
- 
+
+
 ?>
 
 @extends('layouts.admin')
 @section('content')
+
 
 <style>
     div.a {
@@ -177,12 +195,15 @@ function numberTowords(float $amount)
         <div class="row">
             <div class="col">
                 <div class="a">I hereby request you to transfer an amount of <b>
-                        {{$payment->pay_supp_currency}}. {{number_format($payment->pay_supp_amount) }} </b> (<?php
-            
-                          $get_amount= numberTowords($payment->pay_supp_amount);
-                          echo $get_amount;
-            
-                      ?>
+                        {{$payment->pay_supp_currency}}. {{number_format($payment->pay_supp_amount) }} </b> (
+
+                    <?php
+                            $total = $payment->pay_supp_amount;
+                            $obj = new toWords($total);
+                            echo $obj->words;
+                            ?>
+
+
                     ) from the above mentioned
                     account to the details given below.</div>
 
@@ -220,7 +241,6 @@ function numberTowords(float $amount)
                     <div class="col-6 c">
                         <label>: {{$payment->pay_supp_acc_no}}</label>
                     </div>
-
                 </div>
             </div>
 
@@ -236,6 +256,8 @@ function numberTowords(float $amount)
             </div>
 
 
+            @if(!empty($payment->pay_supp_iban))
+
             <div class="form-group">
                 <div class="row">
                     <div class="col-3 text-left c">
@@ -250,10 +272,9 @@ function numberTowords(float $amount)
 
 
 
+
             <div class="form-group">
                 <div class="row">
-
-
                     <div class="col-3 text-left c">
                         <label>IBAN</label>
                     </div>
@@ -262,6 +283,7 @@ function numberTowords(float $amount)
                     </div>
                 </div>
             </div>
+            @endif
 
             <h1>&nbsp;</h1>
 
@@ -269,13 +291,9 @@ function numberTowords(float $amount)
                 <div class="row">
                     <div class="col a">
                         <p>Thank you for your cooperation and assistance.</p></br>
-
                         <p>Best Regards,</p> </br>
                         <h1>&nbsp;</h1>
-
-
                     </div>
-
                 </div>
             </div>
 
