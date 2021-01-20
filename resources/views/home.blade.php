@@ -268,8 +268,23 @@
           <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-coins"></i></span>
 
           <div class="info-box-content">
-            <span class="info-box-text">Accounts User</span>
-            <span class="info-box-number">{{$accusers}}</span>
+            <span class="info-box-text">
+              @if($user->user_type =='admin')
+
+
+
+              <a href="{{route('admin.payments.index')}}" class="small-box-footer">Payments
+                <i class="fab fa-amazon-pay"></i>
+
+                @else
+                Flex
+                @endif
+
+
+              </a>
+
+            </span>
+
           </div>
           <!-- /.info-box-content -->
         </div>
