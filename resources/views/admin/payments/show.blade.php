@@ -37,12 +37,12 @@ class toWords{
              $res = '';
              $na = str_pad("$n",3,"0",STR_PAD_LEFT);
              if ($na == '000') return '';
-             if ($na{0} != 0)
-                 $res = ' '.$this->units[$na{0}] . ' Hundred';
-             if (($na{1}=='0')&&($na{2}=='0'))
+             if ($na[0] != 0)
+                 $res = ' '.$this->units[$na[0]] . ' Hundred';
+             if (($na[1]=='0')&&($na[2]=='0'))
                   return $res . ' ' . $this->mag[$this->magind];
              $res .= $res==''? '' : '';
-             $t = (int)$na{1}; $u = (int)$na{2};
+             $t = (int)$na[1]; $u = (int)$na[2];
              switch ($t) {
                      case 0: $res .= ' ' . $this->units[$u]; break;
                      case 1: $res .= ' ' . $this->teens[$u]; break;
