@@ -74,7 +74,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
 
-          <li class="breadcrumb-item"><a href="{{route('admin.payments.index')}}">Payments</a></li>
+          <li class="breadcrumb-item"><a href="{{route('admin.suppliers.index')}}">Suppliers</a></li>
 
 
         </ol>
@@ -184,11 +184,12 @@
         <div class="row">
           <label class="col-lg-2" for="">SWIFT</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" name="pay_supp_swift_code" placeholder="Enter SWIFT">
+            <input type="text" class="form-control" id="pay_supp_swift_code" name="pay_supp_swift_code"
+              placeholder="Enter SWIFT">
           </div>
           <label class="col-lg-2" for="">IBAN</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" name="pay_supp_iban" placeholder="Enter IBAN">
+            <input type="text" class="form-control" id="pay_supp_iban" name="pay_supp_iban" placeholder="Enter IBAN">
           </div>
         </div>
       </div>
@@ -276,6 +277,8 @@
   success:function(data){
     $('#supp_acc_no').val(data.supp_acc_no);
     $('#supp_bank_name').val(data.supp_bank_name);
+    $('#pay_supp_iban').val(data.supp_iban);
+    $('#pay_supp_swift_code').val(data.supp_swift);
   }
   });
   }

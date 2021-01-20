@@ -427,6 +427,15 @@
                     </li>
 
 
+                    <li class="nav-item">
+                      <a href="{{route('admin.suppliers.index')}}" class="nav-link 
+                @if($segment=='suppliers')                
+                active
+                @endif ">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Suppliers</p>
+                      </a>
+                    </li>
 
 
 

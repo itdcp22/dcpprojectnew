@@ -99,6 +99,8 @@ Route::resource('/admin/paidbills', 'Admin\PaidController', ['as' => 'admin'])->
 Route::resource('/admin/allpaidbills', 'Admin\AllpaidController', ['as' => 'admin'])->middleware('auth');
 Route::resource('/admin/expense', 'Admin\ExpenseController', ['as' => 'admin'])->middleware('auth');
 
+//Payment System
+Route::resource('/admin/suppliers', 'Admin\SupplierController', ['as' => 'admin'])->middleware('auth');
 Route::resource('/admin/payments', 'Admin\PaymentController', ['as' => 'admin'])->middleware('auth');
 Route::post('supplierdetails', 'Admin\PaymentController@changeCompanyName');
 
