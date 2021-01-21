@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registration</title>
 
+
+
+
+
     <!-- This script is used to allow only number in the bill amount field -->
     <script>
         function isNumberKey(evt)
@@ -28,6 +32,8 @@
     <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+
 </head>
 
 <body class="hold-transition register-page">
@@ -88,7 +94,7 @@
                     <div class="input-group mb-3">
 
 
-                        <input id="name" type="text" onkeypress="return isNumberKey(event)"
+                        <input id="mobile" type="text" onkeypress="return isNumberKey(event)"
                             class="form-control @error('name') is-invalid @enderror" name="mobile"
                             value="{{ old('mobile') }}" maxlength="8" required autocomplete="name" placeholder="Mobile"
                             autofocus>
@@ -244,12 +250,12 @@
     </div>
     <!-- /.register-box -->
 
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- jQuery <script src="../../plugins/jquery/jquery.min.js"></script> -->
+
+    <!-- Bootstrap 4 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+
+    <!-- AdminLTE App <script src="../../dist/js/adminlte.min.js"></script> -->
+
 </body>
 
 </html>

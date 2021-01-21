@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('content')
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 
 <head>
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -128,7 +131,8 @@
           <label class="col-lg-2" for="">Account Name</label>
           <div class="col-lg-8">
 
-            <select class="custom-select" id="companyID" name="pay_supp_acc_id" onchange="getCompanyName();" required>
+            <select class="custom-select select2" id="companyID" name="pay_supp_acc_id" onchange="getCompanyName();"
+              required>
               <option value="" selected disabled hidden>Please select</option>
               @foreach($supplier as $s)
               <option value="{{ $s->id}}">{{ $s->supp_comp_name}}</option>
@@ -146,6 +150,9 @@
                                             )
             </script>
 
+            <script>
+              $('.select2').select2();
+            </script>
 
 
             <div class="clear-fix"></div>
