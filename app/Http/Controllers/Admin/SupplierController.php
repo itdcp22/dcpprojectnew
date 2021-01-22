@@ -78,9 +78,10 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Supplier $supplier)
     {
-        //
+        $arr['supplier'] = $supplier;
+        return view('admin.suppliers.edit')->with($arr);
     }
 
     /**
@@ -90,9 +91,21 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Supplier $supplier)
     {
-        //
+        $supplier->supp_bank_name = $request->supp_bank_name;
+
+        $supplier->supp_comp_name = $request->supp_comp_name;
+        $supplier->supp_account_name = $request->supp_account_name;
+        $supplier->supp_acc_no = $request->supp_acc_no;
+        $supplier->supp_bank_name = $request->supp_bank_name;
+        $supplier->supp_swift = $request->supp_swift;
+        $supplier->supp_iban = $request->supp_iban;
+
+
+
+        $supplier->save();
+        return redirect()->route('admin.suppliers.index');
     }
 
     /**

@@ -83,7 +83,8 @@
                   /
 
 
-                  <a data-catid={{$c->id}} data-toggle="modal" data-target="#delete">
+                  <a data-catid={{$c->th_tran_no}} data-toggle="modal" data-target="#delete">
+
                     <i class="fa fa-trash text-red"></i>
 
                   </a>

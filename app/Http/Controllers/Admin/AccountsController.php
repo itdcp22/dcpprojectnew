@@ -281,12 +281,9 @@ class AccountsController extends Controller
     {
 
 
-
-        dd($request->category_id);
+        //dd($request->category_id);
         $account = Account::findOrFail($request->category_id);
-
         $account->delete();
-
         return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully!');
     }
 }

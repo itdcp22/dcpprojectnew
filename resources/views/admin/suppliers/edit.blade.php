@@ -1,6 +1,36 @@
 @extends('layouts.admin')
 @section('content')
 
+<!-- This script is used to allow only number in the bill amount field -->
+<script>
+  function isNumberKey(evt)
+    {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 
+        && (charCode < 48 || charCode > 57))
+        return false;
+        return true;
+    }  
+</script>
+
+<script>
+  $(function()
+{
+    $("#myform").validate(
+      {
+        rules: 
+        {
+          item: 
+          {
+            required: true
+          }
+        }
+      });	
+});
+</script>
+
+
+
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
@@ -22,19 +52,23 @@
 })();
 </script>
 
+
+
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Edit Advance Detail</h1>
+        <h1 class="m-0 text-dark">Edit Supplier</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
 
+          <li class="breadcrumb-item"><a href="{{route('admin.suppliers.index')}}">Suppliers</a></li>
 
-          <li class="breadcrumb-item"><a href="{{route('admin.advances.index')}}">Advance</a></li>
+
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -44,110 +78,95 @@
 
 <section class="content">
   <div class="container-fluid">
-    <form class="needs-validation" novalidate method="POST" action="{{ route('admin.advances.update', $advance->id) }}">
+    <form class="needs-validation" novalidate method="POST"
+      action="{{ route('admin.suppliers.update', $supplier->id) }}">
       @method('PUT')
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="form-group">
         <div class="row">
-          <label class="col-md-3" for="">Advance Date</label>
-          <div class="col-md-6">
-
-            <input type="text" class="form-control" id="validationCustom01" name="ca_adv_date"
-              value="{{ date('d-m-Y', strtotime($advance->ca_adv_date))}}" disabled required>
+          <label class="col-lg-2" for="">Company Name</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="validationCustom01" name="supp_comp_name"
+              value="{{ $supplier->supp_comp_name}}" placeholder="Enter company name" required>
             <div class="clear-fix"></div>
           </div>
         </div>
+      </div>
 
+      <div class="form-group">
         <div class="row">
-          <label class="col-md-3" for="">Advance Amount</label>
-          <div class="col-md-6">
-
-            <input type="text" class="form-control" id="validationCustom01" name="ca_adv_amt"
-              value="{{ $advance->ca_adv_amt}}" required>
+          <label class="col-lg-2" for="">Account Name</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="validationCustom02" name="supp_account_name"
+              value="{{ $supplier->supp_account_name}}" placeholder="Enter account name" required>
             <div class="clear-fix"></div>
           </div>
         </div>
+      </div>
 
+      <div class="form-group">
         <div class="row">
-          <label class="col-md-3" for="">Purpose</label>
-          <div class="col-md-6">
-
-            <input type="text" class="form-control" id="validationCustom01" name="ca_purpose"
-              value="{{ $advance->ca_purpose}}" required>
+          <label class="col-lg-2" for="">Account Number</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="validationCustom02" name="supp_acc_no"
+              value="{{ $supplier->supp_acc_no}}" placeholder="Enter account number" required>
             <div class="clear-fix"></div>
           </div>
         </div>
-
-
       </div>
 
 
       <div class="form-group">
         <div class="row">
-
-          <label class="col-lg-1" for="">Action</label>
-          <div class="col-lg-2">
-
-
-            <label><input type="radio" Value='1' name='ca_pay_status'>Paid</label>
-            <label><input type="radio" Value='2' name='ca_pay_status'>Rejected</label>
-
-          </div>
-
-
-          <label class="col-lg-1" for="">Payment Date</label>
-          <div class="col-lg-2">
-            <input class="form-control datepicker" id="datepicker" type="text" name="ca_pay_tran_date"
-              class="form-control" placeholder="dd-mm-yyyy">
-          </div>
-
-          <script>
-            $('#datepicker').datepicker({
-              format: 'dd-mm-yyyy',
-                uiLibrary: 'bootstrap4'
-            });
-          </script>
-
-          <label class="col-lg-1" for="">Remarks</label>
-          <div class="col-lg-2">
-            <input type="text" name="ca_pay_remarks" class="form-control" value="{{ $advance->ca_pay_remarks}}"
-              placeholder="Enter Remarks">
+          <label class="col-lg-2" for="">Bank</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="validationCustom02" name="supp_bank_name"
+              value="{{ $supplier->supp_bank_name}}" placeholder="Enter bank name" required>
             <div class="clear-fix"></div>
-
           </div>
         </div>
-
-
-
-        <div class="form-group">
-          <div class="row">
-
-            <label class="col-lg-1" for="">Settlement</label>
-            <div class="col-lg-2">
-
-
-
-
-              <input class="form-check-input" type="hidden" Value='0' name='ca_status'>
-              <input class="form-check-input" type="checkbox" Value='1' name='ca_status'>
-
-            </div>
-
-
-
-
-          </div>
-        </div>
-
-
-
       </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">SWIFT</label>
+          <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" name="supp_swift"
+              value="{{ $supplier->supp_swift}}" placeholder="Enter SWIFT">
+          </div>
+          <label class="col-lg-2" for="">IBAN</label>
+          <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" name="supp_iban"
+              value="{{ $supplier->supp_iban}}" placeholder="Enter IBAN">
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Contact Details</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="validationCustom02" name="supp_contact"
+              placeholder="Enter contact details">
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
 
 
       <div class="form-group">
         <input type="submit" class="btn btn-primary" Value="Save">
-        <a href="{{route('admin.advanceall.index')}}" class="btn btn-warning" role="button">Cancel</a>
-
+        <a href="{{route('admin.suppliers.index')}}" class="btn btn-warning" role="button">Cancel</a>
       </div>
     </form>
   </div>

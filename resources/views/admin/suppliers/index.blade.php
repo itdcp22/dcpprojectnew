@@ -77,8 +77,8 @@
 
 
 
-                <td> <a href="{{ route('admin.advances.show',$c->id) }}">
-                    <i class="fa fa-print text-green"></i>
+                <td> <a href="{{ route('admin.suppliers.edit',$c->id) }}">
+                    <i class="fa fa-edit text-blue"></i>
 
                   </a>
                 </td>
