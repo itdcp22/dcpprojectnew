@@ -119,9 +119,12 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Payments $payment)
     {
-        //
+        $arr['bank'] = Bank::where('bank_comp_code', auth()->user()->company)->get();
+        $arr['supplier'] = Supplier::where('supp_comp_code', auth()->user()->company)->get();
+        $arr['payment'] = $payment;
+        return view('admin.payments.edit')->with($arr);
     }
 
     /**
@@ -131,9 +134,37 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Payments $payment)
     {
-        //
+
+        $payment->pay_supp_bank_name = $request->pay_supp_bank_name;
+        $payment->pay_supp_swift_code = $request->pay_supp_swift_code;
+        $payment->pay_supp_iban = $request->pay_supp_iban;
+        $payment->pay_supp_amount = $request->pay_supp_amount;
+        $payment->pay_supp_currency = $request->pay_supp_currency;
+
+        $payment->pay_supp_ref_no = $request->pay_supp_ref_no;
+        $payment->remarks = $request->remarks;
+
+        if (!empty($request->bank_acc_no)) {
+
+            $payment->bank_name = $request->bank_name;
+            $payment->bank_acc_no = $request->bank_acc_no;
+        }
+
+        if (!empty($request->pay_supp_acc_name)) {
+
+            $payment->pay_supp_acc_name = $request->pay_supp_acc_name;
+            $payment->pay_supp_acc_no = $request->pay_supp_acc_no;
+        }
+
+
+
+
+        //dd($payment);
+
+        $payment->save();
+        return redirect('admin/payments')->with('info', 'Transaction updated successfully!');
     }
 
     /**

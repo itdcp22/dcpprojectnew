@@ -126,6 +126,10 @@ Route::resource('/hrms/survey', 'Hrms\SurveyController', ['as' => 'hrms'])->midd
 Route::resource('/hrms/locker', 'Hrms\LockerController', ['as' => 'hrms'])->middleware('auth');
 
 
+//KPI
+Route::resource('/kpi/info', 'Kpi\InfoController', ['as' => 'kpi'])->middleware('auth');
+
+
 
 //Mall - Work Permit
 Route::resource('/mall/workpermit', 'Mall\WorkpermitController', ['as' => 'mall'])->middleware('auth');
@@ -133,6 +137,7 @@ Route::resource('/mall/workpermitapp', 'Mall\WorkpermitappController', ['as' => 
 Route::resource('/mall/tenant', 'Mall\TenantController', ['as' => 'mall'])->middleware('auth');
 Route::resource('/mall/brand', 'Mall\BrandController', ['as' => 'mall'])->middleware('auth');
 Route::get('/mall/approved', 'Mall\WorkpermitController@approved')->name('workpermit.approved')->middleware('auth');
+Route::get('/mall/manual', 'Mall\WorkpermitController@manual')->name('manual');
 
 //Purchase Request
 Route::resource('/mall/purchaserequest', 'Mall\PurchaserequestController', ['as' => 'mall'])->middleware('auth');

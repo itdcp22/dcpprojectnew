@@ -34,7 +34,7 @@
                                 <th> Brand </th>
                                 <th> Type </th>
                                 <th> Created Date </th>
-                                <th> Verified Date </th>
+
                                 <th> Authorised By </th>
                                 <th> Last Seen</th>
                                 <th> Status </th>
@@ -61,7 +61,7 @@
 
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ date('d-m-Y', strtotime($user->created_at)) }}</td>
-                                <td>{{ date('d-m-Y', strtotime($user->email_verified_at)) }}</td>
+
                                 <td>{{ $user->flex1 }}</td>
                                 <td>{{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</td>
 
@@ -96,7 +96,7 @@
                                 <th> Brand </th>
                                 <th> Type </th>
                                 <th> Created Date </th>
-                                <th> Verified Date </th>
+
                                 <th> Authorised By </th>
                                 <th> Last Seen</th>
                                 <th> Status </th>

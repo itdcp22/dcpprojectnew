@@ -148,7 +148,7 @@ class toWords{
 </div>
 <!-- /.content-header -->
 
-<section class="content">
+<section class="content ml-4">
 
     <h1>&nbsp;</h1>
     <h1>&nbsp;</h1>
@@ -156,7 +156,8 @@ class toWords{
 
     <div class="a">
         Date :{{date('d-m-Y', strtotime($payment->created_at))}}<br>
-        Transaction Number :{{$payment->pay_tran_no}}
+        Transaction Number :{{$payment->pay_tran_no}}<br>
+        Reference Number :{{$payment->pay_supp_ref_no}}
 
 
     </div>

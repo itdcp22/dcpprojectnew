@@ -231,6 +231,27 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{route('manual')}}" class="nav-link
+                @if($segment=='manual')
+                active
+                @endif
+                ">
+                  <i class="nav-icon fas fa-book-open"></i>
+
+
+
+                  <p>
+                    User Manual
+
+
+
+
+
+                  </p>
+                </a>
+              </li>
+
               @can('isMall')
 
               <li class="font-weight-bold nav-header">MALL MASTER</li>

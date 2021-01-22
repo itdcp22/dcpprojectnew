@@ -67,6 +67,14 @@
                     <i class="fa fa-print text-green"></i>
 
                   </a>
+
+                  /
+
+                  <a href="{{ route('admin.payments.edit',$c->id) }}">
+                    <i class="fa fa-edit"></i>
+
+                  </a>
+
                 </td>
 
 
