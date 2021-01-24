@@ -260,9 +260,9 @@
 
 
           @if($workpermit->wp_status =='Approved')
-          <label class="col" for="">Approved Date</label>
+          <label class="col" for="">Approved Date : </label>
           @elseif($workpermit->wp_status =='Rejected')
-          <label class="col" for="">Rejected Date</label>
+          <label class="col" for="">Rejected Date :</label>
           @else
           <label class="col" for=""></label>
           @endif
@@ -270,7 +270,7 @@
 
 
           <div class="col border-bottom text-danger">
-            <label for=""> :
+            <label for="">
               @if ( !empty ( $workpermit->wp_approved_date ) )
               {{ date('d-m-Y', strtotime($workpermit->wp_approved_date)) }}
               @endif
@@ -278,9 +278,9 @@
           </div>
 
           @if($workpermit->wp_status =='Approved')
-          <label class="col" for="">Approved By</label>
+          <label class="col" for="">Approved By : </label>
           @elseif($workpermit->wp_status =='Rejected')
-          <label class="col" for="">Rejected By</label>
+          <label class="col" for="">Rejected By: </label>
           @else
           <label class="col" for=""></label>
           @endif
@@ -288,7 +288,7 @@
 
 
           <div class="col border-bottom text-danger">
-            <label for=""> : {{ $workpermit->wp_approved_name}} </label>
+            <label for=""> {{ $workpermit->wp_approved_name}} </label>
           </div>
 
 
