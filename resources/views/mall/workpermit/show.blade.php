@@ -89,78 +89,78 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Document No:</label>
-          <div class="col text-danger">
+          <label class="col-md-2" for="">Document No:</label>
+          <div class="col-md-2 text-danger">
             <label class="text-left" for=""> {{ $workpermit->wp_request_id}}</label>
           </div>
-          <label class="col text-right" for="">:رقم المستند
+          <label class="col-md-2 text-right" for="">:رقم المستند
           </label>
-          <label class="col" for="">Date:</label>
-          <div class="col text-danger">
+          <label class="col-md-2" for="">Date:</label>
+          <div class="col-md-2 text-danger">
             <label class="text-left" for=""> {{ date('d-m-Y', strtotime($workpermit->created_at)) }}</label>
           </div>
-          <label class="col text-right" for="">:تاريخ</label>
+          <label class="col-md-2 text-right" for="">:تاريخ</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Applicant:</label>
-          <div class="col text-danger">
+          <label class="col-md-2" for="">Applicant:</label>
+          <div class="col-md-2 text-danger">
             <label for=""> {{ $workpermit->wp_applicant}}</label>
           </div>
-          <label class="col text-right" for="">:اسم مقدم الطلب</label>
-          <label class="col" for="">Designation:</label>
-          <div class="col text-danger">
+          <label class="col-md-2 text-right" for="">:اسم مقدم الطلب</label>
+          <label class="col-md-2" for="">Designation:</label>
+          <div class="col-md-2 text-danger">
             <label for=""> {{ $workpermit->wp_designation}}</label>
           </div>
-          <label class="col text-right" for="">:الوظيفة</label>
+          <label class="col-md-2 text-right" for="">:الوظيفة</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Mobile:</label>
-          <div class="col text-danger">
+          <label class="col-md-2" for="">Mobile:</label>
+          <div class="col-md-2 text-danger">
             <label for=""> {{ $workpermit->wp_mobile}}</label>
           </div>
-          <label class="col text-right" for="">:رقم الهاتف</label>
-          <label class="col" for="">Email:</label>
-          <div class="col text-danger">
+          <label class="col-md-2 text-right" for="">:رقم الهاتف</label>
+          <label class="col-md-2" for="">Email:</label>
+          <div class="col-md-3 text-danger">
             <label for=""> {{ $workpermit->wp_email}}</label>
           </div>
-          <label class="col text-right" for="">:بريد</label>
+          <label class="col-md-1 text-right" for="">:بريد</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Company:</label>
-          <div class="col text-danger">
+          <label class="col-md-1" for="">Company:</label>
+          <div class="col-md-4 text-danger">
             <label for=""> {{ $workpermit->wp_comp_name}}</label>
           </div>
-          <label class="col text-right" for="">:الشركة</label>
-          <label class="col" for="">Brand:</label>
-          <div class="col text-danger">
+          <label class="col-md-1 text-right" for="">:الشركة</label>
+          <label class="col-md-2" for="">Brand:</label>
+          <div class="col-md-2 text-danger">
             <label for=""> {{ $workpermit->wp_brand_name}}</label>
           </div>
-          <label class="col text-right" for="">:اسم المحل</label>
+          <label class="col-md-2 text-right" for="">:اسم المحل</label>
         </div>
       </div>
 
 
       <div class="form-group">
         <div class="row">
-          <label class="col " for="">Manager:</label>
-          <div class="col text-danger">
+          <label class="col-md-2" for="">Manager:</label>
+          <div class="col-md-2 text-danger">
             <label for=""> {{ $workpermit->wp_manager}}</label>
           </div>
-          <label class="col text-right" for="">:مدير المحل</label>
-          <label class="col" for="">Contact:</label>
-          <div class="col text-danger">
+          <label class="col-md-2 text-right" for="">:مدير المحل</label>
+          <label class="col-md-2" for="">Contact:</label>
+          <div class="col-md-2 text-danger">
             <label for=""> {{ $workpermit->wp_manager_contact}}</label>
           </div>
-          <label class="col text-right" for="">:اتصل</label>
+          <label class="col-md-2 text-right" for="">:اتصل</label>
         </div>
       </div>
 
