@@ -260,9 +260,9 @@
 
 
           @if($workpermit->wp_status =='Approved')
-          <label class="col" for="">Approved Date : </label>
+          <label class="col" for="">Approved Date: </label>
           @elseif($workpermit->wp_status =='Rejected')
-          <label class="col" for="">Rejected Date :</label>
+          <label class="col" for="">Rejected Date:</label>
           @else
           <label class="col" for=""></label>
           @endif
