@@ -72,137 +72,94 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid ml-5">
         <form class="needs-validation" novalidate method="post">
             @method('GET')
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
+            <h1>&nbsp;</h1>
 
 
             <div class="form-group">
                 <div class="row">
-                    <label class="col" for="">Name</label>
-                    <div class="col">
-                        <input class="form-control" id="datepicker" name="name" value="{{$advance->ca_emp_name}}"
-                            readonly>
+                    <div class="col-2">
+                        <label for="">Name</label>
                     </div>
-
-
-
-                    <label class="col" for=""> </label>
-                    <div class="col">
+                    <div class="col-3 text-left">
+                        <label for="">: {{$advance->ca_emp_name}}</label>
 
                     </div>
                 </div>
+            </div>
 
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-2" for="">Date</label>
+                    <div class="col-3">
+                        <label for="">: {{ date('d-m-Y', strtotime($advance->ca_adv_date))}}</label>
 
-                <div class="form-group">
-                    <div class="row">
-                        <label class="col" for="">Date </label>
-                        <div class="col">
-                            <input class="form-control" id="datepicker" name="bill_date"
-                                value="{{ date('d-m-Y', strtotime($advance->ca_adv_date))}}" readonly>
-                        </div>
-
-
-
-                        <label class="col" for=""> </label>
-                        <div class="col">
-
-
-                        </div>
+                        <div class="clear-fix"></div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <label class="col" for="">Amount </label>
-                            <div class="col">
-                                <input class="form-control" id="datepicker" name="bill_date"
-                                    value="{{ $advance->ca_adv_amt}}" readonly>
-                            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-2" for="">Amount</label>
+                    <div class="col-3">
+                        <label for="">:OMR. {{ $advance->ca_adv_amt}}</label>
 
+                        <div class="clear-fix"></div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-2" for="">Reason</label>
+                    <div class="col-6">
+                        <label for="">:{{ $advance->ca_purpose}}</label>
 
-                            <label class="col" for=""> </label>
-                            <div class="col">
-
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <label class="col" for="">Reason </label>
-                                <div class="col">
-
-
-                                    <textarea class="form-control" name="wp_description" rows="3" id="comment"
-                                        placeholder="Enter work description in detail"
-                                        readonly>{{$advance->ca_purpose}}</textarea>
-
-
-                                </div>
+                        <div class="clear-fix"></div>
+                    </div>
+                </div>
+            </div>
 
 
 
-                                <label class="col" for=""> </label>
-                                <div class="col">
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-2" for="">Approved By</label>
+                    <div class="col-3">
+                        <label for="">:________________</label>
 
+                        <div class="clear-fix"></div>
+                    </div>
+                </div>
+            </div>
 
-                                </div>
-                            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-2" for="">Received By</label>
+                    <div class="col-3">
+                        <label for="">:________________</label>
 
-                            <div class="form-group">
-                                <div class="row">
-                                    <label class="col" for="">Approved By: </label>
-                                    <div class="col">
-                                        <input class="form-control" id="datepicker" name="bill_date" value="" readonly>
-                                    </div>
+                        <div class="clear-fix"></div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-2" for="">Receiver Signature</label>
+                    <div class="col-3">
+                        <label for="">:________________</label>
 
-
-                                    <label class="col" for=""> </label>
-                                    <div class="col">
-
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class="col" for="">Cash Received By: </label>
-                                        <div class="col">
-                                            <input class="form-control" id="datepicker" name="bill_date" value=""
-                                                readonly>
-                                        </div>
-
-
-
-                                        <label class="col" for=""> </label>
-                                        <div class="col">
-
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <label class="col" for="">Receiver Signature: </label>
-                                            <div class="col">
-                                                <input class="form-control" id="datepicker" name="bill_date" value=""
-                                                    readonly>
-                                            </div>
-
-
-
-                                            <label class="col" for=""> </label>
-                                            <div class="col">
-
-
-                                            </div>
-                                        </div>
+                        <div class="clear-fix"></div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -215,23 +172,27 @@
 
 
 
-                                         
+
+
+
+
+             
 
 
 
 
 
 
-                                        <div class="form-group">
+            <div class="form-group">
 
 
 
-                                            <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
+                <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
 
 
 
 
-                                        </div>
+            </div>
 
 
 
