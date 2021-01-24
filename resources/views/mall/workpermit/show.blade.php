@@ -204,14 +204,14 @@
 
       <div class="form-group">
         <p class="bg-warning text-white"><strong>Work Category - تصنيف العمل</strong>
-          <textarea class="form-control" name="wp_category" rows="3" id="comment" placeholder="Work Category"
+          <textarea class="form-control" name="wp_category" rows="2" id="comment" placeholder="Work Category"
             readonly>{{$workpermit->wp_category}}</textarea>
         </p>
       </div>
 
       <div class="form-group">
         <p class="bg-warning text-white"><strong>Description of Work - وصف العمل</strong>
-          <textarea class="form-control" name="wp_description" rows="3" id="comment"
+          <textarea class="form-control" name="wp_description" rows="2" id="comment"
             placeholder="Enter work description in detail" readonly>{{$workpermit->wp_description}}</textarea>
         </p>
       </div>
