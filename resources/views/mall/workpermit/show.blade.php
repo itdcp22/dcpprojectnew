@@ -294,18 +294,18 @@
 
 
           @if($workpermit->wp_status =='Approved')
-          <label class="col" for="">Signature</label>
+          <label class="col" for="">Signature:</label>
           @elseif($workpermit->wp_status =='Rejected')
-          <label class="col" for="">Signature</label>
+          <label class="col" for="">Signature:</label>
           @else
           <label class="col" for=""></label>
           @endif
 
 
-          <div class="col border-bottom text-danger">:
+          <div class="col border-bottom text-danger">
 
             @if($workpermit->wp_approved_uid =='38')
-            <img src={{asset('dist/img/cheatannewbg.png')}}>
+            <img src={{asset('dist/img/cheatannewbgsmall.png')}}>
 
             @elseif($workpermit->wp_approved_uid =='37')
 
@@ -329,7 +329,7 @@
 
         <div class="form-group">
           <p class="bg-primary text-white"><strong>Mall Remarks:</strong>
-            <textarea class="form-control" name="wp_approved_remark" rows="3" id="comment" placeholder="Mall Remarks"
+            <textarea class="form-control" name="wp_approved_remark" rows="2" id="comment" placeholder="Mall Remarks"
               readonly>{{$workpermit->wp_approved_remark}}</textarea>
           </p>
         </div>
