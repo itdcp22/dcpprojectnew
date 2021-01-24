@@ -222,25 +222,25 @@
 
         <div class="row">
 
-          <label class="col" for="">Company</label>
-          <div class="col border-bottom text-danger">
+          <label class="col-md-1" for="">Company</label>
+          <div class="col-md-3 border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_cont_comp}}</label>
 
           </div>
-          <label class="col" for="">Person Name</label>
-          <div class="col border-bottom text-danger">
+          <label class="col-md-1" for="">Name</label>
+          <div class="col-md-3 border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_cont_person}} </label>
 
           </div>
 
-          <label class="col" for="">Mobile Number</label>
-          <div class="col border-bottom text-danger">
+          <label class="col-md-1" for="">Mobile</label>
+          <div class="col-md-1 border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_cont_mobile}}</label>
 
           </div>
 
-          <label class="col" for="">No. Workers</label>
-          <div class="col border-bottom text-danger">
+          <label class="col-md-1" for="">Workers</label>
+          <div class="col-md-1 border-bottom text-danger">
             <label for=""> : {{ $workpermit->wp_no_workers}}</label>
 
           </div>
