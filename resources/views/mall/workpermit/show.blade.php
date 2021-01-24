@@ -125,8 +125,8 @@
             <label for=""> {{ $workpermit->wp_mobile}}</label>
           </div>
           <label class="col-md-2 text-right" for="">:رقم الهاتف</label>
-          <label class="col-md-2" for="">Email:</label>
-          <div class="col-md-3 text-center text-danger">
+          <label class="col-md-1" for="">Email:</label>
+          <div class="col-md-4 text-center text-danger">
             <label for=""> {{ $workpermit->wp_email}}</label>
           </div>
           <label class="col-md-1 text-right" for="">:بريد</label>
