@@ -51,7 +51,7 @@
 
 
 
-            <p>Work Permit Request</p>
+            <p>Work Permit Pending</p>
           </div>
           <div class="icon">
             <i class="fas fa-tools"></i>
