@@ -118,7 +118,7 @@
             <div class="form-group">
                 <div class="row">
                     <label class="col-2" for="">Reason</label>
-                    <div class="col-6">
+                    <div class="col-8">
                         <label for="">:{{ $advance->ca_purpose}}</label>
 
                         <div class="clear-fix"></div>
