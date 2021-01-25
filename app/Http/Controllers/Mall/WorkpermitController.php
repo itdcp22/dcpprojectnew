@@ -93,6 +93,8 @@ class WorkpermitController extends Controller
 
         $filename = '';
 
+
+
         if ($request->hasFile('th_attach')) {
             $file = $request->file('th_attach');
             $ext = $file->getClientOriginalExtension();
@@ -191,6 +193,10 @@ class WorkpermitController extends Controller
      */
     public function update(Request $request, Workpermit $workpermit)
     {
+
+
+
+
         $workpermit->wp_applicant = $request->wp_applicant;
         $workpermit->wp_designation = $request->wp_designation;
         $workpermit->wp_mobile = $request->wp_mobile;

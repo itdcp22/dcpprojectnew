@@ -37,7 +37,6 @@ class NewBill extends Mailable
             ->to(auth()->user()->email, auth()->user()->name)
             ->cc('cheatan@mallofmuscat.com', 'Cheatan')
             ->cc('hussain@mallofmuscat.com', 'Hussain')
-            ->bcc('itmom20@gmail.com', 'IT')
             ->subject($this->workpermit->wp_brand_name)
             ->view('email.newbill.added');
     }

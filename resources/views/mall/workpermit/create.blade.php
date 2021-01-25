@@ -173,13 +173,41 @@
 
             <script>
               var date = new Date();
+              
+
+              
+              
+              var hour = date.getHours();
+              
+              if(parseInt(hour) > 15) {
+                minDate = 1;
+
+                
             var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
               $('#datepicker2').datepicker({
                  format: 'dd-mm-yyyy',
                    uiLibrary: 'bootstrap4',
-                   minDate: today  
+                   
+                   minDate:new Date(),
+      disabledDates: [new Date()]
 
-               });               
+
+               });       
+
+                }
+                else
+                {
+                  
+            var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+              $('#datepicker2').datepicker({
+                 format: 'dd-mm-yyyy',
+                   uiLibrary: 'bootstrap4',
+                   minDate: today,
+
+                  });  
+                }
+
+                        
             </script>
 
 
@@ -200,6 +228,8 @@
                    uiLibrary: 'bootstrap4',
                    minDate: today1  
                });
+
+               
             </script>
 
 
