@@ -17,13 +17,13 @@
       });
     }, false);
   })();
-  </script>
-  
-  
-      <!-- End -->
-      <!-- This script is used to allow only number in the bill amount field -->
-      <script>    
-        function isNumberKey(evt)
+</script>
+
+
+<!-- End -->
+<!-- This script is used to allow only number in the bill amount field -->
+<script>
+  function isNumberKey(evt)
         {
           var charCode = (evt.which) ? evt.which : evt.keyCode;
           if (charCode != 46 && charCode > 31 
@@ -31,109 +31,116 @@
           return false;
           return true;
         }  
-      </script>
-      <!-- End -->
-  
-  
-  
-      <!-- End -->
-  
-  
-  @extends('layouts.admin')
-  @section('content')
-  
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Advance</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                
+</script>
+<!-- End -->
 
-                
-                  <li class="breadcrumb-item"><a href="{{route('admin.advances.index')}}">Advance</a></li>
-                
-  
-                
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-  
-      <section class="content">
-        <div class="container-fluid">
-       <form class="needs-validation" novalidate method = "post" action="{{ route('admin.advances.store') }}" enctype="multipart/form-data" autocomplete="off">
-        
-       <input type="hidden" name="_token" value = "{{ csrf_token() }}">
-      
-  
-  
-       <div class="form-group">
-       <div class = "row">
-       <label class = "col-lg-1" for="">Date *</label>
-       <div class = "col-lg-2">
-       <input class = "form-control datepicker" id="datepicker" name = "ca_adv_date" placeholder="dd-mm-yyyy" required>  
-           
-       <script>
-        $('#datepicker').datepicker({
-          format: 'dd-mm-yyyy',
-            uiLibrary: 'bootstrap4'
-        });
-    </script>
-      
-    </div>
-       
-  
-       
-  </div>
-      
+
+
+<!-- End -->
+
+
+@extends('layouts.admin')
+@section('content')
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Advance</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+
+
+
+          <li class="breadcrumb-item"><a href="{{route('admin.advances.index')}}">Advance</a></li>
+
+
+
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<section class="content">
+  <div class="container-fluid">
+    <form class="needs-validation" novalidate method="post" action="{{ route('admin.advances.store') }}"
+      enctype="multipart/form-data" autocomplete="off">
+
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+
       <div class="form-group">
-       <div class = "row">
-       <label class = "col-lg-1" for="">Amount</label>
-       <div class = "col-lg-2">
-       
-       <input type="text" name = "ca_adv_amt" onkeypress="return isNumberKey(event)" class = "form-control "  placeholder="Enter amount" required> </div>
-       
-  
-       
-       
-      </div>
-  
-      
-   
-  
-      
-              
-    
-  
-  
-    
-  <div class="form-group">
-    <label for="comment">Reason:</label>
-    <textarea name = "ca_purpose" class="form-control" rows="2" id="comment" placeholder="Enter the purpose" required></textarea>
-  </div>
-  
-  
-  </div>
-      
-  
-      <div class="form-group">
-      <input type="submit" class = "btn btn-primary" Value ="Save">
-      <a href="{{route('admin.advances.index')}}" class="btn btn-warning" role="button">Cancel</a>
-      </div>
-       
-  
-  
-       </form>
+        <div class="row">
+          <label class="col-lg-1" for="">Date *</label>
+          <div class="col-lg-2">
+            <input class="form-control" id="datepicker" name="ca_adv_date" placeholder="dd-mm-yyyy" readonly required>
+
+            <script>
+              var date = new Date();
+              var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+              $('#datepicker').datepicker({
+                 format: 'dd-mm-yyyy',
+                   uiLibrary: 'bootstrap4',
+                   minDate: today,
+
+                  });  
+            </script>
+
+          </div>
+
+
+
         </div>
-  
-  
-        
-      </section>
-  @endsection
+
+        <div class="form-group">
+          <div class="row">
+            <label class="col-lg-1" for="">Amount</label>
+            <div class="col-lg-2">
+
+              <input type="text" name="ca_adv_amt" onkeypress="return isNumberKey(event)" class="form-control "
+                placeholder="Enter amount" required> </div>
+
+
+
+
+          </div>
+
+
+
+
+
+                     
+           
+
+
+           
+          <div class="form-group">
+            <label for="comment">Reason:</label>
+            <textarea name="ca_purpose" class="form-control" rows="2" id="comment" placeholder="Enter the purpose"
+              required></textarea>
+          </div>
+
+
+        </div>
+
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" Value="Save">
+          <a href="{{route('admin.advances.index')}}" class="btn btn-warning" role="button">Cancel</a>
+        </div>
+
+
+
+    </form>
+  </div>
+
+
+
+</section>
+@endsection

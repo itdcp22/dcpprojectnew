@@ -169,7 +169,7 @@
 
 
             <input class="form-control datepicker" id="datepicker2" name="wp_from_date" placeholder="dd-mm-yyyy"
-              tabindex="6" value="{{ old('wp_from_date') }}" required>
+              tabindex="6" value="{{ old('wp_from_date') }}" readonly required>
 
             <script>
               var date = new Date();
@@ -217,11 +217,14 @@
 
 
             <input class="form-control datepicker" id="datepicker1" name="wp_to_date" placeholder="dd-mm-yyyy"
-              tabindex="7" value="{{ old('wp_to_date') }}" required>
+              tabindex="7" value="{{ old('wp_to_date') }}" readonly required>
 
 
             <script>
               var date1 = new Date();
+
+              
+
             var today1 = new Date(date.getFullYear(), date.getMonth(), date.getDate());
               $('#datepicker1').datepicker({
                  format: 'dd-mm-yyyy',

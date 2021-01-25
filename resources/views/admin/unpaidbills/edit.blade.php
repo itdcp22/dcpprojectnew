@@ -17,7 +17,7 @@
       });
     }, false);
   })();
-  </script>
+</script>
 
 <script>
   $(function()
@@ -33,226 +33,227 @@
           }
         });	
   });
-  </script>
-  
-  
-  @extends('layouts.admin')
-  @section('content')
-  
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Edit Bill - All</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                
-                <li class="breadcrumb-item"><a href="{{route('admin.accounts.index')}}">Unpaid Bills</a></li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-  
-      <section class="content">
-        <div class="container-fluid">
-       <form class="needs-validation" novalidate method = "post" 
-       
-     
-     action="{{ route('admin.unpaidbills.update',  $account->th_tran_no) }}"
-
-       
-       >
-
-       @method('PUT')
-       <input type="hidden" name="_token" value = "{{ csrf_token() }}">
-       <div class="form-group">
-       <div class = "row">
-       <label class = "col-lg-1" for="">Supplier Name *</label>
-       <div class = "col-lg-5">
-       <input class="form-control" data-error="Please enter name field." type="text" name = "th_supp_name" 
-       value="{{ $account->th_supp_name}}" class = "form-control" placeholder="Enter Supplier name" required>
-       <div class = "clear-fix"></div>
-      </div>     
-       </div>
-  
-  
-       <div class="form-group">
-       <div class = "row">
-       <label class = "col-lg-1" for="">Bill Date *</label>
-       <div class = "col-lg-2">
-       <input class = "form-control" id="datepicker"  name = "th_bill_dt" value="{{ $account->th_bill_dt->format('d-m-Y') }}" placeholder="Enter bill date" required>
-      <script>
-          $('#datepicker').datepicker({
-            format: 'dd-mm-yyyy',
-              uiLibrary: 'bootstrap4'
-          });
-      </script>
-  
-    
-    
-    </div>
-  
-  
-  
-  
-       
-  
-       <label class = "col-lg-1" for="">Bill Number *</label>
-       <div class = "col-lg-2">
-       <input type="text" name = "th_bill_no" value="{{ $account->th_bill_no}}" class = "form-control" placeholder="Enter bill number" required>
-       <div class = "clear-fix"></div>
-      </div>
-  </div>
-      
-      <div class="form-group">
-       <div class = "row">
-       <label class = "col-lg-1" for="">Bill Amount *</label>
-       <div class = "col-lg-2">
-       <input type="text" name = "th_bill_amt" value="{{ $account->th_bill_amt}}" class = "form-control" placeholder="Enter bill amount" required> </div>
-       
-       
-  
-       <label class = "col-lg-1" for="">Payment Mode</label>
-       <div class = "col-lg-2">
-       <input type="text" name = "th_pay_mode" value="{{ $account->th_pay_mode}}" class = "form-control" placeholder="Enter Cash / Card">
-       <div class = "clear-fix"></div>
-      </div>
-      </div>
-  
-      <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th >S.No</th>
-                <th class="w-50">Item Description</th>
-                <th class="w-20">Quantity</th>
-                <th class="w-20">Unit Price</th>
-                <th class="w-20">Amount</th>
-              </tr>
-            </thead>
-            <tbody>        
-              <tr>     
-             @foreach($item as $item)
-              <tr>
-              <td> {{ $loop->iteration }}</td>          
-              <td> {{ $item-> td_item_desc }}</td>
-              <td> {{ $item-> td_qty }}</td>           
-              <td> {{number_format($item->td_unit_price,3)}}</td>           
-              <td> {{ number_format($item->td_unit_price * $item->td_qty,3) }}</td>
-              </tr>      
-            @endforeach  
-             
-              </tr>
-        
-               
-            </tbody>
-          </table>
-        
-      
-  
-              
-    
-  
-  
-  <div class="form-group">
-    <div class = "row">
-    
-    <label class = "col-lg-1" for="">Attach Bill</label>
-    <div class = "col-md-6">    
-    <input type="file" id="validationCustom01" name="th_attach">
-    <div class = "clear-fix"></div>
-    </div>     
-    </div>
-    </div>
-    
-    
-  <div class="form-group">
-    <label for="comment">Comment:</label>  
-    <input type="text" name = "th_purpose" 
-    value="{{ $account->th_purpose}}" class = "form-control"  required>    
-  </div> 
-  
-  </div>
-
-  
-   
-  <div class="form-group">
-    <div class = "row">
-    <label class = "col-lg-1" for="">Payment</label>
-    <div class = "col-lg-2">
-      
-      <input class="form-check-input" type="hidden"  Value = '0' name='th_pay_status'>    
-      <input class="form-check-input" type="checkbox"  Value = '1' name='th_pay_status'>
-
-      
-  
-  </div>
-    
-    
-
-    <label class = "col-lg-1" for="">Payment Date</label>
-    <div class = "col-lg-2">    
-      <input id="datepicker1" type="text" name = "th_pay_date" class = "form-control datepicker"  placeholder="dd-mm-yyyy" required>
-   </div>
-
-   
-   <script>
-    $('#datepicker1').datepicker({
-      format: 'dd-mm-yyyy',
-        uiLibrary: 'bootstrap4'
-    });
 </script>
 
 
-   
+@extends('layouts.admin')
+@section('content')
 
-   
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Edit Bill - All</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
 
-   <label class = "col-lg-1" for="">Remarks</label>
-   <div class = "col-lg-2">
-   <input type="text" name = "th_pay_remarks"  value="{{ $account->th_pay_remarks}}" class = "form-control" placeholder="Enter Remarks" required>
-   <div class = "clear-fix"></div>
+          <li class="breadcrumb-item"><a href="{{route('admin.accounts.index')}}">Unpaid Bills</a></li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<section class="content">
+  <div class="container-fluid">
+    <form class="needs-validation" novalidate method="post"
+      action="{{ route('admin.unpaidbills.update',  $account->th_tran_no) }}">
+
+      @method('PUT')
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-1" for="">Supplier Name *</label>
+          <div class="col-lg-5">
+            <input class="form-control" data-error="Please enter name field." type="text" name="th_supp_name"
+              value="{{ $account->th_supp_name}}" class="form-control" placeholder="Enter Supplier name" required>
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="row">
+            <label class="col-lg-1" for="">Bill Date *</label>
+            <div class="col-lg-2">
+              <input class="form-control" id="datepicker" name="th_bill_dt"
+                value="{{ $account->th_bill_dt->format('d-m-Y') }}" placeholder="Enter bill date" required>
+              <script>
+                $('#datepicker').datepicker({
+            format: 'dd-mm-yyyy',
+              uiLibrary: 'bootstrap4'
+          });
+              </script>
+
+
+
+            </div>
+
+
+
+
+
+
+            <label class="col-lg-1" for="">Bill Number *</label>
+            <div class="col-lg-2">
+              <input type="text" name="th_bill_no" value="{{ $account->th_bill_no}}" class="form-control"
+                placeholder="Enter bill number" required>
+              <div class="clear-fix"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-lg-1" for="">Bill Amount *</label>
+              <div class="col-lg-2">
+                <input type="text" name="th_bill_amt" value="{{ $account->th_bill_amt}}" class="form-control"
+                  placeholder="Enter bill amount" required> </div>
+
+
+
+              <label class="col-lg-1" for="">Payment Mode</label>
+              <div class="col-lg-2">
+                <input type="text" name="th_pay_mode" value="{{ $account->th_pay_mode}}" class="form-control"
+                  placeholder="Enter Cash / Card">
+                <div class="clear-fix"></div>
+              </div>
+            </div>
+
+            <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>S.No</th>
+                          <th class="w-50">Item Description</th>
+                          <th class="w-20">Quantity</th>
+                          <th class="w-20">Unit Price</th>
+                          <th class="w-20">Amount</th>
+                        </tr>
+                    </thead>
+                  <tbody>    
+                      <tr>     
+                       @foreach($item as $item)
+                <tr>
+                  <td> {{ $loop->iteration }}</td>
+                  <td> {{ $item-> td_item_desc }}</td>
+                  <td> {{ $item-> td_qty }}</td>
+                  <td> {{number_format($item->td_unit_price,3)}}</td>
+                  <td> {{ number_format($item->td_unit_price * $item->td_qty,3) }}</td>
+                </tr>
+                @endforeach
+
+                      </tr>
+
+                       
+                   
+              </tbody>
+                </table>
+
+
+
+                       
+             
+
+
+            <div class="form-group">
+              <div class="row">
+
+                <label class="col-lg-1" for="">Attach Bill</label>
+                <div class="col-md-6">
+                  <input type="file" id="validationCustom01" name="th_attach">
+                  <div class="clear-fix"></div>
+                </div>
+              </div>
+            </div>
+             
+             
+            <div class="form-group">
+              <label for="comment">Comment:</label>
+              <input type="text" name="th_purpose" value="{{ $account->th_purpose}}" class="form-control" required>
+            </div>
+
+          </div>
+
+
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-lg-1" for="">Payment</label>
+              <div class="col-lg-2">
+
+                <input class="form-check-input" type="hidden" Value='0' name='th_pay_status'>
+                <input class="form-check-input" type="checkbox" Value='1' name='th_pay_status'>
+
+
+
+              </div>
+
+
+
+              <label class="col-lg-1" for="">Payment Date</label>
+              <div class="col-lg-2">
+                <input id="datepicker1" type="text" name="th_pay_date" class="form-control datepicker"
+                  placeholder="dd-mm-yyyy" readonly required>
+              </div>
+
+
+              <script>
+                $('#datepicker1').datepicker({
+      format: 'dd-mm-yyyy',
+        uiLibrary: 'bootstrap4'
+    });
+              </script>
+
+
+
+
+
+
+              <label class="col-lg-1" for="">Remarks</label>
+              <div class="col-lg-2">
+                <input type="text" name="th_pay_remarks" value="{{ $account->th_pay_remarks}}" class="form-control"
+                  placeholder="Enter Remarks" required>
+                <div class="clear-fix"></div>
+              </div>
+
+              <label class="col-lg-1" for="">Category</label>
+              <div class="col-lg-2">
+                <select class="custom-select" name="th_exp_cat_id" required>
+                  <option value="" selected disabled hidden>Please select</option>
+
+                  @foreach($categories as $c)
+                  <option value="{{ $c->id}}">{{ $c->exp_group_name}}</option>
+                  @endforeach
+
+                </select>
+
+
+
+
+
+                <a href="{{route('admin.categories.create')}}">New Category</a></li>
+                <div class="clear-fix"></div>
+              </div>
+
+            </div>
+
+
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" Value="Save">
+
+              <a href="{{route('admin.unpaidbills.index')}}" class="btn btn-warning" role="button">Cancel</a>
+
+            </div>
+
+
+
+    </form>
   </div>
 
-  <label class = "col-lg-1" for="">Category</label>
-  <div class = "col-lg-2">
-<select class="custom-select" name="th_exp_cat_id" required>
-<option value="" selected disabled hidden>Please select</option>
-
-@foreach($categories as $c)
-<option value="{{ $c->id}}">{{ $c->exp_group_name}}</option>
-@endforeach   
-
-</select>
 
 
-
-
-
-<a href="{{route('admin.categories.create')}}">New Category</a></li>
-  <div class = "clear-fix"></div>
- </div>
-
-   </div>
-      
-  
-  <div class="form-group">
-       <input type="submit" class = "btn btn-primary" Value ="Save">
-       
-       <a href="{{route('admin.unpaidbills.index')}}" class="btn btn-warning" role="button">Cancel</a>
-       
-       </div>
-       
-  
-  
-       </form>
-        </div>
-  
-  
-        
-      </section>
-  @endsection
+</section>
+@endsection
