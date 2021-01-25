@@ -348,7 +348,7 @@ requiredCheckboxes.change(function(){
           <label class="col-lg-1" for="">Mobile Number</label>
           <div class="col-lg-2">
             <input type="text" class="form-control" id="wp_cont_mobile" name="wp_cont_mobile" tabindex="13"
-              placeholder="Enter mobile number" value="{{ old('wp_cont_mobile') }}">
+              placeholder="Enter mobile number" maxlength="8" value="{{ old('wp_cont_mobile') }}">
           </div>
 
           <label class="col-lg-1" for="">No. Workers</label>
