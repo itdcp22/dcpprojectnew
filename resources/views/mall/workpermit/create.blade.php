@@ -3,7 +3,6 @@
 
 
 
-
 <!-- This script is used to allow only number in the bill amount field -->
 <script>
   function isNumberKey(evt)
@@ -84,6 +83,8 @@
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
       action="{{ route('mall.workpermit.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
 
       <div class="form-group">
         <div class="row">

@@ -174,13 +174,44 @@
 
 
             <input class="form-control datepicker" id="datepicker" name="wp_from_date" placeholder="dd-mm-yyyy"
-              value="{{ date('d-m-Y', strtotime($workpermit->wp_from_date)) }}" required>
+              value="{{ date('d-m-Y', strtotime($workpermit->wp_from_date)) }}" readonly required>
 
             <script>
+              var date = new Date();
+              
+
+              
+              
+              var hour = date.getHours();
+              
+              if(parseInt(hour) > 15) {
+                minDate = 1;
+
+                
+            var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
               $('#datepicker').datepicker({
                  format: 'dd-mm-yyyy',
-                   uiLibrary: 'bootstrap4'
-               });
+                   uiLibrary: 'bootstrap4',
+                   
+                   minDate:new Date(),
+      disabledDates: [new Date()]
+
+
+               });       
+
+                }
+                else
+                {
+                  
+            var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+              $('#datepicker').datepicker({
+                 format: 'dd-mm-yyyy',
+                   uiLibrary: 'bootstrap4',
+                   minDate: today,
+
+                  });  
+                }
+
             </script>
 
 
@@ -190,15 +221,22 @@
 
 
             <input class="form-control datepicker" id="datepicker1" name="wp_to_date"
-              value="{{ date('d-m-Y', strtotime($workpermit->wp_to_date)) }}" placeholder="dd-mm-yyyy" required>
+              value="{{ date('d-m-Y', strtotime($workpermit->wp_to_date)) }}" placeholder="dd-mm-yyyy" readonly
+              required>
 
 
 
             <script>
-              $('#datepicker1').datepicker({
-                 format: 'dd-mm-yyyy',
-                   uiLibrary: 'bootstrap4'
-               });
+              var date1 = new Date();
+
+              
+
+var today1 = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  $('#datepicker1').datepicker({
+     format: 'dd-mm-yyyy',
+       uiLibrary: 'bootstrap4',
+       minDate: today1  
+   });
             </script>
 
 
@@ -219,7 +257,7 @@
               <option value="04:00 AM">04:00 AM</option>
               <option value="05:00 AM">05:00 AM</option>
               <option value="06:00 AM">06:00 AM</option>
-              <option value="07:00 AM">07:00 AM</option>
+
 
             </select>
 
