@@ -261,10 +261,10 @@
 
           @if($workpermit->wp_status =='Approved')
           <label class="col" for="">Approved Date: </label>
-          @elseif($workpermit->wp_status =='Rejected')
-          <label class="col" for="">Rejected Date:</label>
+          @elseif($workpermit->wp_status =='Not_Approved')
+          <label class="col" for="">Not Approved Date:</label>
           @else
-          <label class="col" for="">Date:</label>
+          <label class="col" for=""></label>
           @endif
 
 
@@ -279,10 +279,10 @@
 
           @if($workpermit->wp_status =='Approved')
           <label class="col" for="">Approved By : </label>
-          @elseif($workpermit->wp_status =='Rejected')
-          <label class="col" for="">Rejected By: </label>
+          @elseif($workpermit->wp_status =='Not_Approved')
+          <label class="col" for="">Not Approved By: </label>
           @else
-          <label class="col" for="">By</label>
+          <label class="col" for=""></label>
           @endif
 
 
