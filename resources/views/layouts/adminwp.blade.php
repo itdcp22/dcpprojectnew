@@ -446,7 +446,7 @@
   <script>
     $(function() {
       $("#example1").DataTable();
-      $('#example2').DataTable({
+      $('#example3').DataTable({
         "paging": true,
         "lengthChange": false,
         "searching": false,
@@ -457,6 +457,19 @@
         "info": true,
         "autoWidth": false,
       });
+
+      $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "order": [
+                    [0, "desc"]
+                ],
+                "info": true,
+                "autoWidth": true,
+            });
+            
     });
   </script>
 

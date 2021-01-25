@@ -26,7 +26,7 @@ class WorkpermitappController extends Controller
      */
     public function index()
     {
-        $arr['workpermit'] = Workpermit::All();
+        $arr['workpermit'] = Workpermit::orderBy('id', 'desc')->get();
         return view('mall.workpermitapp.index')->with($arr);
     }
 
