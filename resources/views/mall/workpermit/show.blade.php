@@ -264,7 +264,7 @@
           @elseif($workpermit->wp_status =='Rejected')
           <label class="col" for="">Rejected Date:</label>
           @else
-          <label class="col" for=""></label>
+          <label class="col" for="">Date:</label>
           @endif
 
 
@@ -282,7 +282,7 @@
           @elseif($workpermit->wp_status =='Rejected')
           <label class="col" for="">Rejected By: </label>
           @else
-          <label class="col" for=""></label>
+          <label class="col" for="">By</label>
           @endif
 
 
