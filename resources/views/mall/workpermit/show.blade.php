@@ -369,19 +369,6 @@
 
           <div class="form-group">
             <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
 
 

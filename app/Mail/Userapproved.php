@@ -35,7 +35,6 @@ class Userapproved extends Mailable
     {
         return $this->from('info@mallofmuscat.com', 'Account Approved')
             ->to($this->user->email, $this->user->name)
-            ->bcc('itmom20@gmail.com', 'IT')
             ->subject($this->user->name)
             ->view('email.userapproved.userapproved');
     }

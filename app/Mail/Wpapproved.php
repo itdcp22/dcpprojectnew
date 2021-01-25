@@ -33,6 +33,7 @@ class Wpapproved extends Mailable
      */
     public function build()
     {
+        $sub = $this->workpermit->wp_brand_name . " " . " - Approved";
         return $this->from('info@mallofmuscat.com', 'Workpermit Approved')
             ->to($this->workpermit->wp_email, $this->workpermit->wp_applicant)
             ->cc('info@mallofmuscat.com', 'Info')
@@ -41,8 +42,7 @@ class Wpapproved extends Mailable
             ->cc('security@mallofmuscat.com', 'Security')
             ->cc('cr.mallofmusct@gmail.com', 'Control')
             ->cc('sec.superviser.mallofmuscat@gmail.com', 'Supervisor')
-            ->bcc('itmom20@gmail.com', 'IT')
-            ->subject($this->workpermit->wp_brand_name)
+            ->subject($sub)
             ->view('email.wpapproved.approved');
     }
 }

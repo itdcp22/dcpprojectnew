@@ -20,8 +20,8 @@ class InfoController extends Controller
      */
     public function index()
     {
-        $arr['info'] = Info::All();
-        return view('kpi.info.index')->with($arr);
+
+        return view('kpi.info.index');
     }
 
     /**

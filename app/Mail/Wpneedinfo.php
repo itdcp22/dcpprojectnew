@@ -33,11 +33,11 @@ class Wpneedinfo extends Mailable
      */
     public function build()
     {
+        $sub = $this->workpermit->wp_brand_name . " " . " - Not Approved";
         return $this->from('info@mallofmuscat.com', 'Workpermit Need More Info')
             ->to($this->workpermit->wp_email, $this->workpermit->wp_applicant)
             ->cc('hussain@mallofmuscat.com', 'Hussain')
-            ->bcc('itmom20@gmail.com', 'IT')
-            ->subject($this->workpermit->wp_brand_name)
+            ->subject($sub)
             ->view('email.wpneedinfo.wpneedinfo');
     }
 }
