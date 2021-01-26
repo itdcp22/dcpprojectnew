@@ -173,42 +173,28 @@
               tabindex="6" value="{{ old('wp_from_date') }}" readonly required>
 
             <script>
-              var date = new Date();
-              
-
-              
-              
-              var hour = date.getHours();
-              
+              var date = new Date();            
+                           
+              var hour = date.getHours();              
               if(parseInt(hour) > 15) {
-                minDate = 1;
-
-                
+                minDate = 1;                
             var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
               $('#datepicker2').datepicker({
                  format: 'dd-mm-yyyy',
-                   uiLibrary: 'bootstrap4',
-                   
+                   uiLibrary: 'bootstrap4',                   
                    minDate:new Date(),
       disabledDates: [new Date()]
-
-
                });       
-
                 }
                 else
-                {
-                  
+                {                  
             var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
               $('#datepicker2').datepicker({
                  format: 'dd-mm-yyyy',
                    uiLibrary: 'bootstrap4',
                    minDate: today,
-
                   });  
-                }
-
-                        
+                }                        
             </script>
 
 
