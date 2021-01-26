@@ -62,6 +62,10 @@
 
 <!-- This below code is used to calculate the amount field  -->
 
+
+
+
+
 <script>
   function calc1() 
         {

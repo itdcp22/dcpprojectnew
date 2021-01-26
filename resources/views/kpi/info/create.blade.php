@@ -32,6 +32,34 @@
 
 
 <script>
+  function calc2() 
+        {
+    
+          var textValue1 = document.getElementById('base').value;
+          var textValue2 = document.getElementById('goal').value;
+        
+    
+    
+         
+          var target = textValue1 * textValue2;
+          var threshold = target / 100;
+
+          var targetfinal = textValue1 - threshold;
+
+          
+     
+     
+        document.getElementById('targetfinal').value = targetfinal.toFixed(3);
+
+        document.getElementById('threshold').value = threshold.toFixed(3);
+    
+    
+        }
+        
+</script>
+
+
+<script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';
@@ -66,7 +94,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
 
-          <li class="breadcrumb-item"><a href="{{route('foh.booking.index')}}">Booking</a></li>
+          <li class="breadcrumb-item"><a href="{{route('foh.booking.index')}}">Initiative</a></li>
 
 
         </ol>
@@ -82,17 +110,7 @@
       action="{{ route('foh.booking.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-      <div class="form-group">
-        <div class="row">
-          <div class="col-2">
-            <label for="">Objective</label>
-          </div>
-          <div class="col-8">
-            <input type="text" class="form-control" id="validationCustom01" name="tb_cust_name"
-              placeholder="Enter the objective" required>
-          </div>
-        </div>
-      </div>
+
 
       <div class="form-group">
         <div class="row">
@@ -120,6 +138,18 @@
 
       <div class="form-group">
         <div class="row">
+          <div class="col-2">
+            <label for="">Objective</label>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control" id="validationCustom01" name="tb_cust_name"
+              placeholder="Enter the objective" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
           <label class="col-2" for="">Definition</label>
           <div class="col-8">
             <input type="text" class="form-control" id="validationCustom02" name="tb_cust_addr"
@@ -129,24 +159,14 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-2" for="">Calculation
-          </label>
-          <div class="col-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tb_cust_addr"
-              placeholder="Explain exactly what does this KPI mean so everyone can understand it" required>
-            <div class="clear-fix"></div>
-          </div>
-        </div>
-      </div>
+
 
       <div class="form-group">
         <div class="row">
           <label class="col-2" for="">Goal
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tb_cust_addr"
+            <input type="number" class="form-control" id="goal" name="goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
             <div class="clear-fix"></div>
@@ -179,15 +199,29 @@
             <div class="row">
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Base Line - Existing Figure</p>
+                <div class="text-center">
+                  <input type="number" class="form-control text-center" name="base" id="base" onkeyup="calc2()"
+                    placeholder="Enter existing figure" required>
+                </div>
               </div>
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Target Figure</p>
+
+                <input type="text" class="form-control text-center" onkeyup="calc2()" id="targetfinal"
+                  name="targetfinal" readonly>
               </div>
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Threshold</p>
+                <div class="text-center">
+                  <input type="text" class="form-control text-center" onkeyup="calc2()" id="threshold" name="threshold"
+                    readonly>
+                </div>
               </div>
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Result</p>
+                <div class="text-center">
+                  <input type="text" class="form-control text-center" name="tb_cust_contact" readonly>
+                </div>
               </div>
             </div>
           </div>
@@ -219,9 +253,8 @@
       <div class="form-group">
         <div class="row">
           <label class="col-2" for="">Comments</label>
-          <div class="col">
-            <input type="text" class="form-control" id="validationCustom02" name="tb_comment"
-              placeholder="Enter comments">
+          <div class="col-8">
+            <textarea class="form-control" rows="2" id="comment"></textarea>
             <div class="clear-fix"></div>
           </div>
         </div>
