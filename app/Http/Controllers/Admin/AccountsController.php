@@ -116,7 +116,7 @@ class AccountsController extends Controller
 
 
 
-        // $filename = '';
+        $filename = '';
 
         if ($request->hasFile('th_attach')) {
             $file = $request->file('th_attach');
@@ -130,7 +130,7 @@ class AccountsController extends Controller
 
 
 
-        //  $account->th_attach = $filename;
+        $account->th_attach = $filename;
         $account->th_supp_name = $request->th_supp_name;
         $account->th_supp_contact = $request->th_supp_contact;
 
@@ -243,18 +243,9 @@ class AccountsController extends Controller
     public function update(Request $request, Account $account, Item $item)
     {
 
-        $filename = '';
-
-        if ($request->hasFile('th_attach')) {
-            $file = $request->file('th_attach');
-            $ext = $file->getClientOriginalExtension();
-            $filename = date('YmdHis') . rand(1, 99999) . '.' . $ext;
-            $file->storeAs('public/categories', $filename);
-        }
 
 
 
-        $account->th_attach = $filename;
         $account->th_supp_name = $request->th_supp_name;
         $account->th_supp_contact = $request->th_supp_contact;
 

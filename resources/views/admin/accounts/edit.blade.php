@@ -146,8 +146,8 @@
                 <label class="col-lg-1" for="">Attach Bill</label>
                 <div class="col-md-6">
 
-                  <input type="file" id="validationCustom01" name="th_attach">
-                  <div class="clear-fix"></div>
+                  <input type="file" name="file">
+
                 </div>
               </div>
             </div>
