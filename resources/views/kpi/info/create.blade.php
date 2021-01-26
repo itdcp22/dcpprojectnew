@@ -198,7 +198,7 @@
           <div class="col-8">
             <div class="row">
               <div class="col text-center">
-                <p class="text-primary font-weight-bold">Base Line - Existing Figure</p>
+                <p class="text-primary font-weight-bold">Existing Figure</p>
                 <div class="text-center">
                   <input type="number" class="form-control text-center" name="base" id="base" onkeyup="calc2()"
                     placeholder="Enter existing figure" required>
