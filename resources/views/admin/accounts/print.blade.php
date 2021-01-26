@@ -176,10 +176,9 @@
           @endforeach
                 </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="font-weight-bold text-right">Total</td>
+
+
+            <td colspan="4" class="font-weight-bold text-right">Total</td>
             <td class="font-weight-bold text-right">{{ number_format($items_total,3) }}</td>
           </tr>
 
@@ -201,69 +200,65 @@
       </div>
 
 
+
+
       <div class="form-group">
         <div class="row">
-          <label class="col" for="">Employee Name </label>
+          <label class="col" for="">Employee Name</label>
           <div class="col">
-            <input type="text" name="th_emp_name" value="{{ $account->th_emp_name }}" class="form-control" readonly>
+            <label class="col" for="">: {{ $account->th_emp_name }}</label>
+
           </div>
-
-
-
-
           <label class="col" for="">Employee Signature</label>
           <div class="col">
-            <input type="text" name="th_item_type" class="form-control" readonly>
-            <div class="clear-fix"></div>
+            <label class="col" for="">: ____________________</label>
           </div>
         </div>
-
-        <div class="form-group">
-          <div class="row">
-            <label class="col" for="">Line Manager Name </label>
-            <div class="col">
-              <input type="text" name="th_emp_name" class="form-control" readonly> </div>
+      </div>
 
 
 
-
-            <label class="col" for="">Line Manager Signature </label>
-            <div class="col">
-              <input type="text" name="th_item_type" class="form-control" readonly>
-              <div class="clear-fix"></div>
-            </div>
+      <div class="form-group">
+        <div class="row">
+          <label class="col" for="">Line Manager Name</label>
+          <div class="col">
+            <label for="">: ____________________</label>
           </div>
-
-          <div class="form-group">
-            <div class="row">
-              <label class="col" for="">Accountant Name </label>
-              <div class="col">
-                <input type="text" name="th_emp_name" class="form-control" readonly> </div>
-
-
-
-
-              <label class="col" for="">Accountant Signature </label>
-              <div class="col">
-                <input type="text" name="th_item_type" class="form-control" readonly>
-                <div class="clear-fix"></div>
-              </div>
-            </div>
-
-
+          <label class="col" for="">Line Manager Signature</label>
+          <div class="col">
+            <label for="">: ____________________</label>
           </div>
+        </div>
+      </div>
 
-
-          <div class="form-group">
-
-
-
-            <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
-
-
-
-
+      <div class="form-group">
+        <div class="row">
+          <label class="col" for="">Accountant Name</label>
+          <div class="col">
+            <label for="">: ____________________</label>
           </div>
+          <label class="col" for="">Accountant Signature</label>
+          <div class="col">
+            <label for="">: ____________________</label>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="form-group">
+
+
+
+        <a onclick="myFunction()" class="btn btn-success btn-sm">Print</a>
+
+
+
+
+      </div>
 
 
 
