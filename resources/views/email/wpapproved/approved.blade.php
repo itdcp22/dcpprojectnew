@@ -314,7 +314,7 @@
                                                     <p
                                                         style="font-size: 24px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 29px; margin: 0;">
                                                         <span style="font-size: 24px;"><span style>Your work permit
-                                                                request has
+                                                                request ID: {{$workpermit->wp_request_id}} has
                                                                 been approved successfully.
                                                             </span><span style><em>.</em></span></span></p>
                                                 </div>

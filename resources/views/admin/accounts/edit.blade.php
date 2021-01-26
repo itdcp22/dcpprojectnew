@@ -139,19 +139,6 @@
                        
              
 
-
-            <div class="form-group">
-              <div class="row">
-
-                <label class="col-lg-1" for="">Attach Bill</label>
-                <div class="col-md-6">
-
-                  <input type="file" name="file">
-
-                </div>
-              </div>
-            </div>
-             
              
             <div class="form-group">
               <label for="comment">Justification:</label>
