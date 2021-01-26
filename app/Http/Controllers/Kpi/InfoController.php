@@ -31,7 +31,7 @@ class InfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('kpi.info.create');
     }
 
     /**

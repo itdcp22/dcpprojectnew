@@ -16,8 +16,8 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Booking Details
-            <a href="{{ route('foh.booking.create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
+          <h3 class="card-title">KPI Details
+            <a href="{{ route('kpi.info.create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
