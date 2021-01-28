@@ -245,6 +245,16 @@ class AccountsController extends Controller
 
 
 
+        $filename = '';
+
+        if ($request->hasFile('th_attach')) {
+            $file = $request->file('th_attach');
+            $ext = $file->getClientOriginalExtension();
+            $filename = date('YmdHis') . rand(1, 99999) . '.' . $ext;
+            $file->storeAs('public/categories', $filename);
+        }
+        $account->th_attach = $filename;
+
 
         $account->th_supp_name = $request->th_supp_name;
         $account->th_supp_contact = $request->th_supp_contact;
