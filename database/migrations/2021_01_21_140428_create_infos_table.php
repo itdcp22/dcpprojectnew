@@ -22,7 +22,7 @@ class CreateInfosTable extends Migration
             $table->string('info_owner')->nullable();
             $table->string('info_staff')->nullable();
             $table->decimal('info_obj_id')->nullable();
-            $table->string('info_obj_des')->nullable();
+            $table->longText('info_obj_des')->nullable();
 
             $table->string('kpi_code')->nullable();
             $table->longText('kpi_title')->nullable();
@@ -30,53 +30,54 @@ class CreateInfosTable extends Migration
             $table->longText('kpi_goal')->nullable();
             $table->string('kpi_data_code')->nullable();
             $table->string('kpi_data_desc')->nullable();
-            $table->string('kpi_exist')->nullable();
+            $table->decimal('kpi_exist')->nullable();
             $table->string('kpi_level')->nullable();
-            $table->string('kpi_tarperc')->nullable();
-            $table->string('kpi_tar_fig')->nullable();
+            $table->decimal('kpi_tarperc')->nullable();
+            $table->decimal('kpi_tar_fig')->nullable();
 
             $table->string('kpi_owner')->nullable();
-            $table->string('kpi_comments')->nullable();
+            $table->longText('kpi_comments')->nullable();
             $table->string('kpi_created_uid')->nullable();
             $table->string('kpi_created_name')->nullable();
             $table->string('kpi_status')->nullable();
 
-            $table->decimal('kpi_per_gf')->nullable();
-            $table->decimal('kpi_per_yf')->nullable();
-            $table->decimal('kpi_per_rf')->nullable();
-            $table->decimal('kpi_per_gt')->nullable();
-            $table->decimal('kpi_per_yt')->nullable();
-            $table->decimal('kpi_per_rt')->nullable();
+            $table->decimal('kpi_per_gf', 12, 3)->nullable();
+            $table->decimal('kpi_per_yf', 12, 3)->nullable();
+            $table->decimal('kpi_per_rf', 12, 3)->nullable();
+            $table->decimal('kpi_per_gt', 12, 3)->nullable();
+            $table->decimal('kpi_per_yt', 12, 3)->nullable();
+            $table->decimal('kpi_per_rt', 12, 3)->nullable();
 
 
-            $table->decimal('kpi_val_gf')->nullable();
-            $table->decimal('kpi_val_yf')->nullable();
-            $table->decimal('kpi_val_rf')->nullable();
-            $table->decimal('kpi_val_gt')->nullable();
-            $table->decimal('kpi_val_yt')->nullable();
-            $table->decimal('kpi_val_rt')->nullable();
+            $table->decimal('kpi_val_gf', 12, 3)->nullable();
+            $table->decimal('kpi_val_yf', 12, 3)->nullable();
+            $table->decimal('kpi_val_rf', 12, 3)->nullable();
+            $table->decimal('kpi_val_gt', 12, 3)->nullable();
+            $table->decimal('kpi_val_yt', 12, 3)->nullable();
+            $table->decimal('kpi_val_rt', 12, 3)->nullable();
 
 
-            $table->decimal('kpi_range_gf')->nullable();
-            $table->decimal('kpi_range_yf')->nullable();
-            $table->decimal('kpi_range_rf')->nullable();
-            $table->decimal('kpi_range_gt')->nullable();
-            $table->decimal('kpi_range_yt')->nullable();
-            $table->decimal('kpi_range_rt')->nullable();
+            $table->decimal('kpi_range_gf', 12, 3)->nullable();
+            $table->decimal('kpi_range_yf', 12, 3)->nullable();
+            $table->decimal('kpi_range_rf', 12, 3)->nullable();
+            $table->decimal('kpi_range_gt', 12, 3)->nullable();
+            $table->decimal('kpi_range_yt', 12, 3)->nullable();
+            $table->decimal('kpi_range_rt', 12, 3)->nullable();
 
 
-            $table->decimal('kpi_jan21')->nullable();
-            $table->decimal('kpi_feb21')->nullable();
-            $table->decimal('kpi_mar21')->nullable();
-            $table->decimal('kpi_apr21')->nullable();
-            $table->decimal('kpi_may21')->nullable();
-            $table->decimal('kpi_jun21')->nullable();
-            $table->decimal('kpi_jul21')->nullable();
-            $table->decimal('kpi_aug21')->nullable();
-            $table->decimal('kpi_sep21')->nullable();
-            $table->decimal('kpi_oct21')->nullable();
-            $table->decimal('kpi_nov21')->nullable();
-            $table->decimal('kpi_dec21')->nullable();
+            $table->decimal('kpi_jan21', 12, 3)->nullable();
+            $table->decimal('kpi_feb21', 12, 3)->nullable();
+            $table->decimal('kpi_mar21', 12, 3)->nullable();
+            $table->decimal('kpi_apr21', 12, 3, 12, 3)->nullable();
+            $table->decimal('kpi_may21', 12, 3)->nullable();
+            $table->decimal('kpi_jun21', 12, 3)->nullable();
+            $table->decimal('kpi_jul21', 12, 3)->nullable();
+            $table->decimal('kpi_aug21', 12, 3)->nullable();
+            $table->decimal('kpi_sep21', 12, 3)->nullable();
+            $table->decimal('kpi_oct21', 12, 3)->nullable();
+            $table->decimal('kpi_nov21', 12, 3)->nullable();
+            $table->decimal('kpi_dec21', 12, 3)->nullable();
+
 
 
             $table->string('kpi_jan21_result')->nullable();
@@ -95,13 +96,14 @@ class CreateInfosTable extends Migration
 
             //daily
             $table->decimal('kpi_date')->nullable();
+            $table->decimal('kpi_data')->nullable();
             $table->string('kpi_date_result')->nullable();
 
             //quaterly
-            $table->decimal('kpi_q121')->nullable();
-            $table->decimal('kpi_q221')->nullable();
-            $table->decimal('kpi_q321')->nullable();
-            $table->decimal('kpi_q421')->nullable();
+            $table->decimal('kpi_q121', 12, 3)->nullable();
+            $table->decimal('kpi_q221', 12, 3)->nullable();
+            $table->decimal('kpi_q321', 12, 3)->nullable();
+            $table->decimal('kpi_q421', 12, 3)->nullable();
 
 
             $table->string('kpi_q121_result')->nullable();
@@ -110,14 +112,14 @@ class CreateInfosTable extends Migration
             $table->string('kpi_q421_result')->nullable();
 
             //haly yearly
-            $table->decimal('kpi_hy121')->nullable();
-            $table->decimal('kpi_hy221')->nullable();
+            $table->decimal('kpi_hy121', 12, 3)->nullable();
+            $table->decimal('kpi_hy221', 12, 3)->nullable();
 
             $table->string('kpi_hy121_result')->nullable();
             $table->string('kpi_hy221_result')->nullable();
 
             //Yeary
-            $table->decimal('kpi_2021')->nullable();
+            $table->decimal('kpi_2021', 12, 3)->nullable();
             $table->string('kpi_2021_result')->nullable();
 
 

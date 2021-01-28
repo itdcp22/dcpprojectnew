@@ -35,8 +35,8 @@
   function calc2() 
         {
     
-          var x = document.getElementById('base').value;
-          var y = document.getElementById('targetper').value;
+          var x = document.getElementById('kpi_exist').value;
+          var y = document.getElementById('kpi_tarperc').value;
           var z = document.getElementById('level').value;
         
     
@@ -44,7 +44,7 @@
 
     
           
-        if (z == 1) {
+        if (z == 'Increase') {
              
           var target = x * y;
           var threshold = target / 100;
@@ -55,7 +55,7 @@
         document.getElementById('targetfinal').value = targetfinal.toFixed(0);
 
         document.getElementById('threshold').value = threshold.toFixed(0);
-  } else if (z == 2) {
+  } else if (z == 'Decrease') {
              
     var target = x * y;
           var threshold = target / 100;
@@ -65,9 +65,8 @@
      
         document.getElementById('targetfinal').value = targetfinal.toFixed(0);
 
-        document.getElementById('threshold').value = document.getElementById('base').value;
+        document.getElementById('threshold').value = document.getElementById('kpi_exist').value;
   } else {
-
      
      
      
@@ -139,7 +138,7 @@
 <section class="content">
   <div class="container-fluid">
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
-      action="{{ route('foh.booking.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
+      action="{{ route('kpi.info.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
@@ -149,9 +148,10 @@
             <label for="">OBJECTIVE</label>
           </div>
           <div class=" col-8">
-            <select class="custom-select" name="" id="">
+            <select class="custom-select" name="info_obj_des" id="info_obj_des">
               <option value="" selected disabled hidden>Please select</option>
-              <option value="Daily">Reduce the Utilities Cost by making effective changes to Operating Procedures
+              <option value="Reduce the Utilities Cost by making effective changes to Operating Procedures">Reduce the
+                Utilities Cost by making effective changes to Operating Procedures
               </option>
               <option value="Weekly">Project Management for All Pending Commissioning of Mall Technical Assets</option>
               <option value="Monthly">Reduction of Operational Monthly Fixed Costs </option>
@@ -170,7 +170,7 @@
             <label for="">KPI Code</label>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" id="validationCustom01" name="tb_cust_name"
+            <input type="text" class="form-control" id="kpi_code" name="kpi_code"
               placeholder="Enter KPI Code Ex- KPI/AJG/OA/FOH/001 Or KPI/AJG/MOM/OPS/001" required>
           </div>
         </div>
@@ -185,7 +185,7 @@
             <label for="">KPI Title</label>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" id="validationCustom01" name="tb_cust_name"
+            <input type="text" class="form-control" id="kpi_title" name="kpi_title"
               placeholder="Enter your UNIT/DEPARTMENT KPI" required>
           </div>
         </div>
@@ -197,7 +197,7 @@
         <div class="row">
           <label class="col-2" for="">Definition</label>
           <div class="col-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tb_cust_addr"
+            <input type="text" class="form-control" id="kpi_defi" name="kpi_defi"
               placeholder="Explain exactly what does this KPI mean so everyone can understand it" required>
             <div class="clear-fix"></div>
           </div>
@@ -211,7 +211,7 @@
           <label class="col-2" for="">Goal
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="goal" name="goal" onkeyup="calc2()"
+            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
             <div class="clear-fix"></div>
@@ -223,7 +223,7 @@
         <div class="row">
           <label class="col-2" for="">Data</label>
           <div class="col-8">
-            <select class="custom-select" name="" id="">
+            <select class="custom-select" name="kpi_data_desc" id="kpi_data_desc">
               <option value="" selected disabled hidden>Please select</option>
               <option value="Monthly">Daily</option>
               <option value="Monthly">Monthly</option>
@@ -245,8 +245,8 @@
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Existing Figure</p>
                 <div class="text-center">
-                  <input type="number" class="form-control text-center" name="base" id="base" onkeyup="calc2()"
-                    placeholder="Enter existing figure" required>
+                  <input type="number" class="form-control text-center" name="kpi_exist" id="kpi_exist"
+                    onkeyup="calc2()" placeholder="Enter existing figure" required>
                 </div>
 
               </div>
@@ -254,11 +254,11 @@
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Level</p>
                 <div class="text-center ">
-                  <select class="custom-select" name="" id="level" onkeyup="calc2()">
+                  <select class="custom-select" name="kpi_level" id="level" onkeyup="calc2()">
                     <option value="" selected disabled hidden>Please select</option>
-                    <option value="1">Increase</option>
-                    <option value="2">Decrease</option>
-                    <option value="3">Neutral</option>
+                    <option value="Increase">Increase</option>
+                    <option value="Decrease">Decrease</option>
+                    <option value="Neutral">Neutral</option>
 
 
                   </select>
@@ -270,7 +270,7 @@
                 <p class="text-primary font-weight-bold">Target %</p>
                 <div class="text-center ">
                   <input type="number" class="form-control text-center" placeholder="Enter target percentage"
-                    name="targetper" id="targetper" onkeyup="calc2()" required>
+                    name="kpi_tarperc" id="kpi_tarperc" onkeyup="calc2()" required>
                 </div>
 
               </div>
@@ -281,7 +281,7 @@
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Target Figure</p>
                 <div class="text-center ">
-                  <input type="number" class="form-control text-center" name="targetfinal" id="targetfinal"
+                  <input type="number" class="form-control text-center" name="kpi_tar_fig" id="targetfinal"
                     onkeyup="calc2()" readonly>
                 </div>
 
@@ -301,29 +301,30 @@
             <div class="row">
 
 
+
               <div class="col text-center mt-2">
                 <p class="text-primary font-weight-bold">Range From</p>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" onkeyup="calc2()" id="fg" name="fg" value="76">
+                  <input type="text" class="form-control text-center" id="kpi_per_gf" name="kpi_per_gf" value="76">
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" onkeyup="calc2()" id="fy" name="fy" value="50">
+                  <input type="text" class="form-control text-center" id="kpi_per_yf" name="kpi_per_yf" value="50">
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" onkeyup="calc2()" id="fb" name="fb" value="0"
+                  <input type="text" class="form-control text-center" id="kpi_per_rf" name="kpi_per_rf" value="1"
                     readonly>
                 </div>
               </div>
               <div class="col text-center mt-2">
                 <p class="text-primary font-weight-bold">Range To</p>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" name="tb_cust_contact" readonly value="100">
+                  <input type="text" class="form-control text-center" name="kpi_per_gt" readonly value="100">
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" name="tb_cust_contact" value="75">
+                  <input type="text" class="form-control text-center" name="kpi_per_yt" value="75">
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" name="tb_cust_contact" value="49">
+                  <input type="text" class="form-control text-center" name="kpi_per_rt" value="49">
                 </div>
               </div>
 
@@ -352,8 +353,8 @@
         <div class="row">
           <label class="col-2" for="">Owner</label>
           <div class="col-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tb_cust_contact"
-              placeholder="Enter owner name" required>
+            <input type="text" class="form-control" id="kpi_owner" name="kpi_owner" placeholder="Enter owner name"
+              required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -374,7 +375,7 @@
         <div class="row">
           <label class="col-2" for="">Comments</label>
           <div class="col-8">
-            <textarea class="form-control" rows="2" id="comment"></textarea>
+            <textarea class="form-control" rows="2" name="kpi_comments" id="kpi_comments"></textarea>
             <div class="clear-fix"></div>
           </div>
         </div>
