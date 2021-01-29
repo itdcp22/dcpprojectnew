@@ -21,7 +21,8 @@ class InfoController extends Controller
     public function index()
     {
 
-        return view('kpi.info.index');
+        $arr['info'] = Info::All();
+        return view('kpi.info.index')->with($arr);
     }
 
     /**
@@ -88,13 +89,23 @@ class InfoController extends Controller
         $info->kpi_val_yt = $kpi_val_yt;
         $info->kpi_val_rt = $kpi_val_rt;
 
-        $info->kpi_range_gf = $request->kpi_exist + ($request->kpi_exist * $kpi_val_gf) / 100;
-        $info->kpi_range_yf = $request->kpi_exist + ($request->kpi_exist * $kpi_val_yf) / 100;
-        $info->kpi_range_rf = $request->kpi_exist + ($request->kpi_exist * $kpi_val_rf) / 100;
+        if ($info->kpi_level == "Increase") {
+            $info->kpi_range_gf = $request->kpi_exist + ($request->kpi_exist * $kpi_val_gf) / 100;
+            $info->kpi_range_yf = $request->kpi_exist + ($request->kpi_exist * $kpi_val_yf) / 100;
+            $info->kpi_range_rf = $request->kpi_exist + ($request->kpi_exist * $kpi_val_rf) / 100;
 
-        $info->kpi_range_gt = $request->kpi_exist + ($request->kpi_exist * $kpi_val_gt) / 100;
-        $info->kpi_range_yt = $request->kpi_exist + ($request->kpi_exist * $kpi_val_yt) / 100;
-        $info->kpi_range_rt = $request->kpi_exist + ($request->kpi_exist * $kpi_val_rt) / 100;
+            $info->kpi_range_gt = $request->kpi_exist + ($request->kpi_exist * $kpi_val_gt) / 100;
+            $info->kpi_range_yt = $request->kpi_exist + ($request->kpi_exist * $kpi_val_yt) / 100;
+            $info->kpi_range_rt = $request->kpi_exist + ($request->kpi_exist * $kpi_val_rt) / 100;
+        } elseif ($info->kpi_level == "Decrease") {
+            $info->kpi_range_gt = $request->kpi_exist - ($request->kpi_exist * $kpi_val_gf) / 100;
+            $info->kpi_range_yt = $request->kpi_exist - ($request->kpi_exist * $kpi_val_yf) / 100;
+            $info->kpi_range_rt = $request->kpi_exist - ($request->kpi_exist * $kpi_val_rf) / 100;
+
+            $info->kpi_range_gf = $request->kpi_exist - ($request->kpi_exist * $kpi_val_gt) / 100;
+            $info->kpi_range_yf = $request->kpi_exist - ($request->kpi_exist * $kpi_val_yt) / 100;
+            $info->kpi_range_rf = $request->kpi_exist - ($request->kpi_exist * $kpi_val_rt) / 100;
+        }
 
 
         $info->kpi_owner = $request->kpi_owner;
@@ -123,9 +134,10 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Info $info)
     {
-        //
+        $arr['info'] = $info;
+        return view('kpi.info.edit')->with($arr);
     }
 
     /**
@@ -135,9 +147,82 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Info $info)
     {
-        //
+
+        $actual = $request->actual;
+        $data = $request->kpi_data_desc;
+        $month = $request->month;
+        $quater = $request->quater;
+
+
+
+        if ($actual > $info->kpi_range_gf && $actual < $info->kpi_range_gt) {
+
+            if ($data == "Monthly") {
+
+                if ($month == 121) {
+                    $info->kpi_jan21 = $actual;
+                    $info->kpi_jan21_result = "Green";
+                } elseif ($month == 221) {
+                    $info->kpi_feb21 = $actual;
+                    $info->kpi_feb21_result = "Green";
+                } elseif ($month == 321) {
+                    $info->kpi_mar21 = $actual;
+                    $info->kpi_mar21_result = "Green";
+                } elseif ($month == 421) {
+                    $info->kpi_apr21 = $actual;
+                    $info->kpi_apr21_result = "Green";
+                } elseif ($month == 521) {
+                    $info->kpi_may21 = $actual;
+                    $info->kpi_may21_result = "Green";
+                } elseif ($month == 621) {
+                    $info->kpi_jun21 = $actual;
+                    $info->kpi_jun21_result = "Green";
+                } elseif ($month == 721) {
+                    $info->kpi_jul21 = $actual;
+                    $info->kpi_jul21_result = "Green";
+                } elseif ($month == 821) {
+                    $info->kpi_aug21 = $actual;
+                    $info->kpi_aug21_result = "Green";
+                } elseif ($month == 921) {
+                    $info->kpi_sep21 = $actual;
+                    $info->kpi_sep21_result = "Green";
+                } elseif ($month == 1021) {
+                    $info->kpi_oct21 = $actual;
+                    $info->kpi_oct21_result = "Green";
+                } elseif ($month == 1121) {
+                    $info->kpi_nov21 = $actual;
+                    $info->kpi_nov21_result = "Green";
+                } elseif ($month == 1221) {
+                    $info->kpi_dec21 = $actual;
+                    $info->kpi_dec21_result = "Green";
+                }
+            } elseif ($data == "Quaterly") {
+                if ($quater == "q121") {
+                    $info->kpi_q121 = $actual;
+                    $info->kpi_q121_result = "Green";
+                } elseif ($quater == "q121") {
+                    $info->kpi_q221 = $actual;
+                    $info->kpi_q221_result = "Green";
+                } elseif ($quater == "q221") {
+                    $info->kpi_q321 = $actual;
+                    $info->kpi_q321_result = "Green";
+                } elseif ($quater == "q221") {
+                    $info->kpi_q421 = $actual;
+                    $info->kpi_q421_result = "Green";
+                }
+            }
+        } elseif ($actual > $info->kpi_range_yf && $actual < $info->kpi_range_yt) {
+            $info->kpi_jan21_result = "Yellow";
+        } elseif ($actual > $info->kpi_range_rf && $actual < $info->kpi_range_rt) {
+            $info->kpi_jan21_result = "Red";
+        } else {
+            $info->kpi_jan21_result = "Out of Range";
+        }
+
+        $info->save();
+        return redirect('kpi/info')->with('info', 'Transaction updated successfully!');
     }
 
     /**

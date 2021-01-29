@@ -30,10 +30,10 @@ class CreateInfosTable extends Migration
             $table->longText('kpi_goal')->nullable();
             $table->string('kpi_data_code')->nullable();
             $table->string('kpi_data_desc')->nullable();
-            $table->decimal('kpi_exist')->nullable();
+            $table->decimal('kpi_exist', 12, 3)->nullable();
             $table->string('kpi_level')->nullable();
             $table->decimal('kpi_tarperc')->nullable();
-            $table->decimal('kpi_tar_fig')->nullable();
+            $table->decimal('kpi_tar_fig', 12, 3)->nullable();
 
             $table->string('kpi_owner')->nullable();
             $table->longText('kpi_comments')->nullable();

@@ -298,7 +298,9 @@
             </div>
             <div class="p-2 flex-fill "><input type="checkbox" value="Painting" name="wp_category[]">Painting - صبغ
             </div>
-            <div class="p-2 flex-fill "><input type="checkbox" value="Promotion" name="wp_category[]">Promotion - العروض
+            <div class="p-2 flex-fill ">
+              <input type="checkbox" data-toggle="tooltip" data-placement="top" title="Upload artwork" value="Promotion"
+                name="wp_category[]">Promotion - العروض
             </div>
             <div class="p-2 flex-fill "><input type="checkbox" value="Plumbing" name="wp_category[]">Plumbing - سباكة
             </div>
