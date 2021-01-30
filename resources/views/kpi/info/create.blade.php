@@ -227,7 +227,7 @@
               <option value="" selected disabled hidden>Please select</option>
               <option value="Monthly">Daily</option>
               <option value="Monthly">Monthly</option>
-              <option value="Quaterly">Quaterly</option>
+              <option value="Quarterly">Quarterly</option>
               <option value="Half_Yearly">Half Yearly</option>
               <option value="Yearly">Yearly</option>
 

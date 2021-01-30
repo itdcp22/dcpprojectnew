@@ -432,15 +432,15 @@
               <option value="1221">December</option>
             </select>
           </div>
-          @elseif($info->kpi_data_desc =='Quaterly')
-          <label class="col-2" for="">Quater</label>
+          @elseif($info->kpi_data_desc =='Quarterly')
+          <label class="col-2" for="">Quarter</label>
           <div class="col-3">
-            <select class="custom-select" name="quater" id="quater">
+            <select class="custom-select" name="quarter" id="quarter">
               <option value="" selected disabled hidden>Please select</option>
-              <option value="q121">First Quater</option>
-              <option value="q221">Second Quater</option>
-              <option value="q321">Third Quater</option>
-              <option value="q421">Fourth Quater</option>
+              <option value="q121">First Quarter</option>
+              <option value="q221">Second Quarter</option>
+              <option value="q321">Third Quarter</option>
+              <option value="q421">Fourth Quarter</option>
 
             </select>
           </div>

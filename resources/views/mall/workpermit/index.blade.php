@@ -33,7 +33,7 @@
                 <th> Date From</th>
                 <th> Date To</th>
                 <th>Start Time</th>
-                <th>Start Time</th>
+                <th>End Time</th>
                 <th>Status</th>
                 <th> Action </th>
               </tr>

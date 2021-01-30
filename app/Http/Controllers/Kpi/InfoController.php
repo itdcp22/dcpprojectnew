@@ -153,7 +153,7 @@ class InfoController extends Controller
         $actual = $request->actual;
         $data = $request->kpi_data_desc;
         $month = $request->month;
-        $quater = $request->quater;
+        $quarter = $request->quarter;
 
 
 
@@ -198,27 +198,147 @@ class InfoController extends Controller
                     $info->kpi_dec21 = $actual;
                     $info->kpi_dec21_result = "Green";
                 }
-            } elseif ($data == "Quaterly") {
-                if ($quater == "q121") {
+            } elseif ($data == "Quarterly") {
+                if ($quarter == "q121") {
                     $info->kpi_q121 = $actual;
                     $info->kpi_q121_result = "Green";
-                } elseif ($quater == "q121") {
+                } elseif ($quarter == "q221") {
                     $info->kpi_q221 = $actual;
                     $info->kpi_q221_result = "Green";
-                } elseif ($quater == "q221") {
+                } elseif ($quarter == "q321") {
                     $info->kpi_q321 = $actual;
                     $info->kpi_q321_result = "Green";
-                } elseif ($quater == "q221") {
+                } elseif ($quarter == "q421") {
                     $info->kpi_q421 = $actual;
                     $info->kpi_q421_result = "Green";
                 }
             }
         } elseif ($actual > $info->kpi_range_yf && $actual < $info->kpi_range_yt) {
-            $info->kpi_jan21_result = "Yellow";
+
+
+            if ($data == "Monthly") {
+
+                if ($month == 121) {
+                    $info->kpi_jan21 = $actual;
+                    $info->kpi_jan21_result = "Yellow";
+                } elseif ($month == 221) {
+                    $info->kpi_feb21 = $actual;
+                    $info->kpi_feb21_result = "Yellow";
+                } elseif ($month == 321) {
+                    $info->kpi_mar21 = $actual;
+                    $info->kpi_mar21_result = "Yellow";
+                } elseif ($month == 421) {
+                    $info->kpi_apr21 = $actual;
+                    $info->kpi_apr21_result = "Yellow";
+                } elseif ($month == 521) {
+                    $info->kpi_may21 = $actual;
+                    $info->kpi_may21_result = "Yellow";
+                } elseif ($month == 621) {
+                    $info->kpi_jun21 = $actual;
+                    $info->kpi_jun21_result = "Yellow";
+                } elseif ($month == 721) {
+                    $info->kpi_jul21 = $actual;
+                    $info->kpi_jul21_result = "Yellow";
+                } elseif ($month == 821) {
+                    $info->kpi_aug21 = $actual;
+                    $info->kpi_aug21_result = "Yellow";
+                } elseif ($month == 921) {
+                    $info->kpi_sep21 = $actual;
+                    $info->kpi_sep21_result = "Yellow";
+                } elseif ($month == 1021) {
+                    $info->kpi_oct21 = $actual;
+                    $info->kpi_oct21_result = "Yellow";
+                } elseif ($month == 1121) {
+                    $info->kpi_nov21 = $actual;
+                    $info->kpi_nov21_result = "Yellow";
+                } elseif ($month == 1221) {
+                    $info->kpi_dec21 = $actual;
+                    $info->kpi_dec21_result = "Yellow";
+                }
+            } elseif ($data == "Quarterly") {
+                if ($quarter == "q121") {
+                    $info->kpi_q121 = $actual;
+                    $info->kpi_q121_result = "Yellow";
+                } elseif ($quarter == "q221") {
+                    $info->kpi_q221 = $actual;
+                    $info->kpi_q221_result = "Yellow";
+                } elseif ($quarter == "q321") {
+                    $info->kpi_q321 = $actual;
+                    $info->kpi_q321_result = "Yellow";
+                } elseif ($quarter == "q421") {
+                    $info->kpi_q421 = $actual;
+                    $info->kpi_q421_result = "Yellow";
+                }
+            }
         } elseif ($actual > $info->kpi_range_rf && $actual < $info->kpi_range_rt) {
-            $info->kpi_jan21_result = "Red";
-        } else {
-            $info->kpi_jan21_result = "Out of Range";
+
+
+            if ($data == "Monthly") {
+
+                if ($month == 121) {
+                    $info->kpi_jan21 = $actual;
+                    $info->kpi_jan21_result = "Red";
+                } elseif ($month == 221) {
+                    $info->kpi_feb21 = $actual;
+                    $info->kpi_feb21_result = "Red";
+                } elseif ($month == 321) {
+                    $info->kpi_mar21 = $actual;
+                    $info->kpi_mar21_result = "Red";
+                } elseif ($month == 421) {
+                    $info->kpi_apr21 = $actual;
+                    $info->kpi_apr21_result = "Red";
+                } elseif ($month == 521) {
+                    $info->kpi_may21 = $actual;
+                    $info->kpi_may21_result = "Red";
+                } elseif ($month == 621) {
+                    $info->kpi_jun21 = $actual;
+                    $info->kpi_jun21_result = "Red";
+                } elseif ($month == 721) {
+                    $info->kpi_jul21 = $actual;
+                    $info->kpi_jul21_result = "Red";
+                } elseif ($month == 821) {
+                    $info->kpi_aug21 = $actual;
+                    $info->kpi_aug21_result = "Red";
+                } elseif ($month == 921) {
+                    $info->kpi_sep21 = $actual;
+                    $info->kpi_sep21_result = "Red";
+                } elseif ($month == 1021) {
+                    $info->kpi_oct21 = $actual;
+                    $info->kpi_oct21_result = "Red";
+                } elseif ($month == 1121) {
+                    $info->kpi_nov21 = $actual;
+                    $info->kpi_nov21_result = "Red";
+                } elseif ($month == 1221) {
+                    $info->kpi_dec21 = $actual;
+                    $info->kpi_dec21_result = "Red";
+                }
+            } elseif ($data == "Quarterly") {
+                if ($quarter == "q121") {
+                    $info->kpi_q121 = $actual;
+                    $info->kpi_q121_result = "Red";
+                } elseif ($quarter == "q221") {
+                    $info->kpi_q221 = $actual;
+                    $info->kpi_q221_result = "Red";
+                } elseif ($quarter == "q321") {
+                    $info->kpi_q321 = $actual;
+                    $info->kpi_q321_result = "Red";
+                } elseif ($quarter == "q421") {
+                    $info->kpi_q421 = $actual;
+                    $info->kpi_q421_result = "Red";
+                }
+            }
+        } elseif ($actual > $info->kpi_range_gt) {
+            if ($request->kpi_level == "Increase") {
+                $info->kpi_jan21_result = "Green - Excelent";
+            } else {
+                $info->kpi_jan21_result = "Red - Poor";
+            }
+        } elseif ($actual < $info->kpi_range_rf) {
+            if ($request->kpi_level == "Decerease") {
+                $info->kpi_jan21_result = "Green - Excelent";
+            } else {
+                $info->kpi_jan21_result = "Red - Poor";
+            }
         }
 
         $info->save();
