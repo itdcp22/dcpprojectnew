@@ -33,58 +33,56 @@
 
 <script>
   function calc2() 
-        {   
+        {
+    
           var x = document.getElementById('kpi_exist').value;
           var y = document.getElementById('kpi_tarperc').value;
-          var z = document.getElementById('level').value;    
+          var z = document.getElementById('level').value;
+        
     
-      
+    
+
+    
           
-        if (z == 'Increase') {             
+        if (z == 'Increase') {
+             
           var target = x * y;
           var threshold = target / 100;
-          var targetfinal = +x + +threshold;             
+
+          var targetfinal = +x + +threshold;         
+     
      
         document.getElementById('targetfinal').value = targetfinal.toFixed(0);
+
         document.getElementById('threshold').value = threshold.toFixed(0);
-  } else if (z == 'Decrease') {             
+  } else if (z == 'Decrease') {
+             
     var target = x * y;
           var threshold = target / 100;
-          var targetfinal = +x - +threshold;             
+
+          var targetfinal = +x - +threshold;         
+     
      
         document.getElementById('targetfinal').value = targetfinal.toFixed(0);
+
         document.getElementById('threshold').value = document.getElementById('kpi_exist').value;
-  } else {   
+  } else {
+     
      
      
     var target = x * y;
-              var threshold = target / 100;
-          var targetfinal = +x ;             
+          var threshold = target / 100;
+
+          var targetfinal = +x ;         
+     
      
         document.getElementById('targetfinal').value = targetfinal.toFixed(0);
+
         document.getElementById('threshold').value = document.getElementById('base').value;
-  
+
+    
     
   }
-
-
-        }
-        
-</script>
-
-
-<script>
-  function percalc() 
-        {   
-          var xx = document.getElementById('kpi_per_gf').value;    
-          var yy = document.getElementById('kpi_per_yf').value;    
-
-          document.getElementById('kpi_per_yt').value = xx-1;
-          document.getElementById('kpi_per_rt').value = yy-1;
-    
-      
-          
-      
 
 
         }
@@ -140,8 +138,10 @@
 <section class="content">
   <div class="container-fluid">
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
-      action="{{ route('kpi.info.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
+      action="{{ route('kpi.info.update',$info->id) }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+      @method('PUT')
 
 
       <div class="form-group">
@@ -150,25 +150,13 @@
             <label for="">OBJECTIVE</label>
           </div>
           <div class=" col-8">
-            <select class="custom-select" name="id" id="id" required>
-              <option value="" selected disabled hidden>Please select</option>
 
-              @foreach($objective as $o)
-              <option value="{{ $o->id}}">{{ $o->obj_desc}}</option>
-              @endforeach
 
-            </select>
+            <input type="text" class="form-control" id="info_obj_des" name="info_obj_des"
+              value="{{ $info->info_obj_des}}" placeholder="Enter your UNIT/DEPARTMENT KPI" readonly>
 
-            <input type="hidden" id="obj_desc" name="obj_desc">
 
-            <script>
-              $('#id').on('change', function() 
-                                           {
-                                             var selectedName = $('#id option:selected').text();
-                                            $('#obj_desc').val(selectedName);
-                                                      }
-                                            )
-            </script>
+
           </div>
         </div>
       </div>
@@ -181,7 +169,7 @@
             <label for="">KPI Code</label>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_code" name="kpi_code"
+            <input type="text" class="form-control" id="kpi_code" name="kpi_code" value="{{ $info->kpi_code}}"
               placeholder="Enter KPI Code Ex- KPI/AJG/OA/FOH/001 Or KPI/AJG/MOM/OPS/001" required>
           </div>
         </div>
@@ -196,7 +184,7 @@
             <label for="">KPI Title</label>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_title" name="kpi_title"
+            <input type="text" class="form-control" id="kpi_title" name="kpi_title" value="{{ $info->kpi_title}}"
               placeholder="Enter your UNIT/DEPARTMENT KPI" required>
           </div>
         </div>
@@ -208,7 +196,7 @@
         <div class="row">
           <label class="col-2" for="">Definition</label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_defi" name="kpi_defi"
+            <input type="text" class="form-control" id="kpi_defi" name="kpi_defi" value="{{ $info->kpi_defi}}"
               placeholder="Explain exactly what does this KPI mean so everyone can understand it" required>
             <div class="clear-fix"></div>
           </div>
@@ -222,7 +210,7 @@
           <label class="col-2" for="">Goal
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
+            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" value="{{ $info->kpi_goal}}"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
             <div class="clear-fix"></div>
@@ -234,15 +222,12 @@
         <div class="row">
           <label class="col-2" for="">Data</label>
           <div class="col-8">
-            <select class="custom-select" name="kpi_data_desc" id="kpi_data_desc">
-              <option value="" selected disabled hidden>Please select</option>
-              <option value="Monthly">Daily</option>
-              <option value="Monthly">Monthly</option>
-              <option value="Quarterly">Quarterly</option>
-              <option value="Half_Yearly">Half Yearly</option>
-              <option value="Yearly">Yearly</option>
 
-            </select>
+            <input type="text" class="form-control text-left" name="kpi_data_desc" id="kpi_data_desc"
+              value="{{ $info->kpi_data_desc}}" placeholder="Enter existing figure" readonly>
+
+
+
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -256,8 +241,8 @@
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Existing Figure</p>
                 <div class="text-center">
-                  <input type="number" class="form-control text-center" name="kpi_exist" id="kpi_exist"
-                    onkeyup="calc2()" placeholder="Enter existing figure" required>
+                  <input type="text" class="form-control text-center" name="kpi_exist" id="kpi_exist"
+                    value="{{ number_format($info->kpi_exist)}}" placeholder="Enter existing figure" readonly>
                 </div>
 
               </div>
@@ -265,14 +250,8 @@
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Level</p>
                 <div class="text-center ">
-                  <select class="custom-select" name="kpi_level" id="level" onkeyup="calc2()">
-                    <option value="" selected disabled hidden>Please select</option>
-                    <option value="Increase">Increase</option>
-                    <option value="Decrease">Decrease</option>
-                    <option value="Neutral">Neutral</option>
-
-
-                  </select>
+                  <input type="text" class="form-control text-center" name="kpi_level" id="kpi_level"
+                    value="{{ $info->kpi_level}}" onkeyup="calc2()" placeholder="Enter existing figure" readonly>
                 </div>
 
               </div>
@@ -280,8 +259,9 @@
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Target %</p>
                 <div class="text-center ">
-                  <input type="number" class="form-control text-center" placeholder="Enter target percentage"
-                    name="kpi_tarperc" id="kpi_tarperc" onkeyup="calc2()" required>
+                  <input type="text" class="form-control text-center" placeholder="Enter target percentage"
+                    value="{{ number_format($info->kpi_tarperc,0)}}" name="kpi_tarperc" id="kpi_tarperc"
+                    onkeyup="calc2()" readonly>
                 </div>
 
               </div>
@@ -293,7 +273,7 @@
                 <p class="text-primary font-weight-bold">Target Figure</p>
                 <div class="text-center ">
                   <input type="number" class="form-control text-center" name="kpi_tar_fig" id="targetfinal"
-                    onkeyup="calc2()" readonly>
+                    value="{{ $info->kpi_tar_fig}}" onkeyup="calc2()" readonly>
                 </div>
 
               </div>
@@ -314,32 +294,65 @@
 
 
               <div class="col text-center mt-2">
-                <p class="text-primary font-weight-bold">Range From</p>
+                <p class="text-primary font-weight-bold">Percentage From</p>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" onkeyup="percalc()" id="kpi_per_gf"
-                    name="kpi_per_gf" value="76">
+                  <input type="text" class="form-control text-center" id="kpi_per_gf" name="kpi_per_gf"
+                    value="{{ number_format($info->kpi_per_gf,0)}}" readonly>
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" id="kpi_per_yf" onkeyup="percalc()"
-                    name="kpi_per_yf" value="50">
+                  <input type="text" class="form-control text-center" id="kpi_per_yf" name="kpi_per_yf"
+                    value="{{ number_format($info->kpi_per_yf,0)}}" readonly>
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" id="kpi_per_rf" name="kpi_per_rf" value="1"
-                    readonly>
+                  <input type="text" class="form-control text-center" id="kpi_per_rf" name="kpi_per_rf"
+                    value="{{ number_format($info->kpi_per_rf,0)}}" readonly>
                 </div>
               </div>
               <div class="col text-center mt-2">
-                <p class="text-primary font-weight-bold">Range To</p>
+                <p class="text-primary font-weight-bold">Percentage To</p>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" name="kpi_per_gt" readonly value="100">
+                  <input type="text" class="form-control text-center" name="kpi_per_gt" readonly
+                    value="{{ number_format($info->kpi_per_gt,0)}}">
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" onkeyup="percalc()" name="kpi_per_yt"
-                    id="kpi_per_yt" value="75" readonly>
+                  <input type="text" class="form-control text-center" name="kpi_per_yt"
+                    value="{{ number_format($info->kpi_per_yt,0)}}" readonly>
                 </div>
                 <div class="text-center mt-2">
-                  <input type="text" class="form-control text-center" name="kpi_per_rt" id="kpi_per_rt" value="49"
-                    readonly>
+                  <input type="text" class="form-control text-center" name="kpi_per_rt"
+                    value="{{ number_format($info->kpi_per_rt,0)}}" readonly>
+                </div>
+              </div>
+
+              <div class="col text-center mt-2">
+                <p class="text-primary font-weight-bold">Value From</p>
+                <div class="text-center mt-2">
+                  <input type="text" class="form-control text-center" name="kpi_per_gt" readonly
+                    value="{{ number_format($info->kpi_range_gf,0) }}">
+                </div>
+                <div class="text-center mt-2">
+                  <input type="text" class="form-control text-center" name="kpi_per_yt"
+                    value="{{ number_format($info->kpi_range_yf,0)}}" readonly>
+                </div>
+                <div class="text-center mt-2">
+                  <input type="text" class="form-control text-center" name="kpi_per_rt"
+                    value="{{ number_format($info->kpi_range_rf,0)}}" readonly>
+                </div>
+              </div>
+
+              <div class="col text-center mt-2">
+                <p class="text-primary font-weight-bold">Value To</p>
+                <div class="text-center mt-2">
+                  <input type="text" class="form-control text-center" name="kpi_per_gt" readonly
+                    value="{{ number_format($info->kpi_range_gt,0)}}">
+                </div>
+                <div class="text-center mt-2">
+                  <input type="text" class="form-control text-center" name="kpi_per_yt"
+                    value="{{ number_format($info->kpi_range_yt,0)}}" readonly>
+                </div>
+                <div class="text-center mt-2">
+                  <input type="text" class="form-control text-center" name="kpi_per_rt"
+                    value="{{ number_format($info->kpi_range_rt,0)}}" readonly>
                 </div>
               </div>
 
@@ -369,8 +382,8 @@
           <label class="col-2" for="">Owner</label>
           <div class="col-8">
             <input type="text" class="form-control" id="kpi_owner" name="kpi_owner" placeholder="Enter owner name"
-              required>
-            <div class="clear-fix"></div>
+              value="{{ $info->kpi_owner}}" required>
+            <div class=" clear-fix"></div>
           </div>
         </div>
       </div>
@@ -390,8 +403,54 @@
         <div class="row">
           <label class="col-2" for="">Comments</label>
           <div class="col-8">
-            <textarea class="form-control" rows="2" name="kpi_comments" id="kpi_comments"></textarea>
+            <textarea class="form-control" rows="2" name="kpi_comments"
+              id="kpi_comments">{{ $info->kpi_comments}}</textarea>
             <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="row">
+          @if($info->kpi_data_desc =='Monthly')
+          <label class="col-2" for="">Month</label>
+          <div class="col-3">
+            <select class="custom-select" name="month" id="month">
+              <option value="" selected disabled hidden>Please select</option>
+              <option value="121">January</option>
+              <option value="221">February</option>
+              <option value="321">March</option>
+              <option value="421">April</option>
+              <option value="521">May</option>
+              <option value="621">June</option>
+              <option value="721">July</option>
+              <option value="821">Auguest</option>
+              <option value="921">September</option>
+              <option value="1021">October</option>
+              <option value="1121">November</option>
+              <option value="1221">December</option>
+            </select>
+          </div>
+          @elseif($info->kpi_data_desc =='Quarterly')
+          <label class="col-2" for="">Quarter</label>
+          <div class="col-3">
+            <select class="custom-select" name="quarter" id="quarter">
+              <option value="" selected disabled hidden>Please select</option>
+              <option value="q121">First Quarter</option>
+              <option value="q221">Second Quarter</option>
+              <option value="q321">Third Quarter</option>
+              <option value="q421">Fourth Quarter</option>
+
+            </select>
+          </div>
+          @endif
+
+
+          <label class="col-2" for="">Actual</label>
+          <div class="col-3">
+            <input type="number" class="form-control" id="actual" name="actual" placeholder="Enter actual figure"
+              required>
           </div>
         </div>
       </div>

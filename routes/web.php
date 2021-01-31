@@ -128,6 +128,7 @@ Route::resource('/hrms/locker', 'Hrms\LockerController', ['as' => 'hrms'])->midd
 
 //KPI
 Route::resource('/kpi/info', 'Kpi\InfoController', ['as' => 'kpi'])->middleware('auth');
+Route::resource('/kpi/objective', 'Kpi\ObjectController', ['as' => 'kpi'])->middleware('auth');
 
 
 

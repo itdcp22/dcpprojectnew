@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 use App\Info;
+use App\Objective;
+
 use Auth;
 use App\User;
 use Gate;
@@ -32,7 +34,8 @@ class InfoController extends Controller
      */
     public function create()
     {
-        return view('kpi.info.create');
+        $arr['objective'] = Objective::where('obj_created_uid', auth()->user()->id)->get();
+        return view('kpi.info.create')->with($arr);
     }
 
     /**
@@ -49,7 +52,8 @@ class InfoController extends Controller
         $info->info_dept = Auth::user()->dept;
         $info->info_comp_code = Auth::user()->company;
 
-        $info->info_obj_des = $request->info_obj_des;
+        $info->info_obj_des = $request->obj_desc;
+        $info->info_obj_id = $request->id;
         $info->kpi_code = $request->kpi_code;
         $info->kpi_title = $request->kpi_title;
         $info->kpi_defi = $request->kpi_defi;

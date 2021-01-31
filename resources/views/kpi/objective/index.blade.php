@@ -16,8 +16,8 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">KPI Master
-            <a href="{{ route('kpi.info.create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
+          <h3 class="card-title">Objective Master
+            <a href="{{ route('kpi.objective.create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -33,34 +33,25 @@
 
 
                 <th> Objective</th>
-                <th> KPI Code </th>
-                <th> Data </th>
-                <th>Existing Figure</th>
-                <th> Level </th>
-                <th> Target %</th>
-                <th> Target Figure </th>
+                <th> Created Date</th>
+
                 <th>Action</th>
 
               </tr>
             </thead>
             <tbody>
 
-              @if(count($info))
+              @if(count($objective))
 
-              @foreach($info as $c)
+              @foreach($objective as $c)
 
               <tr>
 
 
-                <td>{{ $c->info_obj_des }}</td>
-                <td>{{ $c->kpi_code }}</td>
-                <td>{{ $c->kpi_data_desc }}</td>
+                <td>{{ $c->obj_desc }}</td>
+                <td>{{ $c->created_at }}</td>
 
-                <td>{{ $c->kpi_exist }}</td>
-                <td>{{ $c->kpi_level }}</td>
 
-                <td>{{ $c->kpi_tarperc}}</td>
-                <td> {{ $c->kpi_tar_fig }} </td>
 
 
 
@@ -69,7 +60,7 @@
 
 
 
-                  <a href="{{ route('kpi.info.edit',$c->id) }}">
+                  <a href="{{ route('kpi.objective.edit',$c->id) }}">
                     <i class="fa fa-edit"></i>
 
                   </a>
@@ -93,14 +84,9 @@
             </tbody>
             <tfoot>
               <tr>
-
                 <th> Objective</th>
-                <th> KPI Code </th>
-                <th> Data </th>
-                <th>Existing Figure</th>
-                <th> Level </th>
-                <th> Target %</th>
-                <th> Target Figure </th>
+                <th> Created Date</th>
+
                 <th>Action</th>
 
               </tr>
