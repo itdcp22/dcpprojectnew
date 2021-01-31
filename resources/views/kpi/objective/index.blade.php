@@ -28,10 +28,10 @@
 
 
 
+                <?php $number = 0; ?>
 
 
-
-
+                <th>Department</th>
                 <th> Objective</th>
                 <th> Created Date</th>
 
@@ -48,6 +48,7 @@
               <tr>
 
 
+                <td>{{ $c->obj_dept }}</td>
                 <td>{{ $c->obj_desc }}</td>
                 <td>{{ $c->created_at }}</td>
 
@@ -84,6 +85,7 @@
             </tbody>
             <tfoot>
               <tr>
+                <th>Department</th>
                 <th> Objective</th>
                 <th> Created Date</th>
 

@@ -48,6 +48,7 @@ class ObjectController extends Controller
         $objective->obj_created_name = Auth::user()->name;
         $objective->obj_comp_code = Auth::user()->company;
 
+        $objective->obj_dept = $request->obj_dept;
         $objective->obj_desc = $request->obj_desc;
 
         $objective->save();

@@ -265,7 +265,7 @@
               <div class="col text-center">
                 <p class="text-primary font-weight-bold">Level</p>
                 <div class="text-center ">
-                  <select class="custom-select" name="kpi_level" id="level" onkeyup="calc2()">
+                  <select class="custom-select" name="kpi_level" id="level" onkeyup="calc2()" required>
                     <option value="" selected disabled hidden>Please select</option>
                     <option value="Increase">Increase</option>
                     <option value="Decrease">Decrease</option>

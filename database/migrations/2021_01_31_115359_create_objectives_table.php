@@ -17,6 +17,7 @@ class CreateObjectivesTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('obj_comp_code')->nullable();
+            $table->string('obj_dept')->nullable();
             $table->longText('obj_desc')->nullable();
             $table->string('obj_created_uid')->nullable();
             $table->string('obj_created_name')->nullable();

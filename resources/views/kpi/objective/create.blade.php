@@ -143,6 +143,31 @@
       action="{{ route('kpi.objective.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+      <div class="form-group">
+        <div class="row">
+          <div class="col-2">
+            <label for="">Department</label>
+          </div>
+          <div class=" col-8">
+            <select class="custom-select" name="obj_dept" id="obj_dept" required>
+              <option value="" selected disabled hidden>Please select</option>
+
+              <option value="Operation">HR</option>
+              <option value="Operation">Finance</option>
+              <option value="Operation">Leasing</option>
+              <option value="Operation">Operation</option>
+              <option value="Operation">Marketing</option>
+              <option value="Operation">Procurement</option>
+
+
+
+
+
+            </select>
+
+          </div>
+        </div>
+      </div>
 
       <div class="form-group">
         <div class="row">
