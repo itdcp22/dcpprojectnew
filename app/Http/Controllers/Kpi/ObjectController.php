@@ -21,7 +21,7 @@ class ObjectController extends Controller
     public function index()
     {
 
-        $arr['objective'] = Objective::All();
+        $arr['objective'] = Objective::where('obj_created_uid', auth()->user()->id)->get();
         return view('kpi.objective.index')->with($arr);
     }
 
