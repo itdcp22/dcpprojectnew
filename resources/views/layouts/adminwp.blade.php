@@ -326,6 +326,37 @@
 
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    KPI
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('kpi.objective.index')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Objective</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('kpi.info.index')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>KPI</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/charts/inline.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Initiatives</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     Petty Cash
