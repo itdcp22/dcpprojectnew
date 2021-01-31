@@ -23,7 +23,7 @@ class InfoController extends Controller
     public function index()
     {
 
-        $arr['info'] = Info::All();
+        $arr['info'] = Info::where('kpi_created_uid', auth()->user()->id)->get();
         return view('kpi.info.index')->with($arr);
     }
 
