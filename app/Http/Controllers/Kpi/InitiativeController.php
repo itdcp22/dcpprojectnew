@@ -44,9 +44,48 @@ class InitiativeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Initiative $initiative)
     {
-        //
+        $initiative->ini_created_uid = Auth::user()->id;
+        $initiative->ini_created_name = Auth::user()->name;
+        $initiative->ini_dept = Auth::user()->dept;
+        $initiative->ini_comp_code = Auth::user()->company;
+
+        $initiative->ini_obj_id = $request->ini_obj_id;
+        $initiative->ini_obj_desc = $request->ini_obj_desc;
+
+        $initiative->ini_kpi_id = $request->ini_kpi_id;
+        $initiative->ini_kpi_title = $request->ini_kpi_title;
+
+        $initiative->ini_code = $request->ini_code;
+        $initiative->ini_title = $request->ini_title;
+        $initiative->ini_desc = $request->ini_desc;
+        $initiative->ini_scope = $request->ini_scope;
+
+        $initiative->ini_msr = $request->ini_msr;
+        $initiative->ini_cur_result = $request->ini_cur_result;
+        $initiative->ini_owner = $request->ini_owner;
+        $initiative->ini_budget = $request->ini_budget;
+        $initiative->ini_priority = $request->ini_priority;
+
+
+        $fromdate  = Carbon::createFromFormat('d-m-Y', $request->ini_start_date);
+        $initiative->ini_start_date = $fromdate;
+
+        $todate  = Carbon::createFromFormat('d-m-Y', $request->ini_end_date);
+        $initiative->ini_end_date = $todate;
+
+
+
+        $initiative->ini_owner = $request->ini_owner;
+        $initiative->ini_risk = $request->ini_risk;
+        $initiative->ini_maj_acti = $request->ini_maj_acti;
+        $initiative->ini_comments = $request->ini_comments;
+
+
+
+        $initiative->save();
+        return redirect('kpi/initiative')->with('success', 'Transaction created successfully!');
     }
 
     /**

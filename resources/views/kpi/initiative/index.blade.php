@@ -26,19 +26,11 @@
               <tr>
 
 
-
-
-
-
-
-
                 <th> Objective</th>
-                <th> KPI Code </th>
-                <th> Data </th>
-                <th>Existing Figure</th>
-                <th> Level </th>
-                <th> Target %</th>
-                <th> Target Figure </th>
+                <th> KPI Title </th>
+                <th> Initiative Title </th>
+                <th>Owner</th>
+                <th> Major Activities </th>
                 <th>Action</th>
 
               </tr>
@@ -52,15 +44,12 @@
               <tr>
 
 
-                <td>{{ $c->info_obj_des }}</td>
-                <td>{{ $c->kpi_code }}</td>
-                <td>{{ $c->kpi_data_desc }}</td>
+                <td>{{ $c->ini_obj_desc }}</td>
+                <td>{{ $c->ini_kpi_title }}</td>
+                <td>{{ $c->ini_title }}</td>
+                <td>{{ $c->ini_owner }}</td>
+                <td>{{ $c->ini_maj_acti }}</td>
 
-                <td>{{ $c->kpi_exist }}</td>
-                <td>{{ $c->kpi_level }}</td>
-
-                <td>{{ $c->kpi_tarperc}}</td>
-                <td> {{ $c->kpi_tar_fig }} </td>
 
 
 
@@ -69,7 +58,7 @@
 
 
 
-                  <a href="{{ route('kpi.info.edit',$c->id) }}">
+                  <a href="{{ route('kpi.initiative.edit',$c->id) }}">
                     <i class="fa fa-edit"></i>
 
                   </a>
@@ -95,12 +84,10 @@
               <tr>
 
                 <th> Objective</th>
-                <th> KPI Code </th>
-                <th> Data </th>
-                <th>Existing Figure</th>
-                <th> Level </th>
-                <th> Target %</th>
-                <th> Target Figure </th>
+                <th> KPI Title </th>
+                <th> Initiative Title </th>
+                <th>Owner</th>
+                <th> Major Activities </th>
                 <th>Action</th>
 
               </tr>

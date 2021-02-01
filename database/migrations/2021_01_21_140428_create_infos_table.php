@@ -21,7 +21,7 @@ class CreateInfosTable extends Migration
             $table->string('info_dept')->nullable();
             $table->string('info_owner')->nullable();
             $table->string('info_staff')->nullable();
-            $table->decimal('info_obj_id')->nullable();
+            $table->integer('info_obj_id')->nullable();
             $table->longText('info_obj_des')->nullable();
 
             $table->string('kpi_code')->nullable();

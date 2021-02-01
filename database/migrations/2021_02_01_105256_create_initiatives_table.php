@@ -16,13 +16,17 @@ class CreateInitiativesTable extends Migration
         Schema::create('initiatives', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('ini_title')->nullable();
-            $table->string('ini_kpi')->nullable();
+            $table->integer('ini_obj_id')->nullable();
+            $table->longText('ini_obj_desc')->nullable();
+
+            $table->integer('ini_kpi_id')->nullable();
+            $table->longText('ini_kpi_title')->nullable();
+
+
             $table->string('ini_code')->nullable();
+            $table->string('ini_title')->nullable();
             $table->longText('ini_desc')->nullable();
             $table->string('ini_scope')->nullable();
-            $table->string('ini_obj_id')->nullable();
-            $table->longText('ini_obj_desc')->nullable();
             $table->string('ini_msr')->nullable();
             $table->string('ini_cur_result')->nullable();
             $table->string('ini_owner')->nullable();
@@ -33,7 +37,7 @@ class CreateInitiativesTable extends Migration
             $table->longText('ini_maj_acti')->nullable();
             $table->string('ini_risk')->nullable();
             $table->string('ini_comments')->nullable();
-            $table->string('ini_created_uid')->nullable();
+            $table->integer('ini_created_uid')->nullable();
             $table->string('ini_created_name')->nullable();
             $table->string('ini_comp_code')->nullable();
             $table->string('ini_dept')->nullable();

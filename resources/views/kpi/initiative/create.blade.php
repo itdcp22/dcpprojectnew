@@ -140,7 +140,7 @@
 <section class="content">
   <div class="container-fluid">
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
-      action="{{ route('kpi.info.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
+      action="{{ route('kpi.initiative.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
@@ -150,22 +150,22 @@
             <label for="">OBJECTIVE</label>
           </div>
           <div class=" col-8">
-            <select class="custom-select" name="id" id="id" required>
+            <select class="custom-select" name="ini_obj_id" id="ini_obj_id" tabindex="1" required>
               <option value="" selected disabled hidden>Please select</option>
 
               @foreach($info as $o)
-              <option value="{{ $o->id}}">{{ $o->info_obj_des}}</option>
+              <option value="{{ $o->info_obj_id}}">{{ $o->info_obj_des}}</option>
               @endforeach
 
             </select>
 
-            <input type="hidden" id="obj_desc" name="obj_desc">
+            <input type="hidden" id="ini_obj_desc" name="ini_obj_desc">
 
             <script>
-              $('#id').on('change', function() 
+              $('#ini_obj_id').on('change', function() 
                                            {
-                                             var selectedName = $('#id option:selected').text();
-                                            $('#obj_desc').val(selectedName);
+                                             var selectedName = $('#ini_obj_id option:selected').text();
+                                            $('#ini_obj_desc').val(selectedName);
                                                       }
                                             )
             </script>
@@ -186,14 +186,25 @@
             <label for="">KPI Title</label>
           </div>
           <div class="col-8">
-            <select class="custom-select" name="id" id="id" required>
+            <select class="custom-select" name="ini_kpi_id" id="ini_kpi_id" tabindex="2" required>
               <option value="" selected disabled hidden>Please select</option>
-
-              @foreach($info as $o)
-              <option value="{{ $o->id}}">{{ $o->kpi_title}}</option>
+              @foreach($info as $i)
+              <option value="{{ $i->id}}">{{ $i->kpi_title}}</option>
               @endforeach
-
             </select>
+
+            <input type="hidden" id="ini_kpi_title" name="ini_kpi_title">
+
+            <script>
+              $('#ini_kpi_id').on('change', function() 
+                                           {
+                                             var selectedName = $('#ini_kpi_id option:selected').text();
+                                            $('#ini_kpi_title').val(selectedName);
+                                                      }
+                                            )
+            </script>
+
+
           </div>
         </div>
       </div>
@@ -204,8 +215,19 @@
         <div class="row">
           <label class="col-2" for="">Initiative Code</label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_defi" name="kpi_defi"
+            <input type="text" class="form-control" id="ini_code" tabindex="3" name="ini_code"
               placeholder="Enter Initiative code Example: ID/AJG/OA/FOH01" required>
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-2" for="">Initiative Title</label>
+          <div class="col-8">
+            <input type="text" class="form-control" id="ini_title" tabindex="3" name="ini_title"
+              placeholder="Enter title of the initiative" required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -218,7 +240,7 @@
           <label class="col-2" for="">Description
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
+            <input type="text" class="form-control" id="ini_desc" tabindex="4" name="ini_desc"
               placeholder="Explain the initiative so everyone can understand" required>
             <div class="clear-fix"></div>
           </div>
@@ -230,7 +252,7 @@
           <label class="col-2" for="">Scope
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
+            <input type="text" class="form-control" id="ini_scope" tabindex="5" name="ini_scope"
               placeholder="Enter scope of this initiative" required>
             <div class="clear-fix"></div>
           </div>
@@ -242,8 +264,7 @@
           <label class="col-2" for="">Measurement
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()" placeholder=""
-              required>
+            <input type="text" class="form-control" id="ini_msr" name="ini_msr" tabindex="6" placeholder="" required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -256,13 +277,13 @@
           <label class="col-2" for="">Current Result
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()" placeholder=""
-              required>
+            <input type="text" class="form-control" id="ini_cur_result" name="ini_cur_result" tabindex="7"
+              placeholder="" required>
           </div>
           <label class="col-2 text-center" for="">Owner
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()" placeholder=""
+            <input type="text" class="form-control" id="ini_owner" name="ini_owner" tabindex="8" placeholder=""
               required>
           </div>
 
@@ -278,13 +299,13 @@
           <label class="col-2" for="">Budget
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
+            <input type="text" class="form-control" id="ini_budget" tabindex="9" name="ini_budget"
               placeholder="Enter the funds required for initiative, if any" required>
           </div>
           <label class="col-2 text-center" for="">Priority
           </label>
           <div class="col-3">
-            <select class="custom-select" name="id" id="id" required>
+            <select class="custom-select" name="ini_priority" id="ini_priority" tabindex="10" required>
               <option value="" selected disabled hidden>Please select</option>
 
 
@@ -305,7 +326,7 @@
           </label>
           <div class="col-3">
 
-            <input class="form-control datepicker" tabindex="3" id="datepicker" name="th_bill_dt"
+            <input class="form-control datepicker" tabindex="11" id="datepicker" name="ini_start_date"
               placeholder="dd-mm-yyyy" required readonly>
 
             <script>
@@ -321,7 +342,7 @@
           </label>
           <div class="col-3">
 
-            <input class="form-control datepicker" tabindex="3" id="datepickere" name="th_bill_dt"
+            <input class="form-control datepicker" tabindex="12" id="datepickere" name="ini_end_date"
               placeholder="dd-mm-yyyy" required readonly>
 
             <script>
@@ -343,8 +364,8 @@
         <div class="row">
           <label class="col-2" for="">Risk</label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_owner" name="kpi_owner" placeholder="Enter owner name"
-              required>
+            <input type="text" class="form-control" id="ini_risk" tabindex="13" name="ini_risk"
+              placeholder="Enter any anticipated risks" required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -359,7 +380,7 @@
         <div class="row">
           <label class="col-2" for="">Major Activity</label>
           <div class="col-8">
-            <textarea class="form-control" rows="2" name="kpi_comments" id="kpi_comments"></textarea>
+            <textarea class="form-control" rows="2" name="ini_maj_acti" tabindex="14" id="ini_maj_acti"></textarea>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -375,7 +396,7 @@
         <div class="row">
           <label class="col-2" for="">Comments</label>
           <div class="col-8">
-            <textarea class="form-control" rows="2" name="kpi_comments" id="kpi_comments"></textarea>
+            <textarea class="form-control" rows="2" name="ini_comments" tabindex="15" id="ini_comments"></textarea>
             <div class="clear-fix"></div>
           </div>
         </div>
