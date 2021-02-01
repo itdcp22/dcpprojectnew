@@ -146,10 +146,10 @@
 
       <div class="form-group">
         <div class="row">
-          <div class="col-1 text-danger">
+          <div class="col-2 text-danger">
             <label for="">OBJECTIVE</label>
           </div>
-          <div class=" col-9">
+          <div class=" col-8">
             <select class="custom-select" name="id" id="id" required>
               <option value="" selected disabled hidden>Please select</option>
 
@@ -182,10 +182,10 @@
 
       <div class="form-group">
         <div class="row">
-          <div class="col-1">
+          <div class="col-2">
             <label for="">KPI Title</label>
           </div>
-          <div class="col-9">
+          <div class="col-8">
             <input type="text" class="form-control" id="kpi_title" name="kpi_title"
               placeholder="Enter your UNIT/DEPARTMENT KPI" required>
           </div>
@@ -196,8 +196,8 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Initiative Code</label>
-          <div class="col-9">
+          <label class="col-2" for="">Initiative Code</label>
+          <div class="col-8">
             <input type="text" class="form-control" id="kpi_defi" name="kpi_defi"
               placeholder="Explain exactly what does this KPI mean so everyone can understand it" required>
             <div class="clear-fix"></div>
@@ -209,9 +209,9 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Description
+          <label class="col-2" for="">Description
           </label>
-          <div class="col-9">
+          <div class="col-8">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
@@ -222,9 +222,9 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Scope
+          <label class="col-2" for="">Scope
           </label>
-          <div class="col-9">
+          <div class="col-8">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
@@ -235,9 +235,9 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Measurement
+          <label class="col-2" for="">Measurement
           </label>
-          <div class="col-9">
+          <div class="col-8">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
@@ -250,16 +250,16 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Current Result
+          <label class="col-2" for="">Current Result
           </label>
-          <div class="col-4">
+          <div class="col-3">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
           </div>
-          <label class="col-1" for="">Owner
+          <label class="col-2" for="">Owner
           </label>
-          <div class="col-4">
+          <div class="col-3">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
@@ -274,16 +274,16 @@
       <div class="form-group">
         <div class="row">
 
-          <label class="col-1" for="">Budget
+          <label class="col-2" for="">Budget
           </label>
-          <div class="col-4">
+          <div class="col-3">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
           </div>
-          <label class="col-1" for="">Priority
+          <label class="col-2" for="">Priority
           </label>
-          <div class="col-4">
+          <div class="col-3">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
@@ -293,16 +293,16 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Start Date
+          <label class="col-2" for="">Start Date
           </label>
-          <div class="col-4">
+          <div class="col-3">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
           </div>
-          <label class="col-1" for="">End Date
+          <label class="col-2" for="">End Date
           </label>
-          <div class="col-4">
+          <div class="col-3">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
               placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
               required>
@@ -315,8 +315,8 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Risk</label>
-          <div class="col-9">
+          <label class="col-2" for="">Risk</label>
+          <div class="col-8">
             <input type="text" class="form-control" id="kpi_owner" name="kpi_owner" placeholder="Enter owner name"
               required>
             <div class="clear-fix"></div>
@@ -337,8 +337,8 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-1" for="">Comments</label>
-          <div class="col-9">
+          <label class="col-2" for="">Comments</label>
+          <div class="col-8">
             <textarea class="form-control" rows="2" name="kpi_comments" id="kpi_comments"></textarea>
             <div class="clear-fix"></div>
           </div>
