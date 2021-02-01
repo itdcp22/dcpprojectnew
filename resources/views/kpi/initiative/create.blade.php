@@ -121,7 +121,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">KPI Documentation Form</h1>
+        <h1 class="m-0 text-dark">Initiative Description Form</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -182,12 +182,18 @@
 
       <div class="form-group">
         <div class="row">
-          <div class="col-2">
+          <div class="col-2 text-danger">
             <label for="">KPI Title</label>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_title" name="kpi_title"
-              placeholder="Enter your UNIT/DEPARTMENT KPI" required>
+            <select class="custom-select" name="id" id="id" required>
+              <option value="" selected disabled hidden>Please select</option>
+
+              @foreach($info as $o)
+              <option value="{{ $o->id}}">{{ $o->kpi_title}}</option>
+              @endforeach
+
+            </select>
           </div>
         </div>
       </div>
@@ -199,7 +205,7 @@
           <label class="col-2" for="">Initiative Code</label>
           <div class="col-8">
             <input type="text" class="form-control" id="kpi_defi" name="kpi_defi"
-              placeholder="Explain exactly what does this KPI mean so everyone can understand it" required>
+              placeholder="Enter Initiative code Example: ID/AJG/OA/FOH01" required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -213,8 +219,7 @@
           </label>
           <div class="col-8">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
-              required>
+              placeholder="Explain the initiative so everyone can understand" required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -226,8 +231,7 @@
           </label>
           <div class="col-8">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
-              required>
+              placeholder="Enter scope of this initiative" required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -238,8 +242,7 @@
           <label class="col-2" for="">Measurement
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
+            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()" placeholder=""
               required>
             <div class="clear-fix"></div>
           </div>
@@ -253,15 +256,13 @@
           <label class="col-2" for="">Current Result
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
+            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()" placeholder=""
               required>
           </div>
-          <label class="col-2" for="">Owner
+          <label class="col-2 text-center" for="">Owner
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
+            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()" placeholder=""
               required>
           </div>
 
@@ -278,15 +279,22 @@
           </label>
           <div class="col-3">
             <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
-              required>
+              placeholder="Enter the funds required for initiative, if any" required>
           </div>
-          <label class="col-2" for="">Priority
+          <label class="col-2 text-center" for="">Priority
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
-              required>
+            <select class="custom-select" name="id" id="id" required>
+              <option value="" selected disabled hidden>Please select</option>
+
+
+              <option value="Top">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+
+
+            </select>
+
           </div>
         </div>
       </div>
@@ -296,16 +304,34 @@
           <label class="col-2" for="">Start Date
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
-              required>
+
+            <input class="form-control datepicker" tabindex="3" id="datepicker" name="th_bill_dt"
+              placeholder="dd-mm-yyyy" required readonly>
+
+            <script>
+              $('#datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+            </script>
+
+
           </div>
-          <label class="col-2" for="">End Date
+          <label class="col-2 text-center" for="">End Date
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="kpi_goal" name="kpi_goal" onkeyup="calc2()"
-              placeholder="Enter the goal (objective) from the business plan (strategy) that your KPI is aligned with"
-              required>
+
+            <input class="form-control datepicker" tabindex="3" id="datepickere" name="th_bill_dt"
+              placeholder="dd-mm-yyyy" required readonly>
+
+            <script>
+              $('#datepickere').datepicker({
+      format: 'dd-mm-yyyy',
+        uiLibrary: 'bootstrap4'
+    });
+            </script>
+
+
           </div>
         </div>
       </div>
@@ -328,6 +354,16 @@
 
 
 
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-2" for="">Major Activity</label>
+          <div class="col-8">
+            <textarea class="form-control" rows="2" name="kpi_comments" id="kpi_comments"></textarea>
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
 
 
 
