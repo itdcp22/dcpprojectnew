@@ -33,7 +33,7 @@
 
 
                 <th> Objective</th>
-                <th> KPI Code </th>
+                <th> KPI Title </th>
                 <th> Data </th>
                 <th>Existing Figure</th>
                 <th> Level </th>
@@ -53,7 +53,7 @@
 
 
                 <td>{{ $c->info_obj_des }}</td>
-                <td>{{ $c->kpi_code }}</td>
+                <td>{{ $c->kpi_title }}</td>
                 <td>{{ $c->kpi_data_desc }}</td>
 
                 <td>{{ $c->kpi_exist }}</td>
@@ -95,7 +95,7 @@
               <tr>
 
                 <th> Objective</th>
-                <th> KPI Code </th>
+                <th> KPI Title </th>
                 <th> Data </th>
                 <th>Existing Figure</th>
                 <th> Level </th>

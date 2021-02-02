@@ -152,12 +152,12 @@
             <select class="custom-select" name="obj_dept" id="obj_dept" required>
               <option value="" selected disabled hidden>Please select</option>
 
-              <option value="Operation">HR</option>
-              <option value="Operation">Finance</option>
-              <option value="Operation">Leasing</option>
+              <option value="HR">HR</option>
+              <option value="Finance">Finance</option>
+              <option value="Leasing">Leasing</option>
               <option value="Operation">Operation</option>
-              <option value="Operation">Marketing</option>
-              <option value="Operation">Procurement</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Procurement">Procurement</option>
 
 
 

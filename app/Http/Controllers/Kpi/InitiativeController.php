@@ -9,6 +9,9 @@ use Carbon\Carbon;
 use App\Initiative;
 use App\Info;
 use App\Objective;
+
+use App\Country;
+use App\State;
 use Auth;
 use App\User;
 use Gate;
@@ -34,11 +37,11 @@ class InitiativeController extends Controller
      */
     public function create()
     {
-        // return view('kpi.initiative.create');
 
         $arr['info'] = Info::where('kpi_created_uid', auth()->user()->id)->get();
         return view('kpi.initiative.create')->with($arr);
     }
+
 
 
 
@@ -57,7 +60,7 @@ class InitiativeController extends Controller
         $initiative->ini_comp_code = Auth::user()->company;
 
         $initiative->ini_obj_id = $request->ini_obj_id;
-        $initiative->ini_obj_desc = $request->ini_obj_desc;
+        $initiative->ini_obj_desc = $request->info_obj_des;
 
         $initiative->ini_kpi_id = $request->ini_kpi_id;
         $initiative->ini_kpi_title = $request->ini_kpi_title;
@@ -136,5 +139,10 @@ class InitiativeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeCompanyName(Request $request)
+    {
+        return Info::findOrFail($request->id);
     }
 }

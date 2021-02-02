@@ -131,6 +131,11 @@ Route::resource('/kpi/info', 'Kpi\InfoController', ['as' => 'kpi'])->middleware(
 Route::resource('/kpi/objective', 'Kpi\ObjectController', ['as' => 'kpi'])->middleware('auth');
 Route::resource('/kpi/initiative', 'Kpi\InitiativeController', ['as' => 'kpi'])->middleware('auth');
 
+Route::post('supplierdetails', 'Kpi\InitiativeController@changeCompanyName');
+
+//Route::get('dropdownlist', 'DataController@getCountries');
+//Route::get('dropdownlist/getstates/{id}', 'DataController@getStates');
+
 
 
 //Mall - Work Permit

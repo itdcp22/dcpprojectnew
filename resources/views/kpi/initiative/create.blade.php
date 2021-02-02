@@ -1,6 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 
+<head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
+
+
 <!-- This script is used to allow only number in the bill amount field -->
 <script>
   function isNumberKey(evt)
@@ -141,37 +146,8 @@
   <div class="container-fluid">
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
       action="{{ route('kpi.initiative.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-
-      <div class="form-group">
-        <div class="row">
-          <div class="col-2 text-danger">
-            <label for="">OBJECTIVE</label>
-          </div>
-          <div class=" col-8">
-            <select class="custom-select" name="ini_obj_id" id="ini_obj_id" tabindex="1" required>
-              <option value="" selected disabled hidden>Please select</option>
-
-              @foreach($info as $o)
-              <option value="{{ $o->info_obj_id}}">{{ $o->info_obj_des}}</option>
-              @endforeach
-
-            </select>
-
-            <input type="hidden" id="ini_obj_desc" name="ini_obj_desc">
-
-            <script>
-              $('#ini_obj_id').on('change', function() 
-                                           {
-                                             var selectedName = $('#ini_obj_id option:selected').text();
-                                            $('#ini_obj_desc').val(selectedName);
-                                                      }
-                                            )
-            </script>
-          </div>
-        </div>
-      </div>
+      @csrf
 
 
 
@@ -186,7 +162,8 @@
             <label for="">KPI Title</label>
           </div>
           <div class="col-8">
-            <select class="custom-select" name="ini_kpi_id" id="ini_kpi_id" tabindex="2" required>
+            <select class="custom-select" id="companyID" name="ini_kpi_id" onchange="getCompanyName();" tabindex="2"
+              required>
               <option value="" selected disabled hidden>Please select</option>
               @foreach($info as $i)
               <option value="{{ $i->id}}">{{ $i->kpi_title}}</option>
@@ -196,9 +173,9 @@
             <input type="hidden" id="ini_kpi_title" name="ini_kpi_title">
 
             <script>
-              $('#ini_kpi_id').on('change', function() 
+              $('#companyID').on('change', function() 
                                            {
-                                             var selectedName = $('#ini_kpi_id option:selected').text();
+                                             var selectedName = $('#companyID option:selected').text();
                                             $('#ini_kpi_title').val(selectedName);
                                                       }
                                             )
@@ -209,6 +186,18 @@
         </div>
       </div>
 
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-2 text-danger">
+            <label for="">Objective</label>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control" id="info_obj_des" tabindex="2" name="info_obj_des" readonly>
+
+          </div>
+        </div>
+      </div>
 
 
       <div class="form-group">
@@ -253,7 +242,7 @@
           </label>
           <div class="col-8">
             <input type="text" class="form-control" id="ini_scope" tabindex="5" name="ini_scope"
-              placeholder="Enter scope of this initiative" required>
+              placeholder="Enter scope of this initiative">
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -264,7 +253,7 @@
           <label class="col-2" for="">Measurement
           </label>
           <div class="col-8">
-            <input type="text" class="form-control" id="ini_msr" name="ini_msr" tabindex="6" placeholder="" required>
+            <input type="text" class="form-control" id="ini_msr" name="ini_msr" tabindex="6">
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -277,8 +266,7 @@
           <label class="col-2" for="">Current Result
           </label>
           <div class="col-3">
-            <input type="text" class="form-control" id="ini_cur_result" name="ini_cur_result" tabindex="7"
-              placeholder="" required>
+            <input type="text" class="form-control" id="ini_cur_result" name="ini_cur_result" tabindex="7">
           </div>
           <label class="col-2 text-center" for="">Owner
           </label>
@@ -300,7 +288,7 @@
           </label>
           <div class="col-3">
             <input type="text" class="form-control" id="ini_budget" tabindex="9" name="ini_budget"
-              placeholder="Enter the funds required for initiative, if any" required>
+              placeholder="Enter the funds required for initiative, if any">
           </div>
           <label class="col-2 text-center" for="">Priority
           </label>
@@ -365,7 +353,7 @@
           <label class="col-2" for="">Risk</label>
           <div class="col-8">
             <input type="text" class="form-control" id="ini_risk" tabindex="13" name="ini_risk"
-              placeholder="Enter any anticipated risks" required>
+              placeholder="Enter any anticipated risks">
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -416,5 +404,30 @@
       </div>
     </form>
   </div>
+
+
+
 </section>
 @endsection
+
+<script type="text/javascript">
+  function getCompanyName()
+  {
+  var companyID = document.getElementById("companyID").value;
+  $.ajax({
+  headers:{
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  
+  },
+  method: "POST",
+  url: "{{URL::to('supplierdetails')}}",
+  data: {
+  'id': companyID
+  },
+  success:function(data){
+    $('#info_obj_des').val(data.info_obj_des);
+    
+  }
+  });
+  }
+</script>
