@@ -215,7 +215,6 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with('pendingwp', \App\Workpermit::where('wp_created_uid', optional(auth()->user())->id)
                 ->where('wp_status', 'Pending')
-                ->Orwhere('wp_status', 'Not_Approved')
                 ->count('ID'));
         });
 
