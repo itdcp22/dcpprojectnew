@@ -16,7 +16,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">KPI Master
+          <h3 class="card-title">Initiative Master
             <a href="{{ route('kpi.initiative.create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
         </div>
         <!-- /.card-header -->

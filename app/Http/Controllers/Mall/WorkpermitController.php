@@ -32,8 +32,10 @@ class WorkpermitController extends Controller
 
             $arr['workpermit'] = Workpermit::where('wp_created_uid', auth()->user()->id)
                 ->where('wp_status', 'Pending')
-                ->Orwhere('wp_status', 'Not_Approved')
                 ->orderBy('id', 'desc')->get();
+
+
+
             return view('mall.workpermit.index')->with($arr);
         } else {
             $arr['workpermit'] = Workpermit::where('wp_status', 'Pending')

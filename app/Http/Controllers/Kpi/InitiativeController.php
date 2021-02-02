@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Initiative;
 use App\Info;
+use App\Objective;
 use Auth;
 use App\User;
 use Gate;
+use DB;
 
 class InitiativeController extends Controller
 {
@@ -37,6 +39,9 @@ class InitiativeController extends Controller
         $arr['info'] = Info::where('kpi_created_uid', auth()->user()->id)->get();
         return view('kpi.initiative.create')->with($arr);
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.
