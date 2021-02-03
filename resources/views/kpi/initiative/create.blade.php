@@ -199,13 +199,28 @@
         </div>
       </div>
 
+      @php
+
+      if (!empty($lastRecord->ini_code))
+      {
+      $myStr = $lastRecord->ini_code;
+      $result = substr ($lastRecord->ini_code, -4);
+      $resultfinal = $result + 1;
+      }
+      else {
+      $resultfinal = 1001;
+      }
+
+      @endphp
+
+
 
       <div class="form-group">
         <div class="row">
           <label class="col-2" for="">Initiative Code</label>
           <div class="col-8">
-            <input type="text" class="form-control" id="ini_code" tabindex="3" name="ini_code"
-              placeholder="Enter Initiative code Example: ID/AJG/OA/FOH01" required>
+            <input type="text" class="form-control" id="ini_code" tabindex="3" name="ini_code" value={{$resultfinal}}
+              required readonly>
             <div class="clear-fix"></div>
           </div>
         </div>

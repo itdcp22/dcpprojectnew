@@ -37,9 +37,10 @@ class InitiativeController extends Controller
      */
     public function create()
     {
+        $lastRecord = Initiative::latest()->where('ini_created_uid', Auth::user()->id)->first();
 
         $arr['info'] = Info::where('kpi_created_uid', auth()->user()->id)->get();
-        return view('kpi.initiative.create')->with($arr);
+        return view('kpi.initiative.create', compact('lastRecord'))->with($arr);
     }
 
 
@@ -54,6 +55,79 @@ class InitiativeController extends Controller
      */
     public function store(Request $request, Initiative $initiative)
     {
+
+        if (Auth::user()->company == "34") {
+            if (Auth::user()->dept == "Operation") {
+                $kpi_head = "INI/OA/OP/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Finance") {
+                $kpi_head = "INI/OA/FI/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Marketing") {
+                $kpi_head = "INI/OA/MA/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Procurment") {
+                $kpi_head = "INI/OA/PR/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "FOH") {
+                $kpi_head = "INI/OA/FOH/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "BOH") {
+                $kpi_head = "INI/OA/BOH/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Leasing") {
+                $kpi_head = "INI/OA/LE/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "HR") {
+                $kpi_head = "INI/OA/HR/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            }
+        } else if (Auth::user()->company == "92") {
+            if (Auth::user()->dept == "Operation") {
+                $kpi_head = "INI/MOM/OP/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Finance") {
+                $kpi_head = "INI/MOM/FI/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Marketing") {
+                $kpi_head = "INI/MOM/MA/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Procurment") {
+                $kpi_head = "INI/MOM/PR/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "FOH") {
+                $kpi_head = "INI/MOM/FOH/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "BOH") {
+                $kpi_head = "INI/MOM/BOH/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "Leasing") {
+                $kpi_head = "INI/MOM/LE/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            } else if (Auth::user()->dept == "HR") {
+                $kpi_head = "INI/MOM/HR/";
+                $kpinofull = $kpi_head . $request->ini_code;
+                $initiative->ini_code = $kpinofull;
+            }
+        }
+
+
+
         $initiative->ini_created_uid = Auth::user()->id;
         $initiative->ini_created_name = Auth::user()->name;
         $initiative->ini_dept = Auth::user()->dept;
@@ -65,7 +139,7 @@ class InitiativeController extends Controller
         $initiative->ini_kpi_id = $request->ini_kpi_id;
         $initiative->ini_kpi_title = $request->ini_kpi_title;
 
-        $initiative->ini_code = $request->ini_code;
+        //  $initiative->ini_code = $request->ini_code;
         $initiative->ini_title = $request->ini_title;
         $initiative->ini_desc = $request->ini_desc;
         $initiative->ini_scope = $request->ini_scope;

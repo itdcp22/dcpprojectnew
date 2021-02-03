@@ -29,8 +29,9 @@
                 <th> Objective</th>
                 <th> KPI Title </th>
                 <th> Initiative Title </th>
-                <th>Owner</th>
                 <th> Major Activities </th>
+                <th>Owner</th>
+
                 <th>Action</th>
 
               </tr>
@@ -47,9 +48,9 @@
                 <td>{{ $c->ini_obj_desc }}</td>
                 <td>{{ $c->ini_kpi_title }}</td>
                 <td>{{ $c->ini_title }}</td>
-                <td>{{ $c->ini_owner }}</td>
-                <td>{{ $c->ini_maj_acti }}</td>
 
+                <td>{{ $c->ini_maj_acti }}</td>
+                <td>{{ $c->ini_owner }}</td>
 
 
 
@@ -86,8 +87,9 @@
                 <th> Objective</th>
                 <th> KPI Title </th>
                 <th> Initiative Title </th>
-                <th>Owner</th>
                 <th> Major Activities </th>
+                <th>Owner</th>
+
                 <th>Action</th>
 
               </tr>

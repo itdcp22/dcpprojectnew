@@ -173,7 +173,19 @@
         </div>
       </div>
 
+      @php
 
+      if (!empty($lastRecord->kpi_code))
+      {
+      $myStr = $lastRecord->kpi_code;
+      $result = substr ($lastRecord->kpi_code, -4);
+      $resultfinal = $result + 1;
+      }
+      else {
+      $resultfinal = 1001;
+      }
+
+      @endphp
 
       <div class="form-group">
         <div class="row">
@@ -181,8 +193,8 @@
             <label for="">KPI Code</label>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_code" name="kpi_code"
-              placeholder="Enter KPI Code Ex- KPI/AJG/OA/FOH/001 Or KPI/AJG/MOM/OPS/001" required>
+            <input type="text" class="form-control" id="kpi_code" name="kpi_code" value={{$resultfinal}} required
+              readonly>
           </div>
         </div>
       </div>
@@ -196,8 +208,8 @@
             <label for="">KPI Title</label>
           </div>
           <div class="col-8">
-            <input type="text" class="form-control" id="kpi_title" name="kpi_title"
-              placeholder="Enter your UNIT/DEPARTMENT KPI" required>
+            <input type="text" class="form-control" id="kpi_title" name="kpi_title" required>
+
           </div>
         </div>
       </div>

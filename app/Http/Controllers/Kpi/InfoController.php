@@ -12,6 +12,7 @@ use App\Objective;
 use Auth;
 use App\User;
 use Gate;
+use DB;
 
 class InfoController extends Controller
 {
@@ -34,8 +35,14 @@ class InfoController extends Controller
      */
     public function create()
     {
+
+        $lastRecord = Info::latest()->where('kpi_created_uid', Auth::user()->id)->first();
+
+        //dd($lastRecord->kpi_code);
+
+
         $arr['objective'] = Objective::where('obj_created_uid', auth()->user()->id)->get();
-        return view('kpi.info.create')->with($arr);
+        return view('kpi.info.create', compact('lastRecord'))->with($arr);
     }
 
     /**
@@ -47,6 +54,116 @@ class InfoController extends Controller
     public function store(Request $request, Info $info)
     {
 
+
+        //$last = DB::table('infos')->latest()->first();
+        $last2 = DB::table('infos')->where('kpi_created_uid', Auth::user()->id)->orderBy('id', 'DESC')->first();
+
+        //dd($last2);
+
+        if (Auth::user()->company == "34") {
+            if (Auth::user()->dept == "Operation") {
+                $kpi_head = "KPI/OA/OP/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Finance") {
+                $kpi_head = "KPI/OA/FI/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Marketing") {
+                $kpi_head = "KPI/OA/MA/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Procurment") {
+                $kpi_head = "KPI/OA/PR/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "FOH") {
+                $kpi_head = "KPI/OA/FOH/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "BOH") {
+                $kpi_head = "KPI/OA/BOH/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Leasing") {
+                $kpi_head = "KPI/OA/LE/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "HR") {
+                $kpi_head = "KPI/OA/HR/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            }
+        } else if (Auth::user()->company == "92") {
+            if (Auth::user()->dept == "Operation") {
+                $kpi_head = "KPI/MOM/OP/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Finance") {
+                $kpi_head = "KPI/MOM/FI/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Marketing") {
+                $kpi_head = "KPI/MOM/MA/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Procurment") {
+                $kpi_head = "KPI/MOM/PR/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "FOH") {
+                $kpi_head = "KPI/MOM/FOH/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "BOH") {
+                $kpi_head = "KPI/MOM/BOH/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Leasing") {
+                $kpi_head = "KPI/MOM/LE/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "HR") {
+                $kpi_head = "KPI/MOM/HR/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            }
+        } else if (Auth::user()->company == "99") {
+            if (Auth::user()->dept == "Operation") {
+                $kpi_head = "KPI/SCD/OP/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Finance") {
+                $kpi_head = "KPI/SCD/FI/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Marketing") {
+                $kpi_head = "KPI/SCD/MA/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Procurment") {
+                $kpi_head = "KPI/SCD/PR/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "FOH") {
+                $kpi_head = "KPI/SCD/FOH/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "BOH") {
+                $kpi_head = "KPI/SCD/BOH/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "Leasing") {
+                $kpi_head = "KPI/SCD/LE/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            } else if (Auth::user()->dept == "HR") {
+                $kpi_head = "KPI/SCD/HR/";
+                $kpinofull = $kpi_head . $request->kpi_code;
+                $info->kpi_code = $kpinofull;
+            }
+        }
+
         $info->kpi_created_uid = Auth::user()->id;
         $info->kpi_created_name = Auth::user()->name;
         $info->info_dept = Auth::user()->dept;
@@ -54,7 +171,7 @@ class InfoController extends Controller
 
         $info->info_obj_des = $request->obj_desc;
         $info->info_obj_id = $request->id;
-        $info->kpi_code = $request->kpi_code;
+
         $info->kpi_title = $request->kpi_title;
         $info->kpi_defi = $request->kpi_defi;
         $info->kpi_goal = $request->kpi_goal;
