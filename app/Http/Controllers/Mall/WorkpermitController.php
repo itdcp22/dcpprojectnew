@@ -70,11 +70,27 @@ class WorkpermitController extends Controller
     public function create(Tenant $tenant, Brand $brand, User $user)
     {
 
-        $comp_id = Auth::user()->company;
-        $tenant = Tenant::where('id', '=', $comp_id)->first();
-        $brand = Brand::where('bm_tm_id', '=', $tenant->id)->orderBy('bm_name', 'asc')->get();
+        $days = Carbon::now()->format('l');
 
-        return view('mall.workpermit.create')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
+        //dd($days);
+
+        if ($days == "Friday") {
+
+            return view('mall.workpermit.limit');
+        } else {
+
+            $todayTime = Carbon::now()->format('H');
+
+
+            if ($todayTime > 18) {
+                return view('mall.workpermit.limit');
+            } else {
+                $comp_id = Auth::user()->company;
+                $tenant = Tenant::where('id', '=', $comp_id)->first();
+                $brand = Brand::where('bm_tm_id', '=', $tenant->id)->orderBy('bm_name', 'asc')->get();
+                return view('mall.workpermit.create')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
+            }
+        }
     }
 
     /**
