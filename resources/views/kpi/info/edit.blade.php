@@ -170,7 +170,7 @@
           </div>
           <div class="col-8">
             <input type="text" class="form-control" id="kpi_code" name="kpi_code" value="{{ $info->kpi_code}}"
-              placeholder="Enter KPI Code Ex- KPI/AJG/OA/FOH/001 Or KPI/AJG/MOM/OPS/001" required>
+              placeholder="Enter KPI Code Ex- KPI/AJG/OA/FOH/001 Or KPI/AJG/MOM/OPS/001" readonly required>
           </div>
         </div>
       </div>
