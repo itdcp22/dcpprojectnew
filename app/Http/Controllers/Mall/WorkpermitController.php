@@ -80,7 +80,7 @@ class WorkpermitController extends Controller
         } else {
 
             $todayTime = Carbon::now()->format('H');
-
+            dd($todayTime);
 
             if ($todayTime > 18) {
                 return view('mall.workpermit.limit');
