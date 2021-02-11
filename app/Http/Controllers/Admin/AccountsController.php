@@ -281,10 +281,34 @@ class AccountsController extends Controller
     public function destroy(Request $request)
     {
 
+        //  $account->delete();
+
+        //return redirect()->route('admin.accounts.index')
+        //  ->with('success', 'Product deleted successfully');
+
+        //Account::where('id', $id)->delete();
+        //return redirect()->back()->with('success', 'Delete Successfully');
+        dd($request->category_id);
+        $accounts = Account::findOrFail($request->category_id);
+        $accounts->delete();
+
+        return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully!');
+
+
+        // $project = Account::find($id);
+
+        // $accounts = Account::findOrFail($id);
+        //dd($accounts);
+        //$accounts->delete();
+
+        //return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully!');
+
+        //return view('admin.accounts.index');
+
 
         //dd($request->category_id);
-        $account = Account::findOrFail($request->category_id);
-        $account->delete();
-        return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully!');
+        //  $account = Account::findOrFail($request->category_id);
+        // $account->delete();
+        // return redirect()->route('admin.accounts.index')->with('success', 'Transaction deleted successfully!');
     }
 }

@@ -28,7 +28,7 @@
 
                     <h4> Kindly note that the online work permit system functions
                         between
-                        9.00 AM to 7.00 PM, Saturday to Thursday. <h1></h1>
+                        9.00 AM to 4.00 PM, Saturday to Thursday. <h1></h1>
                     </h4>
 
                     <h4> Please come back during the system working hours and apply for your work permit.<h1></h1>

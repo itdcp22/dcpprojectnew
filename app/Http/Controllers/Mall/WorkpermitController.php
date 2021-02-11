@@ -85,7 +85,7 @@ class WorkpermitController extends Controller
             $todayTime = Carbon::now()->format('H');
             // dd($todayTime);
 
-            if ($todayTime > 18) {
+            if ($todayTime > 15) {
                 return view('mall.workpermit.limit');
             } else {
                 $comp_id = Auth::user()->company;
@@ -263,7 +263,7 @@ class WorkpermitController extends Controller
      */
     public function destroy(Request $request)
     {
-        //dd($request->category_id);
+
         $workpermit = Workpermit::findOrFail($request->category_id);
         $workpermit->delete();
 

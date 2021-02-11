@@ -73,6 +73,7 @@ Route::get('/admin', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/foh', 'HomeController@icc')->name('homeicc')->middleware('auth');
 Route::get('/coh', 'HomeController@coh')->name('cash')->middleware('auth');
 Route::get('/mallwp', 'HomeController@mallwp')->name('mallwp')->middleware('auth');
+Route::get('/kpihome', 'HomeController@kpihome')->name('kpihome')->middleware('auth');
 //Route::get('/admin1', 'HomestaffController@index')->name('homestaff');
 
 //Route::resource('/admin', 'HomeController', ['as'=>'admin']);
@@ -98,6 +99,8 @@ Route::resource('/admin/unpaidbills', 'Admin\UnpaidController', ['as' => 'admin'
 Route::resource('/admin/paidbills', 'Admin\PaidController', ['as' => 'admin'])->middleware('auth');
 Route::resource('/admin/allpaidbills', 'Admin\AllpaidController', ['as' => 'admin'])->middleware('auth');
 Route::resource('/admin/expense', 'Admin\ExpenseController', ['as' => 'admin'])->middleware('auth');
+
+Route::get('admin/accounts/delete/{id}', [AccountsController::class, 'delete'])->name('delete');
 
 //Payment System
 Route::resource('/admin/suppliers', 'Admin\SupplierController', ['as' => 'admin'])->middleware('auth');

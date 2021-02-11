@@ -13,6 +13,7 @@ use Gate;
 use PDF;
 
 
+
 class HomeController extends Controller
 {
     /**
@@ -52,6 +53,14 @@ class HomeController extends Controller
         //Users::where('id', 1)->count();
         return view('mallwp');
     }
+
+
+    public function kpihome(Request $request)
+    {
+        //Users::where('id', 1)->count();
+        return view('homekpi');
+    }
+
 
 
 
