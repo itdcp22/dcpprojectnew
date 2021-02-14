@@ -38,6 +38,7 @@ class Wpapproved extends Mailable
             ->to($this->workpermit->wp_email, $this->workpermit->wp_applicant)
             ->cc('info@mallofmuscat.com', 'Info')
             ->cc('cheatan@mallofmuscat.com', 'Cheatan')
+            ->cc('vikash@mallofmuscat.com', 'Vikash')
             ->cc('hussain@mallofmuscat.com', 'Hussain')
             ->cc('security@mallofmuscat.com', 'Security')
             ->cc('cr.mallofmusct@gmail.com', 'Control')

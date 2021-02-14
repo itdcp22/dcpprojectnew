@@ -335,19 +335,22 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="{{route('kpi.objective.index')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+
+                      <i class="nav-icon far fa-circle text-danger"></i>
                       <p>Objective</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="{{route('kpi.info.index')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+
+                      <i class="nav-icon far fa-circle text-warning"></i>
                       <p>KPI</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="{{route('kpi.initiative.index')}}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
+
+                      <i class="nav-icon far fa-circle text-info"></i>
                       <p>Initiatives</p>
                     </a>
                   </li>

@@ -315,6 +315,7 @@
 
             @else
 
+            <img src={{asset('dist/img/vikash.png')}}>
 
             @endif
 
