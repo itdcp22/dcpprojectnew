@@ -32,7 +32,8 @@ class AdvancehistoryController extends Controller
         //return view('admin.advancehistory.advpending')->with($arr);
 
         $arr['advances'] = Advance::where('ca_comp_code', auth()->user()->company)
-            ->where('ca_status', 1)
+            ->where('ca_status', 0)
+            ->where('ca_pay_status', 1)
             ->groupBy('ca_emp_name')
             ->selectRaw('ca_emp_name,sum(ca_adv_amt) as total')
             ->get();
