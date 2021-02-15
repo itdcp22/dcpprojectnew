@@ -366,6 +366,18 @@
                     </li>
 
                     <li class="nav-item">
+                      <a href="{{route('advpending')}}" class="nav-link                      
+                @if($segment=='advpending')                
+                active
+                @endif                
+                ">
+
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Advance Unsettled </p>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
                       <a href="{{route('admin.cashtopups.index')}}" class="nav-link
                 @if($segment=='cashtopups')                
                 active

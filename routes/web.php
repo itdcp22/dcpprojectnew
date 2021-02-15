@@ -102,6 +102,8 @@ Route::resource('/admin/expense', 'Admin\ExpenseController', ['as' => 'admin'])-
 
 Route::get('admin/accounts/delete/{id}', [AccountsController::class, 'delete'])->name('delete');
 
+Route::get('/advance/advpending', 'Admin\AdvancehistoryController@advpending')->name('advpending');
+
 //Payment System
 Route::resource('/admin/suppliers', 'Admin\SupplierController', ['as' => 'admin'])->middleware('auth');
 Route::resource('/admin/payments', 'Admin\PaymentController', ['as' => 'admin'])->middleware('auth');

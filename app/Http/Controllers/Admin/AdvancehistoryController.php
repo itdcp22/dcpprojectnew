@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 use App\Advance;
-Use Auth;
+use Auth;
 
 
 class AdvancehistoryController extends Controller
@@ -20,8 +20,23 @@ class AdvancehistoryController extends Controller
     public function index()
     {
         $arr['advances'] = Advance::where('ca_comp_code', auth()->user()->company)
-        ->orderBy('ID','desc')->get();
+            ->orderBy('ID', 'desc')->get();
         return view('admin.advancehistory.index')->with($arr);
+    }
+
+    public function advpending()
+    {
+        //  $arr['advances'] = Advance::where('ca_comp_code', auth()->user()->company)
+        //    ->where('ca_status', 1)
+        //  ->orderBy('ID', 'desc')->get();
+        //return view('admin.advancehistory.advpending')->with($arr);
+
+        $arr['advances'] = Advance::where('ca_comp_code', auth()->user()->company)
+            ->where('ca_status', 1)
+            ->groupBy('ca_emp_id', 'ca_emp_name')
+            ->selectRaw('ca_emp_id,ca_emp_name,sum(ca_adv_amt) as total')
+            ->get();
+        return view('admin.advancehistory.advpending')->with($arr);
     }
 
     /**
