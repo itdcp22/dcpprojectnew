@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.adminplain')
 @section('content')
 
 
@@ -17,13 +17,12 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Unsettled Advance Amount
-                        <a href="{{ route('admin.advances.create') }}" class="btn btn-primary btn-sm">Advance
-                            Request</a></h3>
+                    <h3 class="card-title text-center">Unsettled Advance
+                    </h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
 
@@ -64,16 +63,7 @@
                             @endif
 
                         </tbody>
-                        <tfoot>
-                            <tr>
 
-                                <th> Name </th>
-                                <th> Amount </th>
-
-
-
-                            </tr>
-                        </tfoot>
                     </table>
 
                 </div>
