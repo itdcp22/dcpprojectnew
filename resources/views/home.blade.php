@@ -234,13 +234,13 @@
 
 
 
-
+@if($user->user_type =='admin')
 
 <div class="container1">
   <iframe class="responsive-iframe" src="{{route('advpending')}}"></iframe>
 </div>
 
-
+@endif
 
 
 
