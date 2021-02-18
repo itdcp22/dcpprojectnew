@@ -234,14 +234,113 @@
 
 
 
-@if($user->user_type =='admin')
-
-<div class="container1">
-  <iframe class="responsive-iframe" src="{{route('advpending')}}"></iframe>
-</div>
-
-@endif
 
 
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Info boxes -->
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+          <span class="info-box-icon bg-info elevation-1"><i class="fas fa-dollar-sign"></i></span>
 
-@endsection
+          <div class="info-box-content">
+            <span class="info-box-text">Cash On Hand</span>
+            <span class="info-box-number">
+
+              @if($user->user_type =='admin')
+
+
+              {{ number_format($topup - $paid - $advancepaid,3) }}
+
+              @else
+              Please check with Accounts Dept
+              @endif
+
+
+
+            </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-success elevation-1"><i class="fas fa-cog"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Categories</span>
+            <span class="info-box-number">{{ $categories}}</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+
+      <!-- fix for small devices only -->
+      <div class="clearfix hidden-md-up"></div>
+
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-coins"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">
+              @if($user->user_type =='admin')
+
+
+
+              <a href="{{route('admin.payments.index')}}" class="small-box-footer">Payments
+                <i class="fab fa-amazon-pay"></i>
+
+                @else
+                Flex
+                @endif
+
+
+              </a>
+
+            </span>
+
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+          <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Users</span>
+            <span class="info-box-number">{{$users}}</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+    </div>
+
+
+
+
+    <!-- /.row -->
+  </div>
+
+  @if($user->user_type =='admin')
+
+  <div class="container1">
+    <iframe class="responsive-iframe" src="{{route('advpending')}}"></iframe>
+  </div>
+
+  @endif
+
+
+
+  @endsection
