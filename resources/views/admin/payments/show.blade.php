@@ -197,7 +197,7 @@ class toWords{
 
     <div class="form-group">
         <div class="row">
-            <div class="col">
+            <div class="col a">
                 <p>Good Morning,
                 </p>
 
