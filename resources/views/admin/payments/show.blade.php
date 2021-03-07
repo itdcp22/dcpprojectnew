@@ -152,7 +152,7 @@ class toWords{
 
     <h1>&nbsp;</h1>
     <h1>&nbsp;</h1>
-    <h1>&nbsp;</h1>
+
 
     <div class="a">
         Date :{{date('d-m-Y', strtotime($payment->created_at))}}<br>
@@ -175,6 +175,19 @@ class toWords{
                         Sultanate Of Oman.
                     </p>
                 </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <p>السلام عليكم ورحمة الله وبركاته
+                </p>
 
             </div>
 

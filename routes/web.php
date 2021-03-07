@@ -152,7 +152,7 @@ Route::get('/mall/approved', 'Mall\WorkpermitController@approved')->name('workpe
 Route::get('/mall/manual', 'Mall\WorkpermitController@manual')->name('manual');
 
 //Purchase Request
-Route::resource('/mall/purchaserequest', 'Mall\PurchaserequestController', ['as' => 'mall'])->middleware('auth');
+Route::resource('/procurement/pr', 'Procurement\PurchaserequestController', ['as' => 'procurement'])->middleware('auth');
 
 
 
