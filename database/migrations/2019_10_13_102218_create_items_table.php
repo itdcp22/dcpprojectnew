@@ -24,10 +24,6 @@ class CreateItemsTable extends Migration
             $table->date('td_supp_name')->nullable();
             $table->bigInteger('account_id')->unsigned()->nullable();
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
-
-            
-
-
             $table->timestamps();
         });
     }

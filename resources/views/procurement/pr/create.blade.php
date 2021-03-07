@@ -116,7 +116,7 @@
             <input type="email" class="form-control" id="wp_email" name="wp_email" placeholder="Enter email address"
               value="{{ $user->email}}" tabindex="4" readonly>
           </div>
-          <label class="col-lg-1" for="">:بريد</label>
+          <label class="col-lg-1" for="">:بريدالالكتروني</label>
         </div>
       </div>
 
@@ -151,7 +151,7 @@
             <input type="text" class="form-control" id="wp_comp_name" name="wp_comp_name" value="{{ date('d-m-Y')}}"
               placeholder="Enter company name" readonly>
           </div>
-          <label class="col-lg-1" for="">:الشركة</label>
+          <label class="col-lg-1" for="">:تاريخ</label>
           <label class="col-lg-1" for="">Date of Required</label>
           <div class="col-lg-4">
             @foreach($brand as $c)
@@ -193,7 +193,7 @@
 
             @endforeach
           </div>
-          <label class="col-lg-1" for="">:علامة تجارية
+          <label class="col-lg-1" for="">: تاريخ الطلب
           </label>
         </div>
       </div>
