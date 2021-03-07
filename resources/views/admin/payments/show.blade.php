@@ -211,7 +211,7 @@ class toWords{
         <div class="row">
             <div class="col">
                 <div class="a">I hereby request you to transfer an amount of <b>
-                        {{$payment->pay_supp_currency}}. {{number_format($payment->pay_supp_amount),3 }} </b> (
+                        {{$payment->pay_supp_currency}}. {{number_format($payment->pay_supp_amount,3) }} </b> (
 
                     <?php
                             $total = $payment->pay_supp_amount;
