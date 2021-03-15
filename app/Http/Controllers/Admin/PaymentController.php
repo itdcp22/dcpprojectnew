@@ -95,6 +95,9 @@ class PaymentController extends Controller
         $payments->pay_comp_code = Auth::user()->company;
 
 
+        $payments->flex1 = $request->flex1;
+        $payments->flex2 = $request->flex2;
+
 
         $payments->save();
         return redirect('admin/payments')->with('success', 'Transaction created successfully!');

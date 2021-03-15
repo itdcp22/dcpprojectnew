@@ -186,6 +186,18 @@
 
 
 
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Bank Address</label>
+          <div class="col-lg-8">
+            <input type="text" id="flex1" class="form-control" name="flex1" placeholder="Enter bank address" required>
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
+
+
 
       <div class="form-group">
         <div class="row">
@@ -225,13 +237,14 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-lg-2" for="">Reference No</label>
+          <label class="col-lg-2" for="">Reference</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" name="pay_supp_ref_no" placeholder="Enter reference number">
+            <input type="text" class="form-control" name="pay_supp_ref_no" placeholder="Enter reference">
             <div class="clear-fix"></div>
           </div>
         </div>
       </div>
+
 
 
 
@@ -242,16 +255,24 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-lg-2" for="">Comments</label>
+          <label class="col-lg-2" for="">Reason For Transfer</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" name="remarks" placeholder="Enter remarks">
+            <input type="text" class="form-control" name="flex2" placeholder="Enter reason for transfer">
             <div class="clear-fix"></div>
           </div>
         </div>
       </div>
 
 
-
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Remarks</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" name="remarks" placeholder="Enter remarks">
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
 
 
 

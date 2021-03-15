@@ -271,6 +271,18 @@ class toWords{
                 </div>
             </div>
 
+            @if(!empty($payment->flex1))
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-3 text-left c">
+                        <label>Bank Address</label>
+                    </div>
+                    <div class="col-6 c">
+                        <label>: {{$payment->flex1}}</label>
+                    </div>
+                </div>
+            </div>
+            @endif
 
             @if(!empty($payment->pay_supp_swift_code))
 
@@ -296,6 +308,32 @@ class toWords{
                     </div>
                     <div class="col-6 c">
                         <label>: {{$payment->pay_supp_iban}}</label>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            @if(!empty($payment->pay_supp_iban))
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-3 text-left c">
+                        <label>Reason</label>
+                    </div>
+                    <div class="col-6 c">
+                        <label>: {{$payment->remarks}}</label>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            @if(!empty($payment->pay_supp_iban))
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-3 text-left c">
+                        <label>Reason For Transfer</label>
+                    </div>
+                    <div class="col-6 c">
+                        <label>: {{$payment->flex2}}</label>
                     </div>
                 </div>
             </div>
