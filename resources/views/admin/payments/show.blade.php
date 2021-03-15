@@ -272,7 +272,7 @@ class toWords{
             </div>
 
 
-            @if(!empty($payment->pay_supp_iban))
+            @if(!empty($payment->pay_supp_swift_code))
 
             <div class="form-group">
                 <div class="row">
@@ -284,11 +284,11 @@ class toWords{
                     </div>
                 </div>
             </div>
+            @endif
 
 
 
-
-
+            @if(!empty($payment->pay_supp_iban))
             <div class="form-group">
                 <div class="row">
                     <div class="col-3 text-left c">
