@@ -35,7 +35,6 @@ class NewBill extends Mailable
     {
         return $this->from('info@mallofmuscat.com', 'Workpermit Request')
             ->to(auth()->user()->email, auth()->user()->name)
-            ->cc('cheatan@mallofmuscat.com', 'Cheatan')
             ->cc('vikash@mallofmuscat.com', 'Vikash')
             ->cc('hussain@mallofmuscat.com', 'Hussain')
             ->subject($this->workpermit->wp_brand_name)

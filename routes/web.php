@@ -151,6 +151,9 @@ Route::resource('/mall/brand', 'Mall\BrandController', ['as' => 'mall'])->middle
 Route::get('/mall/approved', 'Mall\WorkpermitController@approved')->name('workpermit.approved')->middleware('auth');
 Route::get('/mall/manual', 'Mall\WorkpermitController@manual')->name('manual');
 
+//Circular
+Route::resource('/mall/circular', 'Mall\CircularController', ['as' => 'mall'])->middleware('auth');
+
 //Purchase Request
 Route::resource('/procurement/pr', 'Procurement\PurchaserequestController', ['as' => 'procurement'])->middleware('auth');
 
