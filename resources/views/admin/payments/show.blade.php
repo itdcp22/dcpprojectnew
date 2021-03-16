@@ -243,7 +243,7 @@ class toWords{
 
                         <label>Name</label>
                     </div>
-                    <div class="col-6 c">
+                    <div class="col-7 c">
                         <label>: {{$payment->pay_supp_acc_name}}</label>
                     </div>
                 </div>
@@ -277,7 +277,7 @@ class toWords{
                     <div class="col-3 text-left c">
                         <label>Bank Address</label>
                     </div>
-                    <div class="col-6 c">
+                    <div class="col-7 c">
                         <label>: {{$payment->flex1}}</label>
                     </div>
                 </div>
