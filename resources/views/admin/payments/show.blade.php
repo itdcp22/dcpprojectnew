@@ -2,7 +2,7 @@
 
 
 define("MAJOR", 'And');
-define("MINOR", ' Cents Only');
+define("MINOR", ' Baisa Only');
 class toWords{
            var $pounds;
            var $pence;
