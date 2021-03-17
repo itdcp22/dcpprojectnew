@@ -153,6 +153,7 @@ Route::get('/mall/manual', 'Mall\WorkpermitController@manual')->name('manual');
 
 //Circular
 Route::resource('/mall/circular', 'Mall\CircularController', ['as' => 'mall'])->middleware('auth');
+Route::get('/mall/circtent', 'Mall\CircularController@circtent')->name('circtent');
 
 //Purchase Request
 Route::resource('/procurement/pr', 'Procurement\PurchaserequestController', ['as' => 'procurement'])->middleware('auth');

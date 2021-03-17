@@ -86,11 +86,17 @@
                 <td> {{ $c->ci_user_name }} </td>
                 <td>
 
-                  <a href="{{ route('mall.tenant.edit',$c->id) }}">
+                  <a href="{{ route('mall.circular.edit',$c->id) }}">
                     <i class="fa fa-edit"></i>
 
                   </a>
 
+                  /
+
+                  <a data-catid={{$c->id}} data-toggle="modal" data-target="#delete">
+                    <i class="fa fa-trash text-red"></i>
+
+                  </a>
 
 
 
@@ -132,5 +138,31 @@
   <!-- /.row -->
 </section>
 
+<!-- Modal -->
+<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h4 class="modal-title text-left" id="myModalLabel">Delete Confirmation</h4>
+      </div>
+      <form action="{{route('mall.circular.destroy','test')}}" method="post">
+        {{method_field('delete')}}
+        {{csrf_field()}}
+        <div class="modal-body">
+          <p class="text-left">
+            Are you sure you want to delete this transaction?
+          </p>
+          <input type="hidden" name="category_id" id="cat_id" value="">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-warning">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 @endsection

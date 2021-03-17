@@ -60,7 +60,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Tenant Master</h1>
+        <h1 class="m-0 text-dark">Circular - Edit</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -81,7 +81,7 @@
 
 
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
-      action="{{ route('mall.tenant.update',$tenant->id) }}" enctype="multipart/form-data" autocomplete="off"
+      action="{{ route('mall.circular.update',$circular->id) }}" enctype="multipart/form-data" autocomplete="off"
       autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -90,10 +90,10 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-lg-2" for="">Name</label>
+          <label class="col-lg-2" for="">Circular No</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom01" name="tm_name"
-              placeholder="Enter company name" value="{{ $tenant->tm_name}}" required>
+            <input type="text" class="form-control" id="validationCustom01" name="ci_circular_no"
+              placeholder="Enter company name" value="{{ $circular->ci_circular_no}}" required>
             <div class="clear-fix"></div>
           </div>
         </div>
@@ -101,53 +101,14 @@
 
       <div class="form-group">
         <div class="row">
-          <label class="col-lg-2" for="">Address</label>
+          <label class="col-lg-2" for="">Subject</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_address"
-              placeholder="Enter address details" value="{{ $tenant->tm_address}}">
+            <input type="text" class="form-control" id="validationCustom02" name="ci_subject"
+              placeholder="Enter address details" value="{{ $circular->ci_subject}}">
             <div class="clear-fix"></div>
           </div>
         </div>
       </div>
-
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Contact Person</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_contact"
-              placeholder="Enter contact person name" value="{{ $tenant->tm_contact}}" required>
-            <div class="clear-fix"></div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Email</label>
-          <div class="col-lg-8">
-            <input type="email" class="form-control" id="validationCustom02" name="tm_email"
-              placeholder="Enter email address" value="{{ $tenant->tm_email}}" required>
-            <div class="clear-fix"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Telephone Number</label>
-          <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_tel"
-              placeholder="Enter telephone Number" value="{{ $tenant->tm_tel}}">
-          </div>
-          <label class="col-lg-2" for="">Mobile Number</label>
-          <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_mobile"
-              placeholder="Enter mobile number" value="{{ $tenant->tm_mobile}}">
-          </div>
-        </div>
-      </div>
-
 
 
 
@@ -162,12 +123,25 @@
         <div class="row">
           <label class="col-lg-2" for="">Comments</label>
           <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_comments"
-              value="{{ $tenant->tm_comments}}" placeholder="Enter comments">
+            <input type="text" class="form-control" id="validationCustom02" name="ci_comments"
+              value="{{ $circular->ci_comments}}" placeholder="Enter comments">
             <div class="clear-fix"></div>
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="row">
+
+          <label class="col-lg-2" for="">Attach Document</label>
+          <div class="col-lg-8">
+            <input type="file" id="validationCustom01" name="th_attach">
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
+
 
 
 

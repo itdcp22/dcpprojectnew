@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mall;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
 use App\Circular;
@@ -11,6 +12,9 @@ use Auth;
 use App\User;
 use Gate;
 use DateTime;
+
+use App\Mail\Circularmail;
+
 
 class CircularController extends Controller
 {
@@ -25,6 +29,12 @@ class CircularController extends Controller
         return view('mall.circular.index')->with($arr);
     }
 
+    public function circtent()
+    {
+        $arr['circular'] = Circular::All();
+        return view('mall.circular.circtent')->with($arr);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,6 +42,8 @@ class CircularController extends Controller
      */
     public function create()
     {
+        $this->authorize('isMall');
+
         return view('mall.circular.create');
     }
 
@@ -45,7 +57,9 @@ class CircularController extends Controller
     {
         $circular->ci_subject = $request->ci_subject;
         $circular->ci_circular_no = $request->ci_circular_no;
+        $circular->ci_comments = $request->ci_comments;
         $circular->ci_user_name = Auth::user()->name;
+
 
 
         $filename = '';
@@ -58,9 +72,18 @@ class CircularController extends Controller
         }
 
         $circular->ci_document = $filename;
-
-
         $circular->save();
+
+        $users = User::select('email')->get();
+
+        foreach ($users as $user) {
+
+            //Mail::send(new circularmail($user, $circular));
+        }
+
+
+
+
         return redirect('mall/circular')->with('success', 'Transaction created successfully!');
     }
 
@@ -81,9 +104,10 @@ class CircularController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Circular $circular)
     {
-        //
+        $arr['circular'] = $circular;
+        return view('mall.circular.edit')->with($arr);
     }
 
     /**
@@ -93,9 +117,13 @@ class CircularController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Circular $circular)
     {
-        //
+        $circular->ci_subject = $request->ci_subject;
+        $circular->ci_circular_no = $request->ci_circular_no;
+        $circular->ci_comments = $request->ci_comments;
+        $circular->save();
+        return redirect('mall/circular')->with('info', 'Transaction updated successfully!');
     }
 
     /**
@@ -104,8 +132,13 @@ class CircularController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $this->authorize('isMall');
+
+        $circular = Circular::findOrFail($request->category_id);
+        $circular->delete();
+
+        return redirect()->route('mall.circular.index')->with('success', 'Transaction deleted successfully!');
     }
 }

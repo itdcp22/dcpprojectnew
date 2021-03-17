@@ -252,6 +252,23 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{route('circtent')}}" class="nav-link  
+                @if($segment=='circtent')
+                active
+                @endif            
+                ">
+                  <i class="nav-icon fas fa-bell"></i>
+
+
+
+                  <p>
+                    Circular
+
+                  </p>
+                </a>
+              </li>
+
               @can('isMall')
 
               <li class="font-weight-bold nav-header">MALL MASTER</li>
@@ -319,6 +336,23 @@
 
                   <p>
                     Approved Users
+
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('mall.circular.index')}}" class="nav-link  
+                @if($segment=='circular')
+                active
+                @endif            
+                ">
+                  <i class="nav-icon fas fa-bell"></i>
+
+
+
+                  <p>
+                    Circular
 
                   </p>
                 </a>

@@ -60,7 +60,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Circular Master</h1>
+        <h1 class="m-0 text-dark">Circular New</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -81,6 +81,19 @@
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
       action="{{ route('mall.circular.store') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Circular No</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" id="validationCustom02" name="ci_circular_no"
+              placeholder="Enter circular number" required>
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
+
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Subject</label>
@@ -94,16 +107,6 @@
 
 
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Circular No</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="ci_circular_no"
-              placeholder="Enter circular number" required>
-            <div class="clear-fix"></div>
-          </div>
-        </div>
-      </div>
 
 
 
@@ -132,9 +135,9 @@
       <div class="form-group">
         <div class="row">
 
-          <label class="col-lg-2" for="">Attach Bill</label>
+          <label class="col-lg-2" for="">Attach Document</label>
           <div class="col-lg-8">
-            <input type="file" id="validationCustom01" name="th_attach">
+            <input type="file" required id="validationCustom01" name="th_attach">
             <div class="clear-fix"></div>
           </div>
         </div>
