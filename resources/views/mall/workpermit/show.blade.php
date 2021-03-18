@@ -313,7 +313,7 @@
 
 
 
-            @else
+            @elseif($workpermit->wp_approved_uid =='45')
 
             <img src={{asset('dist/img/vikash.png')}}>
 

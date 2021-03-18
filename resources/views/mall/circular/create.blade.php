@@ -150,7 +150,7 @@
 
       <div class="form-group">
         <input type="submit" class="btn btn-primary" Value="Save">
-        <a href="{{route('mall.tenant.index')}}" class="btn btn-warning" role="button">Cancel</a>
+        <a href="{{route('mall.circular.index')}}" class="btn btn-warning" role="button">Cancel</a>
       </div>
     </form>
   </div>
