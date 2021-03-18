@@ -139,6 +139,6 @@ class CircularController extends Controller
         $circular = Circular::findOrFail($request->category_id);
         $circular->delete();
 
-        return redirect()->route('mall.circular.index')->with('success', 'Transaction deleted successfully!');
+        return redirect()->route('mall.circular.index')->with('error', 'Transaction deleted successfully!');
     }
 }

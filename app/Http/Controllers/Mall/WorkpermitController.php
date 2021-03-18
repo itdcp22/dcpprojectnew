@@ -267,7 +267,7 @@ class WorkpermitController extends Controller
         $workpermit = Workpermit::findOrFail($request->category_id);
         $workpermit->delete();
 
-        return redirect()->route('mall.workpermit.index')->with('success', 'Transaction deleted successfully!');
+        return redirect()->route('mall.workpermit.index')->with('error', 'Transaction deleted successfully!');
     }
 
     public function manual()
