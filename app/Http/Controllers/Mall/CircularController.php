@@ -13,6 +13,8 @@ use App\User;
 use Gate;
 use DateTime;
 
+use App\Jobs\SendEmailJob;
+
 use App\Mail\Circularmail;
 
 
@@ -75,10 +77,15 @@ class CircularController extends Controller
         $circular->save();
 
         $users = User::select('email')->get();
+        // $details = User::select('email')->get();
 
         foreach ($users as $user) {
 
-            //Mail::send(new circularmail($user, $circular));
+            // dispatch(new SendEmailJob($user, $circular));
+
+            Mail::send(new circularmail($user, $circular));
+
+            //  dispatch(new SendEmailJob($details));
         }
 
 
