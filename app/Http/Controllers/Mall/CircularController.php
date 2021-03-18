@@ -16,6 +16,8 @@ use DateTime;
 use App\Jobs\SendEmailJob;
 
 use App\Mail\Circularmail;
+use App\Mail\SendEmailTest;
+use App\Mail\SendEmailDemo;
 
 
 class CircularController extends Controller
