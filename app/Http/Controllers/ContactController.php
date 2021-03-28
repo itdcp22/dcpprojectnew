@@ -120,6 +120,10 @@ class ContactController extends Controller
         $contact->flex1 = Auth::user()->name;
         $contact->user_type = $request->user_type;
 
+        if ($request->user_type == 'reject') {
+            $contact->status = 0;
+        }
+
         $contact->save();
 
         // Mail::send(new Userapproved($contact));

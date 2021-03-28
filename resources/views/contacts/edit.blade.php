@@ -50,6 +50,7 @@
                     <option value="user">User</option>
                     <option value="mall">Mall</option>
                     <option value="admin">Admin</option>
+                    <option value="reject">Reject</option>
 
 
                 </select>
