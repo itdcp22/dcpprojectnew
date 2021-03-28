@@ -59,7 +59,7 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary">Approve</button>
+            <button type="submit" class="btn btn-primary">Save</button>
             <a href="{{route('contacts.index')}}" class="btn btn-warning" role="button">Cancel</a>
         </form>
     </div>
