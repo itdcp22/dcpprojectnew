@@ -26,7 +26,7 @@ class ContactController extends Controller
         //$tenants = Tenant::All();
         $contacts = User::where('user_type', 'tenant')
             ->WhereNull('email_verified_at')
-            ->Where('status', 0)
+            ->Where('status', 1)
             ->get();
 
         //  $contacts = User::with('tenant')->get();
