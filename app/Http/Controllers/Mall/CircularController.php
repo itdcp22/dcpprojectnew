@@ -19,6 +19,8 @@ use App\Mail\Circularmail;
 use App\Mail\SendEmailTest;
 use App\Mail\SendEmailDemo;
 
+use App\Jobs\SendEmailCircularJob;
+
 
 class CircularController extends Controller
 {
@@ -78,19 +80,28 @@ class CircularController extends Controller
         $circular->ci_document = $filename;
         $circular->save();
 
-        $users = User::select('email')->get();
+        // $users = User::select('email')->get();
 
         // dd($users);
         // $details = User::select('email')->get();
 
-        foreach ($users as $user) {
+        //foreach ($users as $user) {
 
-            dispatch(new SendEmailJob($user, $circular));
+        //  dispatch(new SendEmailJob($user, $circular));
 
-            // Mail::send(new circularmail($user, $circular));
+        // Mail::send(new circularmail($user, $circular));
 
-            //  dispatch(new SendEmailJob($details));
-        }
+        //  dispatch(new SendEmailJob($details));
+        //}
+
+        $details['email'] = User::select('email')->get();
+        dispatch(new SendEmailCircularJob($details));
+
+
+
+
+
+
 
 
 
