@@ -232,6 +232,23 @@
               </li>
 
               <li class="nav-item">
+                <a href="{{route('circtent')}}" class="nav-link  
+                @if($segment=='circtent')
+                active
+                @endif            
+                ">
+                  <i class="nav-icon fas fa-bell"></i>
+
+
+
+                  <p>
+                    Circular
+
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="{{route('manual')}}" class="nav-link
                 @if($segment=='manual')
                 active
@@ -252,22 +269,7 @@
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="{{route('circtent')}}" class="nav-link  
-                @if($segment=='circtent')
-                active
-                @endif            
-                ">
-                  <i class="nav-icon fas fa-bell"></i>
 
-
-
-                  <p>
-                    Circular
-
-                  </p>
-                </a>
-              </li>
 
               @can('isMall')
 
