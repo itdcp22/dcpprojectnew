@@ -112,27 +112,33 @@ class ContactController extends Controller
         ]);
 
         $contact = User::find($id);
-        $contact->name =  $request->get('name');
-        $contact->mobile = $request->get('mobile');
-        $contact->email = $request->get('email');
-        $contact->email_verified_at = Carbon::now();
-
-        $contact->flex1 = Auth::user()->name;
-        $contact->user_type = $request->user_type;
 
         if ($request->user_type == 'reject') {
             $contact->status = 0;
+            $contact->flex1 = Auth::user()->name;
+            $contact->user_type = $request->user_type;
+        } else {
+
+            $contact->name =  $request->get('name');
+            $contact->mobile = $request->get('mobile');
+            $contact->email = $request->get('email');
+            $contact->email_verified_at = Carbon::now();
+            $contact->flex1 = Auth::user()->name;
+            $contact->user_type = $request->user_type;
+
+            $details['email'] = $contact->email;
+            dispatch(new SendEmailJob($details));
         }
+
+
+
 
         $contact->save();
 
         // Mail::send(new Userapproved($contact));
-
-
-        $details['email'] = $contact->email;
         // $details['subject'] = "Account Approved";
 
-        dispatch(new SendEmailJob($details));
+
 
         return redirect('/contacts')->with('success', 'User Account Approved!');
     }
