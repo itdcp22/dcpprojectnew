@@ -85,9 +85,9 @@ class CircularController extends Controller
 
         foreach ($users as $user) {
 
-            // dispatch(new SendEmailJob($user, $circular));
+            dispatch(new SendEmailJob($user, $circular));
 
-            Mail::send(new circularmail($user, $circular));
+            // Mail::send(new circularmail($user, $circular));
 
             //  dispatch(new SendEmailJob($details));
         }

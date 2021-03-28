@@ -24,7 +24,10 @@ class ContactController extends Controller
     public function index()
     {
         //$tenants = Tenant::All();
-        $contacts = User::where('user_type', 'tenant')->whereNull('email_verified_at')->get();
+        $contacts = User::where('user_type', 'tenant')
+            ->WhereNull('email_verified_at')
+            ->Where('status', 0)
+            ->get();
 
         //  $contacts = User::with('tenant')->get();
 
