@@ -79,6 +79,8 @@ class CircularController extends Controller
         $circular->save();
 
         $users = User::select('email')->get();
+
+        // dd($users);
         // $details = User::select('email')->get();
 
         foreach ($users as $user) {

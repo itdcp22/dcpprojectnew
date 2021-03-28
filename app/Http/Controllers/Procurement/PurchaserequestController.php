@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Procurement;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
+use App\ProductStock;
+
 use Carbon\Carbon;
 use App\Purchaserequest;
 use Auth;
@@ -33,13 +36,32 @@ class PurchaserequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Tenant $tenant, Brand $brand, User $user)
+    public function create(Tenant $tenant, Brand $brand, User $user, Request $request)
     {
+
 
         $comp_id = Auth::user()->company;
         $tenant = Tenant::where('id', '=', $comp_id)->first();
         $brand = Brand::where('bm_tm_id', '=', $tenant->id)->orderBy('bm_name', 'asc')->get();
         return view('procurement.pr.create')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
+    }
+
+    public function addMorePost(Request $request, Tenant $tenant, Brand $brand, User $user)
+    {
+        $request->validate([
+            'addmore.*.name' => 'required',
+            'addmore.*.qty' => 'required',
+            'addmore.*.price' => 'required',
+        ]);
+
+        foreach ($request->addmore as $key => $value) {
+            ProductStock::create($value);
+        }
+        $comp_id = Auth::user()->company;
+        $tenant = Tenant::where('id', '=', $comp_id)->first();
+        $brand = Brand::where('bm_tm_id', '=', $tenant->id)->orderBy('bm_name', 'asc')->get();
+
+        return back()->with('success', 'Record Created Successfully.')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
     }
 
     /**
