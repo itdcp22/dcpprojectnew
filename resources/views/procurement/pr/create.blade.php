@@ -20,7 +20,9 @@
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
-<!-- /.content-header -->
+<!-- /.content-header   -->
+
+
 
 
 <section class="content">
@@ -28,9 +30,13 @@
 
 
 
+
+
         <form class="needs-validation" name="myform" id="myform" novalidate method="post"
             action="{{ route('addmorePost') }}" enctype="multipart/form-data" autocomplete="off" autofill="off">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -109,16 +115,18 @@
                     <th>Action</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="addmore[0][name]" placeholder="Enter item details"
+                    <td><input type="text" name="addmore[0][pri_item]" placeholder="Enter item details"
                             class="form-control" />
                     </td>
-                    <td><input type="text" name="addmore[0][qty]" placeholder="Enter qty" class="form-control" />
+                    <td><input type="text" name="addmore[0][pri_qty]" placeholder="Enter qty" class="form-control" />
                     </td>
-                    <td><input type="text" name="addmore[0][price]" placeholder="Enter approximate price"
+                    <td><input type="text" name="addmore[0][pri_reason]" placeholder="Enter approximate price"
                             class="form-control" />
                     </td>
                     <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
                 </tr>
+
+
             </table>
 
 
@@ -141,7 +149,7 @@
    
         ++i;
    
-        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][name]" placeholder="Enter item details" class="form-control" /></td><td><input type="text" name="addmore['+i+'][qty]" placeholder="Enter qty" class="form-control" /></td><td><input type="text" name="addmore['+i+'][price]" placeholder="Enter approximate price" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][pri_item]" placeholder="Enter item details" class="form-control" /></td><td><input type="text" name="addmore['+i+'][pri_qty]" placeholder="Enter qty" class="form-control" /></td><td><input type="text" name="addmore['+i+'][pri_reason]" placeholder="Enter approximate price" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
     });
    
     $(document).on('click', '.remove-tr', function(){  

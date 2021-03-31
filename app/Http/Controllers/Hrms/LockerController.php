@@ -79,7 +79,7 @@ class LockerController extends Controller
 
     {
 
-        $this->authorize('isAccess');
+        // $this->authorize('isAccess');
         $arr['locker'] = $locker;
         return view('hrms.locker.edit')->with($arr);
     }

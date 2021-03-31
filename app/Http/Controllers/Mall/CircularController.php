@@ -94,10 +94,27 @@ class CircularController extends Controller
         //  dispatch(new SendEmailJob($details));
         //}
 
-        $details['email'] = User::select('email')->get();
-        dispatch(new SendEmailCircularJob($details));
+        // $details['email'] = User::select('email')->get();
+        //dispatch(new SendEmailCircularJob($details));
+
+        $emails = User::select('email')->get();
+
+        foreach ($emails as $email) {
+            dispatch(new SendEmailCircularJob($email));
+        }
 
 
+
+        //dispatch(new SendEmailCircularJob($details['email']));
+
+        //working final with all email id in To
+        //$details['email'] = User::select('email')->get();
+        //dispatch(new SendEmailCircularJob($details));
+
+
+
+        // $emails = User::select('email')->get();
+        //dispatch(new SendEmailCircularJob($email));
 
 
 
