@@ -156,8 +156,8 @@ Route::resource('/mall/circular', 'Mall\CircularController', ['as' => 'mall'])->
 Route::get('/mall/circtent', 'Mall\CircularController@circtent')->name('circtent');
 
 //Purchase Request
-Route::resource('/procurement/pr', 'Procurement\PurchaserequestController', ['as' => 'procurement'])->middleware('auth');
-Route::post("/procurement/pr", "Procurement\PurchaserequestController@addMorePost")->name('addmorePost');
+Route::resource('/procurement/purchaserequest', 'Procurement\PurchaserequestController', ['as' => 'procurement'])->middleware('auth');
+Route::post("/procurement/purchaserequest", "Procurement\PurchaserequestController@addMorePost")->name('addmorePost');
 
 Route::get("addmore", "ProductAddMoreController@addMore");
 //Route::post("addmore", "ProductAddMoreController@addMorePost")->name('addmorePost');

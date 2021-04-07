@@ -18,7 +18,10 @@ class CreatePurchaserequestitemsTable extends Migration
 
             $table->string('pri_item')->nullable();
             $table->string('pri_qty')->nullable();
+            $table->string('pri_price')->nullable();
+            $table->string('pri_amount')->nullable();
             $table->string('pri_reason')->nullable();
+            $table->string('pri_pr_no')->nullable();
             $table->string('pri_flex1')->nullable();
             $table->string('pri_flex2')->nullable();
             $table->bigInteger('purchaserequest_id')->unsigned()->nullable();

@@ -29,7 +29,7 @@ class PurchaserequestController extends Controller
     public function index()
     {
         $arr['purchaserequest'] = Purchaserequest::All();
-        return view('procurement.pr.index')->with($arr);
+        return view('procurement.purchaserequest.index')->with($arr);
     }
 
     /**
@@ -47,7 +47,7 @@ class PurchaserequestController extends Controller
 
         //return back()->with('success', 'Record Created Successfully.')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
 
-        return view('procurement.pr.create')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
+        return view('procurement.purchaserequest.create')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
     }
 
     public function addMorePost_working(Request $request, Tenant $tenant, Brand $brand, User $user)
@@ -82,21 +82,41 @@ class PurchaserequestController extends Controller
         $id_year = substr($id, 0, 4);
         $seq = $year <> $id_year ? 0 : +substr($id, -5);
         $new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
+        // $purchaserequest->pr_req_no = $new_id;
+
+
+        $lastAccountForCurrentYear = Purchaserequest::where('pr_req_comp_code', auth()->user()->company)
+            ->where('pr_req_no', 'like', date('Y') . '%') // filter for current year numbers
+            ->orderByDesc('pr_req_no', 'desc') // the biggist one first
+            ->first();
+
+        $purchaserequest->pr_req_no = $lastAccountForCurrentYear
+            ? ($lastAccountForCurrentYear->pr_req_no + 1) // just increase value to 1
+            : (date('Y') . $digitRepresentingASerie . '00001');
+
+        $new_id = $purchaserequest->pr_req_no;
         $purchaserequest->pr_req_no = $new_id;
 
 
 
+        //  dd($purchaserequest->id);
+
+
+        foreach ($request->addmore as $key => $value) {
 
 
 
-        foreach ($request->addmore as $value) {
-            $purchaserequestitem = new Purchaserequestitem;
-            $purchaserequestitem->pri_item = $value['pri_item'];
-            $purchaserequestitem->pri_qty = $value['pri_qty'];
-            $purchaserequestitem->pri_reason = $value['pri_reason'];
-            $purchaserequestitem->purchaserequest_id = $new_id;
-            $purchaserequestitem->save();
-            $purchaserequest->purchaserequestitem()->save($purchaserequestitem);
+            if (!empty($value['pri_item'])) {
+                $purchaserequestitem = new Purchaserequestitem;
+                $purchaserequestitem->pri_item = $value['pri_item'];
+                $purchaserequestitem->pri_qty = $value['pri_qty'];
+                $purchaserequestitem->pri_price = $value['pri_price'];
+                $purchaserequestitem->pri_amount = $value['pri_qty'] * $value['pri_price'];
+                $purchaserequestitem->pri_flex1 = $new_id;
+                $purchaserequestitem->save();
+                // $purchaserequest->purchaserequestitem()->save($purchaserequestitem);
+
+            }
         }
 
         $purchaserequest->pr_req_name = $request->wp_applicant;
@@ -122,7 +142,7 @@ class PurchaserequestController extends Controller
 
 
 
-        return back()->with('success', 'Record Created Successfully.');
+        return redirect('procurement/purchaserequest')->with('success', 'Record Created Successfully.');
     }
 
     /**
@@ -140,6 +160,7 @@ class PurchaserequestController extends Controller
                 $ProductStock->name = $request->name[$key];
                 $ProductStock->qty = $request->qty[$key];
                 $ProductStock->price = $request->price[$key];
+
                 $ProductStock->save();
                 // $account->item()->save($item);
             }
@@ -152,10 +173,20 @@ class PurchaserequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Purchaserequest $purchaserequest, Purchaserequestitem $purchaserequestitem)
     {
-        //
+        // dd($purchaserequest);
+        // return view('procurement.purchaserequest.show', compact('purchaserequest'));
+
+
+        $purchaserequestitems = Purchaserequestitem::where('pri_flex1', $purchaserequest->pr_req_no)->orderBy('id', 'asc')->Get();
+
+
+
+        return view('procurement.purchaserequest.show')->with(['purchaserequest' => $purchaserequest, 'purchaserequestitems' => $purchaserequestitems]);
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

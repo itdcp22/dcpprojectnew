@@ -1,4 +1,4 @@
-@extends('layouts.adminwp')
+@extends('layouts.admin')
 @section('content')
 
 <!-- Content Header (Page header) -->
@@ -12,7 +12,8 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{route('mallwp')}}">Dashboard</a></li>
 
-                    <li class="breadcrumb-item"><a href="{{route('mall.workpermit.index')}}">Pending</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('procurement.purchaserequest.index')}}">Purchase
+                            Request</a></li>
 
 
                 </ol>
@@ -21,6 +22,28 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header   -->
+
+<script>
+    function calc1() 
+        {
+    
+    
+        var textValue1 = document.getElementById('pri_qty[]').value;
+        var textValue2 = document.getElementById('pri_price[]').value;
+        var line1 = textValue1 * textValue2;
+        document.getElementById('amount[]').value = line1.toFixed(3);   
+
+        var textValue3 = document.getElementById('pri_qty[]').value;
+        var textValue4 = document.getElementById('pri_price[]').value;
+        var line1 = textValue1 * textValue2;
+        document.getElementById('amount[]').value = line1.toFixed(3);  
+    
+       
+    
+           
+        }   
+    
+</script>
 
 
 
@@ -112,16 +135,71 @@
                     <th>Item</th>
                     <th>Qty</th>
                     <th>Price</th>
+                    <th>Amount</th>
                     <th>Action</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="addmore[0][pri_item]" placeholder="Enter item details"
+                    <td><input type="text" name="addmore[0][pri_item]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[0][pri_qty]" onkeyup="calc1()" id="pri_qty[]"
                             class="form-control" />
                     </td>
-                    <td><input type="text" name="addmore[0][pri_qty]" placeholder="Enter qty" class="form-control" />
-                    </td>
-                    <td><input type="text" name="addmore[0][pri_reason]" placeholder="Enter approximate price"
+                    <td><input type="text" name="addmore[0][pri_price]" onkeyup="calc1()" id="pri_price[]"
                             class="form-control" />
+                    </td>
+
+                    <td><input type="text" name="addmore[0][pri_amount]" id="amount[]" class="form-control" />
+                    </td>
+
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="addmore[1][pri_item]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[1][pri_qty]" onkeyup="calc1()" id="pri_qty[]"
+                            class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[1][pri_price]" onkeyup="calc1()" id="pri_price[]"
+                            class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[0][pri_amount]" id="amount[]" class="form-control" />
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="addmore[2][pri_item]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[2][pri_qty]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[2][pri_price]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[0][pri_amount]" class="form-control" />
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="addmore[3][pri_item]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[3][pri_qty]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[3][pri_price]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[0][pri_amount]" class="form-control" />
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="addmore[4][pri_item]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[4][pri_qty]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[4][pri_price]" class="form-control" />
+                    </td>
+                    <td><input type="text" name="addmore[0][pri_amount]" class="form-control" />
                     </td>
                     <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
                 </tr>
@@ -143,13 +221,13 @@
     </div>
 
     <script type="text/javascript">
-        var i = 0;
+        var i = 4;
        
     $("#add").click(function(){
    
         ++i;
    
-        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][pri_item]" placeholder="Enter item details" class="form-control" /></td><td><input type="text" name="addmore['+i+'][pri_qty]" placeholder="Enter qty" class="form-control" /></td><td><input type="text" name="addmore['+i+'][pri_reason]" placeholder="Enter approximate price" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][pri_item]" placeholder="Enter item details" class="form-control" /></td><td><input type="text" name="addmore['+i+'][pri_qty]" placeholder="Enter qty" class="form-control" /></td><td><input type="text" name="addmore['+i+'][pri_price]" placeholder="Enter approximate price" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
     });
    
     $(document).on('click', '.remove-tr', function(){  

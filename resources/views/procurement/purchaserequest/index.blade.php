@@ -1,4 +1,4 @@
-@extends('layouts.adminwp')
+@extends('layouts.admin')
 @section('content')
 
 
@@ -17,7 +17,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Purchase Request
-            <a href="{{ route('procurement.pr.create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
+            <a href="{{ route('procurement.purchaserequest.create') }}" class="btn btn-primary btn-sm">Add New</a></h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -25,6 +25,7 @@
             <thead>
               <tr>
                 <th> Company </th>
+                <th> Number</th>
                 <th> Date </th>
                 <th> Name </th>
                 <th> Required Date </th>
@@ -43,6 +44,7 @@
 
 
                 <td>{{ $c->pr_req_comp_name }}</td>
+                <td>{{ $c->pr_req_no}}</td>
                 <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>
                 <td>{{ $c->pr_req_name }}</td>
                 <td>{{ date('d-m-Y', strtotime($c->wp_from_date)) }}</td>
@@ -64,7 +66,7 @@
 
                 <td>
 
-                  <a href="{{ route('mall.workpermit.show',$c->id) }}">
+                  <a href="{{ route('procurement.purchaserequest.show',$c->id) }}">
                     <i class="fa fa-print text-green"></i>
 
                   </a>
@@ -72,7 +74,7 @@
                   /
 
 
-                  <a href="{{ route('mall.workpermit.edit',$c->id) }}">
+                  <a href="{{ route('procurement.purchaserequest.edit',$c->id) }}">
                     <i class="fa fa-edit"></i>
 
                   </a>
@@ -105,6 +107,7 @@
               <tr>
 
                 <th> Company </th>
+                <th> Number</th>
                 <th> Date </th>
                 <th> Name </th>
                 <th> Required Date </th>

@@ -1,4 +1,4 @@
-@extends('layouts.adminwp')
+@extends('layouts.admin')
 @section('content')
 
 

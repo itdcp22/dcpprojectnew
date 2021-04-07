@@ -496,6 +496,39 @@
                   </ul>
                 </li>
 
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-shopping-cart"></i>
+
+                    <p>
+                      Procurement
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{route('procurement.purchaserequest.index')}}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p>Purchase Request</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{route('kpi.info.index')}}" class="nav-link">
+
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p>Purchase Order</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{route('kpi.initiative.index')}}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-info"></i>
+                        <p>Goods Receipt Note</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+
                 @can('isAdmin')
 
                 <li class="nav-item has-treeview">

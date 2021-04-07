@@ -189,6 +189,7 @@ class WorkpermitController extends Controller
      */
     public function show(Workpermit $workpermit)
     {
+        // dd(compact('workpermit'));
         return view('mall.workpermit.show', compact('workpermit'));
     }
 
