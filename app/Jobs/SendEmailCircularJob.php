@@ -32,28 +32,10 @@ class SendEmailCircularJob implements ShouldQueue
      *
      * @return void
      */
+
     public function handle()
     {
-        //working start
         $email = new SendEmailCircular();
         Mail::to($this->details['email'])->send($email);
-        // working finish
-
-        // $mailable = new SendEmailCircular();
-
-        //foreach ($this->details['email'] as $email) {
-        //  Mail::to($email)->send($mailable);
-        // }
     }
-
-
-
-    // public function handle()
-    //{
-    //  $mailable = new SendEmailCircular();
-
-    //foreach ($this->details['email'] as $email) {
-    //  Mail::to($email)->send($mailable);
-    // }
-    // }
 }
