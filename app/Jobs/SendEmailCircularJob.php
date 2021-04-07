@@ -35,7 +35,9 @@ class SendEmailCircularJob implements ShouldQueue
 
     public function handle()
     {
+        $sub = "Circular - MOM";
         $email = new SendEmailCircular();
-        Mail::to($this->details['email'])->send($email);
+        Mail::bcc($this->details['email'])
+            ->send($email);
     }
 }
