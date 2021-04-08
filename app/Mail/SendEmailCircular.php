@@ -28,6 +28,6 @@ class SendEmailCircular extends Mailable
      */
     public function build()
     {
-        return $this->view('email.circular.circular');
+        return $this->view('email.circular.circular')->subject('MOM Circular');
     }
 }
