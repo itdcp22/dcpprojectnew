@@ -92,6 +92,23 @@
 
       <div class="form-group">
         <div class="row">
+          <label class="col-md-1" for="">Company:</label>
+          <div class="col-md-4 text-center text-danger">
+            <label for=""> {{ $purchaserequest->pr_req_comp_name}}</label>
+          </div>
+          <label class="col-md-1 text-right" for="">:الشركة</label>
+          <label class="col-md-2" for="">Brand</label>
+          <div class="col-md-2 text-center text-danger">
+            <label for=""> {{ $purchaserequest->pr_req_brand_name}}</label>
+          </div>
+          <label class="col-md-2 text-right" for="">:اسم المحل</label>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="row">
           <label class="col-md-2" for="">Document No:</label>
           <div class="col-md-2 text-center text-danger">
             <label for=""> {{$purchaserequest->pr_req_no}} </label>
@@ -117,9 +134,26 @@
           <label class="col-md-2 text-right" for="">:اسم مقدم الطلب</label>
           <label class="col-md-2" for="">Designation:</label>
           <div class="col-md-2 text-center text-danger">
-            <label for=""> {{ $purchaserequest->pr_req_desi}}</label>
+            <label for=""> {{ $purchaserequest->pr_req_dept}}</label>
           </div>
           <label class="col-md-2 text-right" for="">:الوظيفة</label>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-md-1" for="">Department:</label>
+          <div class="col-md-4 text-center text-danger">
+            <label for=""> {{ $purchaserequest->pr_req_desi}}</label>
+          </div>
+          <label class="col-md-1 text-right" for="">:الشركة</label>
+          <label class="col-md-2" for="">Date Required:</label>
+          <div class="col-md-2 text-center text-danger">
+            <label for=""> {{ date('d-m-Y', strtotime($purchaserequest->pr_req_del_date))}}</label>
+          </div>
+          <label class="col-md-2 text-right" for="">:اسم المحل</label>
         </div>
       </div>
 
@@ -138,20 +172,7 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-md-1" for="">Company:</label>
-          <div class="col-md-4 text-center text-danger">
-            <label for=""> {{ $purchaserequest->pr_req_comp_name}}</label>
-          </div>
-          <label class="col-md-1 text-right" for="">:الشركة</label>
-          <label class="col-md-2" for="">Date Required:</label>
-          <div class="col-md-2 text-center text-danger">
-            <label for=""> {{ $purchaserequest->wp_brand_name}}</label>
-          </div>
-          <label class="col-md-2 text-right" for="">:اسم المحل</label>
-        </div>
-      </div>
+
 
 
 
@@ -200,7 +221,14 @@
 
       <div class="form-group">
         <p class="bg-warning text-white"><strong>Justification</strong>
-          <textarea class="form-control" name="wp_category" rows="2" id="comment" placeholder="Justification"
+          <textarea class="form-control" name="wp_category" rows="2" id="comment" placeholder="Enter Justification"
+            readonly>{{$purchaserequest->wp_category}}</textarea>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <p class="bg-warning text-white"><strong>Remarks</strong>
+          <textarea class="form-control" name="wp_category" rows="2" id="comment" placeholder="Enter remarks"
             readonly>{{$purchaserequest->wp_category}}</textarea>
         </p>
       </div>

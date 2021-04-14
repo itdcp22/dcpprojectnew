@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'info@mallofmuscat.com'),
-        'name' => env('MAIL_FROM_NAME', 'Jarwani'),
+        'name' => env('MAIL_FROM_NAME', 'Mall Of Muscat'),
     ],
 
     /*

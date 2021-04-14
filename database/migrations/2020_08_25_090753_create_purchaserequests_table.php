@@ -19,6 +19,9 @@ class CreatePurchaserequestsTable extends Migration
             $table->string('pr_req_comp_code')->nullable();
             $table->string('pr_req_comp_name')->nullable();
 
+            $table->string('pr_req_brand_code')->nullable();
+            $table->string('pr_req_brand_name')->nullable();
+
             $table->string('pr_req_no')->nullable();
             $table->string('pr_req_date')->nullable();
             $table->string('pr_req_uid')->nullable();
@@ -33,6 +36,7 @@ class CreatePurchaserequestsTable extends Migration
 
             $table->longText('pr_req_remarks')->nullable();
             $table->string('pr_req_status')->nullable();
+            $table->string('pr_req_attach')->nullable();
 
             $table->string('pr_req_appr_uid')->nullable();
             $table->string('pr_req_appr_uname')->nullable();
