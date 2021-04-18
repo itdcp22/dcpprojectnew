@@ -313,11 +313,11 @@ class toWords{
             </div>
             @endif
 
-            @if(!empty($payment->pay_supp_iban))
+            @if(!empty($payment->remarks))
             <div class="form-group">
                 <div class="row">
                     <div class="col-3 text-left c">
-                        <label>Reason</label>
+                        <label>Reference</label>
                     </div>
                     <div class="col-6 c">
                         <label>: {{$payment->remarks}}</label>
@@ -326,7 +326,7 @@ class toWords{
             </div>
             @endif
 
-            @if(!empty($payment->pay_supp_iban))
+            @if(!empty($payment->flex2))
             <div class="form-group">
                 <div class="row">
                     <div class="col-3 text-left c">
