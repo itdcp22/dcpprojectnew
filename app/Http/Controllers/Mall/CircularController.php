@@ -83,6 +83,8 @@ class CircularController extends Controller
         $details['email'] = User::select('email')->get();
         dispatch(new SendEmailCircularJob($details));
 
+
+
         return redirect('mall/circular')->with('success', 'Transaction created successfully!');
     }
 
