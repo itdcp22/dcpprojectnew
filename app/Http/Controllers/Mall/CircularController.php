@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Circular;
 use Auth;
 use App\User;
+use App\Usertest;
 use Gate;
 use DateTime;
 
@@ -80,7 +81,7 @@ class CircularController extends Controller
         $circular->ci_document = $filename;
         $circular->save();
 
-        $details['email'] = User::select('email')->get();
+        $details['email'] = Usertest::select('email')->get();
         dispatch(new SendEmailCircularJob($details));
 
 
