@@ -81,8 +81,24 @@ class CircularController extends Controller
         $circular->ci_document = $filename;
         $circular->save();
 
-        $details['email'] = Usertest::select('email')->get();
-        dispatch(new SendEmailCircularJob($details));
+        //working - 5 lines
+        //$details['email'] = Usertest::select('email')->get();
+        //dispatch(new SendEmailCircularJob($details));
+
+        $emails = User::select('email')->get();
+
+        foreach ($emails as $email) {
+            // dispatch(new SendEmailCircularJob($email));
+
+            $details['email'] = $email;
+
+            dispatch(new SendEmailCircularJob($details));
+        }
+
+
+
+
+
 
 
 
