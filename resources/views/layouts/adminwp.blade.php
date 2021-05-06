@@ -244,7 +244,7 @@
                   <p>
                     Circular
 
-                    <span class="right badge badge-info">{{$circ}}</span>
+                    <span class="right badge badge-info">{{$circount}}</span>
 
 
                   </p>

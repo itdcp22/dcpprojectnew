@@ -232,7 +232,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         view()->composer('*', function ($view) {
-            $view->with('circ', \App\Circular::count('ID'));
+            $view->with('circount', \App\Circular::count('ID'));
         });
 
         view()->composer('*', function ($view) {
