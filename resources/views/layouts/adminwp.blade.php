@@ -244,6 +244,9 @@
                   <p>
                     Circular
 
+                    <span class="right badge badge-info">{{$circ}}</span>
+
+
                   </p>
                 </a>
               </li>
@@ -286,7 +289,7 @@
 
                   <p>
                     Tenant
-                    <span class="right badge badge-success">{{$teneantcount}}</span>
+                    <span class="right badge badge-info">{{$teneantcount}}</span>
                   </p>
                 </a>
               </li>

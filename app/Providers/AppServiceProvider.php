@@ -232,6 +232,10 @@ class AppServiceProvider extends ServiceProvider
 
 
         view()->composer('*', function ($view) {
+            $view->with('circ', \App\Circular::count('ID'));
+        });
+
+        view()->composer('*', function ($view) {
             $view->with('pendingwpmall', \App\Workpermit::where('wp_status', 'Pending')->Orwhere('wp_status', 'Not_Approved')->count('ID'));
         });
 
