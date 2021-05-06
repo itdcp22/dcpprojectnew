@@ -25,7 +25,7 @@
             <thead>
               <tr>
 
-                <th> ID </th>
+
                 <th> Circular No </th>
                 <th> Date </th>
                 <th>Subject</th>
@@ -62,7 +62,7 @@
 
 
               <tr>
-                <td>{{ $c->id }}</td>
+
                 <td> {{ $c->ci_circular_no }} </td>
                 <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>
 
@@ -116,7 +116,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <th> ID </th>
+
                 <th> Circular No </th>
                 <th> Date </th>
                 <th>Subject</th>
