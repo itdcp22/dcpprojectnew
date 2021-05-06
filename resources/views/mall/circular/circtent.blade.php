@@ -25,9 +25,9 @@
                         <thead>
                             <tr>
 
-                                <th> Date </th>
+                                <th> ID </th>
                                 <th> Circular No </th>
-
+                                <th> Date </th>
                                 <th>Subject</th>
                                 <th> Document </th>
                                 <th> Created By </th>
@@ -62,10 +62,10 @@
 
 
                             <tr>
-
-
-                                <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>
+                                <td>{{ $c->id }}</td>
                                 <td> {{ $c->ci_circular_no }} </td>
+                                <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>
+
 
                                 @if($days > 2 )
 
@@ -108,9 +108,9 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th> Date </th>
+                                <th> ID </th>
                                 <th> Circular No </th>
-
+                                <th> Date </th>
                                 <th>Subject</th>
                                 <th> Document </th>
                                 <th> Created By </th>
