@@ -43,7 +43,18 @@
               @foreach($advances as $c)
 
               <tr>
-                <td>{{ $c->id }}</td>
+                <td>
+
+                  @if( !empty($c->ca_flex1))
+
+                  <a href="{{ url('storage/categories/'.$c->ca_flex1) }}" target="_blank">{{ $c->id }}</a>
+                  @else
+                  {{ $c->id }}
+                  @endif
+
+                </td>
+
+
                 <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>
                 <td>{{ date('d-m-Y', strtotime($c->ca_adv_date)) }}</td>
 

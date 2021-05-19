@@ -81,6 +81,21 @@ class AdvanceController extends Controller
             $advance->ca_comp_name = 'Snow Village';
         }
 
+        $filename = '';
+
+        if ($request->hasFile('ca_flex1')) {
+            $file = $request->file('ca_flex1');
+            $ext = $file->getClientOriginalExtension();
+            $filename = date('YmdHis') . rand(1, 99999) . '.' . $ext;
+            $file->storeAs('public/categories', $filename);
+        }
+
+
+
+
+
+
+        $advance->ca_flex1 = $filename;
 
 
         $advance->save();

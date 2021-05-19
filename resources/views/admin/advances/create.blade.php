@@ -129,6 +129,17 @@
 
         </div>
 
+        <div class="form-group">
+          <div class="row">
+
+            <label class="col-lg-1" for="">Attach file</label>
+            <div class="col-md-6">
+              <input type="file" id="validationCustom01" name="ca_flex1">
+              <div class="clear-fix"></div>
+            </div>
+          </div>
+        </div>
+
 
         <div class="form-group">
           <input type="submit" class="btn btn-primary" Value="Save">
