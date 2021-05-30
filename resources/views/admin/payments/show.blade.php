@@ -367,7 +367,7 @@ class toWords{
 
                         <h1>&nbsp;</h1>
 
-                        <p>Signature</p></br>
+                        <p>Authorized Signature </p>
                     </div>
 
                 </div>
