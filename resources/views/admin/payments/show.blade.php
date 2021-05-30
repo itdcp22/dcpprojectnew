@@ -346,6 +346,16 @@ class toWords{
                     <div class="col a">
                         <p>Thank you for your cooperation and assistance.</p></br>
                         <p>Best Regards,</p> </br>
+
+                        <label>
+
+                            @if($payment->pay_comp_code =='92')
+                            For TAMANI GLOBAL DEVELOPMENT & INVESTMENT L.L.C
+                            @else
+                            For TAMANI TRADING AND ENTERTAINMENT L.L.C
+                            @endif
+                        </label>
+
                         <h1>&nbsp;</h1>
                     </div>
                 </div>
@@ -357,14 +367,7 @@ class toWords{
 
                         <h1>&nbsp;</h1>
 
-                        <label>
-
-                            @if($payment->pay_comp_code =='92')
-                            For TAMANI GLOBAL DEVELOPMENT & INVESTMENT L.L.C
-                            @else
-                            For TAMANI TRADING AND ENTERTAINMENT L.L.C
-                            @endif
-                        </label>
+                        <p>Signature</p></br>
                     </div>
 
                 </div>
