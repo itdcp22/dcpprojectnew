@@ -317,6 +317,10 @@
 
             <img src={{asset('dist/img/vikash.png')}}>
 
+            @elseif($workpermit->wp_approved_uid =='36')
+
+            <img src={{asset('dist/img/abdu1.png')}}>
+
             @endif
 
 
