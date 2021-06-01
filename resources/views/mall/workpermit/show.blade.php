@@ -319,7 +319,7 @@
 
             @elseif($workpermit->wp_approved_uid =='36')
 
-            <img src={{asset('dist/img/abdu1.png')}}>
+            <img src={{asset('dist/img/abdu1.PNG')}}>
 
             @endif
 
