@@ -110,10 +110,10 @@
             @auth
             <a href="{{ url('/mallwp') }}">Home</a>
             @else
-            <a href="{{ route('login') }}"><strong><mark>Login</mark></strong></a>
+            <a href="{{ route('login') }}"><strong>Login</strong></a>
 
             @if (Route::has('register'))
-            <a href="{{ route('register') }}"><strong><mark>Register</mark></strong></a>
+            <a href="{{ route('register') }}"><strong>Register</strong></a>
             @endif
             @endauth
 
