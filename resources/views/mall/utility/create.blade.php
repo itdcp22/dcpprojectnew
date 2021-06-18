@@ -136,7 +136,41 @@ function myFunction(item, index) {
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="form-group">
         <div class="row">
-          <label class="col-lg-2" for="">Month</label>
+          <label class="col-lg-1" for="">From</label>
+          <div class="col-lg-2">
+
+            <input class="form-control datepicker" tabindex="3" id="datepicker" name="th_bill_dt"
+              placeholder="dd-mm-yyyy" required readonly>
+
+            <script>
+              $('#datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+            </script>
+
+
+            <div class="clear-fix"></div>
+          </div>
+
+          <label class="col-lg-1" for="">To</label>
+          <div class="col-lg-2">
+
+            <input class="form-control datepicker" tabindex="3" id="datepicker2" name="th_bill_dt"
+              placeholder="dd-mm-yyyy" required readonly>
+
+            <script>
+              $('#datepicker2').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+            </script>
+
+
+            <div class="clear-fix"></div>
+          </div>
+
+          <label class="col-lg-1" for="">Month</label>
           <div class="col-lg-2">
             <select class="custom-select" name="ui_month" id="ui_month" required>
               <option value="" selected disabled hidden>Please select</option>
@@ -148,7 +182,7 @@ function myFunction(item, index) {
             <div class="clear-fix"></div>
           </div>
 
-          <label class="col-lg-2" for="">Type</label>
+          <label class="col-lg-1" for="">Type</label>
           <div class="col-lg-2">
             <select class="custom-select" name="ui_type" id="ui_type" required>
               <option value="" selected disabled hidden>Please select</option>
@@ -172,7 +206,7 @@ function myFunction(item, index) {
 
               <th> ID </th>
               <th> Brand </th>
-              <th> Company </th>
+
               <th>Unit Rate</th>
               <th> OMR </th>
               <th> CMR </th>
@@ -194,10 +228,14 @@ function myFunction(item, index) {
               <td>{{ $c->id }}</td>
 
 
-              <td><input class="form-control" type="text" name="ui_brand_name[]" value="{{ $c->bm_name}}" readonly></td>
-
-              <td><input class="form-control" type="text" name="ui_comp_name[]" value="{{ $c->bm_tm_name}}" readonly>
+              <td><input class="form-control" type="text" name="ui_brand_name[]" value="{{ $c->bm_name}}" readonly>
+                <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $c->id}}">
+                <input class="form-control" type="hidden" name="ui_comp_id[]" value="{{ $c->bm_tm_id}}">
+                <input class="form-control" type="hidden" name="ui_comp_name[]" value="{{ $c->bm_tm_name}}">
               </td>
+
+
+
 
 
 
@@ -243,7 +281,7 @@ function myFunction(item, index) {
 
               <th> ID </th>
               <th> Brand </th>
-              <th> Company</th>
+
               <th>Unit Rate</th>
               <th> OMR </th>
               <th> CMR </th>

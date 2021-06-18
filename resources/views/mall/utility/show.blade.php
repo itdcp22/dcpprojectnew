@@ -230,7 +230,7 @@ class toWords{
                                    
                               <tr>
                                 <td class="text-center">1 </td>
-                                <td class="text-left"> Revovery of Electricity</td>
+                                <td class="text-left"> {{ $utility->ui_type }}</td>
 
 
                                 <td class="text-right"> {{ $utility->ui_omr }}</td>
@@ -307,8 +307,9 @@ class toWords{
 
               <div class="col text-left my-auto">
                 <p><b>For, Tamani Global Development and Investment L.L.C</b></p>
-                <h1>&nbsp;</h1>
-                <h1>&nbsp;</h1>
+                <img src={{asset('dist/img/stamp.png')}}>
+
+
               </div>
             </div>
           </div>

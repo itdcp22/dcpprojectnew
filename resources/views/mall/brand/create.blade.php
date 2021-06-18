@@ -167,8 +167,21 @@
         <div class="row">
           <label class="col-lg-2" for="">Date Of Opening</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_open_date"
-              placeholder="Enter date of opening">
+
+
+            <input class="form-control datepicker" tabindex="3" id="datepicker2" name="bm_open_date"
+              placeholder="dd-mm-yyyy" required readonly>
+
+            <script>
+              $('#datepicker2').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+            </script>
+
+
+
+
           </div>
           <label class="col-lg-2" for="">Company Name</label>
           <div class="col-lg-3">
@@ -336,6 +349,7 @@
               <option value="" selected disabled hidden>Please select</option>
 
               <option value="Reading">Reading</option>
+              <option value="Area">Area</option>
 
             </select>
 

@@ -172,7 +172,7 @@ function myFunction(item, index) {
 
                             <th> ID </th>
                             <th> Brand </th>
-                            <th> Company </th>
+
                             <th>Unit Rate</th>
                             <th> OMR </th>
                             <th> CMR </th>
@@ -195,38 +195,88 @@ function myFunction(item, index) {
 
 
                             <td><input class="form-control" type="text" name="ui_brand_name[]" value="{{ $c->bm_name}}"
-                                    readonly></td>
-
-                            <td><input class="form-control" type="text" name="ui_comp_name[]"
-                                    value="{{ $c->bm_tm_name}}" readonly>
+                                    readonly>
+                                <input class="form-control" type="hidden" name="ui_comp_name[]"
+                                    value="{{ $c->bm_tm_name}}">
                             </td>
 
+                            <td>
 
-
-
-                            <td><input class="form-control" onkeyup="calc()" id="bm_cwater_rate[]" type="text"
+                                <input class="form-control" onkeyup="calc()" id="bm_cwater_rate[]" type="text"
                                     name="ui_rate[]" value="{{ $c->bm_cwater_rate}}"></td>
-                            <td><input class="form-control" id="bm_eb_ob[]" type="text" name="ui_omr[]"
-                                    value="{{ $c->bm_eb_ob}}">
-                            </td>
-                            <td><input class="form-control" onkeyup="calc()" id="bm_eb_cb[]" type="text" name="ui_cmr[]"
-                                    value="{{ $c->bm_eb_cb}}">
-                            </td>
 
+
+
+                            <td>
+
+
+                                <input class="form-control" id="bm_eb_ob[]" type="text" name="ui_omr[]"
+                                    value="{{ $c->bm_eb_ob}}">
+
+
+
+
+
+                            </td>
+                            <td>
+
+                                <input class="form-control" onkeyup="calc()" id="bm_eb_cb[]" type="text" name="ui_cmr[]"
+                                    value="{{ $c->bm_eb_cb}}">
+
+
+
+
+
+                            </td>
                             <td><input class="form-control text-right" type="text" name="ui_consumed[]"
                                     id="ui_consumed[]" readonly>
                             </td>
-
-                            <td><input class="form-control text-right" type="text" name="ui_amount[]" id="ui_amount[]"
+                            <td>
+                                @if($c->bm_cwater_bill_type =='Reading')
+                                <input class="form-control text-right" type="text" name="ui_amount[]" id="ui_amount[]"
                                     readonly>
+                                @elseif($c->bm_cwater_bill_type =='Area')
+                                <input class="form-control text-right" type="text" name="ui_amount[]"
+                                    value="{{($c->bm_size * $c->bm_cwater_rate)}}" readonly>
+                                @else
+                                Status Error
+                                @endif
+
+
                             </td>
 
-                            <td><input class="form-control text-right" type="text" name="ui_vat[]" id="ui_vat[]"
+                            <td>
+
+
+                                @if($c->bm_cwater_bill_type =='Reading')
+                                <input class="form-control text-right" type="text" name="ui_vat[]" id="ui_vat[]"
                                     readonly>
+                                @elseif($c->bm_cwater_bill_type =='Area')
+                                <input class="form-control text-right" type="text" name="ui_vat[]"
+                                    value="{{($c->bm_size * $c->bm_cwater_rate)*.05}}" readonly>
+                                @else
+                                Status Error
+                                @endif
+
+
                             </td>
 
-                            <td><input class="form-control text-right" type="text" name="ui_netamount[]"
+                            <td>
+
+
+
+
+                                @if($c->bm_cwater_bill_type =='Reading')
+                                <input class="form-control text-right" type="text" name="ui_netamount[]"
                                     id="ui_netamount[]" readonly>
+                                @elseif($c->bm_cwater_bill_type =='Area')
+                                <input class="form-control text-right" type="text" name="ui_netamount[]"
+                                    id="ui_amount[]"
+                                    value="{{($c->bm_size * $c->bm_cwater_rate)+(($c->bm_size * $c->bm_cwater_rate)*.05)}}"
+                                    readonly>
+                                @else
+                                Status Error
+                                @endif
                             </td>
 
 
@@ -250,7 +300,7 @@ function myFunction(item, index) {
 
                             <th> ID </th>
                             <th> Brand </th>
-                            <th> Company</th>
+
                             <th>Unit Rate</th>
                             <th> OMR </th>
                             <th> CMR </th>

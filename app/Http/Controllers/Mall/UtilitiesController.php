@@ -81,7 +81,7 @@ class UtilitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Utility $utility)
+    public function store(Request $request, Utility $utility, Brand $brand)
     {
 
 
@@ -95,17 +95,17 @@ class UtilitiesController extends Controller
 
                 //  dd($utility);
                 $utility->ui_comp_name = trim($name, '"');
+                $utility->ui_comp_id = $request->ui_comp_id[$key];
+                $utility->ui_brand_id = $request->ui_brand_id[$key];
                 $utility->ui_brand_name = $request->ui_brand_name[$key];
                 $utility->ui_rate = $request->ui_rate[$key];
-                $utility->ui_rate = $request->ui_rate[$key];
+                // $utility->ui_rate = $request->ui_rate[$key];
                 $utility->ui_omr = $request->ui_omr[$key];
                 $utility->ui_cmr = $request->ui_cmr[$key];
                 $utility->ui_consumed = $request->ui_consumed[$key];
                 $utility->ui_amount = $request->ui_amount[$key];
                 $utility->ui_vat = $request->ui_vat[$key];
                 $utility->ui_netamount = $request->ui_netamount[$key];
-
-
 
                 $id = Utility::orderByDesc('ui_tran_no')->first()->ui_tran_no ?? date('Y') . 00000;
                 $year = date('Y');
@@ -118,11 +118,21 @@ class UtilitiesController extends Controller
                 $utility->ui_type = $request->ui_type;
 
 
+                //$brand->bm_eb_ob = $request->ui_cmr[$key];
+
+
                 $utility->save();
+
+
+                Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr));
             }
         }
 
-        $utility->ui_month = $request->ui_month;
+
+
+
+
+        // $utility->ui_month = $request->ui_month;
 
         $utility->ui_created_uid = Auth::user()->id;
         $utility->ui_created_name = Auth::user()->name;
