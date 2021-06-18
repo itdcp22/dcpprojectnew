@@ -528,7 +528,7 @@
             <label class="col-lg-1" for="">Bill Date *</label>
             <div class="col-lg-2">
               <input class="form-control datepicker" tabindex="3" id="datepicker" name="th_bill_dt"
-                placeholder="dd-mm-yyyy" required>
+                placeholder="dd-mm-yyyy" required readonly>
 
               <script>
                 $('#datepicker').datepicker({

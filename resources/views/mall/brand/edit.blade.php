@@ -101,17 +101,36 @@
       </div>
 
 
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Unit Number</label>
+          <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" name="bm_unit_no"
+              value="{{ $brand->bm_unit_no}}" required>
+          </div>
+          <label class="col-lg-2" for="">Size</label>
+          <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" name="bm_size" value="{{ $brand->bm_size}}">
+          </div>
+        </div>
+      </div>
+
+
+
+
+
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Contact Person</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="bm_contact"
-              placeholder="Enter contact person" value="{{ $brand->bm_contact}}" required>
+              value="{{ $brand->bm_contact}}" placeholder="Enter contact person" required>
           </div>
           <label class="col-lg-2" for="">Designation</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="bm_designation"
-              placeholder="Enter designation" value="{{ $brand->bm_designation}}" required>
+              value="{{ $brand->bm_designation}}" placeholder="Enter designation">
           </div>
         </div>
       </div>
@@ -120,36 +139,171 @@
         <div class="row">
           <label class="col-lg-2" for="">Telephone Number</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_tel"
-              placeholder="Enter telephone Number" value="{{ $brand->bm_tel}}" required>
+            <input type="text" class="form-control" id="validationCustom02" name="bm_tel" value="{{ $brand->bm_tel}}"
+              placeholder="Enter telephone Number">
           </div>
           <label class="col-lg-2" for="">Mobile Number</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="bm_mobile"
-              placeholder="Enter mobile number" value="{{ $brand->bm_mobile}}" required>
+              value="{{ $brand->bm_mobile}}" placeholder="Enter mobile number">
           </div>
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
-          <label class="col-lg-2" for="">Email</label>
+          <label class="col-lg-2" for="">Finance Email</label>
           <div class="col-lg-3">
-            <input type="email" class="form-control" id="validationCustom02" name="bm_email"
-              placeholder="Enter email address" value="{{ $brand->bm_email}}" required>
+            <input type="email" class="form-control" id="validationCustom02" name="bm_fina_email"
+              value="{{ $brand->bm_fina_email}}" placeholder="Enter finance email">
           </div>
+          <label class="col-lg-2" for="">Operation Email</label>
+          <div class="col-lg-3">
+            <input type="email" class="form-control" id="validationCustom02" name="bm_oper_email"
+              value="{{ $brand->bm_oper_email}}" placeholder="Enter operation email">
+          </div>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Date Of Opening</label>
+          <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" name="bm_open_date"
+              value="{{ date('d-m-Y', strtotime($brand->bm_open_date)) }}" placeholder="Enter date of opening">
+          </div>
+          <label class="col-lg-2" for="">Company Name</label>
+          <div class="col-lg-3">
+
+          </div>
         </div>
       </div>
 
 
 
 
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Select services</label>
+          <div class="col-sm-6">
+            <div class="d-flex mb-3">
+              <div class="p-2 flex-fill" options>
 
 
 
 
+                <input name="bm_eb" type="checkbox" class="form-check-input" value="Electricity"
+                  {{ ($brand->bm_eb == "Electricity" ? 'checked' : '')}}>
 
+
+                Electricty
+              </div>
+
+              <div class="p-2 flex-fill ">
+                <input name="bm_cwater" type="checkbox" class="form-check-input" value="Cwater"
+                  {{ ($brand->bm_cwater == "Cwater" ? 'checked' : '')}}>
+                Chill Water
+              </div>
+
+              <div class="p-2 flex-fill ">
+                <input name="bm_water" type="checkbox" class="form-check-input" value="Water"
+                  {{ ($brand->bm_water == "Water" ? 'checked' : '')}}>
+                Water
+              </div>
+
+
+              <div class="p-2 flex-fill ">
+
+                <input name="bm_sewage" type="checkbox" class="form-check-input" value="Sewage"
+                  {{ ($brand->bm_sewage == "Sewage" ? 'checked' : '')}}>
+                Sewage
+
+
+              </div>
+              <div class="p-2 flex-fill "><input type="checkbox" value="Plumbing" name="bm_service">Service
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Elec Meter #</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_eb_meter1_no}}"
+              name="bm_eb_meter1_no">
+          </div>
+          <label class="col-lg-1" for="">C.Water Meter #</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_meter_no}}"
+              name="bm_cwater_meter_no">
+          </div>
+          <label class="col-lg-1" for="">Water Meter #</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_meter_no}}"
+              name="bm_water_meter_no">
+          </div>
+          <label class="col-lg-1" for="">Sewage Meter #</label>
+          <div class="col-lg-2">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_sewage_meter_no}}"
+              name="bm_sewage_meter_no">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Elec Rate</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_eb_rate}}"
+              name="bm_eb_rate">
+          </div>
+          <label class="col-lg-1" for="">C.Water Rate</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_rate}}"
+              name="bm_cwater_rate">
+          </div>
+          <label class="col-lg-1" for="">Water Rate</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_rate}}"
+              name="bm_water_rate">
+          </div>
+          <label class="col-lg-1" for="">Sewage Rate</label>
+          <div class="col-lg-2">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_sewage_rate}}"
+              name="bm_sewage_rate">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Elec OB</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_eb_ob}}"
+              name="bm_eb_ob">
+          </div>
+          <label class="col-lg-1" for="">C.Water OB</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_ob}}"
+              name="bm_cwater_ob">
+          </div>
+          <label class="col-lg-1" for="">Water OB</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_ob}}"
+              name="bm_water_ob">
+          </div>
+          <label class="col-lg-1" for="">Sewage OB</label>
+          <div class="col-lg-2">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_sewage_ob}}"
+              name="bm_sewage_ob">
+          </div>
+        </div>
+      </div>
 
 
 

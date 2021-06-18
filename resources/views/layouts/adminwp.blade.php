@@ -4,9 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <title>MOM</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -365,6 +367,56 @@
 
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-charging-station"></i>
+
+                  <p>
+                    Utility Bills
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('mall.utility.index')}}" class="nav-link">
+
+                      <i class="nav-icon far fa-circle text-danger"></i>
+                      <p>Electricity</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('cwater')}}" class="nav-link">
+
+                      <i class="nav-icon far fa-circle text-success"></i>
+                      <p>Chilled Water</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('water')}}" class="nav-link">
+
+                      <i class="nav-icon far fa-circle text-primary"></i>
+                      <p>Water</p>
+                    </a>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <a href="{{route('sewage')}}" class="nav-link">
+
+                      <i class="nav-icon far fa-circle text-warning"></i>
+                      <p>Sewage</p>
+                    </a>
+                  </li>
+
+
+
+
+
+
+                </ul>
+              </li>
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-chart-pie"></i>
                   <p>
                     KPI
@@ -395,6 +447,7 @@
                   </li>
                 </ul>
               </li>
+
 
 
               <li class="nav-item has-treeview">

@@ -57,6 +57,54 @@ class BrandController extends Controller
         $brand->bm_tm_id = $request->bm_tm_id;
         $brand->bm_status = 1;
 
+        $brand->bm_fina_email = $request->bm_fina_email;
+        $brand->bm_oper_email = $request->bm_oper_email;
+
+
+        $brand->bm_unit_no = $request->bm_unit_no;
+        $brand->bm_size = $request->bm_size;
+
+        // $brand->bm_type = $request->bm_type;
+
+
+
+        $opendate  = Carbon::createFromFormat('d-m-Y', $request->bm_open_date);
+        $brand->bm_open_date = $opendate;
+
+        $brand->bm_eb = $request->bm_eb;
+        $brand->bm_water = $request->bm_water;
+        $brand->bm_cwater = $request->bm_cwater;
+        $brand->bm_sewage = $request->bm_sewage;
+
+
+        $brand->bm_eb_meter1_no = $request->bm_eb_meter1_no;
+        $brand->bm_water_meter_no = $request->bm_water_meter_no;
+        $brand->bm_cwater_meter_no = $request->bm_cwater_meter_no;
+        $brand->bm_sewage_meter_no = $request->bm_sewage_meter_no;
+
+        $brand->bm_eb_rate = $request->bm_eb_rate;
+        $brand->bm_water_rate = $request->bm_water_rate;
+        $brand->bm_cwater_rate = $request->bm_cwater_rate;
+        $brand->bm_sewage_rate = $request->bm_sewage_rate;
+
+        $brand->bm_eb_ob = $request->bm_eb_ob;
+        $brand->bm_water_ob = $request->bm_water_ob;
+        $brand->bm_cwater_ob = $request->bm_cwater_ob;
+        $brand->bm_sewage_ob = $request->bm_sewage_ob;
+
+        $brand->bm_eb_bill_type = $request->bm_eb_bill_type;
+        $brand->bm_water_bill_type = $request->bm_water_bill_type;
+        $brand->bm_cwater_bill_type = $request->bm_cwater_bill_type;
+        $brand->bm_sewage_bill_type = $request->bm_sewage_bill_type;
+
+
+
+
+
+
+
+
+
         $brand->bm_created_uid = Auth::user()->name;
 
 
@@ -108,6 +156,40 @@ class BrandController extends Controller
         $brand->bm_mobile = $request->bm_mobile;
         $brand->bm_email = $request->bm_email;
         $brand->bm_flex1 = $request->bm_comments;
+
+        $brand->bm_fina_email = $request->bm_fina_email;
+        $brand->bm_oper_email = $request->bm_oper_email;
+
+
+        $brand->bm_unit_no = $request->bm_unit_no;
+        $brand->bm_size = $request->bm_size;
+
+
+        $opendate  = Carbon::createFromFormat('d-m-Y', $request->bm_open_date);
+        $brand->bm_open_date = $opendate;
+
+        $brand->bm_eb = $request->bm_eb;
+        $brand->bm_water = $request->bm_water;
+        $brand->bm_cwater = $request->bm_cwater;
+        $brand->bm_sewage = $request->bm_sewage;
+
+
+        $brand->bm_eb_meter1_no = $request->bm_eb_meter1_no;
+        $brand->bm_water_meter_no = $request->bm_water_meter_no;
+        $brand->bm_cwater_meter_no = $request->bm_cwater_meter_no;
+        $brand->bm_sewage_meter_no = $request->bm_sewage_meter_no;
+
+        $brand->bm_eb_rate = $request->bm_eb_rate;
+        $brand->bm_water_rate = $request->bm_water_rate;
+        $brand->bm_cwater_rate = $request->bm_cwater_rate;
+        $brand->bm_sewage_rate = $request->bm_sewage_rate;
+
+        $brand->bm_eb_ob = $request->bm_eb_ob;
+        $brand->bm_water_ob = $request->bm_water_ob;
+        $brand->bm_cwater_ob = $request->bm_cwater_ob;
+        $brand->bm_sewage_ob = $request->bm_sewage_ob;
+
+
 
 
         $brand->bm_status = 1;
