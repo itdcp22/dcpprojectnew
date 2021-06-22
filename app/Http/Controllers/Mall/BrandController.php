@@ -64,7 +64,8 @@ class BrandController extends Controller
         $brand->bm_unit_no = $request->bm_unit_no;
         $brand->bm_size = $request->bm_size;
 
-        // $brand->bm_type = $request->bm_type;
+        $brand->bm_type = $request->bm_type;
+        $brand->bm_vat = $request->bm_vat;
 
 
 
@@ -133,7 +134,7 @@ class BrandController extends Controller
     {
 
 
-
+        $arr['tenant'] = Tenant::where('tm_status', 1)->orderBy('tm_name', 'asc')->get();
 
         $arr['brand'] = $brand;
         return view('mall.brand.edit')->with($arr);
@@ -149,6 +150,7 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         $brand->bm_name = $request->bm_name;
+        //  $brand->bm_tm_name = $request->bm_tm_name;
         $brand->bm_location = $request->bm_location;
         $brand->bm_contact = $request->bm_contact;
         $brand->bm_designation = $request->bm_designation;
@@ -163,6 +165,7 @@ class BrandController extends Controller
 
         $brand->bm_unit_no = $request->bm_unit_no;
         $brand->bm_size = $request->bm_size;
+        $brand->bm_vat = $request->bm_vat;
 
 
         $opendate  = Carbon::createFromFormat('d-m-Y', $request->bm_open_date);

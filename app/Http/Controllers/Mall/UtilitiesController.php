@@ -39,11 +39,11 @@ class UtilitiesController extends Controller
         return view('mall.utility.water')->with($arr);
     }
 
-    public function sewage()
+    public function summary()
     {
-        $arr['utility'] = Utility::where('ui_type', 'Sewage')->get();
+        $arr['utility'] = Utility::All();
 
-        return view('mall.utility.sewage')->with($arr);
+        return view('mall.utility.summary')->with($arr);
     }
 
     /**
@@ -103,11 +103,13 @@ class UtilitiesController extends Controller
                 $utility->ui_brand_id = $request->ui_brand_id[$key];
                 $utility->ui_brand_name = $request->ui_brand_name[$key];
                 $utility->ui_rate = $request->ui_rate[$key];
+                $utility->ui_vat_no = $request->ui_vat_no[$key];
                 // $utility->ui_rate = $request->ui_rate[$key];
                 $utility->ui_omr = $request->ui_omr[$key];
                 $utility->ui_cmr = $request->ui_cmr[$key];
                 $utility->ui_consumed = $request->ui_consumed[$key];
                 $utility->ui_amount = $request->ui_amount[$key];
+                $utility->ui_sewage = $request->ui_sewage[$key];
                 $utility->ui_vat = $request->ui_vat[$key];
                 $utility->ui_netamount = $request->ui_netamount[$key];
 
@@ -140,8 +142,16 @@ class UtilitiesController extends Controller
 
                 $utility->save();
 
+                if ($utility->ui_type  == 'Electricity') {
 
-                Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr));
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr));
+                } elseif ($utility->ui_type  == 'Chilled_Water') {
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_cwater_ob' => $utility->ui_cmr));
+                } elseif ($utility->ui_type  == 'Water') {
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_water_ob' => $utility->ui_cmr));
+                } elseif ($utility->ui_type  == 'Sewage') {
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr));
+                }
             }
         }
 
@@ -193,6 +203,11 @@ class UtilitiesController extends Controller
     public function show(Utility $utility)
     {
         return view('mall.utility.show', compact('utility'));
+    }
+
+    public function watershow(Utility $utility)
+    {
+        return view('mall.utility.watershow', compact('utility'));
     }
 
 

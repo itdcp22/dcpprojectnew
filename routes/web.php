@@ -159,11 +159,16 @@ Route::get('/mall/circtent', 'Mall\CircularController@circtent')->name('circtent
 Route::resource('/mall/utility', 'Mall\UtilitiesController', ['as' => 'mall'])->middleware('auth');
 Route::get('/mall/cwater', 'Mall\UtilitiesController@cwater')->name('cwater');
 Route::get('/mall/water', 'Mall\UtilitiesController@water')->name('water');
-Route::get('/mall/sewage', 'Mall\UtilitiesController@sewage')->name('sewage');
+Route::get('/mall/summary', 'Mall\UtilitiesController@summary')->name('summary');
 
 Route::get('/mall/cwater_create', 'Mall\UtilitiesController@cwater_create')->name('cwater_create');
 Route::get('/mall/water_create', 'Mall\UtilitiesController@water_create')->name('water_create');
 Route::get('/mall/sewage_create', 'Mall\UtilitiesController@sewage_create')->name('sewage_create');
+
+
+
+
+Route::get('/mall/utility/{utility}/watershow', 'Mall\UtilitiesController@watershow')->name('mall.utility.watershow');
 
 //Route::get('/mall/utility/insertSchedule', 'Mall\UtilitiesController@insertSchedule')->name('insertSchedule');
 

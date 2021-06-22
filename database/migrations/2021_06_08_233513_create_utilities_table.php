@@ -20,8 +20,10 @@ class CreateUtilitiesTable extends Migration
             $table->integer('ui_brand_id')->nullable();
             $table->string('ui_brand_name')->nullable();
             $table->date('ui_doo')->nullable(); //Date Of Opening
+            $table->string('ui_vat_no')->nullable(); //VAT Number
             $table->string('ui_type')->nullable(); //Example: EB, Water, Cwater
             $table->string('ui_cycle')->nullable(); //Example: Billing cycle - Monthly, quater
+
 
             $table->date('ui_from_date')->nullable(); //From Date
             $table->date('ui_to_date')->nullable(); //To Date

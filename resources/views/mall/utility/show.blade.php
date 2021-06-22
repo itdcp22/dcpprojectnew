@@ -138,7 +138,9 @@ class toWords{
     <div class="row border ">
       <div class="col text-center">
         <p>P.O. Box No: 148, P C No.102, Muscat, Sultanate of Oman</br>
-          Telephone: 2401 4015, Email: accounts@mallofmuscat.com</p>
+          Telephone: 2401 4015, Email: accounts@mallofmuscat.com</br>
+          <B>VAT Number: OM1100034041</B></p>
+
         <h2><u>PERFORMA INVOICE </u></h2>
       </div>
     </div>
@@ -153,7 +155,8 @@ class toWords{
 
               <div class="col text-left">
                 <label class="col-lg-1 text-left" for="">Bill To :</label>
-                <P>{{ $utility->ui_brand_name }},{{ $utility->ui_comp_name }}</P>
+                <P>{{ $utility->ui_brand_name }},{{ $utility->ui_comp_name }} <br>
+                  VAT: {{ $utility->ui_vat_no}}</P>
 
               </div>
             </div>
@@ -167,7 +170,7 @@ class toWords{
             <div class="row">
               <label class="col text-left" for="">Invoice Date</label>
               <div class="col text-left">
-                : 17-06-2017
+                : {{ date('d-m-Y', strtotime($utility->created_at)) }}
               </div>
             </div>
             <div class="row">

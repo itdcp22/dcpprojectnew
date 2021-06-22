@@ -139,13 +139,28 @@
         <div class="row">
           <label class="col-lg-2" for="">Telephone Number</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_tel" value="{{ $brand->bm_tel}}"
+            <input type="number" class="form-control" id="validationCustom02" name="bm_tel" value="{{ $brand->bm_tel}}"
               placeholder="Enter telephone Number">
           </div>
           <label class="col-lg-2" for="">Mobile Number</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_mobile"
+            <input type="number" class="form-control" id="validationCustom02" name="bm_mobile"
               value="{{ $brand->bm_mobile}}" placeholder="Enter mobile number">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Email</label>
+          <div class="col-lg-3">
+            <input type="email" class="form-control" id="validationCustom02" name="bm_email"
+              value="{{ $brand->bm_email}}" placeholder="Enter general email">
+          </div>
+          <label class="col-lg-2" for="">VAT #</label>
+          <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" name="bm_vat" value="{{ $brand->bm_vat}}"
+              placeholder="Enter VAT number">
           </div>
         </div>
       </div>
@@ -174,6 +189,9 @@
           </div>
           <label class="col-lg-2" for="">Company Name</label>
           <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" value="{{$brand->bm_tm_name}}" readonly>
+
+
 
           </div>
         </div>
@@ -184,13 +202,15 @@
           <label class="col-lg-2" for="">Type</label>
           <div class="col-lg-3">
 
-            <select class="custom-select" name="bm_type" id="bm_type" required>
-              <option value="" selected disabled hidden>Please select</option>
+            <select class="custom-select select2" name="bm_type" id="bm_type" required>
+              <option value="{{ $brand->bm_type}}" selected disabled hidden>{{ $brand->bm_type}}</option>
 
               <option value="Showroom">Showroom</option>
               <option value="Kiosk">Kiosk</option>
 
             </select>
+
+
 
 
           </div>
@@ -200,8 +220,8 @@
             <select class="custom-select" name="bm_status" id="bm_status">
               <option value="" selected disabled hidden>Active</option>
 
-              <option value="Showroom">Active</option>
-              <option value="Kiosk">Inactive</option>
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
 
             </select>
 
@@ -264,75 +284,63 @@
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Elec Meter #</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_eb_meter1_no}}"
               name="bm_eb_meter1_no">
           </div>
           <label class="col-lg-1" for="">C.Water Meter #</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_meter_no}}"
               name="bm_cwater_meter_no">
           </div>
           <label class="col-lg-1" for="">Water Meter #</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_meter_no}}"
               name="bm_water_meter_no">
           </div>
-          <label class="col-lg-1" for="">Sewage Meter #</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_sewage_meter_no}}"
-              name="bm_sewage_meter_no">
-          </div>
+
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Elec Rate</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_eb_rate}}"
               name="bm_eb_rate">
           </div>
           <label class="col-lg-1" for="">C.Water Rate</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_rate}}"
               name="bm_cwater_rate">
           </div>
           <label class="col-lg-1" for="">Water Rate</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_rate}}"
               name="bm_water_rate">
           </div>
-          <label class="col-lg-1" for="">Sewage Rate</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_sewage_rate}}"
-              name="bm_sewage_rate">
-          </div>
+
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Elec OB</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_eb_ob}}"
               name="bm_eb_ob">
           </div>
           <label class="col-lg-1" for="">C.Water OB</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_ob}}"
               name="bm_cwater_ob">
           </div>
           <label class="col-lg-1" for="">Water OB</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_ob}}"
               name="bm_water_ob">
           </div>
-          <label class="col-lg-1" for="">Sewage OB</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_sewage_ob}}"
-              name="bm_sewage_ob">
-          </div>
+
         </div>
       </div>
 

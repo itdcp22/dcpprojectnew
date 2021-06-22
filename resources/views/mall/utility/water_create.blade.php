@@ -30,6 +30,34 @@
 </script>
 
 <script>
+    function calBMI(id) {
+      let rt = document.getElementById('rate_' + id).value;
+        let ob = document.getElementById('ob_' + id).value;
+        let cb = document.getElementById('cb_' + id).value;
+     
+        let cons = cb - ob;
+        document.getElementById('cons_' + id).value = cons;
+  
+        let amt = ( 264.172 * rt ) * cons;
+        document.getElementById('amt_' + id).value = amt.toFixed(3); 
+
+        let samt = amt * .30;
+        document.getElementById('samt_' + id).value = samt.toFixed(3); 
+
+        var water_sewage = amt + samt;
+  
+        let vt = water_sewage  *.05;
+        document.getElementById('vt_' + id).value = vt.toFixed(3); 
+  
+        let net = water_sewage + vt;
+        document.getElementById('net_' + id).value = net.toFixed(3); 
+
+        
+    }
+</script>
+
+
+<script>
     function calc() 
         {
     
@@ -136,15 +164,35 @@ function myFunction(item, index) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <div class="row">
-                    <label class="col-lg-2" for="">Month</label>
+                    <label class="col-lg-1" for="">From</label>
                     <div class="col-lg-2">
-                        <select class="custom-select" name="ui_month" id="ui_month" required>
-                            <option value="" selected disabled hidden>Please select</option>
-                            <option value="Jan-2021">Jan - 2021</option>
-                            <option value="Feb-2021">Feb - 2021</option>
-                            <option value="Mar-2021">Mar - 2021</option>
 
-                        </select>
+                        <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date"
+                            placeholder="dd-mm-yyyy" required readonly>
+
+                        <script>
+                            $('#datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+                        </script>
+
+
+                        <div class="clear-fix"></div>
+                    </div>
+
+                    <label class="col-lg-1" for="">To</label>
+                    <div class="col-lg-2">
+
+                        <input class="form-control datepicker" tabindex="2" id="datepicker2" name="ui_to_date"
+                            placeholder="dd-mm-yyyy" required readonly>
+
+                        <script>
+                            $('#datepicker2').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+                        </script>
                         <div class="clear-fix"></div>
                     </div>
 
@@ -172,12 +220,13 @@ function myFunction(item, index) {
 
                             <th> ID </th>
                             <th> Brand </th>
-                            <th> Company </th>
+
                             <th>Unit Rate</th>
                             <th> OMR </th>
                             <th> CMR </th>
                             <th> Consumed </th>
-                            <th>Amount</th>
+                            <th>Water Amount</th>
+                            <th>Sewage Amount</th>
                             <th>VAT 5%</th>
                             <th>Net Amount</th>
 
@@ -188,45 +237,61 @@ function myFunction(item, index) {
 
                         @if(count($brand))
 
-                        @foreach($brand as $c)
+                        @foreach($brand as $brand)
 
                         <tr>
-                            <td>{{ $c->id }}</td>
+                            <td>{{ $brand->id }}</td>
 
 
-                            <td><input class="form-control" type="text" name="ui_brand_name[]" value="{{ $c->bm_name}}"
-                                    readonly></td>
-
-                            <td><input class="form-control" type="text" name="ui_comp_name[]"
-                                    value="{{ $c->bm_tm_name}}" readonly>
+                            <td>
+                                <input class="form-control" type="text" name="ui_brand_name[]"
+                                    value="{{ $brand->bm_name}}" readonly>
+                                <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $brand->id}}">
+                                <input class="form-control" type="hidden" name="ui_comp_id[]"
+                                    value="{{ $brand->bm_tm_id}}">
+                                <input class="form-control" type="hidden" name="ui_comp_name[]"
+                                    value="{{ $brand->bm_tm_name}}">
+                                <input class="form-control" type="hidden" name="ui_vat_no[]"
+                                    value="{{ $brand->bm_vat}}">
                             </td>
 
 
 
 
-                            <td><input class="form-control" onkeyup="calc()" id="bm_eb_rate[]" type="text"
-                                    name="ui_rate[]" value="{{ $c->bm_eb_rate}}"></td>
-                            <td><input class="form-control" id="bm_eb_ob[]" type="text" name="ui_omr[]"
-                                    value="{{ $c->bm_eb_ob}}">
+
+
+
+                            <td>
+                                <input class="form-control" id="{{ 'rate_' . ($brand->id+1) }}" type="number"
+                                    name="ui_rate[]" value="{{ $brand->bm_water_rate}}" readonly>
+
                             </td>
-                            <td><input class="form-control" onkeyup="calc()" id="bm_eb_cb[]" type="text" name="ui_cmr[]"
-                                    value="{{ $c->bm_eb_cb}}">
+                            <td> <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_omr[]"
+                                    id="{{ 'ob_' . ($brand->id+1) }}" type="number" value="{{ $brand->bm_water_ob}}"
+                                    readonly>
+                            </td>
+                            <td> <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_cmr[]"
+                                    id="{{ 'cb_' . ($brand->id+1) }}" type="number">
                             </td>
 
-                            <td><input class="form-control text-right" type="text" name="ui_consumed[]"
-                                    id="ui_consumed[]" readonly>
-                            </td>
-
-                            <td><input class="form-control text-right" type="text" name="ui_amount[]" id="ui_amount[]"
+                            <td> <input class="form-control" name="ui_consumed[]" id="{{ 'cons_' . ($brand->id+1) }}"
                                     readonly>
                             </td>
 
-                            <td><input class="form-control text-right" type="text" name="ui_vat[]" id="ui_vat[]"
-                                    readonly>
+                            <td> <input class="form-control text-right" type="text" name="ui_amount[]"
+                                    id="{{ 'amt_' . ($brand->id+1) }}" readonly>
                             </td>
 
-                            <td><input class="form-control text-right" type="text" name="ui_netamount[]"
-                                    id="ui_netamount[]" readonly>
+                            <td> <input class="form-control text-right" type="text" name="ui_sewage[]"
+                                    id="{{ 'samt_' . ($brand->id+1) }}" readonly>
+                            </td>
+
+                            <td> <input class="form-control text-right" type="text" name="ui_vat[]"
+                                    id="{{ 'vt_' . ($brand->id+1) }}" readonly>
+                            </td>
+
+                            <td> <input class="form-control text-right" type="text" name="ui_netamount[]"
+                                    id="{{ 'net_' . ($brand->id+1) }}" readonly>
                             </td>
 
 
@@ -250,12 +315,14 @@ function myFunction(item, index) {
 
                             <th> ID </th>
                             <th> Brand </th>
-                            <th> Company</th>
+
                             <th>Unit Rate</th>
                             <th> OMR </th>
                             <th> CMR </th>
                             <th> Consumed </th>
-                            <th>Amount</th>
+                            <th>Water Amount</th>
+                            <th>Sewage Amount</th>
+
                             <th>VAT 5%</th>
                             <th>Net Amount</th>
 

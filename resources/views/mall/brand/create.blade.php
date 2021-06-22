@@ -108,7 +108,7 @@
           </div>
           <label class="col-lg-2" for="">Area</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_size"
+            <input type="number" class="form-control" id="validationCustom02" name="bm_size"
               placeholder="Enter the area in SQM">
           </div>
         </div>
@@ -137,13 +137,28 @@
         <div class="row">
           <label class="col-lg-2" for="">Telephone Number</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_tel"
+            <input type="number" class="form-control" id="validationCustom02" name="bm_tel"
               placeholder="Enter telephone Number">
           </div>
           <label class="col-lg-2" for="">Mobile Number</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_mobile"
+            <input type="number" class="form-control" id="validationCustom02" name="bm_mobile"
               placeholder="Enter mobile number">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Email</label>
+          <div class="col-lg-3">
+            <input type="email" class="form-control" id="validationCustom02" name="bm_email"
+              placeholder="Enter general email">
+          </div>
+          <label class="col-lg-2" for="">VAT #</label>
+          <div class="col-lg-3">
+            <input type="text" class="form-control" id="validationCustom02" name="bm_vat"
+              placeholder="Enter VAT number">
           </div>
         </div>
       </div>

@@ -16,6 +16,8 @@ class AddBrandsTable extends Migration
         Schema::table('brands', function (Blueprint $table) {
             $table->string('bm_unit_no')->nullable();
             $table->string('bm_size')->nullable();
+            $table->string('bm_type')->nullable();
+            $table->string('bm_vat')->nullable();
 
             $table->string('bm_fina_email')->nullable();
             $table->string('bm_oper_email')->nullable();

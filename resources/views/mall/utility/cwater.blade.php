@@ -29,7 +29,7 @@
                                 <th> ID </th>
                                 <th> Brand Name </th>
                                 <th> Company Name </th>
-                                <th> Month </th>
+                                <th> Duration </th>
                                 <th> OMR </th>
                                 <th> CMR </th>
                                 <th>Consumed</th>
@@ -50,7 +50,9 @@
                                 <td>{{ $c->id }}</td>
                                 <td>{{ $c->ui_brand_name }}</td>
                                 <td>{{ $c->ui_comp_name }}</td>
-                                <td>{{ $c->ui_month }}</td>
+                                <td>{{ date('d-m-Y', strtotime($c->ui_from_date)) }} to
+                                    {{ date('d-m-Y', strtotime($c->ui_to_date)) }}
+                                </td>
                                 <td class="text-right">{{ $c->ui_omr}}</td>
                                 <td class="text-right">{{ $c->ui_cmr}}</td>
                                 <td class="text-right"> {{ $c->ui_consumed }} </td>
@@ -99,7 +101,7 @@
                                 <th> ID </th>
                                 <th> Brand Name </th>
                                 <th> Company Name </th>
-                                <th> Month </th>
+                                <th> Duration </th>
                                 <th> OMR </th>
                                 <th> CMR </th>
                                 <th>Consumed</th>
