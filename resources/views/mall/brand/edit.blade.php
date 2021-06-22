@@ -203,7 +203,7 @@
           <div class="col-lg-3">
 
             <select class="custom-select select2" name="bm_type" id="bm_type" required>
-              <option value="{{ $brand->bm_type}}" selected disabled hidden>{{ $brand->bm_type}}</option>
+              <option value="{{ $brand->bm_type}}">{{ $brand->bm_type}}</option>
 
               <option value="Showroom">Showroom</option>
               <option value="Kiosk">Kiosk</option>
@@ -346,7 +346,55 @@
 
 
 
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Elec Type</label>
+          <div class="col-lg-2">
 
+
+
+
+            <select class="custom-select select2" name="bm_eb_bill_type" id="bm_eb_bill_type" required>
+              <option value="{{ $brand->bm_eb_bill_type}}">{{ $brand->bm_eb_bill_type}}
+              </option>
+
+              <option value="Reading">Reading</option>
+
+            </select>
+
+
+          </div>
+          <label class="col-lg-1" for="">C.Water Type</label>
+          <div class="col-lg-2">
+
+            <select class="custom-select select2" name="bm_cwater_bill_type" id="bm_cwater_bill_type" required>
+              <option value="{{ $brand->bm_cwater_bill_type}}">{{ $brand->bm_cwater_bill_type}}
+              </option>
+
+              <option value="Reading">Reading</option>
+              <option value="Area">Area</option>
+
+            </select>
+
+
+          </div>
+          <label class="col-lg-1" for="">Water Type</label>
+          <div class="col-lg-2">
+
+            <select class="custom-select select2" name="bm_water_bill_type" id="bm_water_bill_type" required>
+              <option value="{{ $brand->bm_water_bill_type}}">{{ $brand->bm_water_bill_type}}
+              </option>
+
+              <option value="Reading">Reading</option>
+              <option value="Reading">Flat</option>
+
+            </select>
+
+
+          </div>
+
+        </div>
+      </div>
 
 
 

@@ -165,7 +165,9 @@ class BrandController extends Controller
 
         $brand->bm_unit_no = $request->bm_unit_no;
         $brand->bm_size = $request->bm_size;
+        $brand->bm_type = $request->bm_type;
         $brand->bm_vat = $request->bm_vat;
+
 
 
         $opendate  = Carbon::createFromFormat('d-m-Y', $request->bm_open_date);
@@ -191,6 +193,13 @@ class BrandController extends Controller
         $brand->bm_water_ob = $request->bm_water_ob;
         $brand->bm_cwater_ob = $request->bm_cwater_ob;
         $brand->bm_sewage_ob = $request->bm_sewage_ob;
+
+
+        $brand->bm_eb_bill_type = $request->bm_eb_bill_type;
+        $brand->bm_water_bill_type = $request->bm_water_bill_type;
+        $brand->bm_cwater_bill_type = $request->bm_cwater_bill_type;
+        $brand->bm_sewage_bill_type = $request->bm_sewage_bill_type;
+
 
 
 

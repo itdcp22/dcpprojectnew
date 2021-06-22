@@ -168,7 +168,8 @@ function myFunction(item, index) {
                     <div class="col-lg-2">
 
                         <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date"
-                            placeholder="dd-mm-yyyy" required readonly>
+                            value="{{ date('d-m-Y', strtotime($utility. ' + 1 days'))  }}" placeholder="dd-mm-yyyy"
+                            required readonly>
 
                         <script>
                             $('#datepicker').datepicker({

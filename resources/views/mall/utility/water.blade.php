@@ -54,7 +54,7 @@
                                 <td class="text-right">{{ $c->ui_cmr}}</td>
                                 <td class="text-right"> {{ $c->ui_consumed }} </td>
 
-                                <td class="text-right">{{ number_format($c->ui_amount,3) }}</td>
+                                <td class="text-right">{{number_format($c->ui_amount + $c->ui_sewage,3) }}</td>
                                 <td class="text-right">{{ number_format($c->ui_vat,3) }}</td>
                                 <td class="text-right">{{ number_format($c->ui_netamount,3) }}</td>
 

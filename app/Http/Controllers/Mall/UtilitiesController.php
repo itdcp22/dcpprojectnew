@@ -53,18 +53,23 @@ class UtilitiesController extends Controller
      */
     public function create()
     {
+        $arr['utility'] = Utility::where('ui_type', 'Electricity')->max('ui_to_date');
         $arr['brand'] = Brand::where('bm_eb', 'Electricity')->get();
+
         return view('mall.utility.create')->with($arr);
     }
 
     public function cwater_create()
     {
+
+        $arr['utility'] = Utility::where('ui_type', 'Chilled_Water')->max('ui_to_date');
         $arr['brand'] = Brand::where('bm_cwater', 'Cwater')->get();
         return view('mall.utility.cwater_create')->with($arr);
     }
 
     public function water_create()
     {
+        $arr['utility'] = Utility::where('ui_type', 'Water')->max('ui_to_date');
         $arr['brand'] = Brand::where('bm_water', 'Water')->get();
         return view('mall.utility.water_create')->with($arr);
     }
