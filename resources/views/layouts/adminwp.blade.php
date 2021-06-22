@@ -394,18 +394,11 @@
                     <a href="{{route('water')}}" class="nav-link">
 
                       <i class="nav-icon far fa-circle text-primary"></i>
-                      <p>Water</p>
+                      <p>Water + Sewage</p>
                     </a>
                   </li>
 
 
-                  <li class="nav-item">
-                    <a href="{{route('sewage')}}" class="nav-link">
-
-                      <i class="nav-icon far fa-circle text-warning"></i>
-                      <p>Sewage</p>
-                    </a>
-                  </li>
 
 
 

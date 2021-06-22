@@ -22,6 +22,10 @@ class CreateUtilitiesTable extends Migration
             $table->date('ui_doo')->nullable(); //Date Of Opening
             $table->string('ui_type')->nullable(); //Example: EB, Water, Cwater
             $table->string('ui_cycle')->nullable(); //Example: Billing cycle - Monthly, quater
+
+            $table->date('ui_from_date')->nullable(); //From Date
+            $table->date('ui_to_date')->nullable(); //To Date
+
             $table->string('ui_month')->nullable();
             $table->integer('ui_year')->nullable();
             $table->integer('ui_open_bal')->nullable(); //Portal Opening balance
@@ -36,6 +40,7 @@ class CreateUtilitiesTable extends Migration
             $table->double('ui_rate')->nullable(); //Rate
             $table->integer('ui_consumed')->nullable(); //Unit consumed
             $table->double('ui_amount')->nullable(); //Amount
+            $table->double('ui_sewage')->nullable(); //Sewage 30% from the amount of water consumed
             $table->double('ui_vat')->nullable(); //VAT
             $table->double('ui_netamount')->nullable(); //Net Amount = Amount + vat
             $table->string('ui_remarks')->nullable(); //Net Amount = Amount + vat

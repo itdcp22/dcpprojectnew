@@ -267,63 +267,54 @@
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Elec Meter #</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_eb_meter1_no">
           </div>
           <label class="col-lg-1" for="">C.Water Meter #</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_cwater_meter_no">
           </div>
           <label class="col-lg-1" for="">Water Meter #</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2  ">
             <input type="text" class="form-control" id="validationCustom02" name="bm_water_meter_no">
           </div>
-          <label class="col-lg-1" for="">Sewage Meter #</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_sewage_meter_no">
-          </div>
+
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Elec Rate</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_eb_rate">
           </div>
           <label class="col-lg-1" for="">C.Water Rate</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_cwater_rate">
           </div>
           <label class="col-lg-1" for="">Water Rate</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_water_rate">
           </div>
-          <label class="col-lg-1" for="">Sewage Rate</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_sewage_rate">
-          </div>
+
         </div>
       </div>
 
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Elec OB</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_eb_ob">
           </div>
           <label class="col-lg-1" for="">C.Water OB</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_cwater_ob">
           </div>
           <label class="col-lg-1" for="">Water OB</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <input type="text" class="form-control" id="validationCustom02" name="bm_water_ob">
           </div>
-          <label class="col-lg-1" for="">Sewage OB</label>
-          <div class="col-lg-2">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_sewage_ob">
-          </div>
+
         </div>
       </div>
 
@@ -331,7 +322,7 @@
       <div class="form-group">
         <div class="row">
           <label class="col-lg-2" for="">Elec Type</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
 
             <select class="custom-select" name="bm_eb_bill_type" id="bm_eb_bill_type" required>
               <option value="" selected disabled hidden>Please select</option>
@@ -343,7 +334,7 @@
 
           </div>
           <label class="col-lg-1" for="">C.Water Type</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
 
             <select class="custom-select" name="bm_cwater_bill_type" id="bm_cwater_bill_type" required>
               <option value="" selected disabled hidden>Please select</option>
@@ -356,7 +347,7 @@
 
           </div>
           <label class="col-lg-1" for="">Water Type</label>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
 
             <select class="custom-select" name="bm_water_bill_type" id="bm_water_bill_type" required>
               <option value="" selected disabled hidden>Please select</option>
@@ -368,18 +359,7 @@
 
 
           </div>
-          <label class="col-lg-1" for="">Sewage Type</label>
-          <div class="col-lg-2">
 
-            <select class="custom-select" name="bm_sewage_bill_type" id="bm_sewage_bill_type" required>
-              <option value="" selected disabled hidden>Please select</option>
-
-              <option value="Reading">Reading</option>
-
-            </select>
-
-
-          </div>
         </div>
       </div>
 

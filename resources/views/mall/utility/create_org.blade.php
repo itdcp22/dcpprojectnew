@@ -29,59 +29,6 @@
 });
 </script>
 
-<script>
-    function calc() 
-        {
-    
-        var eb_rate = document.getElementById('bm_eb_rate[]').value;
-        var eb_cb = document.getElementById('bm_eb_cb[]').value;
-        var eb_ob = document.getElementById('bm_eb_ob[]').value;
-
-        var consumed = eb_cb - eb_ob;
-        document.getElementById('ui_consumed[]').value = consumed;  
-
-        var amount = consumed * eb_rate; 
-        document.getElementById('ui_amount[]').value = amount.toFixed(3);  
-
-        var vat = amount * .05;
-        document.getElementById('ui_vat[]').value = vat.toFixed(3);  
-
-        var netamount = amount + vat;
-        document.getElementById('ui_netamount[]').value = netamount.toFixed(3);            
-            
-        }   
-
-        function calc1(rowNo)
-
-     
-var eb_rate = document.getElementById('bm_eb_rate[]').value;
-var fruitsnew = ["apple", "orange", "cherry"];
-fruits.forEach(myFunction);
-fruitsnew.forEach(myFunction);
-
-var eb_cb = document.getElementById('bm_eb_cb[]').value;
-        var eb_ob = document.getElementById('bm_eb_ob[]').value;
-
-        var consumed = eb_cb - eb_ob;
-        document.getElementById('ui_consumed[]').value = consumed; 
-
-        
-
-function myFunction(item, index) {
-  document.getElementById("demo").innerHTML += index + ":" + item + "<br>"; 
-}
-
-
-
-{
-	var eb_rate = document.getElementById('bm_eb_rate_' + rowNo).value;
-	...
-	document.getElementById('ui_consumed_' + rowNo).value = consumed;
-}
-
-
-</script>
-
 
 
 <script>
@@ -106,6 +53,40 @@ function myFunction(item, index) {
 </script>
 
 
+<script>
+    function calc() 
+        {
+    
+        var eb_rate = document.getElementById('bm_eb_rate[]').value;
+        var eb_cb = document.getElementById('bm_eb_cb[]').value;
+        var eb_ob = document.getElementById('bm_eb_ob[]').value;
+
+        var consumed = eb_cb - eb_ob;
+        document.getElementById('ui_consumed[]').value = consumed;  
+
+        var amount = consumed * eb_rate; 
+        document.getElementById('ui_amount[]').value = amount.toFixed(3);  
+
+        var vat = amount * .05;
+        document.getElementById('ui_vat[]').value = vat.toFixed(3);  
+
+        var netamount = amount + vat;
+        document.getElementById('ui_netamount[]').value = netamount.toFixed(3);            
+            
+        }  
+
+        function calc1(rowNo)
+{
+	var eb_rate = document.getElementById('bm_eb_rate_' + rowNo).value;
+
+	document.getElementById('ui_consumed_' + rowNo).value = consumed;
+}
+
+
+
+</script>
+
+
 
 
 <!-- Content Header (Page header) -->
@@ -113,13 +94,14 @@ function myFunction(item, index) {
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Chilled Water Master</h1>
+                <h1 class="m-0 text-dark">Electricity Master</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{route('mall.utility.index')}}">Electricity</a></li>
 
+                    <li class="breadcrumb-item"><a href="{{route('mall.utility.index')}}">Electricity</a></li>
                     <li class="breadcrumb-item"><a href="{{route('cwater')}}">Chilled Water</a></li>
+
 
 
                 </ol>
@@ -136,7 +118,41 @@ function myFunction(item, index) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <div class="row">
-                    <label class="col-lg-2" for="">Month</label>
+                    <label class="col-lg-1" for="">From</label>
+                    <div class="col-lg-2">
+
+                        <input class="form-control datepicker" tabindex="3" id="datepicker" name="th_bill_dt"
+                            placeholder="dd-mm-yyyy" required readonly>
+
+                        <script>
+                            $('#datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+                        </script>
+
+
+                        <div class="clear-fix"></div>
+                    </div>
+
+                    <label class="col-lg-1" for="">To</label>
+                    <div class="col-lg-2">
+
+                        <input class="form-control datepicker" tabindex="3" id="datepicker2" name="th_bill_dt"
+                            placeholder="dd-mm-yyyy" required readonly>
+
+                        <script>
+                            $('#datepicker2').datepicker({
+        format: 'dd-mm-yyyy',
+          uiLibrary: 'bootstrap4'
+      });
+                        </script>
+
+
+                        <div class="clear-fix"></div>
+                    </div>
+
+                    <label class="col-lg-1" for="">Month</label>
                     <div class="col-lg-2">
                         <select class="custom-select" name="ui_month" id="ui_month" required>
                             <option value="" selected disabled hidden>Please select</option>
@@ -148,11 +164,11 @@ function myFunction(item, index) {
                         <div class="clear-fix"></div>
                     </div>
 
-                    <label class="col-lg-2" for="">Type</label>
+                    <label class="col-lg-1" for="">Type</label>
                     <div class="col-lg-2">
                         <select class="custom-select" name="ui_type" id="ui_type" required>
                             <option value="" selected disabled hidden>Please select</option>
-                            <option value="Chilled_Water">Chilled Water</option>
+                            <option value="Electricity">Electricity</option>
                         </select>
                         <div class="clear-fix"></div>
                     </div>
@@ -188,95 +204,53 @@ function myFunction(item, index) {
 
                         @if(count($brand))
 
+                        @foreach($brand as $id => $row)
+
                         @foreach($brand as $c)
 
                         <tr>
+
+
                             <td>{{ $c->id }}</td>
 
 
                             <td><input class="form-control" type="text" name="ui_brand_name[]" value="{{ $c->bm_name}}"
                                     readonly>
+                                <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $c->id}}">
+                                <input class="form-control" type="hidden" name="ui_comp_id[]" value="{{ $c->bm_tm_id}}">
                                 <input class="form-control" type="hidden" name="ui_comp_name[]"
                                     value="{{ $c->bm_tm_name}}">
                             </td>
 
-                            <td>
-
-                                <input class="form-control" onkeyup="calc()" id="bm_cwater_rate[]" type="text"
-                                    name="ui_rate[]" value="{{ $c->bm_cwater_rate}}"></td>
 
 
 
-                            <td>
 
 
-                                <input class="form-control" id="bm_eb_ob[]" type="text" name="ui_omr[]"
+
+                            <td><input class="form-control" onkeyup="calc()" id="bm_eb_rate[]" type="text"
+                                    name="ui_rate[]" value="{{ $c->bm_eb_rate}}"></td>
+                            <td><input class="form-control" id="bm_eb_ob[]" type="text" name="ui_omr[]"
                                     value="{{ $c->bm_eb_ob}}">
-
-
-
-
-
                             </td>
-                            <td>
-
-                                <input class="form-control" onkeyup="calc()" id="bm_eb_cb[]" type="text" name="ui_cmr[]"
+                            <td><input class="form-control" onkeyup="calc()" id="bm_eb_cb[]" type="text" name="ui_cmr[]"
                                     value="{{ $c->bm_eb_cb}}">
-
-
-
-
-
                             </td>
+
                             <td><input class="form-control text-right" type="text" name="ui_consumed[]"
                                     id="ui_consumed[]" readonly>
                             </td>
-                            <td>
-                                @if($c->bm_cwater_bill_type =='Reading')
-                                <input class="form-control text-right" type="text" name="ui_amount[]" id="ui_amount[]"
+
+                            <td><input class="form-control text-right" type="text" name="ui_amount[]" id="ui_amount[]"
                                     readonly>
-                                @elseif($c->bm_cwater_bill_type =='Area')
-                                <input class="form-control text-right" type="text" name="ui_amount[]"
-                                    value="{{($c->bm_size * $c->bm_cwater_rate)}}" readonly>
-                                @else
-                                Status Error
-                                @endif
-
-
                             </td>
 
-                            <td>
-
-
-                                @if($c->bm_cwater_bill_type =='Reading')
-                                <input class="form-control text-right" type="text" name="ui_vat[]" id="ui_vat[]"
+                            <td><input class="form-control text-right" type="text" name="ui_vat[]" id="ui_vat[]"
                                     readonly>
-                                @elseif($c->bm_cwater_bill_type =='Area')
-                                <input class="form-control text-right" type="text" name="ui_vat[]"
-                                    value="{{($c->bm_size * $c->bm_cwater_rate)*.05}}" readonly>
-                                @else
-                                Status Error
-                                @endif
-
-
                             </td>
 
-                            <td>
-
-
-
-
-                                @if($c->bm_cwater_bill_type =='Reading')
-                                <input class="form-control text-right" type="text" name="ui_netamount[]"
+                            <td><input class="form-control text-right" type="text" name="ui_netamount[]"
                                     id="ui_netamount[]" readonly>
-                                @elseif($c->bm_cwater_bill_type =='Area')
-                                <input class="form-control text-right" type="text" name="ui_netamount[]"
-                                    id="ui_amount[]"
-                                    value="{{($c->bm_size * $c->bm_cwater_rate)+(($c->bm_size * $c->bm_cwater_rate)*.05)}}"
-                                    readonly>
-                                @else
-                                Status Error
-                                @endif
                             </td>
 
 
@@ -285,6 +259,7 @@ function myFunction(item, index) {
 
 
                         </tr>
+                        @endforeach
                         @endforeach
 
                         @else

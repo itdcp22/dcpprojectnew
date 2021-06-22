@@ -187,9 +187,9 @@ class toWords{
           <div class="form-group">
             <div class="row">
               <div class="col text-left align-text-bottom">
-                <p class="align-text-bottom"><b>Service: Being charges for {{ $utility->ui_type }} consumed during the
-                    month of
-                    {{ $utility->ui_month }}</b></p>
+                <p class="align-text-bottom"><b>Service: Being charges for {{ $utility->ui_type }} consumed from
+                    {{ date('d-m-Y', strtotime($utility->ui_from_date))  }} to
+                    {{ date('d-m-Y', strtotime($utility->ui_to_date)) }}</b></p>
               </div>
             </div>
           </div>

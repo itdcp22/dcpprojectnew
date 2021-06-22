@@ -84,6 +84,10 @@ class UtilitiesController extends Controller
     public function store(Request $request, Utility $utility, Brand $brand)
     {
 
+        $request->validate([
+            'ui_from_date' => 'nullable',
+            'ui_to_date' => 'nullable',
+        ]);
 
 
 
@@ -114,9 +118,22 @@ class UtilitiesController extends Controller
                 $new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
                 $utility->ui_tran_no = $new_id;
 
+
+                $fromdate  = Carbon::createFromFormat('d-m-Y', $request->ui_from_date);
+                $utility->ui_from_date = $fromdate;
+
+                $todate  = Carbon::createFromFormat('d-m-Y', $request->ui_to_date);
+                $utility->ui_to_date = $todate;
+
+                $todayDate = Carbon::now()->format('Ymd');
+                $utility->ui_batch = $todayDate;
+
+
                 $utility->ui_month = $request->ui_month;
                 $utility->ui_type = $request->ui_type;
 
+                $utility->ui_created_uid = Auth::user()->id;
+                $utility->ui_created_name = Auth::user()->name;
 
                 //$brand->bm_eb_ob = $request->ui_cmr[$key];
 
@@ -134,11 +151,10 @@ class UtilitiesController extends Controller
 
         // $utility->ui_month = $request->ui_month;
 
-        $utility->ui_created_uid = Auth::user()->id;
-        $utility->ui_created_name = Auth::user()->name;
 
 
-        $utility->save();
+
+        //  $utility->save();
 
         if ($utility->ui_type  == 'Electricity') {
 

@@ -109,7 +109,7 @@
             <input type="text" class="form-control" id="validationCustom02" name="bm_unit_no"
               value="{{ $brand->bm_unit_no}}" required>
           </div>
-          <label class="col-lg-2" for="">Size</label>
+          <label class="col-lg-2" for="">Area</label>
           <div class="col-lg-3">
             <input type="text" class="form-control" id="validationCustom02" name="bm_size" value="{{ $brand->bm_size}}">
           </div>
@@ -178,6 +178,37 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Type</label>
+          <div class="col-lg-3">
+
+            <select class="custom-select" name="bm_type" id="bm_type" required>
+              <option value="" selected disabled hidden>Please select</option>
+
+              <option value="Showroom">Showroom</option>
+              <option value="Kiosk">Kiosk</option>
+
+            </select>
+
+
+          </div>
+          <label class="col-lg-2" for="">Status</label>
+          <div class="col-lg-3">
+
+            <select class="custom-select" name="bm_status" id="bm_status">
+              <option value="" selected disabled hidden>Active</option>
+
+              <option value="Showroom">Active</option>
+              <option value="Kiosk">Inactive</option>
+
+            </select>
+
+          </div>
+        </div>
+      </div>
+
 
 
 

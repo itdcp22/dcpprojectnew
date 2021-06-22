@@ -29,59 +29,6 @@
 });
 </script>
 
-<script>
-  function calc() 
-        {
-    
-        var eb_rate = document.getElementById('bm_eb_rate[]').value;
-        var eb_cb = document.getElementById('bm_eb_cb[]').value;
-        var eb_ob = document.getElementById('bm_eb_ob[]').value;
-
-        var consumed = eb_cb - eb_ob;
-        document.getElementById('ui_consumed[]').value = consumed;  
-
-        var amount = consumed * eb_rate; 
-        document.getElementById('ui_amount[]').value = amount.toFixed(3);  
-
-        var vat = amount * .05;
-        document.getElementById('ui_vat[]').value = vat.toFixed(3);  
-
-        var netamount = amount + vat;
-        document.getElementById('ui_netamount[]').value = netamount.toFixed(3);            
-            
-        }   
-
-        function calc1(rowNo)
-
-     
-var eb_rate = document.getElementById('bm_eb_rate[]').value;
-var fruitsnew = ["apple", "orange", "cherry"];
-fruits.forEach(myFunction);
-fruitsnew.forEach(myFunction);
-
-var eb_cb = document.getElementById('bm_eb_cb[]').value;
-        var eb_ob = document.getElementById('bm_eb_ob[]').value;
-
-        var consumed = eb_cb - eb_ob;
-        document.getElementById('ui_consumed[]').value = consumed; 
-
-        
-
-function myFunction(item, index) {
-  document.getElementById("demo").innerHTML += index + ":" + item + "<br>"; 
-}
-
-
-
-{
-	var eb_rate = document.getElementById('bm_eb_rate_' + rowNo).value;
-	...
-	document.getElementById('ui_consumed_' + rowNo).value = consumed;
-}
-
-
-</script>
-
 
 
 <script>
@@ -106,6 +53,70 @@ function myFunction(item, index) {
 </script>
 
 
+<script>
+  function calc() 
+        {
+    
+        var eb_rate = document.getElementById('bm_eb_rate[]').value;
+        var eb_cb = document.getElementById('bm_eb_cb[]').value;
+        var eb_ob = document.getElementById('bm_eb_ob[]').value;
+
+        var consumed = eb_cb - eb_ob;
+        document.getElementById('ui_consumed[]').value = consumed;  
+
+        var amount = consumed * eb_rate; 
+        document.getElementById('ui_amount[]').value = amount.toFixed(3);  
+
+        var vat = amount * .05;
+        document.getElementById('ui_vat[]').value = vat.toFixed(3);  
+
+        var netamount = amount + vat;
+        document.getElementById('ui_netamount[]').value = netamount.toFixed(3);            
+            
+        }  
+
+        function calc1(rowNo)
+{
+	var eb_rate = document.getElementById('bm_eb_rate_' + rowNo).value;
+
+	document.getElementById('ui_consumed_' + rowNo).value = consumed;
+}
+
+
+
+</script>
+
+<script>
+  function calBMI5(id) {
+      let rate = document.getElementById('bm_eb_rate' + id).value;
+      let open = document.getElementById('bm_eb_ob' + id).value;
+      let close = document.getElementById('bm_eb_cb' + id).value;
+      var consumed = open - close;      
+      document.getElementById('consumed' + id).value = consumed;
+  }
+</script>
+
+<script>
+  function calBMI(id) {
+    let rt = document.getElementById('rate_' + id).value;
+      let ob = document.getElementById('ob_' + id).value;
+      let cb = document.getElementById('cb_' + id).value;
+   
+      let cons = cb - ob;
+      document.getElementById('cons_' + id).value = cons;
+
+      let amt = rt * cons;
+      document.getElementById('amt_' + id).value = amt.toFixed(3); ;
+
+      let vt = amt * .05;
+      document.getElementById('vt_' + id).value = vt.toFixed(3); ;
+
+      let net = amt + vt;
+      document.getElementById('net_' + id).value = net.toFixed(3); ;
+  }
+</script>
+
+
 
 
 <!-- Content Header (Page header) -->
@@ -117,9 +128,10 @@ function myFunction(item, index) {
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
 
-          <li class="breadcrumb-item"><a href="{{route('mall.workpermit.index')}}">Workpermit</a></li>
+          <li class="breadcrumb-item"><a href="{{route('mall.utility.index')}}">Electricity</a></li>
+          <li class="breadcrumb-item"><a href="{{route('cwater')}}">Chilled Water</a></li>
+
 
 
         </ol>
@@ -139,7 +151,7 @@ function myFunction(item, index) {
           <label class="col-lg-1" for="">From</label>
           <div class="col-lg-2">
 
-            <input class="form-control datepicker" tabindex="3" id="datepicker" name="th_bill_dt"
+            <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date"
               placeholder="dd-mm-yyyy" required readonly>
 
             <script>
@@ -156,7 +168,7 @@ function myFunction(item, index) {
           <label class="col-lg-1" for="">To</label>
           <div class="col-lg-2">
 
-            <input class="form-control datepicker" tabindex="3" id="datepicker2" name="th_bill_dt"
+            <input class="form-control datepicker" tabindex="2" id="datepicker2" name="ui_to_date"
               placeholder="dd-mm-yyyy" required readonly>
 
             <script>
@@ -170,17 +182,7 @@ function myFunction(item, index) {
             <div class="clear-fix"></div>
           </div>
 
-          <label class="col-lg-1" for="">Month</label>
-          <div class="col-lg-2">
-            <select class="custom-select" name="ui_month" id="ui_month" required>
-              <option value="" selected disabled hidden>Please select</option>
-              <option value="Jan-2021">Jan - 2021</option>
-              <option value="Feb-2021">Feb - 2021</option>
-              <option value="Mar-2021">Mar - 2021</option>
 
-            </select>
-            <div class="clear-fix"></div>
-          </div>
 
           <label class="col-lg-1" for="">Type</label>
           <div class="col-lg-2">
@@ -220,53 +222,65 @@ function myFunction(item, index) {
           </thead>
           <tbody>
 
+            @if (count($errors) > 0)
+            <div class="row">
+              <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  @foreach($errors->all() as $error)
+                  {{ $error }} <br>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+            @endif
+
             @if(count($brand))
 
-            @foreach($brand as $c)
 
+
+
+            @foreach($brand as $brand)
             <tr>
-              <td>{{ $c->id }}</td>
-
-
-              <td><input class="form-control" type="text" name="ui_brand_name[]" value="{{ $c->bm_name}}" readonly>
-                <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $c->id}}">
-                <input class="form-control" type="hidden" name="ui_comp_id[]" value="{{ $c->bm_tm_id}}">
-                <input class="form-control" type="hidden" name="ui_comp_name[]" value="{{ $c->bm_tm_name}}">
+              <td>{{ $brand->id }}</td>
+              <td>
+                <input class="form-control" type="text" name="ui_brand_name[]" value="{{ $brand->bm_name}}" readonly>
+                <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $brand->id}}">
+                <input class="form-control" type="hidden" name="ui_comp_id[]" value="{{ $brand->bm_tm_id}}">
+                <input class="form-control" type="hidden" name="ui_comp_name[]" value="{{ $brand->bm_tm_name}}">
               </td>
 
-
-
-
-
-
-
-              <td><input class="form-control" onkeyup="calc()" id="bm_eb_rate[]" type="text" name="ui_rate[]"
-                  value="{{ $c->bm_eb_rate}}"></td>
-              <td><input class="form-control" id="bm_eb_ob[]" type="text" name="ui_omr[]" value="{{ $c->bm_eb_ob}}">
-              </td>
-              <td><input class="form-control" onkeyup="calc()" id="bm_eb_cb[]" type="text" name="ui_cmr[]"
-                  value="{{ $c->bm_eb_cb}}">
+              <td>
+                <input class="form-control" id="{{ 'rate_' . ($brand->id+1) }}" type="number" name="ui_rate[]"
+                  value="{{ $brand->bm_eb_rate}}" readonly>
               </td>
 
-              <td><input class="form-control text-right" type="text" name="ui_consumed[]" id="ui_consumed[]" readonly>
+              <td>
+                <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_omr[]"
+                  id="{{ 'ob_' . ($brand->id+1) }}" type="number" value="{{ $brand->bm_eb_ob}}" readonly>
               </td>
-
-              <td><input class="form-control text-right" type="text" name="ui_amount[]" id="ui_amount[]" readonly>
+              <td>
+                <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_cmr[]"
+                  id="{{ 'cb_' . ($brand->id+1) }}" type="number">
               </td>
-
-              <td><input class="form-control text-right" type="text" name="ui_vat[]" id="ui_vat[]" readonly>
+              <td>
+                <input class="form-control" name="ui_consumed[]" id="{{ 'cons_' . ($brand->id+1) }}" readonly>
               </td>
-
-              <td><input class="form-control text-right" type="text" name="ui_netamount[]" id="ui_netamount[]" readonly>
+              <td>
+                <input class="form-control text-right" type="text" name="ui_amount[]" id="{{ 'amt_' . ($brand->id+1) }}"
+                  readonly>
               </td>
-
-
-
-
-
-
+              <td>
+                <input class="form-control text-right" type="text" name="ui_vat[]" id="{{ 'vt_' . ($brand->id+1) }}"
+                  readonly>
+              </td>
+              <td>
+                <input class="form-control text-right" type="text" name="ui_netamount[]"
+                  id="{{ 'net_' . ($brand->id+1) }}" readonly>
+              </td>
             </tr>
             @endforeach
+
 
             @else
             <tr>
