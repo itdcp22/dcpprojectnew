@@ -272,7 +272,8 @@ class toWords{
                               </tr>
 
                               <tr>
-                                <td colspan="9" class="font-weight-bold text-left">Narration: </td>
+                                <td colspan="9" class="font-weight-bold text-left">Narration: {{ $utility->ui_remarks}}
+                                </td>
                               </tr>
 
 

@@ -233,6 +233,8 @@
                 </a>
               </li>
 
+
+
               <li class="nav-item">
                 <a href="{{route('circtent')}}" class="nav-link  
                 @if($segment=='circtent')
@@ -247,6 +249,30 @@
                     Circular
 
                     <span class="right badge badge-info">{{$circount}}</span>
+
+
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('utilitycust')}}" class="nav-link  
+                @if($segment=='utilitycust')
+                active
+                @endif            
+                ">
+                  <i class="nav-icon fas fa-charging-station"></i>
+
+
+
+
+
+
+
+                  <p>
+                    Utility
+
+                    <span class="right badge badge-info">Bills</span>
 
 
                   </p>

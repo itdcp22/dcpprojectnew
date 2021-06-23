@@ -46,6 +46,14 @@ class UtilitiesController extends Controller
         return view('mall.utility.summary')->with($arr);
     }
 
+    public function utilitycust()
+    {
+
+        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->get();
+
+        return view('mall.utility.utilitycust')->with($arr);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -132,12 +140,14 @@ class UtilitiesController extends Controller
                 $todate  = Carbon::createFromFormat('d-m-Y', $request->ui_to_date);
                 $utility->ui_to_date = $todate;
 
-                $todayDate = Carbon::now()->format('Ymd');
+                $todayDate = Carbon::now()->format('mdyHi');
                 $utility->ui_batch = $todayDate;
 
 
                 $utility->ui_month = $request->ui_month;
                 $utility->ui_type = $request->ui_type;
+                $utility->ui_online = 0;
+                $utility->ui_payment_status = 0;
 
                 $utility->ui_created_uid = Auth::user()->id;
                 $utility->ui_created_name = Auth::user()->name;
@@ -223,9 +233,10 @@ class UtilitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Utility $utility)
     {
-        //
+        $arr['utility'] = $utility;
+        return view('mall.utility.edit')->with($arr);
     }
 
     /**
@@ -235,9 +246,27 @@ class UtilitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Utility $utility)
     {
-        //
+        $utility->ui_remarks = $request->ui_remarks;
+        $utility->ui_payment_status = $request->ui_payment_status;
+        $utility->ui_payment_mode = $request->ui_payment_mode;
+        $utility->ui_cheque_no = $request->ui_cheque_no;
+        $utility->ui_bank_name = $request->ui_bank_name;
+
+
+        if (!empty($request->ui_payment_date)) {
+
+            $pdate = Carbon::createFromFormat('d-m-Y', $request->ui_payment_date);
+            $utility->ui_payment_date = $pdate;
+        }
+
+
+
+
+
+        $utility->save();
+        return redirect('mall/utility')->with('info', 'Transaction updated successfully!');
     }
 
     /**

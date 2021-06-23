@@ -1,3 +1,61 @@
+<?php
+
+
+define("MAJOR", 'And');
+define("MINOR", ' Baisa Only');
+class toWords{
+           var $pounds;
+           var $pence;
+           var $major;
+           var $minor;
+           var $words = '';
+           var $number;
+           var $magind;
+           var $units = array('','One','Two','Three','Four','Five','Six','Seven','Eight','Nine');
+           var $teens = array('Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen');
+           var $tens = array('','Ten','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety');
+           var $mag = array('','Thousand','Million','Billion','Trillion');
+   public function __construct($amount, $major=MAJOR, $minor=MINOR) {
+             $this->major = $major;
+             $this->minor = $minor;
+             $this->number = number_format($amount,3);
+             list($this->pounds,$this->pence) = explode('.',$this->number);
+             $this->words = " $this->major $this->pence$this->minor";
+             if ($this->pounds==0)
+                 $this->words = "Zero $this->words";
+             else {
+                 $groups = explode(',',$this->pounds);
+                 $groups = array_reverse($groups);
+                 for ($this->magind=0; $this->magind<count($groups); $this->magind++) {
+                      if (($this->magind==1)&&(strpos($this->words,'Hundred') === false)&&($groups[0]!='000'))
+                           $this->words = ' And ' . $this->words;
+                      $this->words = $this->_build($groups[$this->magind]).$this->words;
+                 }
+             }
+    }
+    function _build($n) {
+             $res = '';
+             $na = str_pad("$n",3,"0",STR_PAD_LEFT);
+             if ($na == '000') return '';
+             if ($na[0] != 0)
+                 $res = ' '.$this->units[$na[0]] . ' Hundred';
+             if (($na[1]=='0')&&($na[2]=='0'))
+                  return $res . ' ' . $this->mag[$this->magind];
+             $res .= $res==''? '' : '';
+             $t = (int)$na[1]; $u = (int)$na[2];
+             switch ($t) {
+                     case 0: $res .= ' ' . $this->units[$u]; break;
+                     case 1: $res .= ' ' . $this->teens[$u]; break;
+                     default:$res .= ' ' . $this->tens[$t] . ' ' . $this->units[$u] ; break;
+             }
+             $res .= ' ' . $this->mag[$this->magind];
+             return $res;
+    }
+}
+
+
+?>
+
 @extends('layouts.adminwp')
 @section('content')
 
@@ -30,6 +88,13 @@
 </script>
 
 
+<script>
+  function myFunction() {
+    window.print();
+
+    
+  }
+</script>
 
 <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -55,133 +120,351 @@
 
 
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Tenant Master</h1>
-      </div><!-- /.col -->
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-
-
-
-
-        </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
 
 <section class="content">
-  <div class="container-fluid">
+
+
+
+
+  <div class="container-fluid border border-secondary">
+
+    <div class="row text-center">
+      <div class="col text-center">
+        <img src={{asset('dist/img/printmall.png')}}>
+        <h1 text-center>Tamani Global Development and Investment L.L.C</h1>
+      </div>
+    </div>
+
+    <div class="row border ">
+      <div class="col text-center">
+        <p>P.O. Box No: 148, P C No.102, Muscat, Sultanate of Oman</br>
+          Telephone: 2401 4015, Email: accounts@mallofmuscat.com</br>
+          <B>VAT Number: OM1100034041</B></p>
+
+        <h2><u>PERFORMA INVOICE </u></h2>
+      </div>
+    </div>
 
 
     <form class="needs-validation" name="myform" id="myform" novalidate method="post"
-      action="{{ route('mall.tenant.update',$tenant->id) }}" enctype="multipart/form-data" autocomplete="off"
+      action="{{ route('mall.utility.update',$utility->id) }}" enctype="multipart/form-data" autocomplete="off"
       autofill="off">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
       @method('PUT')
 
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Name</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom01" name="tm_name"
-              placeholder="Enter company name" value="{{ $tenant->tm_name}}" required>
-            <div class="clear-fix"></div>
+      <div class="row border">
+        <div class="col border text-center">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col text-left">
+                <label class="col-lg-1 text-left" for="">Bill To :</label>
+                <P>{{ $utility->ui_brand_name }},{{ $utility->ui_comp_name }} <br>
+                  VAT: {{ $utility->ui_vat_no}}</P>
+
+              </div>
+            </div>
           </div>
+
+        </div>
+
+        <div class="col text-center">
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col text-left" for="">Invoice Date</label>
+              <div class="col text-left">
+                : {{ date('d-m-Y', strtotime($utility->created_at)) }}
+              </div>
+            </div>
+            <div class="row">
+              <label class="col text-left" for="">Invoice Number</label>
+              <div class="col text-left">
+                : {{ $utility->ui_tran_no }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="row border">
+        <div class="col text-center">
+          <div class="form-group">
+            <div class="row">
+              <div class="col text-left align-text-bottom">
+                <p class="align-text-bottom"><b>Service: Being charges for {{ $utility->ui_type }} consumed from
+                    {{ date('d-m-Y', strtotime($utility->ui_from_date))  }} to
+                    {{ date('d-m-Y', strtotime($utility->ui_to_date)) }}</b></p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Address</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_address"
-              placeholder="Enter address details" value="{{ $tenant->tm_address}}">
-            <div class="clear-fix"></div>
+      <div class="row border">
+        <div class="col text-center">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col text-left">
+
+                <div class="row border">
+                  <div class="col text-center">
+                    <div class="form-group">
+                      <div class="row">
+
+                        <div class="col text-left">
+
+                          <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="w-10 text-center">S.No</th>
+                                        <th class="w-50 text-left">Description</th>
+                                        <th class="w-20 text-center">Opening Reading</th>
+                                        <th class="w-20 text-center">Closing Reading</th>
+                                        <th class="w-20 text-center">Consumption</th>
+                                        <th class="w-20 text-center">Unit Rate</th>
+                                        <th class="w-20 text-center">Amount</th>
+                                       
+
+                                      </tr>
+                                  </thead>
+                                <tbody>    
+                                    <tr>     
+                                   
+                              <tr>
+                                <td class="text-center">1 </td>
+                                <td class="text-left"> {{ $utility->ui_type }}</td>
+
+
+                                <td class="text-right"> {{ $utility->ui_omr }}</td>
+                                <td class="text-right"> {{ $utility->ui_cmr }}</td>
+                                <td class="text-right">{{ $utility->ui_consumed }}</td>
+                                <td class="text-right"> {{number_format($utility->ui_rate,3) }}</td>
+                                <td class="text-right"> {{number_format($utility->ui_amount,3) }}</td>
+
+
+                              </tr>
+
+
+
+
+
+                                    </tr>
+                              <tr>
+                                <td colspan="6" class="text-right">VAT</td>
+                                <td class="text-right">{{number_format($utility->ui_vat,3) }}</td>
+                              </tr>
+
+                              <tr>
+                                <td colspan="6" class="font-weight-bold text-right">Grand Total</td>
+                                <td class="font-weight-bold text-right">{{number_format($utility->ui_netamount,3) }}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td colspan="9" class="font-weight-bold text-left">Amount in Words: <?php
+                                  $total = $utility->ui_netamount;
+                                  $obj = new toWords($total);
+                                  echo $obj->words;
+                                  ?>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td colspan="9" class="font-weight-bold text-left">Narration:
+
+                                  <input class="form-control" name="ui_remarks" value="{{ $utility->ui_remarks}}"
+                                    type="text">
+
+
+                                </td>
+                              </tr>
+
+
+
+
+                                     
+                                 
+                            </tbody>
+                              </table>
+
+
+                          <div class="form-group">
+                            <div class="row">
+                              <label class="col-lg-1" for="">Payment</label>
+                              <div class="col-lg-1">
+
+                                <input class="form-check-input" type="hidden" Value='0' name='ui_payment_status'>
+                                <input class="form-check-input" type="checkbox" Value='1' name='ui_payment_status'>
+
+
+
+                              </div>
+
+
+
+                              <label class="col-lg-1" for="">Payment Date</label>
+                              <div class="col-lg-1">
+                                <input id="datepicker1" type="text" name="ui_payment_date"
+                                  class="form-control datepicker" placeholder="dd-mm-yyyy" readonly>
+                              </div>
+
+
+                              <script>
+                                $('#datepicker1').datepicker({
+      format: 'dd-mm-yyyy',
+        uiLibrary: 'bootstrap4'
+    });
+                              </script>
+
+
+                              <label class="col-lg-1" for="">Payment Mode</label>
+                              <div class="col-lg-1">
+
+
+                                <select class="custom-select" name="ui_payment_mode" id="ui_payment_mode">
+                                  <option value="" selected disabled hidden>Please select</option>
+
+                                  <option value="Cash">Cash</option>
+                                  <option value="Cheque">Cheque</option>
+                                  <option value="Online">Online</option>
+
+                                </select>
+
+
+                                <div class="clear-fix"></div>
+                              </div>
+
+
+
+                              <label class="col-lg-1" for="">Cheque #</label>
+                              <div class="col-lg-1">
+                                <input type="text" name="ui_cheque_no" value="{{ $utility->ui_cheque_no}}"
+                                  class="form-control" placeholder="Enter cheque number">
+                                <div class="clear-fix"></div>
+                              </div>
+
+
+                              <label class="col-lg-1" for="">Bank Name</label>
+                              <div class="col-lg-2">
+                                <input type="text" name="ui_bank_name" value="{{ $utility->ui_bank_name}}"
+                                  class="form-control" placeholder="Enter bank name">
+                                <div class="clear-fix"></div>
+                              </div>
+
+
+
+
+
+
+
+
+                            </div>
+
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+
+
+                </div>
+
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Contact Person</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_contact"
-              placeholder="Enter contact person name" value="{{ $tenant->tm_contact}}" required>
-            <div class="clear-fix"></div>
-          </div>
-        </div>
-      </div>
+
+      <div class="row border">
+        <div class="col text-center">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col text-left my-auto">
+                <p><b>For, Tamani Global Development and Investment L.L.C</b></p>
+                <img src={{asset('dist/img/stamp.png')}}>
 
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Email</label>
-          <div class="col-lg-8">
-            <input type="email" class="form-control" id="validationCustom02" name="tm_email"
-              placeholder="Enter email address" value="{{ $tenant->tm_email}}" required>
-            <div class="clear-fix"></div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Telephone Number</label>
-          <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_tel"
-              placeholder="Enter telephone Number" value="{{ $tenant->tm_tel}}">
-          </div>
-          <label class="col-lg-2" for="">Mobile Number</label>
-          <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_mobile"
-              placeholder="Enter mobile number" value="{{ $tenant->tm_mobile}}">
-          </div>
         </div>
       </div>
 
 
 
+      <div class="row border">
+        <div class="col text-center">
+          <div class="form-group">
+            <div class="row">
 
+              <div class="col text-left">
+                <label class="col text-center" for="">Prepared By: {{ $utility->ui_created_name }}</label>
+              </div>
 
+              <div class="col text-left">
+                <label class="col text-center" for="">Checked By: Sharifa Al Balushi </label>
+              </div>
 
-
-
-
-
-
-      <div class="form-group">
-        <div class="row">
-          <label class="col-lg-2" for="">Comments</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control" id="validationCustom02" name="tm_comments"
-              value="{{ $tenant->tm_comments}}" placeholder="Enter comments">
-            <div class="clear-fix"></div>
+              <div class="col text-left">
+                <label class="col text-center" for="">Approved By: Rajumon</label>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
+      <div class="row border">
+        <div class="col text-center">
+          <div class="form-group">
+            <div class="row">
+              <div class="col text-left">
+                <label class="col text-left" for="">Company Bank Details:</label>
+                <p>Bank Name &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;: Sohar Islamic Bank <br>
+                  Account Number &nbsp;: 70801001900001 <br>
+                  Branch &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;: Ghala Branch <br>
+                </p>
+
+              </div>
 
 
 
+            </div>
+          </div>
 
-
-
-
+        </div>
+      </div>
 
       <div class="form-group">
         <input type="submit" class="btn btn-primary" Value="Save">
-        <a href="{{route('mall.tenant.index')}}" class="btn btn-warning" role="button">Cancel</a>
+        <a href="{{route('mall.utility.index')}}" class="btn btn-warning" role="button">Cancel</a>
       </div>
+
+
+
+
+
     </form>
+
   </div>
 </section>
 @endsection

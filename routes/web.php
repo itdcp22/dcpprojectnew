@@ -161,6 +161,8 @@ Route::get('/mall/cwater', 'Mall\UtilitiesController@cwater')->name('cwater');
 Route::get('/mall/water', 'Mall\UtilitiesController@water')->name('water');
 Route::get('/mall/summary', 'Mall\UtilitiesController@summary')->name('summary');
 
+Route::get('/mall/utilitycust', 'Mall\UtilitiesController@utilitycust')->name('utilitycust');
+
 Route::get('/mall/cwater_create', 'Mall\UtilitiesController@cwater_create')->name('cwater_create');
 Route::get('/mall/water_create', 'Mall\UtilitiesController@water_create')->name('water_create');
 Route::get('/mall/sewage_create', 'Mall\UtilitiesController@sewage_create')->name('sewage_create');

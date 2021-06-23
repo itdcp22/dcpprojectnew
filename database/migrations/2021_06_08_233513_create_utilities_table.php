@@ -46,15 +46,29 @@ class CreateUtilitiesTable extends Migration
             $table->double('ui_vat')->nullable(); //VAT
             $table->double('ui_netamount')->nullable(); //Net Amount = Amount + vat
             $table->string('ui_remarks')->nullable(); //Net Amount = Amount + vat
+
             $table->integer('ui_created_uid')->nullable();
             $table->string('ui_created_name')->nullable();
+
+
+            $table->integer('ui_checked_uid')->nullable();
+            $table->string('ui_checked_name')->nullable();
+            $table->date('ui_checked_date')->nullable();
+
             $table->integer('ui_approved_uid')->nullable();
             $table->string('ui_approved_name')->nullable();
             $table->date('ui_approved_date')->nullable();
-            $table->string('ui_verified')->nullable();
+
+            $table->string('ui_payment_terms')->nullable();
             $table->string('ui_payment_status')->nullable();
             $table->string('ui_payment_mode')->nullable();
+            $table->date('ui_payment_date')->nullable();
+
             $table->double('ui_receipt_amount')->nullable();
+            $table->date('ui_receipt_date')->nullable();
+            $table->integer('ui_received_uid')->nullable();
+            $table->string('ui_received_name')->nullable();
+
             $table->string('ui_bank_name')->nullable();
             $table->integer('ui_cheque_no')->nullable();
             $table->integer('ui_payment_follow1')->nullable();
