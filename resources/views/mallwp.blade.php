@@ -296,13 +296,11 @@
           @if($user->user_type =='mall')
 
 
-          <a href="{{route('mall.workpermitapp.index')}}" class="small-box-footer">More info <i
-              class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 
 
           @else
-          <a href="{{route('mall.workpermit.index')}}" class="small-box-footer">More info <i
-              class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           @endif
         </div>
       </div>
@@ -321,7 +319,7 @@
 
             </h3>
 
-            <p>Work Completed</p>
+            <p>Services</p>
           </div>
           <div class="icon">
 

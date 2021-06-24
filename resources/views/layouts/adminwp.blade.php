@@ -455,7 +455,7 @@
 
 
                       <i class="far fa-dot-circle nav-icon text-primary"></i>
-                      <p>Unpaid Summary - Brand</p>
+                      <p>Unpaid - Brands</p>
                     </a>
                   </li>
 
@@ -464,7 +464,7 @@
 
 
                       <i class="far fa-dot-circle nav-icon text-info"></i>
-                      <p>Unpaid Summary - Type</p>
+                      <p>Unpaid - Type</p>
                     </a>
                   </li>
 
