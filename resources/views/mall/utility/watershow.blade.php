@@ -176,7 +176,7 @@ class toWords{
                         <div class="row">
                             <label class="col text-left" for="">Invoice Number</label>
                             <div class="col text-left">
-                                : {{ $utility->ui_tran_no }}
+                                : {{ $utility->ui_inv_no }}
                             </div>
                         </div>
                     </div>

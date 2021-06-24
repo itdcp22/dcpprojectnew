@@ -185,7 +185,7 @@
 
 
             <input class="form-control datepicker" tabindex="3" id="datepicker2" name="bm_open_date"
-              placeholder="dd-mm-yyyy" required readonly>
+              placeholder="dd-mm-yyyy" required>
 
             <script>
               $('#datepicker2').datepicker({

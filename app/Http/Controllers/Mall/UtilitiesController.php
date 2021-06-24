@@ -39,20 +39,78 @@ class UtilitiesController extends Controller
         return view('mall.utility.water')->with($arr);
     }
 
-    public function summary()
+    public function consolidate()
     {
         $arr['utility'] = Utility::All();
 
-        return view('mall.utility.summary')->with($arr);
+        return view('mall.utility.consolidate')->with($arr);
     }
+
+    public function ui_unpaid()
+    {
+        $arr['utility'] = Utility::where('ui_payment_status', '0')->get();
+
+        return view('mall.utility.unpaid')->with($arr);
+    }
+
+    public function ui_unpaid_cust()
+    {
+        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', '0')->get();
+
+        return view('mall.utility.utilitycust')->with($arr);
+    }
+
+    public function ui_paid()
+    {
+        $arr['utility'] = Utility::where('ui_payment_status', '1')->get();
+
+        return view('mall.utility.paid')->with($arr);
+    }
+
+    public function ui_paid_cust()
+    {
+        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', '1')->get();
+
+        return view('mall.utility.utilitycust')->with($arr);
+    }
+
 
     public function utilitycust()
     {
 
-        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->get();
+        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_online', 1)->get();
 
         return view('mall.utility.utilitycust')->with($arr);
     }
+
+    public function summary()
+    {
+
+        $arr['utility'] = Utility::where('ui_payment_status', 0)
+            ->groupBy('ui_brand_id', 'ui_brand_name')
+            ->selectRaw('ui_brand_id,ui_brand_name, sum(ui_netamount) as total')->get();
+
+        $arr['utility1'] = Utility::where('ui_payment_status', 0)
+            ->selectRaw('sum(ui_netamount) as gtotal')->get();
+
+        return view('mall.utility.summary')->with($arr);
+    }
+
+    public function summary_ui_type()
+    {
+
+        $arr['utility'] = Utility::where('ui_payment_status', 0)
+            ->groupBy('ui_type')
+            ->selectRaw('ui_type, sum(ui_netamount) as total')->get();
+
+        $arr['utility1'] = Utility::where('ui_payment_status', 0)
+            ->selectRaw('sum(ui_netamount) as gtotal')->get();
+
+        return view('mall.utility.summary_ui_type')->with($arr);
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -126,12 +184,12 @@ class UtilitiesController extends Controller
                 $utility->ui_vat = $request->ui_vat[$key];
                 $utility->ui_netamount = $request->ui_netamount[$key];
 
-                $id = Utility::orderByDesc('ui_tran_no')->first()->ui_tran_no ?? date('Y') . 00000;
+                $id = Utility::orderByDesc('ui_inv_no')->first()->ui_inv_no ?? date('Y') . 00000;
                 $year = date('Y');
                 $id_year = substr($id, 0, 4);
                 $seq = $year <> $id_year ? 0 : +substr($id, -5);
                 $new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
-                $utility->ui_tran_no = $new_id;
+                $utility->ui_inv_no = $new_id;
 
 
                 $fromdate  = Carbon::createFromFormat('d-m-Y', $request->ui_from_date);
@@ -141,7 +199,7 @@ class UtilitiesController extends Controller
                 $utility->ui_to_date = $todate;
 
                 $todayDate = Carbon::now()->format('mdyHi');
-                $utility->ui_batch = $todayDate;
+                $utility->ui_tran_no = $todayDate;
 
 
                 $utility->ui_month = $request->ui_month;
@@ -260,10 +318,6 @@ class UtilitiesController extends Controller
             $pdate = Carbon::createFromFormat('d-m-Y', $request->ui_payment_date);
             $utility->ui_payment_date = $pdate;
         }
-
-
-
-
 
         $utility->save();
         return redirect('mall/utility')->with('info', 'Transaction updated successfully!');

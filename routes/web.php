@@ -159,7 +159,17 @@ Route::get('/mall/circtent', 'Mall\CircularController@circtent')->name('circtent
 Route::resource('/mall/utility', 'Mall\UtilitiesController', ['as' => 'mall'])->middleware('auth');
 Route::get('/mall/cwater', 'Mall\UtilitiesController@cwater')->name('cwater');
 Route::get('/mall/water', 'Mall\UtilitiesController@water')->name('water');
+Route::get('/mall/consolidate', 'Mall\UtilitiesController@consolidate')->name('consolidate');
+
+Route::get('/mall/ui_unpaid', 'Mall\UtilitiesController@ui_unpaid')->name('ui_unpaid');
+Route::get('/mall/ui_paid', 'Mall\UtilitiesController@ui_paid')->name('ui_paid');
+
+Route::get('/mall/ui_unpaid_cust', 'Mall\UtilitiesController@ui_unpaid_cust')->name('ui_unpaid_cust');
+Route::get('/mall/ui_paid_cust', 'Mall\UtilitiesController@ui_paid_cust')->name('ui_paid_cust');
+
+
 Route::get('/mall/summary', 'Mall\UtilitiesController@summary')->name('summary');
+Route::get('/mall/summary_ui_type', 'Mall\UtilitiesController@summary_ui_type')->name('summary_ui_type');
 
 Route::get('/mall/utilitycust', 'Mall\UtilitiesController@utilitycust')->name('utilitycust');
 

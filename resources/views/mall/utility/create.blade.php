@@ -206,7 +206,7 @@
           <thead>
             <tr>
 
-              <th> ID </th>
+
               <th> Brand </th>
 
               <th>Unit Rate</th>
@@ -242,7 +242,7 @@
 
             @foreach($brand as $brand)
             <tr>
-              <td>{{ $brand->id }}</td>
+
               <td>
                 <input class="form-control" type="text" name="ui_brand_name[]" value="{{ $brand->bm_name}}" readonly>
                 <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $brand->id}}">
@@ -294,7 +294,7 @@
             <tr>
 
 
-              <th> ID </th>
+
               <th> Brand </th>
 
               <th>Unit Rate</th>

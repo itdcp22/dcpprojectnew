@@ -16,7 +16,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Tenants - Summary
+                    <h3 class="card-title">Consolidated
 
                 </div>
                 <!-- /.card-header -->
@@ -27,7 +27,7 @@
 
                                 <th> Batch ID </th>
                                 <th> Brand Name </th>
-
+                                <th> Company Name </th>
                                 <th> Type </th>
                                 <th> Duration </th>
                                 <th> OMR </th>
@@ -50,7 +50,7 @@
                             <tr>
                                 <td>{{ $c->ui_tran_no }}</td>
                                 <td>{{ $c->ui_brand_name }}</td>
-
+                                <td>{{ $c->ui_comp_name }}</td>
                                 <td>{{ $c->ui_type }}</td>
                                 <td>{{ date('d-m-Y', strtotime($c->ui_from_date)) }} to
                                     {{ date('d-m-Y', strtotime($c->ui_to_date)) }}
@@ -81,28 +81,15 @@
 
                                 </td>
 
-
-
-
                                 <td>
-                                    @if($c->ui_type =='Water')
-                                    <a href="{{ route('mall.utility.watershow',$c->id) }}">
+                                    <a href="{{ route('mall.utility.show',$c->id) }}">
+                                        <i class="fa fa-print text-green"></i>
 
-                                        @else
-                                        <a href="{{ route('mall.utility.show',$c->id) }}">
-                                            @endif
-
-                                            <i class="fa fa-print text-green"></i>
-
-                                        </a>
-
-
-
-
-
-
-
-
+                                    </a>
+                                    /
+                                    <a href="{{ route('mall.brand.edit',$c->id) }}">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
                                 </td>
 
                             </tr>
@@ -120,7 +107,7 @@
 
                                 <th> Batch ID </th>
                                 <th> Brand Name </th>
-
+                                <th> Company Name </th>
                                 <th> Type </th>
                                 <th> Duration </th>
                                 <th> OMR </th>
@@ -130,6 +117,7 @@
                                 <th> Vat </th>
                                 <th> Net Amount</th>
                                 <th>Payment Status</th>
+
                                 <th> Action</th>
 
                             </tr>

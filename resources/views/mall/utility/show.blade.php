@@ -176,7 +176,7 @@ class toWords{
             <div class="row">
               <label class="col text-left" for="">Invoice Number</label>
               <div class="col text-left">
-                : {{ $utility->ui_tran_no }}
+                : {{ $utility->ui_inv_no }}
               </div>
             </div>
           </div>
@@ -352,6 +352,7 @@ class toWords{
               <div class="col text-left">
                 <label class="col text-left" for="">Company Bank Details:</label>
                 <p>Bank Name &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;: Sohar Islamic Bank <br>
+                  Account Name &nbsp; &nbsp;&nbsp; &nbsp;: Tamani Global Development and Investment L.L.C <br>
                   Account Number &nbsp;: 70801001900001 <br>
                   Branch &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;: Ghala Branch <br>

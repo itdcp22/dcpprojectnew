@@ -258,5 +258,36 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with('pendingusers', \App\User::where('user_type', 'tenant')->whereNull('email_verified_at')->count('ID'));
         });
+
+        //Utility Bills
+
+        view()->composer('mallwp', function ($view) {
+            $view->with('ui_unpaid', \App\Utility::where('ui_payment_status', 0)->sum('ui_netamount'));
+        });
+
+        view()->composer('mallwp', function ($view) {
+            $view->with('ui_unpaid_cust', \App\Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', 0)->sum('ui_netamount'));
+        });
+
+        view()->composer('mallwp', function ($view) {
+            $view->with('ui_paid', \App\Utility::where('ui_payment_status', 1)->sum('ui_netamount'));
+        });
+
+        view()->composer('mallwp', function ($view) {
+            $view->with('ui_paid_cust', \App\Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', 1)->sum('ui_netamount'));
+        });
+
+
+        view()->composer('mallwp', function ($view) {
+            $view->with('ui_eb_unpaid', \App\Utility::where('ui_payment_status', 0)->where('ui_type', 'Electricity')->sum('ui_netamount'));
+        });
+
+        view()->composer('mallwp', function ($view) {
+            $view->with('ui_cwater_unpaid', \App\Utility::where('ui_payment_status', 0)->where('ui_type', 'Chilled_Water')->sum('ui_netamount'));
+        });
+
+        view()->composer('mallwp', function ($view) {
+            $view->with('ui_water_unpaid', \App\Utility::where('ui_payment_status', 0)->where('ui_type', 'Water')->sum('ui_netamount'));
+        });
     }
 }

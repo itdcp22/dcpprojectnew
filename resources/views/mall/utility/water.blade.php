@@ -25,16 +25,15 @@
                         <thead>
                             <tr>
 
-                                <th> ID </th>
+                                <th> Batch ID </th>
                                 <th> Brand Name </th>
                                 <th> Company Name </th>
-                                <th> Month </th>
-                                <th> OMR </th>
-                                <th> CMR </th>
-                                <th>Consumed</th>
-                                <th>Amount</th>
-                                <th> Vat </th>
+                                <th> Duration </th>
+                                <th> Invoice # </th>
+                                <th> Invoice Date</th>
+
                                 <th> Net Amount</th>
+                                <th>Payment Status</th>
                                 <th> Action</th>
 
                             </tr>
@@ -46,17 +45,35 @@
                             @foreach($utility as $c)
 
                             <tr>
-                                <td>{{ $c->id }}</td>
+                                <td>{{ $c->ui_tran_no }}</td>
                                 <td>{{ $c->ui_brand_name }}</td>
                                 <td>{{ $c->ui_comp_name }}</td>
-                                <td>{{ $c->ui_month }}</td>
-                                <td class="text-right">{{ $c->ui_omr}}</td>
-                                <td class="text-right">{{ $c->ui_cmr}}</td>
-                                <td class="text-right"> {{ $c->ui_consumed }} </td>
 
-                                <td class="text-right">{{number_format($c->ui_amount + $c->ui_sewage,3) }}</td>
-                                <td class="text-right">{{ number_format($c->ui_vat,3) }}</td>
+                                <td>{{ date('d-m-Y', strtotime($c->ui_from_date)) }} to
+                                    {{ date('d-m-Y', strtotime($c->ui_to_date)) }}
+                                </td>
+                                <td class="text-right">{{ $c->ui_inv_no}}</td>
+                                <td class="text-right">{{ date('d-m-Y', strtotime($c->created_at))}}</td>
+
                                 <td class="text-right">{{ number_format($c->ui_netamount,3) }}</td>
+
+                                <td>
+
+                                    @if($c->ui_payment_status ==0)
+                                    <div class="text-danger">
+                                        Not Paid
+                                    </div>
+                                    @elseif($c->ui_payment_status )
+                                    <div class="text-primary">
+                                        Paid
+                                    </div>
+
+                                    @else
+                                    Status Error
+
+                                    @endif
+
+                                </td>
 
 
 
@@ -71,7 +88,7 @@
                                     /
 
 
-                                    <a href="{{ route('mall.brand.edit',$c) }}">
+                                    <a href="{{ route('mall.utility.edit',$c) }}">
                                         <i class="fa fa-edit"></i>
 
                                     </a>
@@ -88,24 +105,22 @@
 
                             @else
                             <tr>
-                                <td colspan="11">No Record Found</td>
+                                <td colspan="12">No Record Found</td>
                             </tr>
                             @endif
 
                         </tbody>
                         <tfoot>
                             <tr>
-
-                                <th> ID </th>
+                                <th> Batch ID </th>
                                 <th> Brand Name </th>
                                 <th> Company Name </th>
-                                <th> Month </th>
-                                <th> OMR </th>
-                                <th> CMR </th>
-                                <th>Consumed</th>
-                                <th>Amount</th>
-                                <th> Vat </th>
+                                <th> Duration </th>
+                                <th> Invoice # </th>
+                                <th> Invoice Date</th>
+
                                 <th> Net Amount</th>
+                                <th>Payment Status</th>
                                 <th> Action</th>
 
                             </tr>

@@ -16,7 +16,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Unpaid Brands - Summary
+                    <h3 class="card-title">Unpaid Utility - Summary
 
                 </div>
                 <!-- /.card-header -->
@@ -25,8 +25,8 @@
                         <thead>
                             <tr>
 
-                                <th> Brand ID </th>
-                                <th> Brand Name </th>
+
+                                <th> Utility Type </th>
                                 <th> Net Amount</th>
 
 
@@ -39,9 +39,9 @@
                             @foreach($utility as $c)
 
                             <tr>
-                                <td>{{ $c->ui_brand_id }}</td>
 
-                                <td>{{ $c->ui_brand_name }}</td>
+
+                                <td>{{ $c->ui_type }}</td>
                                 <td>{{ number_format($c->total,3) }}</td>
 
 
@@ -60,7 +60,7 @@
                         <tfoot>
                             <tr>
 
-                                <th> </th>
+
                                 <th> Total </th>
                                 @foreach($utility1 as $gt)
                                 <th>{{ number_format($gt->gtotal,3) }}</th>

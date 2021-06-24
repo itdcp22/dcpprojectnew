@@ -12,6 +12,13 @@ use Auth;
 use Gate;
 use PDF;
 
+use Carbon\Carbon;
+use App\Brand;
+use App\Utility;
+
+use App\User;
+
+
 
 
 class HomeController extends Controller
@@ -51,7 +58,12 @@ class HomeController extends Controller
     public function mallwp(Request $request)
     {
         //Users::where('id', 1)->count();
-        return view('mallwp');
+
+        $arr['utility'] = Utility::where('ui_payment_status', 0)
+            ->groupBy('ui_brand_id', 'ui_brand_name')
+            ->selectRaw('ui_brand_id,ui_brand_name, sum(ui_netamount) as total')->orderBy('total', 'desc')->limit(5)->get();
+
+        return view('mallwp')->with($arr);
     }
 
 

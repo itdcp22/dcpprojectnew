@@ -425,12 +425,53 @@
                   </li>
 
                   <li class="nav-item">
-                    <a href="{{route('summary')}}" class="nav-link">
+                    <a href="{{route('consolidate')}}" class="nav-link">
 
-                      <i class="nav-icon far fa-circle text-primary"></i>
-                      <p>Summary</p>
+                      <i class="nav-icon far fa-circle text-warning"></i>
+                      <p>Consolidate</p>
                     </a>
                   </li>
+
+
+                  <li class="nav-item">
+                    <a href="{{route('ui_unpaid')}}" class="nav-link">
+
+                      <i class="far fa-dot-circle nav-icon text-danger"></i>
+                      <p>Unpaid</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('ui_paid')}}" class="nav-link">
+
+
+                      <i class="far fa-dot-circle nav-icon text-success"></i>
+                      <p>Paid</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('summary')}}" class="nav-link">
+
+
+                      <i class="far fa-dot-circle nav-icon text-primary"></i>
+                      <p>Unpaid Summary - Brand</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('summary_ui_type')}}" class="nav-link">
+
+
+                      <i class="far fa-dot-circle nav-icon text-info"></i>
+                      <p>Unpaid Summary - Type</p>
+                    </a>
+                  </li>
+
+
+
+
+
 
 
 
