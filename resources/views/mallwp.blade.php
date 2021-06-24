@@ -194,12 +194,11 @@
 
 
 
-
               @if($user->user_type =='mall')
-              OMR.
+
               {{number_format($ui_unpaid,3)}}
               @else
-              OMR.
+
               {{number_format($ui_unpaid_cust,3)}}
               @endif
 
@@ -237,10 +236,10 @@
             <h3>
 
               @if($user->user_type =='mall')
-              OMR.
+
               {{number_format($ui_paid,3) }}
               @else
-              OMR.
+
 
               {{number_format($ui_paid_cust,3) }}
               @endif
