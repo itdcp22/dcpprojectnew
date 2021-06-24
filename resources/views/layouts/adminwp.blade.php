@@ -437,7 +437,7 @@
                     <a href="{{route('ui_unpaid')}}" class="nav-link">
 
                       <i class="far fa-dot-circle nav-icon text-danger"></i>
-                      <p>Unpaid</p>
+                      <p>Unpaid - Invoices</p>
                     </a>
                   </li>
 
@@ -446,7 +446,7 @@
 
 
                       <i class="far fa-dot-circle nav-icon text-success"></i>
-                      <p>Paid</p>
+                      <p>Paid - Invoices</p>
                     </a>
                   </li>
 

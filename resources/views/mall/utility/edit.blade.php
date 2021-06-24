@@ -141,7 +141,7 @@ class toWords{
           Telephone: 2401 4015, Email: accounts@mallofmuscat.com</br>
           <B>VAT Number: OM1100034041</B></p>
 
-        <h2><u>PERFORMA INVOICE </u></h2>
+        <h2><u>VAT INVOICE </u></h2>
       </div>
     </div>
 
@@ -161,7 +161,7 @@ class toWords{
 
               <div class="col text-left">
                 <label class="col-lg-1 text-left" for="">Bill To :</label>
-                <P>{{ $utility->ui_brand_name }},{{ $utility->ui_comp_name }} <br>
+                <P>{{ $utility->ui_comp_name }} - {{ $utility->ui_brand_name }} <br>
                   VAT: {{ $utility->ui_vat_no}}</P>
 
               </div>

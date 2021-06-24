@@ -87,7 +87,7 @@
 
                                     </a>
                                     /
-                                    <a href="{{ route('mall.brand.edit',$c->id) }}">
+                                    <a href="{{ route('mall.utility.edit',$c->id) }}">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
