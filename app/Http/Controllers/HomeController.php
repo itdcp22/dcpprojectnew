@@ -63,6 +63,11 @@ class HomeController extends Controller
             ->groupBy('ui_brand_id', 'ui_brand_name')
             ->selectRaw('ui_brand_id,ui_brand_name, sum(ui_netamount) as total')->orderBy('total', 'desc')->limit(5)->get();
 
+        $arr['utility1'] = Utility::where('ui_payment_status', 0)
+            ->groupBy('ui_comp_id', 'ui_comp_name')
+            ->selectRaw('ui_comp_id,ui_comp_name, sum(ui_netamount) as comptotal')->orderBy('comptotal', 'desc')->limit(5)->get();
+
+
         return view('mallwp')->with($arr);
     }
 

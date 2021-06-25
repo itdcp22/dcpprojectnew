@@ -42,7 +42,7 @@
 
 
                                 <td>{{ $c->ui_type }}</td>
-                                <td>{{ number_format($c->total,3) }}</td>
+                                <td class="text-right">{{ number_format($c->total,3) }}</td>
 
 
 
@@ -63,7 +63,7 @@
 
                                 <th> Total </th>
                                 @foreach($utility1 as $gt)
-                                <th>{{ number_format($gt->gtotal,3) }}</th>
+                                <th class="text-right">{{ number_format($gt->gtotal,3) }}</th>
                                 @endforeach
                             </tr>
                         </tfoot>

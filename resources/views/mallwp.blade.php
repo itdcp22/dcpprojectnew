@@ -339,13 +339,12 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-6">
 
+      <div class="col-lg-4">
         <!-- /.card -->
-
         <div class="card">
           <div class="card-header border-0">
-            <h3 class="card-title">Top 5 Brands</h3>
+            <h3 class="card-title">Top 5 Brand</h3>
             <div class="card-tools">
               <a href="#" class="btn btn-tool btn-sm">
                 <i class="fas fa-download"></i>
@@ -360,7 +359,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Pending Amount</th>
+                  <th class="text-right">Pending Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -369,7 +368,7 @@
                 @foreach($utility as $c)
                 <tr>
                   <td>{{ $c->ui_brand_name }}</td>
-                  <td>{{ number_format($c->total,3) }}</td>
+                  <td class="text-right">{{ number_format($c->total,3) }}</td>
                 </tr>
                 @endforeach
                 @endif
@@ -381,10 +380,50 @@
         <!-- /.card -->
       </div>
       <!-- /.col-md-6 -->
-      <div class="col-lg-6">
 
+      <div class="col-lg-4">
         <!-- /.card -->
+        <div class="card">
+          <div class="card-header border-0">
+            <h3 class="card-title">Top 5 Company</h3>
+            <div class="card-tools">
+              <a href="#" class="btn btn-tool btn-sm">
+                <i class="fas fa-download"></i>
+              </a>
+              <a href="#" class="btn btn-tool btn-sm">
+                <i class="fas fa-bars"></i>
+              </a>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <table class="table table-striped table-valign-middle">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th class="text-right">Pending Amount</th>
+                </tr>
+              </thead>
+              <tbody>
 
+                @if(count($utility1))
+                @foreach($utility1 as $co)
+                <tr>
+                  <td>{{ $co->ui_comp_name }}</td>
+                  <td class="text-right">{{ number_format($co->comptotal,3) }}</td>
+                </tr>
+                @endforeach
+                @endif
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col-md-6 -->
+
+      <div class="col-lg-4">
+        <!-- /.card -->
         <div class="card">
           <div class="card-header border-0">
             <h3 class="card-title">Overview</h3>
