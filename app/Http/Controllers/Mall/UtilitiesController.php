@@ -244,7 +244,7 @@ class UtilitiesController extends Controller
                 $todate  = Carbon::createFromFormat('d-m-Y', $request->ui_to_date);
                 $utility->ui_to_date = $todate;
 
-                $todayDate = Carbon::now()->format('mdyHi');
+                $todayDate = Carbon::now()->format('ymdHi');
                 $utility->ui_tran_no = $todayDate;
 
 
@@ -253,6 +253,12 @@ class UtilitiesController extends Controller
                 $utility->ui_remarks = $request->ui_remarks;
                 $utility->ui_online = 0;
                 $utility->ui_payment_status = 0;
+
+                $today = Carbon::now();
+                $utility->ui_year = $today->year;
+
+                $todaymnt = Carbon::now();
+                $utility->ui_month = $todaymnt->month;
 
                 $utility->ui_created_uid = Auth::user()->id;
                 $utility->ui_created_name = Auth::user()->name;

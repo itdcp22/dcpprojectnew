@@ -187,8 +187,8 @@
           <label class="col-lg-1" for="">Type</label>
           <div class="col-lg-2">
             <select class="custom-select" name="ui_type" id="ui_type" required>
-              <option value="" selected disabled hidden>Please select</option>
-              <option value="Electricity">Electricity</option>
+              <option value="Electricity" selected>Electricity</option>
+
             </select>
             <div class="clear-fix"></div>
           </div>
@@ -244,7 +244,8 @@
             <tr>
 
               <td>
-                <input class="form-control" type="text" name="ui_brand_name[]" value="{{ $brand->bm_name}}" readonly>
+                <input class="form-control" type="text" name="ui_brand_name[]" value="{{ $brand->bm_name}}"
+                  tabindex="-1" readonly>
                 <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $brand->id}}">
                 <input class="form-control" type="hidden" name="ui_comp_id[]" value="{{ $brand->bm_tm_id}}">
                 <input class="form-control" type="hidden" name="ui_comp_name[]" value="{{ $brand->bm_tm_name}}">
@@ -253,30 +254,31 @@
 
               <td>
                 <input class="form-control" id="{{ 'rate_' . ($brand->id+1) }}" type="number" name="ui_rate[]"
-                  value="{{ $brand->bm_eb_rate}}" readonly>
+                  value="{{ $brand->bm_eb_rate}}" tabindex="-1" readonly>
               </td>
 
               <td>
                 <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_omr[]"
-                  id="{{ 'ob_' . ($brand->id+1) }}" type="number" value="{{ $brand->bm_eb_ob}}" readonly>
+                  id="{{ 'ob_' . ($brand->id+1) }}" type="number" value="{{ $brand->bm_eb_ob}}" tabindex="-1" readonly>
               </td>
               <td>
                 <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_cmr[]"
                   id="{{ 'cb_' . ($brand->id+1) }}" type="number">
               </td>
               <td>
-                <input class="form-control" name="ui_consumed[]" id="{{ 'cons_' . ($brand->id+1) }}" readonly>
-              </td>
-              <td>
-                <input class="form-control text-right" type="text" name="ui_amount[]" id="{{ 'amt_' . ($brand->id+1) }}"
+                <input class="form-control" name="ui_consumed[]" id="{{ 'cons_' . ($brand->id+1) }}" tabindex="-1"
                   readonly>
               </td>
               <td>
-                <input class="form-control text-right" type="text" name="ui_vat[]" id="{{ 'vt_' . ($brand->id+1) }}"
-                  readonly>
+                <input class="form-control text-right" type="text" tabindex="-1" name="ui_amount[]"
+                  id="{{ 'amt_' . ($brand->id+1) }}" readonly>
               </td>
               <td>
-                <input class="form-control text-right" type="text" name="ui_netamount[]"
+                <input class="form-control text-right" type="text" tabindex="-1" name="ui_vat[]"
+                  id="{{ 'vt_' . ($brand->id+1) }}" readonly>
+              </td>
+              <td>
+                <input class="form-control text-right" type="text" tabindex="-1" name="ui_netamount[]"
                   id="{{ 'net_' . ($brand->id+1) }}" readonly>
               </td>
             </tr>

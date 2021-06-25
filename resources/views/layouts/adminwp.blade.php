@@ -472,7 +472,7 @@
                     <a href="{{route('utility_email_home')}}" class="nav-link">
 
 
-                      <i class="far fa-envelope nav-icon text-danger"></i>
+                      <i class="far fa-envelope nav-icon text-secondary"></i>
 
                       <p>Email Trigger</p>
                     </a>

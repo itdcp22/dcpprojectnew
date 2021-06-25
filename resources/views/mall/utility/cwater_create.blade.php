@@ -161,7 +161,7 @@ function myFunction(item, index) {
 
                         <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date"
                             value="{{ date('d-m-Y', strtotime($utility. ' + 1 days'))  }}" placeholder="dd-mm-yyyy"
-                            required readonly>
+                            tabindex="-1" required readonly>
 
                         <script>
                             $('#datepicker').datepicker({
@@ -178,7 +178,7 @@ function myFunction(item, index) {
                     <div class="col-lg-2">
 
                         <input class="form-control datepicker" tabindex="2" id="datepicker2" name="ui_to_date"
-                            placeholder="dd-mm-yyyy" required readonly>
+                            placeholder="dd-mm-yyyy" tabindex="1" required readonly>
 
                         <script>
                             $('#datepicker2').datepicker({
@@ -194,8 +194,8 @@ function myFunction(item, index) {
                     <label class="col-lg-2" for="">Type</label>
                     <div class="col-lg-2">
                         <select class="custom-select" name="ui_type" id="ui_type" required>
-                            <option value="" selected disabled hidden>Please select</option>
-                            <option value="Chilled_Water">Chilled Water</option>
+                            <option value="Chilled_Water" selected>Chilled Water</option>
+
                         </select>
                         <div class="clear-fix"></div>
                     </div>
@@ -238,7 +238,7 @@ function myFunction(item, index) {
 
 
                             <td>
-                                <input class="form-control" type="text" name="ui_brand_name[]"
+                                <input class="form-control" type="text" name="ui_brand_name[]" tabindex="-1"
                                     value="{{ $brand->bm_name}}" readonly>
                                 <input class="form-control" type="hidden" name="ui_brand_id[]" value="{{ $brand->id}}">
                                 <input class="form-control" type="hidden" name="ui_comp_id[]"
@@ -252,23 +252,23 @@ function myFunction(item, index) {
                             <td>
 
                                 <input class="form-control" id="{{ 'rate_' . ($brand->id+1) }}" type="number"
-                                    name="ui_rate[]" value="{{ $brand->bm_cwater_rate}}" readonly>
+                                    tabindex="-1" name="ui_rate[]" value="{{ $brand->bm_cwater_rate}}" readonly>
 
 
 
                             <td>
                                 <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_omr[]"
                                     id="{{ 'ob_' . ($brand->id+1) }}" type="number" value="{{ $brand->bm_cwater_ob}}"
-                                    readonly>
+                                    tabindex="-1" readonly>
                             </td>
                             <td>
 
                                 @if($brand->bm_cwater_bill_type =='Reading')
                                 <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_cmr[]"
-                                    id="{{ 'cb_' . ($brand->id+1) }}" type="number">
+                                    id="{{ 'cb_' . ($brand->id+1) }}" tabindex="2" type="number">
                                 @elseif($brand->bm_cwater_bill_type =='Area')
                                 <input class="form-control" oninput="calBMI({{ $brand->id + 1 }})" name="ui_cmr[]"
-                                    id="{{ 'cb_' . ($brand->id+1) }}" type="number" readonly>
+                                    id="{{ 'cb_' . ($brand->id+1) }}" type="number" tabindex="-1" readonly>
                                 @else
                                 Status Error
                                 @endif
@@ -279,15 +279,15 @@ function myFunction(item, index) {
 
                             <td>
                                 <input class="form-control" name="ui_consumed[]" id="{{ 'cons_' . ($brand->id+1) }}"
-                                    readonly>
+                                    tabindex="-1" readonly>
                             </td>
                             <td>
                                 @if($brand->bm_cwater_bill_type =='Reading')
                                 <input class="form-control text-right" type="text" name="ui_amount[]"
-                                    id="{{ 'amt_' . ($brand->id+1) }}" readonly>
+                                    id="{{ 'amt_' . ($brand->id+1) }}" tabindex="-1" readonly>
                                 @elseif($brand->bm_cwater_bill_type =='Area')
                                 <input class="form-control text-right" type="text" name="ui_amount[]"
-                                    value="{{($brand->bm_size * $brand->bm_cwater_rate)}}" readonly>
+                                    value="{{($brand->bm_size * $brand->bm_cwater_rate)}}" tabindex="-1" readonly>
                                 @else
                                 Status Error
                                 @endif
@@ -300,10 +300,10 @@ function myFunction(item, index) {
 
                                 @if($brand->bm_cwater_bill_type =='Reading')
                                 <input class="form-control text-right" type="text" name="ui_vat[]"
-                                    id="{{ 'vt_' . ($brand->id+1) }}" readonly>
+                                    id="{{ 'vt_' . ($brand->id+1) }}" tabindex="-1" readonly>
                                 @elseif($brand->bm_cwater_bill_type =='Area')
                                 <input class="form-control text-right" type="text" name="ui_vat[]"
-                                    value="{{($brand->bm_size * $brand->bm_cwater_rate)*.05}}" readonly>
+                                    value="{{($brand->bm_size * $brand->bm_cwater_rate)*.05}}" tabindex="-1" readonly>
                                 @else
                                 Status Error
                                 @endif
@@ -318,12 +318,12 @@ function myFunction(item, index) {
 
                                 @if($brand->bm_cwater_bill_type =='Reading')
                                 <input class="form-control text-right" type="text" name="ui_netamount[]"
-                                    id="{{ 'net_' . ($brand->id+1) }}" readonly>
+                                    id="{{ 'net_' . ($brand->id+1) }}" tabindex="-1" readonly>
                                 @elseif($brand->bm_cwater_bill_type =='Area')
                                 <input class="form-control text-right" type="text" name="ui_netamount[]"
                                     id="ui_amount[]"
                                     value="{{($brand->bm_size * $brand->bm_cwater_rate)+(($brand->bm_size * $brand->bm_cwater_rate)*.05)}}"
-                                    readonly>
+                                    tabindex="-1" readonly>
                                 @else
                                 Status Error
                                 @endif
@@ -378,7 +378,7 @@ function myFunction(item, index) {
                 <div class="row">
                     <label class="col-lg-1">Narration:</label>
                     <div class="col">
-                        <input class="form-control" name="ui_remarks" type="text">
+                        <input class="form-control" name="ui_remarks" tabindex="3" type="text">
                     </div>
                 </div>
             </div>
@@ -388,7 +388,7 @@ function myFunction(item, index) {
 
 
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" Value="Save">
+                <input type="submit" class="btn btn-primary" tabindex="4" Value="Save">
                 <a href="{{route('mall.tenant.index')}}" class="btn btn-warning" role="button">Cancel</a>
             </div>
         </form>

@@ -66,12 +66,12 @@
 
 
         <p> I have verified all the entries in the system and acknowledge that its all correct. I am aware clicking the
-            below
-            "Send Email" button will send automatic email to all the registred users.
+            below "Send Email" button will send an email automatically to all the registered users.
 
             <div class="form-group">
 
-                <a href="{{route('utility_email_trigger')}}" class="btn btn-warning" role="button">Send Email</a>
+                <a href="{{route('utility_email_trigger')}}" class="btn btn-primary" role="button">Send Email</a>
+                <a href="{{route('mallwp')}}" class="btn btn-warning" role="button">Cancel</a>
             </div>
 
     </div>

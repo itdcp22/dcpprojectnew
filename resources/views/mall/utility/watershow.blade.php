@@ -140,7 +140,7 @@ class toWords{
                 <p>P.O. Box No: 148, P C No.102, Muscat, Sultanate of Oman</br>
                     Telephone: 2401 4015, Email: accounts@mallofmuscat.com</br>
                     <B>VAT Number: OM1100034041</B></p>
-                <h2><u>PERFORMA INVOICE </u></h2>
+                <h2><u>VAT INVOICE </u></h2>
             </div>
         </div>
 

@@ -359,7 +359,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th class="text-right">Pending Amount</th>
+                  <th class="text-right">Outstanding Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -400,7 +400,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th class="text-right">Pending Amount</th>
+                  <th class="text-right">Outstanding Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -438,13 +438,13 @@
           </div>
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-              <p class="text-success text-xl">
+              <p class="text-danger text-xl">
 
-                <i class="fas fa-bolt"></i>
+                <i class="fas fa-plug"></i>
               </p>
               <p class="d-flex flex-column text-right">
                 <span class="font-weight-bold">
-                  <i class="ion ion-android-arrow-up text-success"></i>
+                  <i class="ion ion-android-arrow-up text-danger"></i>
                   {{ number_format($ui_eb_unpaid,3)}}
                 </span>
                 <span class="text-muted">Electricity</span>
@@ -466,13 +466,13 @@
             </div>
             <!-- /.d-flex -->
             <div class="d-flex justify-content-between align-items-center mb-0">
-              <p class="text-danger text-xl">
+              <p class="text-primary text-xl">
 
                 <i class="fas fa-water"></i>
               </p>
               <p class="d-flex flex-column text-right">
                 <span class="font-weight-bold">
-                  <i class="ion ion-android-arrow-up text-danger"></i>
+                  <i class="ion ion-android-arrow-up text-primary"></i>
                   {{ number_format($ui_water_unpaid,3)}}
                 </span>
                 <span class="text-muted">Water + Sewage</span>
