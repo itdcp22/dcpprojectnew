@@ -468,6 +468,17 @@
                     </a>
                   </li>
 
+                  <li class="nav-item">
+                    <a href="{{route('utility_email_home')}}" class="nav-link">
+
+
+                      <i class="far fa-envelope nav-icon text-danger"></i>
+
+                      <p>Email Trigger</p>
+                    </a>
+                  </li>
+
+
 
 
 

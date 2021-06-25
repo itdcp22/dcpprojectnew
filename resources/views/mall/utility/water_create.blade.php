@@ -337,7 +337,14 @@ function myFunction(item, index) {
 
 
 
-
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-lg-1">Narration:</label>
+                    <div class="col">
+                        <input class="form-control" name="ui_remarks" type="text">
+                    </div>
+                </div>
+            </div>
 
 
 

@@ -250,6 +250,7 @@ class UtilitiesController extends Controller
 
                 $utility->ui_month = $request->ui_month;
                 $utility->ui_type = $request->ui_type;
+                $utility->ui_remarks = $request->ui_remarks;
                 $utility->ui_online = 0;
                 $utility->ui_payment_status = 0;
 
