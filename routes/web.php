@@ -177,6 +177,9 @@ Route::get('/mall/cwater_create', 'Mall\UtilitiesController@cwater_create')->nam
 Route::get('/mall/water_create', 'Mall\UtilitiesController@water_create')->name('water_create');
 Route::get('/mall/sewage_create', 'Mall\UtilitiesController@sewage_create')->name('sewage_create');
 
+Route::get('/mall/utility_email_home', 'Mall\UtilitiesController@utility_email_home')->name('utility_email_home');
+Route::get('/mall/utility_email_trigger', 'Mall\UtilitiesController@utility_email_trigger')->name('utility_email_trigger');
+
 
 
 

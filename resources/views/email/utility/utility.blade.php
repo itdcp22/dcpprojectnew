@@ -314,8 +314,9 @@
                                                     style="line-height: 1.2; font-size: 12px; font-family: 'Ubuntu', Tahoma, Verdana, Segoe, sans-serif; color: #ffffff; mso-line-height-alt: 14px;">
                                                     <p
                                                         style="font-size: 24px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 29px; margin: 0;">
-                                                        <span style="font-size: 24px;"><span style>Your account has
-                                                                been approved successfully.
+                                                        <span style="font-size: 24px;"><span style>Utility bills updated
+                                                                in system. Kindly settle the amount before end of this
+                                                                month.
                                                             </span><span style><em>.</em></span></span></p>
                                                 </div>
                                             </div>
@@ -323,7 +324,7 @@
                                             <div class="button-container" align="center"
                                                 style="padding-top:12px;padding-right:10px;padding-bottom:12px;padding-left:10px;">
                                                 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 12px; padding-right: 10px; padding-bottom: 12px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://www.example.com/" style="height:42pt; width:261pt; v-text-anchor:middle;" arcsize="54%" stroke="false" fillcolor="#fbd711"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:Arial, sans-serif; font-size:18px"><![endif]--><a
-                                                    href="http://momcrm.com/" target="_blank"
+                                                    href="http://www.momcrm.com/" target="_blank"
                                                     style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #fbd711; border-radius: 30px; -webkit-border-radius: 30px; -moz-border-radius: 30px; width: auto; width: auto; border-top: 1px solid #fbd711; border-right: 1px solid #fbd711; border-bottom: 1px solid #fbd711; border-left: 1px solid #fbd711; padding-top: 10px; padding-bottom: 10px; font-family: Poppins, Arial, Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span
                                                         style="padding-left:45px;padding-right:45px;font-size:18px;display:inline-block;"><span
                                                             style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><span
@@ -338,7 +339,7 @@
                                                     style="line-height: 1.5; font-size: 12px; font-family: Verdana, Geneva, sans-serif; color: #ffffff; mso-line-height-alt: 18px;">
                                                     <p
                                                         style="font-size: 14px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Verdana, Geneva, sans-serif; mso-line-height-alt: 21px; margin: 0;">
-                                                        <em>*You can login now</em></p>
+                                                        <em>*Distination For All</em></p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -372,7 +373,7 @@
                                                     style="line-height: 1.5; font-size: 12px; font-family: 'Ubuntu', Tahoma, Verdana, Segoe, sans-serif; color: #ffffff; mso-line-height-alt: 18px;">
                                                     <p
                                                         style="font-size: 18px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 27px; margin: 0;">
-                                                    </p>
+                                                        <span style="font-size: 18px;"></span></p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -433,8 +434,8 @@
                                                     style="line-height: 1.5; font-size: 12px; color: #b0a7b7; font-family: Poppins, Arial, Helvetica, sans-serif; mso-line-height-alt: 18px;">
                                                     <p
                                                         style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: 18px; margin: 0;">
-                                                        <span style="font-size: 12px;">Mall Of Muscat, Sultanate Of
-                                                            Oman</span></p>
+                                                        <span style="font-size: 12px;">Mall Of Muscat, Al Mabela,
+                                                            Muscat, Sultanate Of Oman</span></p>
                                                     <p
                                                         style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: 18px; margin: 0;">
                                                         <span style="font-size: 12px;">© Copyright 2021

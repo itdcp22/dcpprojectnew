@@ -300,7 +300,8 @@
                                                     style="line-height: 1.2; font-size: 12px; font-family: 'Ubuntu', Tahoma, Verdana, Segoe, sans-serif; color: #fbd711; mso-line-height-alt: 14px;">
                                                     <p
                                                         style="font-size: 26px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 31px; margin: 0;">
-                                                        <span style="font-size: 26px;"><strong><span style>Hello
+                                                        <span style="font-size: 26px;"><strong><span style>Dear Valued
+                                                                    Tenant
 
                                                                 </span></strong></span></p>
                                                 </div>

@@ -5,12 +5,20 @@ namespace App\Http\Controllers\Mall;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
+use Illuminate\Support\Facades\Mail;
+
+
 use Carbon\Carbon;
 use App\Brand;
 use App\Utility;
 use Auth;
 use App\User;
 use Gate;
+
+
+use App\Jobs\SendEmailUtilityJob;
+
 
 class UtilitiesController extends Controller
 {
@@ -145,6 +153,44 @@ class UtilitiesController extends Controller
         $arr['brand'] = Brand::where('bm_sewage', 'Sewage')->get();
         return view('mall.utility.sewage_create')->with($arr);
     }
+
+    public function utility_email_home()
+    {
+
+        return view('mall.utility.emailtrigger');
+
+        // $emails = User::select('email')->get();
+
+        //dd($emails);
+
+        //foreach ($emails as $email) {
+        //   $details['email'] = $email;
+        // dispatch(new SendEmailUtilityJob($details));
+        //  }
+    }
+
+    public function utility_email_trigger(Utility $utility)
+    {
+
+        Utility::where('ui_online', 0)->update(array('ui_online' => 1));
+
+        $emails = User::select('email')->get();
+
+        //dd($emails);
+
+        foreach ($emails as $email) {
+            $details['email'] = $email;
+            dispatch(new SendEmailUtilityJob($details));
+        }
+
+
+        return redirect('mall/utility_email_home')->with('success', 'Email sent successfully!');
+    }
+
+
+
+
+
 
     /**
      * Store a newly created resource in storage.
