@@ -48,10 +48,11 @@
                 <td>{{ $c->ui_tran_no }}</td>
                 <td>{{ $c->ui_brand_name }}</td>
                 <td>{{ $c->ui_comp_name }}</td>
-                <td>{{ date('d-m-Y', strtotime($c->ui_from_date)) }} to {{ date('d-m-Y', strtotime($c->ui_to_date)) }}
+                <td class="text-leftt">{{ date('d-m-Y', strtotime($c->ui_from_date)) }} to
+                  {{ date('d-m-Y', strtotime($c->ui_to_date)) }}
                 </td>
-                <td class="text-right">{{ $c->ui_inv_no}}</td>
-                <td class="text-right">{{ date('d-m-Y', strtotime($c->created_at))}}</td>
+                <td class="text-left">{{ $c->ui_inv_no}}</td>
+                <td class="text-left">{{ date('d-m-Y', strtotime($c->created_at))}}</td>
 
 
 

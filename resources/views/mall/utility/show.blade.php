@@ -221,12 +221,17 @@ class toWords{
                                         <th class="w-50 text-left">Description</th>
                                         <th class="w-20 text-center">Opening Reading</th>
                                         <th class="w-20 text-center">Closing Reading</th>
-                                        <th class="w-20 text-center">Consumption</th>
-                                        <th class="w-20 text-center">Unit Rate</th>
-                                        <th class="w-20 text-center">Amount</th>
+                                <th class="w-20 text-center">Consumption</th>
                                        
 
-                                      </tr>
+
+
+
+
+                                        <th class="w-20 text-center">Unit Rate</th>
+                                        <th class="w-20 text-center">Amount</th>        
+                                     
+                              </tr>
                                   </thead>
                                 <tbody>    
                                     <tr>     

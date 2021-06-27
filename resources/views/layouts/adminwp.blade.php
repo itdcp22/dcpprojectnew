@@ -460,6 +460,15 @@
                   </li>
 
                   <li class="nav-item">
+                    <a href="{{route('summary_ui_comp')}}" class="nav-link">
+
+
+                      <i class="far fa-dot-circle nav-icon text-info"></i>
+                      <p>Unpaid - Company</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
                     <a href="{{route('summary_ui_type')}}" class="nav-link">
 
 

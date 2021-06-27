@@ -218,7 +218,7 @@
           <div class="col-lg-3">
 
             <select class="custom-select" name="bm_status" id="bm_status">
-              <option value="" selected disabled hidden>Active</option>
+              <option value="{{ $brand->bm_status}}">{{ $brand->bm_status}}</option>
 
               <option value="1">Active</option>
               <option value="0">Inactive</option>

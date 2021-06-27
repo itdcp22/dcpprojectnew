@@ -28,12 +28,14 @@
                 <th> ID </th>
                 <th> Brand Name </th>
                 <th> Company Name </th>
-                <th>Contact Person</th>
-                <th> Telephone </th>
-                <th> Mobile </th>
-                <th> Email </th>
-                <th>Created By</th>
-                <th>Created Date</th>
+                <th>Unit Number</th>
+                <th> Area</th>
+                <th> Location </th>
+                <th> VAT Number </th>
+                <th>DOO</th>
+                <th>Type</th>
+                <th>Utility</th>
+                <th>Status</th>
                 <th> Action </th>
               </tr>
             </thead>
@@ -47,13 +49,29 @@
                 <td>{{ $c->id }}</td>
                 <td>{{ $c->bm_name }}</td>
                 <td>{{ $c->bm_tm_name }}</td>
-                <td>{{ $c->bm_contact }}</td>
-                <td>{{ $c->bm_tel}}</td>
-                <td>{{ $c->bm_mobile}}</td>
-                <td> {{ $c->bm_email }} </td>
-                <td> {{ $c->bm_created_uid }} </td>
-                <td>{{ date('d-m-Y', strtotime($c->created_at)) }}</td>
+                <td>{{ $c->bm_unit_no }}</td>
+                <td>{{ $c->bm_size}}</td>
+                <td>{{ $c->bm_location}}</td>
+                <td>{{ $c->bm_vat}}</td>
+                <td> {{ date('d-m-Y', strtotime($c->bm_open_date)) }} </td>
+                <td> {{ $c->bm_type }} </td>
+                <td> {{ $c->bm_eb}} || {{$c->bm_cwater}} ||
+                  {{$c->bm_water  }} </td>
 
+                <td>
+                  @if($c->bm_status ==0)
+                  <div class="text-danger">
+                    Inactive
+                  </div>
+                  @elseif($c->bm_status ==1)
+                  <div class="text-primary">
+                    Active
+                  </div>
+
+                  @else
+                  Status Error
+
+                  @endif </td>
                 <td>
 
 
@@ -87,12 +105,14 @@
                 <th> ID </th>
                 <th> Brand Name </th>
                 <th> Company Name </th>
-                <th>Contact Person</th>
-                <th> Telephone </th>
-                <th> Mobile </th>
-                <th> Email </th>
-                <th>Created By</th>
-                <th>Created Date</th>
+                <th>Unit Number</th>
+                <th> Area</th>
+                <th> Location </th>
+                <th> VAT Number </th>
+                <th>DOO</th>
+                <th>Type</th>
+                <th>Utility</th>
+                <th>Status</th>
                 <th> Action </th>
 
               </tr>

@@ -104,6 +104,19 @@ class UtilitiesController extends Controller
         return view('mall.utility.summary')->with($arr);
     }
 
+    public function summary_ui_comp()
+    {
+
+        $arr['utility'] = Utility::where('ui_payment_status', 0)
+            ->groupBy('ui_comp_id', 'ui_comp_name')
+            ->selectRaw('ui_comp_id,ui_comp_name, sum(ui_netamount) as total')->orderBy('total', 'desc')->get();
+
+        $arr['utility1'] = Utility::where('ui_payment_status', 0)
+            ->selectRaw('sum(ui_netamount) as gtotal')->get();
+
+        return view('mall.utility.summary_ui_comp')->with($arr);
+    }
+
     public function summary_ui_type()
     {
 
@@ -128,7 +141,7 @@ class UtilitiesController extends Controller
     public function create()
     {
         $arr['utility'] = Utility::where('ui_type', 'Electricity')->max('ui_to_date');
-        $arr['brand'] = Brand::where('bm_eb', 'Electricity')->get();
+        $arr['brand'] = Brand::where('bm_eb', 'Electricity')->whereNotIn('bm_type', ['Kiosk'])->get();
 
         return view('mall.utility.create')->with($arr);
     }
@@ -158,15 +171,6 @@ class UtilitiesController extends Controller
     {
 
         return view('mall.utility.emailtrigger');
-
-        // $emails = User::select('email')->get();
-
-        //dd($emails);
-
-        //foreach ($emails as $email) {
-        //   $details['email'] = $email;
-        // dispatch(new SendEmailUtilityJob($details));
-        //  }
     }
 
     public function utility_email_trigger(Utility $utility)
@@ -202,8 +206,8 @@ class UtilitiesController extends Controller
     {
 
         $request->validate([
-            'ui_from_date' => 'nullable',
-            'ui_to_date' => 'nullable',
+            'ui_from_date' => 'required',
+            'ui_to_date' => 'required',
         ]);
 
 
@@ -270,13 +274,13 @@ class UtilitiesController extends Controller
 
                 if ($utility->ui_type  == 'Electricity') {
 
-                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr));
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr + 1));
                 } elseif ($utility->ui_type  == 'Chilled_Water') {
-                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_cwater_ob' => $utility->ui_cmr));
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_cwater_ob' => $utility->ui_cmr + 1));
                 } elseif ($utility->ui_type  == 'Water') {
-                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_water_ob' => $utility->ui_cmr));
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_water_ob' => $utility->ui_cmr + 1));
                 } elseif ($utility->ui_type  == 'Sewage') {
-                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr));
+                    Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr + 1));
                 }
             }
         }
@@ -326,9 +330,10 @@ class UtilitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Utility $utility)
+    public function show(Utility $utility, Brand $brand)
     {
-        return view('mall.utility.show', compact('utility'));
+        $arr['brand'] = Brand::All();
+        return view('mall.utility.show', compact('utility'))->with($arr);
     }
 
     public function watershow(Utility $utility)

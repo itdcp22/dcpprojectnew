@@ -168,7 +168,8 @@ Route::get('/mall/ui_unpaid_cust', 'Mall\UtilitiesController@ui_unpaid_cust')->n
 Route::get('/mall/ui_paid_cust', 'Mall\UtilitiesController@ui_paid_cust')->name('ui_paid_cust');
 
 
-Route::get('/mall/summary', 'Mall\UtilitiesController@summary')->name('summary');
+Route::get('/mall/summary', 'Mall\UtilitiesController@summary')->name('summary'); //Brand summary
+Route::get('/mall/summary_ui_comp', 'Mall\UtilitiesController@summary_ui_comp')->name('summary_ui_comp');
 Route::get('/mall/summary_ui_type', 'Mall\UtilitiesController@summary_ui_type')->name('summary_ui_type');
 
 Route::get('/mall/utilitycust', 'Mall\UtilitiesController@utilitycust')->name('utilitycust');

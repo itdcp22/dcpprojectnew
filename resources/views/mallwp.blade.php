@@ -211,7 +211,7 @@
 
 
 
-            <p>Unpaid Invoice</p>
+            <p>Unpaid Utility Invoices</p>
           </div>
           <div class="icon">
             <i class="fas fa-charging-station"></i>
@@ -250,7 +250,7 @@
 
             </h3>
 
-            <p>Paid Invoice</p>
+            <p>Paid Utility Invoices</p>
           </div>
           <div class="icon">
 
@@ -340,45 +340,7 @@
   <div class="container-fluid">
     <div class="row">
 
-      <div class="col-lg-4">
-        <!-- /.card -->
-        <div class="card">
-          <div class="card-header border-0">
-            <h3 class="card-title">Top 5 Brand</h3>
-            <div class="card-tools">
-              <a href="#" class="btn btn-tool btn-sm">
-                <i class="fas fa-download"></i>
-              </a>
-              <a href="#" class="btn btn-tool btn-sm">
-                <i class="fas fa-bars"></i>
-              </a>
-            </div>
-          </div>
-          <div class="card-body p-0">
-            <table class="table table-striped table-valign-middle">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th class="text-right">Outstanding Amount</th>
-                </tr>
-              </thead>
-              <tbody>
 
-                @if(count($utility))
-                @foreach($utility as $c)
-                <tr>
-                  <td>{{ $c->ui_brand_name }}</td>
-                  <td class="text-right">{{ number_format($c->total,3) }}</td>
-                </tr>
-                @endforeach
-                @endif
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <!-- /.card -->
-      </div>
       <!-- /.col-md-6 -->
 
       <div class="col-lg-4">
@@ -400,7 +362,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th class="text-right">Outstanding Amount</th>
+                  <th class="text-right">Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -421,6 +383,47 @@
         <!-- /.card -->
       </div>
       <!-- /.col-md-6 -->
+
+      <div class="col-lg-4">
+        <!-- /.card -->
+        <div class="card">
+          <div class="card-header border-0">
+            <h3 class="card-title">Top 5 Brand</h3>
+            <div class="card-tools">
+              <a href="#" class="btn btn-tool btn-sm">
+                <i class="fas fa-download"></i>
+              </a>
+              <a href="#" class="btn btn-tool btn-sm">
+                <i class="fas fa-bars"></i>
+              </a>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <table class="table table-striped table-valign-middle">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th class="text-right">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                @if(count($utility))
+                @foreach($utility as $c)
+                <tr>
+                  <td>{{ $c->ui_brand_name }}</td>
+                  <td class="text-right">{{ number_format($c->total,3) }}</td>
+                </tr>
+                @endforeach
+                @endif
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- /.card -->
+      </div>
+
 
       <div class="col-lg-4">
         <!-- /.card -->

@@ -93,8 +93,18 @@
           </div>
           <label class="col-lg-2" for="">Location</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" name="bm_location"
-              placeholder="Enter location details" required>
+
+
+            <select class="custom-select" name="bm_location" id="bm_location" required>
+              <option value="" selected disabled hidden>Please select</option>
+              <option value="Lower Ground">Lower Ground</option>
+              <option value="Ground Floor">Ground Floor</option>
+              <option value="First Floor">First Floor</option>
+              <option value="Second Floor">Second Floor</option>
+
+            </select>
+
+
           </div>
         </div>
       </div>
@@ -229,6 +239,8 @@
               <option value="" selected disabled hidden>Please select</option>
 
               <option value="Showroom">Showroom</option>
+              <option value="Outlet">Outlet</option>
+              <option value="Office">Office</option>
               <option value="Kiosk">Kiosk</option>
 
             </select>
@@ -241,8 +253,8 @@
             <select class="custom-select" name="bm_status" id="bm_status">
               <option value="" selected disabled hidden>Active</option>
 
-              <option value="Showroom">Active</option>
-              <option value="Kiosk">Inactive</option>
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
 
             </select>
 

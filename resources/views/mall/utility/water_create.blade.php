@@ -200,8 +200,7 @@ function myFunction(item, index) {
                     <label class="col-lg-2" for="">Type</label>
                     <div class="col-lg-2">
                         <select class="custom-select" name="ui_type" id="ui_type" required>
-                            <option value="" selected disabled hidden>Please select</option>
-                            <option value="Water">Water</option>
+                            <option value="Water" selected>Water</option>
                         </select>
                         <div class="clear-fix"></div>
                     </div>

@@ -315,9 +315,17 @@
                                                     <p
                                                         style="font-size: 24px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 29px; margin: 0;">
                                                         <span style="font-size: 24px;"><span style>Utility bills updated
-                                                                in system. Kindly settle the amount before end of this
-                                                                month.
+                                                                in system. Kindly settle the amount as per the agreed
+                                                                payment terms
                                                             </span><span style><em>.</em></span></span></p>
+                                                    </br>
+
+                                                    <p
+                                                        style="font-size: 24px; line-height: 1.2; word-break: break-word; text-align: center; font-family: Ubuntu, Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 29px; margin: 0;">
+                                                        <span style="font-size: 24px;"><span style>Thank You</span><span
+                                                                style><em></em></span></span></p>
+
+
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->

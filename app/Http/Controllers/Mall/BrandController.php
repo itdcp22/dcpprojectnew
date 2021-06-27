@@ -46,6 +46,13 @@ class BrandController extends Controller
      */
     public function store(Request $request, Brand $brand)
     {
+
+        $request->validate([
+            'bm_unit_no' => 'unique:brands,bm_unit_no',
+
+        ]);
+
+
         $brand->bm_name = $request->bm_name;
         $brand->bm_location = $request->bm_location;
         $brand->bm_contact = $request->bm_contact;
@@ -168,6 +175,8 @@ class BrandController extends Controller
         $brand->bm_type = $request->bm_type;
         $brand->bm_vat = $request->bm_vat;
 
+        $brand->bm_status = $request->bm_status;
+
 
 
         $opendate  = Carbon::createFromFormat('d-m-Y', $request->bm_open_date);
@@ -204,7 +213,7 @@ class BrandController extends Controller
 
 
 
-        $brand->bm_status = 1;
+
 
         $brand->save();
         return redirect()->route('mall.brand.index')->with('info', 'Transaction updated successfully!');
