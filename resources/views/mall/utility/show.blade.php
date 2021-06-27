@@ -316,7 +316,7 @@ class toWords{
 
               <div class="col text-left my-auto">
                 <p><b>For, Tamani Global Development and Investment L.L.C</b></p>
-                <img src={{asset('dist/img/stamp.png')}}>
+                <img src={{asset('dist/img/stamp.PNG')}}>
 
 
               </div>
