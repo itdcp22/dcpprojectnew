@@ -230,7 +230,7 @@ class UtilitiesController extends Controller
                 $utility->ui_cmr = $request->ui_cmr[$key];
                 $utility->ui_consumed = $request->ui_consumed[$key];
                 $utility->ui_amount = $request->ui_amount[$key];
-                $utility->ui_sewage = $request->ui_sewage[$key];
+
                 $utility->ui_vat = $request->ui_vat[$key];
                 $utility->ui_netamount = $request->ui_netamount[$key];
 
@@ -278,6 +278,7 @@ class UtilitiesController extends Controller
                 } elseif ($utility->ui_type  == 'Chilled_Water') {
                     Brand::where('id', $utility->ui_brand_id)->update(array('bm_cwater_ob' => $utility->ui_cmr + 1));
                 } elseif ($utility->ui_type  == 'Water') {
+                    $utility->ui_sewage = $request->ui_sewage[$key];
                     Brand::where('id', $utility->ui_brand_id)->update(array('bm_water_ob' => $utility->ui_cmr + 1));
                 } elseif ($utility->ui_type  == 'Sewage') {
                     Brand::where('id', $utility->ui_brand_id)->update(array('bm_eb_ob' => $utility->ui_cmr + 1));
