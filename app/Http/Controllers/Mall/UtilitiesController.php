@@ -231,9 +231,16 @@ class UtilitiesController extends Controller
                 $utility->ui_consumed = $request->ui_consumed[$key];
                 $utility->ui_amount = $request->ui_amount[$key];
 
-                //if ($utility->ui_type  == 'Water') {
-                $utility->ui_sewage = $request->ui_sewage[$key];
-                //}
+                $utility->ui_month = $request->ui_month;
+                $utility->ui_type = $request->ui_type;
+                $utility->ui_remarks = $request->ui_remarks;
+                $utility->ui_online = 0;
+                $utility->ui_payment_status = 0;
+
+                if ($utility->ui_type  == 'Water') {
+                    $utility->ui_sewage = $request->ui_sewage[$key];
+                    //  dd($utility);
+                }
 
                 $utility->ui_vat = $request->ui_vat[$key];
                 $utility->ui_netamount = $request->ui_netamount[$key];
@@ -256,11 +263,7 @@ class UtilitiesController extends Controller
                 $utility->ui_tran_no = $todayDate;
 
 
-                $utility->ui_month = $request->ui_month;
-                $utility->ui_type = $request->ui_type;
-                $utility->ui_remarks = $request->ui_remarks;
-                $utility->ui_online = 0;
-                $utility->ui_payment_status = 0;
+
 
                 $today = Carbon::now();
                 $utility->ui_year = $today->year;
