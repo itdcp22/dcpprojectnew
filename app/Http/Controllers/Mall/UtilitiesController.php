@@ -141,7 +141,7 @@ class UtilitiesController extends Controller
     public function create()
     {
         $arr['utility'] = Utility::where('ui_type', 'Electricity')->max('ui_to_date');
-        $arr['brand'] = Brand::where('bm_eb', 'Electricity')->whereNotIn('bm_type', ['Kiosk'])->get();
+        $arr['brand'] = Brand::where('bm_eb', 'Electricity')->whereNotIn('bm_type', ['Kiosk'])->orderBy('bm_name', 'asc')->get();
 
         return view('mall.utility.create')->with($arr);
     }
@@ -150,14 +150,14 @@ class UtilitiesController extends Controller
     {
 
         $arr['utility'] = Utility::where('ui_type', 'Chilled_Water')->max('ui_to_date');
-        $arr['brand'] = Brand::where('bm_cwater', 'Cwater')->get();
+        $arr['brand'] = Brand::where('bm_cwater', 'Cwater')->whereNotIn('bm_type', ['Kiosk'])->orderBy('bm_name', 'asc')->get();
         return view('mall.utility.cwater_create')->with($arr);
     }
 
     public function water_create()
     {
         $arr['utility'] = Utility::where('ui_type', 'Water')->max('ui_to_date');
-        $arr['brand'] = Brand::where('bm_water', 'Water')->get();
+        $arr['brand'] = Brand::where('bm_water', 'Water')->whereNotIn('bm_type', ['Kiosk'])->orderBy('bm_name', 'asc')->get();
         return view('mall.utility.water_create')->with($arr);
     }
 

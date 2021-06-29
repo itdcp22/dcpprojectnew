@@ -213,16 +213,16 @@ function myFunction(item, index) {
                     <thead>
                         <tr>
 
-                            <th> ID </th>
-                            <th> Brand </th>
 
-                            <th>Unit Rate</th>
-                            <th> OMR </th>
-                            <th> CMR </th>
-                            <th> Consumed </th>
-                            <th>Amount</th>
-                            <th>VAT 5%</th>
-                            <th>Net Amount</th>
+
+                            <th class="col-md-2"> Brand </th>
+                            <th class="col-md-1">Unit Rate</th>
+                            <th class="col-md-1"> OMR </th>
+                            <th class="col-md-1"> CMR </th>
+                            <th class="col-md-1"> Consumed </th>
+                            <th class="col-md-1">Amount</th>
+                            <th class="col-md-1">VAT 5%</th>
+                            <th class="col-md-1">Net Amount</th>
 
 
                         </tr>
@@ -234,7 +234,7 @@ function myFunction(item, index) {
                         @foreach($brand as $brand)
 
                         <tr>
-                            <td>{{ $brand->id }}</td>
+
 
 
                             <td>
@@ -348,16 +348,14 @@ function myFunction(item, index) {
                         <tr>
 
 
-                            <th> ID </th>
-                            <th> Brand </th>
-
-                            <th>Unit Rate</th>
-                            <th> OMR </th>
-                            <th> CMR </th>
-                            <th> Consumed </th>
-                            <th>Amount</th>
-                            <th>VAT 5%</th>
-                            <th>Net Amount</th>
+                            <th class="col-md-2"> Brand </th>
+                            <th class="col-md-1">Unit Rate</th>
+                            <th class="col-md-1"> OMR </th>
+                            <th class="col-md-1"> CMR </th>
+                            <th class="col-md-1"> Consumed </th>
+                            <th class="col-md-1">Amount</th>
+                            <th class="col-md-1">VAT 5%</th>
+                            <th class="col-md-1">Net Amount</th>
 
 
                         </tr>
