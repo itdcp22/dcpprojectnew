@@ -308,7 +308,7 @@
                 ">
                   <i class="nav-icon fas fa-award"></i>
                   <p>
-                    Operation
+                    Tenent Manual
                   </p>
                 </a>
               </li>
