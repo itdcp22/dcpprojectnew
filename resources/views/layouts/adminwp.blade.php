@@ -306,9 +306,9 @@
                 active
                 @endif
                 ">
-                  <i class="nav-icon fas fa-award"></i>
+                  <i class="nav-icon fas fa-file-pdf"></i>
                   <p>
-                    Tenent Manual
+                    Tenant Manual
                   </p>
                 </a>
               </li>
