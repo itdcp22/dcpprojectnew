@@ -367,7 +367,7 @@
           <label class="col-lg-1" for="">C.Water Type</label>
           <div class="col-lg-2">
 
-            <select class="custom-select select2" name="bm_cwater_bill_type" id="bm_cwater_bill_type" required>
+            <select class="custom-select select2" name="bm_cwater_bill_type" id="bm_cwater_bill_type">
               <option value="{{ $brand->bm_cwater_bill_type}}">{{ $brand->bm_cwater_bill_type}}
               </option>
 
@@ -381,7 +381,7 @@
           <label class="col-lg-1" for="">Water Type</label>
           <div class="col-lg-2">
 
-            <select class="custom-select select2" name="bm_water_bill_type" id="bm_water_bill_type" required>
+            <select class="custom-select select2" name="bm_water_bill_type" id="bm_water_bill_type">
               <option value="{{ $brand->bm_water_bill_type}}">{{ $brand->bm_water_bill_type}}
               </option>
 

@@ -150,6 +150,7 @@ Route::resource('/mall/tenant', 'Mall\TenantController', ['as' => 'mall'])->midd
 Route::resource('/mall/brand', 'Mall\BrandController', ['as' => 'mall'])->middleware('auth');
 Route::get('/mall/approved', 'Mall\WorkpermitController@approved')->name('workpermit.approved')->middleware('auth');
 Route::get('/mall/manual', 'Mall\WorkpermitController@manual')->name('manual');
+Route::get('/mall/operation', 'Mall\WorkpermitController@operation')->name('operation');
 
 //Circular
 Route::resource('/mall/circular', 'Mall\CircularController', ['as' => 'mall'])->middleware('auth');

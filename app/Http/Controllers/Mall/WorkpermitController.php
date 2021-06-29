@@ -275,4 +275,9 @@ class WorkpermitController extends Controller
     {
         return view('mall.workpermit.manual');
     }
+
+    public function operation()
+    {
+        return view('mall.workpermit.operation');
+    }
 }

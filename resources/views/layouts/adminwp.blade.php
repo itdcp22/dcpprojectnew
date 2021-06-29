@@ -300,6 +300,19 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{route('operation')}}" class="nav-link
+                @if($segment=='operation')
+                active
+                @endif
+                ">
+                  <i class="nav-icon fas fa-award"></i>
+                  <p>
+                    Operation
+                  </p>
+                </a>
+              </li>
+
 
 
               @can('isMall')

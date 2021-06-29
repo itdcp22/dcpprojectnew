@@ -125,6 +125,35 @@
       </div>
 
 
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Category</label>
+          <div class="col-lg-3">
+            <select class="custom-select" name="bm_category" id="bm_categor" required>
+              <option value="" selected disabled hidden>Please select</option>
+              <option value="Services">Services</option>
+              <option value="F and B">F&B</option>
+              <option value="First Floor">First Floor</option>
+              <option value="Fashion">Fashion</option>
+
+            </select>
+          </div>
+          <label class="col-lg-2" for="">Sub Category</label>
+          <div class="col-lg-3">
+            <select class="custom-select" name="bm_sub_categor" id="bm_sub_categor" required>
+              <option value="" selected disabled hidden>Please select</option>
+              <option value="Lower Ground">Lower Ground</option>
+              <option value="Ground Floor">Ground Floor</option>
+              <option value="First Floor">First Floor</option>
+              <option value="Second Floor">Second Floor</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+
 
 
 
@@ -363,7 +392,7 @@
           <label class="col-lg-1" for="">C.Water Type</label>
           <div class="col-lg-2">
 
-            <select class="custom-select" name="bm_cwater_bill_type" id="bm_cwater_bill_type" required>
+            <select class="custom-select" name="bm_cwater_bill_type" id="bm_cwater_bill_type">
               <option value="" selected disabled hidden>Please select</option>
 
               <option value="Reading">Reading</option>
@@ -376,7 +405,7 @@
           <label class="col-lg-1" for="">Water Type</label>
           <div class="col-lg-2">
 
-            <select class="custom-select" name="bm_water_bill_type" id="bm_water_bill_type" required>
+            <select class="custom-select" name="bm_water_bill_type" id="bm_water_bill_type">
               <option value="" selected disabled hidden>Please select</option>
 
               <option value="Reading">Reading</option>
