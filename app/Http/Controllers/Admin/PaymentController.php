@@ -40,7 +40,7 @@ class PaymentController extends Controller
 
 
         $arr['bank'] = Bank::where('bank_comp_code', auth()->user()->company)->get();
-        $arr['supplier'] = Supplier::where('supp_comp_code', auth()->user()->company)->get();
+        $arr['supplier'] = Supplier::where('supp_comp_code', auth()->user()->company)->orderBy('supp_comp_name', 'asc')->get();
         return view('admin.payments.create')->with($arr);
     }
 
