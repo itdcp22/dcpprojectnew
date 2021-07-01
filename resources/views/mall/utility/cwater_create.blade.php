@@ -253,7 +253,8 @@ function myFunction(item, index) {
                             <td>
 
                                 <input class="form-control" id="{{ 'rate_' . ($brand->id+1) }}" type="number"
-                                    tabindex="-1" name="ui_rate[]" value="{{ $brand->bm_cwater_rate}}" readonly>
+                                    tabindex="-1" name="ui_rate[]" value="{{ number_format($brand->bm_cwater_rate,3)}}"
+                                    readonly>
 
 
 
@@ -288,8 +289,7 @@ function myFunction(item, index) {
                                     id="{{ 'amt_' . ($brand->id+1) }}" tabindex="-1" readonly>
                                 @elseif($brand->bm_cwater_bill_type =='Area')
                                 <input class="form-control text-right" type="text" name="ui_amount[]"
-                                    value="{{number_format(($brand->bm_size * $brand->bm_cwater_rate),3)}}"
-                                    tabindex="-1" readonly>
+                                    value="{{($brand->bm_size * $brand->bm_cwater_rate)}}" tabindex="-1" readonly>
                                 @else
                                 Status Error
                                 @endif
@@ -305,8 +305,7 @@ function myFunction(item, index) {
                                     id="{{ 'vt_' . ($brand->id+1) }}" tabindex="-1" readonly>
                                 @elseif($brand->bm_cwater_bill_type =='Area')
                                 <input class="form-control text-right" type="text" name="ui_vat[]"
-                                    value="{{number_format((($brand->bm_size * $brand->bm_cwater_rate)*.05),3)}}"
-                                    tabindex="-1" readonly>
+                                    value="{{(($brand->bm_size * $brand->bm_cwater_rate)*.05)}}" tabindex="-1" readonly>
                                 @else
                                 Status Error
                                 @endif
@@ -323,7 +322,7 @@ function myFunction(item, index) {
                                 @elseif($brand->bm_cwater_bill_type =='Area')
                                 <input class="form-control text-right" type="text" name="ui_netamount[]"
                                     id="ui_amount[]"
-                                    value="{{number_format(($brand->bm_size * $brand->bm_cwater_rate)+(($brand->bm_size * $brand->bm_cwater_rate)*.05),3)}}"
+                                    value="{{($brand->bm_size * $brand->bm_cwater_rate)+(($brand->bm_size * $brand->bm_cwater_rate)*.05)}}"
                                     tabindex="-1" readonly>
                                 @else
                                 Status Error
