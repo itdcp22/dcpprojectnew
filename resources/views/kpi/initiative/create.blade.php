@@ -435,7 +435,7 @@
   
   },
   method: "POST",
-  url: "{{URL::to('supplierdetails')}}",
+  url: "{{URL::to('kpidetails')}}",
   data: {
   'id': companyID
   },

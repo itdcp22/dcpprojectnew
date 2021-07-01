@@ -218,6 +218,7 @@
               <option value="OMR">OMR</option>
               <option value="AED">AED</option>
               <option value="USD">USD</option>
+              <option value="GPB">GPB</option>
             </select>
           </div>
           <label class="col-lg-2" for="">Amount</label>

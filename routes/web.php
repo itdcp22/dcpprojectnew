@@ -109,6 +109,7 @@ Route::resource('/admin/suppliers', 'Admin\SupplierController', ['as' => 'admin'
 Route::resource('/admin/payments', 'Admin\PaymentController', ['as' => 'admin'])->middleware('auth');
 Route::post('supplierdetails', 'Admin\PaymentController@changeCompanyName');
 
+
 //Cheque
 Route::resource('/admin/cheque', 'Admin\ChequeController', ['as' => 'admin'])->middleware('auth');
 
@@ -136,7 +137,9 @@ Route::resource('/kpi/info', 'Kpi\InfoController', ['as' => 'kpi'])->middleware(
 Route::resource('/kpi/objective', 'Kpi\ObjectController', ['as' => 'kpi'])->middleware('auth');
 Route::resource('/kpi/initiative', 'Kpi\InitiativeController', ['as' => 'kpi'])->middleware('auth');
 
-Route::post('supplierdetails', 'Kpi\InitiativeController@changeCompanyName');
+Route::post('kpidetails', 'Kpi\InitiativeController@changeCompanyName');
+
+
 
 //Route::get('dropdownlist', 'DataController@getCountries');
 //Route::get('dropdownlist/getstates/{id}', 'DataController@getStates');

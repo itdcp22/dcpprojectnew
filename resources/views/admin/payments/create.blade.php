@@ -166,7 +166,7 @@
         <div class="row">
           <label class="col-lg-2" for="">Account Number</label>
           <div class="col-lg-8">
-            <input type="text" id="supp_acc_no" class="form-control" name="pay_supp_acc_no"
+            <input type="number" id="supp_acc_no" class="form-control" name="pay_supp_acc_no"
               placeholder="Enter account number" required>
             <div class="clear-fix"></div>
           </div>
@@ -227,7 +227,7 @@
           </div>
           <label class="col-lg-2" for="">Amount</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" name="pay_supp_amount" placeholder="Enter amount" required>
+            <input type="number" class="form-control" name="pay_supp_amount" placeholder="Enter amount" required>
           </div>
         </div>
       </div>
