@@ -2,26 +2,7 @@
 
 @section('content')
 
-<style>
-  .container1 {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding-top: 56.25%;
-    /* 16:9 Aspect Ratio */
-  }
 
-  .responsive-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-</style>
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -333,14 +314,8 @@
     <!-- /.row -->
   </div>
 
-  @if($user->user_type =='admin')
-
-  <div class="container1">
-    <iframe class="responsive-iframe" src="{{route('advpending')}}"></iframe>
-  </div>
-
-  @endif
 
 
+</section>
 
-  @endsection
+@endsection
