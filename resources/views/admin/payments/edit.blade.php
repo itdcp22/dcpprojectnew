@@ -244,6 +244,17 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <div class="row">
+          <label class="col-lg-2" for="">Reason For Transfer</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" name="flex2" value="{{ $payment->flex2}}"
+              placeholder="Enter reason for transfer">
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+      </div>
+
 
 
 

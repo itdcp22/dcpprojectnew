@@ -215,15 +215,15 @@ function myFunction(item, index) {
 
 
 
-                            <th class="col-md-2"> Brand </th>
-                            <th class="col-md-1">Unit Rate</th>
-                            <th class="col-md-1"> OMR </th>
-                            <th class="col-md-1"> CMR </th>
-                            <th class="col-md-1"> Consumed </th>
-                            <th class="col-md-1">Amount</th>
+                            <th> Brand </th>
+                            <th>Unit Rate</th>
+                            <th> OMR </th>
+                            <th> CMR </th>
+                            <th> Consumed </th>
+                            <th>Amount</th>
 
-                            <th class="col-md-1">VAT 5%</th>
-                            <th class="col-md-1">Net Amount</th>
+                            <th>VAT 5%</th>
+                            <th>Net Amount</th>
 
 
                         </tr>
@@ -350,14 +350,14 @@ function myFunction(item, index) {
 
 
                             <th class="col-md-2"> Brand </th>
-                            <th class="col-md-1">Unit Rate</th>
-                            <th class="col-md-1"> OMR </th>
-                            <th class="col-md-1"> CMR </th>
-                            <th class="col-md-1"> Consumed </th>
-                            <th class="col-md-1">Amount</th>
+                            <th>Unit Rate</th>
+                            <th> OMR </th>
+                            <th> CMR </th>
+                            <th> Consumed </th>
+                            <th>Amount</th>
 
-                            <th class="col-md-1">VAT 5%</th>
-                            <th class="col-md-1">Net Amount</th>
+                            <th>VAT 5%</th>
+                            <th>Net Amount</th>
 
 
                         </tr>

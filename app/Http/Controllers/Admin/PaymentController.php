@@ -147,6 +147,8 @@ class PaymentController extends Controller
         $payment->pay_supp_currency = $request->pay_supp_currency;
 
         $payment->pay_supp_ref_no = $request->pay_supp_ref_no;
+
+        $payment->flex2 = $request->flex2;
         $payment->remarks = $request->remarks;
 
         if (!empty($request->bank_acc_no)) {
