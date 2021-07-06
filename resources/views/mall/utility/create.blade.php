@@ -336,6 +336,16 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col text-right">
+          <a href="{{route('mall.utility.ebcreateexport')}}">
+            <i class="far fa-file-excel fa-2x text-green"></i>
+
+
+          </a>
+        </div>
+      </div>
+
 
 
       <div class="form-group">

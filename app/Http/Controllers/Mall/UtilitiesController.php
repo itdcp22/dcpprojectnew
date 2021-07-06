@@ -16,12 +16,24 @@ use Auth;
 use App\User;
 use Gate;
 
+//we need to add the below if we create new excel export
+
+use App\Exports\ElectricityExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 use App\Jobs\SendEmailUtilityJob;
 
 
 class UtilitiesController extends Controller
 {
+
+    public function ebcreateexport()
+    {
+        return Excel::download(new ElectricityExport, 'Electricity.xls');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

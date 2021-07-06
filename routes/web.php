@@ -212,6 +212,8 @@ Route::get('/cashtopupexport', 'Admin\CashtopupController@cashtopupexport')->nam
 Route::get('/bookingexport', 'Foh\BookinghistoryController@bookingexport')->name('foh.booking.bookingexport');
 Route::get('/lockerexport', 'Hrms\LockerController@lockerexport')->name('hrms.locker.lockerexport');
 
+Route::get('/ebcreateexport', 'Mall\UtilitiesController@ebcreateexport')->name('mall.utility.ebcreateexport'); //EB Create Export
+
 
 View::Composer(
     ['*'],

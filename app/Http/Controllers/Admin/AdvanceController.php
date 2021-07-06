@@ -100,7 +100,7 @@ class AdvanceController extends Controller
 
         $advance->save();
 
-        return redirect()->route('admin.advances.index');
+        return redirect()->route('admin.advances.index')->with('success', 'Cash advance requested successfully!');
     }
 
     /**
