@@ -13,6 +13,7 @@
 
 
 
+
 Route::resource('/admin/accounts', 'AccountsController');
 
 */
@@ -26,6 +27,9 @@ Route::get('/table', function () {
 });
 
 
+Route::get('/phpinfo', function () {
+    return view('phpinfo');
+});
 
 
 Auth::routes([
