@@ -141,7 +141,7 @@ class toWords{
           Telephone: 2401 4015, Email: accounts@mallofmuscat.com</br>
           <B>VAT Number: OM1100034041</B></p>
 
-        <h2><u>VAT INVOICE </u></h2>
+        <h2><u>TAX INVOICE </u></h2>
       </div>
     </div>
 
@@ -155,7 +155,7 @@ class toWords{
 
               <div class="col text-left">
                 <label class="col-lg-1 text-left" for="">Bill To :</label>
-                <P>{{ $utility->ui_comp_name }} - {{ $utility->ui_brand_name }} <br>
+                <P>{{ $utility->ui_brand_name }} - {{ $utility->ui_comp_name }} <br>
                   VAT: {{ $utility->ui_vat_no}}</P>
 
               </div>
@@ -356,9 +356,9 @@ class toWords{
             <div class="row">
               <div class="col text-left">
                 <label class="col text-left" for="">Company Bank Details:</label>
-                <p>Bank Name &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;: Sohar Islamic Bank <br>
+                <p>Bank Name &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;: Al Hilal Bank <br>
                   Account Name &nbsp; &nbsp;&nbsp; &nbsp;: Tamani Global Development and Investment L.L.C <br>
-                  Account Number &nbsp;: 70801001900001 <br>
+                  Account Number &nbsp;: 010 20153 08002 <br>
                   Branch &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;: Ghala Branch <br>
                 </p>
