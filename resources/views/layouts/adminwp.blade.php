@@ -314,8 +314,9 @@
               </li>
 
 
+              @if($user->can('isMall') || $user->can('isAdmin'))
 
-              @can('isMall')
+
 
               <li class="font-weight-bold nav-header">MALL MASTER</li>
 

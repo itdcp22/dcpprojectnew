@@ -172,6 +172,21 @@
                   </a>
 
                 </li>
+
+                <li class="nav-item">
+                  <a href=" {{ route('mallwp') }}" class="nav-link
+                @if(!$segment)
+                active
+                @endif            
+                ">
+                    <i class="nav-icon fas fa-charging-station"></i>
+                    <p>
+                      Dashboard - Utility
+                    </p>
+                  </a>
+
+                </li>
+
                 @endcan
 
                 @can('isUser')
