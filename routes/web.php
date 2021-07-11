@@ -217,6 +217,7 @@ Route::get('/bookingexport', 'Foh\BookinghistoryController@bookingexport')->name
 Route::get('/lockerexport', 'Hrms\LockerController@lockerexport')->name('hrms.locker.lockerexport');
 
 Route::get('/ebcreateexport', 'Mall\UtilitiesController@ebcreateexport')->name('mall.utility.ebcreateexport'); //EB Create Export
+Route::get('/ebindexeexport', 'Mall\UtilitiesController@ebindexexport')->name('mall.utility.ebindexexport'); //EB Index Export
 
 
 View::Composer(

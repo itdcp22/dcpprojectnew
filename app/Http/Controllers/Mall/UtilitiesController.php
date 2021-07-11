@@ -19,6 +19,7 @@ use Gate;
 //we need to add the below if we create new excel export
 
 use App\Exports\ElectricityExport;
+use App\Exports\ElectricityIndexExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -31,6 +32,11 @@ class UtilitiesController extends Controller
     public function ebcreateexport()
     {
         return Excel::download(new ElectricityExport, 'Electricity.xls');
+    }
+
+    public function ebindexexport()
+    {
+        return Excel::download(new ElectricityIndexExport, 'Electricity.xls');
     }
 
 
