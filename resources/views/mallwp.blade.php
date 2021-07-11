@@ -217,7 +217,7 @@
             <i class="fas fa-charging-station"></i>
           </div>
 
-          @if($user->user_type =='mall')
+          @if($user->user_type =='mall' || $user->user_type =='admin')
           <a href="{{route('ui_unpaid')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
           @else
@@ -235,14 +235,9 @@
           <div class="inner">
             <h3>
 
-              @if($user->user_type =='mall')
+              @if($user->user_type =='mall' || $user->user_type =='admin')
+
               {{number_format($ui_paid,3) }}
-              @elseif($user->user_type =='admin')
-
-              <a href="{{route('ui_paid')}}" class="small-box-footer">More info <i
-                  class="fas fa-arrow-circle-right"></i></a>
-
-
               @else
 
 
@@ -262,17 +257,13 @@
             <i class="fas fa-receipt"></i>
           </div>
 
-          @if($user->user_type =='mall')
+          @if($user->user_type =='mall' || $user->user_type =='admin')
 
 
           <a href="{{route('ui_paid')}}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
 
-          @elseif($user->user_type =='admin')
 
-
-          <a href="{{route('ui_paid')}}" class="small-box-footer">More info <i
-              class="fas fa-arrow-circle-right"></i></a>
 
 
           @else
