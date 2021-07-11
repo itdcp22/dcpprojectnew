@@ -90,7 +90,7 @@ class WorkpermitController extends Controller
             } else {
                 $comp_id = Auth::user()->company;
                 $tenant = Tenant::where('id', '=', $comp_id)->first();
-                $brand = Brand::where('bm_tm_id', '=', $tenant->id)->orderBy('bm_name', 'asc')->get();
+                $brand = Brand::where('bm_tm_id', '=', $tenant->id)->where('bm_status', '=', 1)->orderBy('bm_name', 'asc')->get();
                 return view('mall.workpermit.create')->with(['tenant' => $tenant, 'brand' => $brand, 'user' => $user]);
             }
         }

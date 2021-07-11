@@ -27,10 +27,12 @@
 
                 <th> Batch ID </th>
                 <th> Brand Name </th>
-                <th> Company Name </th>
                 <th> Duration </th>
                 <th> Invoice # </th>
                 <th> Invoice Date</th>
+                <th> OMR</th>
+                <th> CMR</th>
+                <th> Consumed</th>
 
                 <th> Net Amount</th>
                 <th>Payment Status</th>
@@ -47,12 +49,17 @@
               <tr>
                 <td>{{ $c->ui_tran_no }}</td>
                 <td>{{ $c->ui_brand_name }}</td>
-                <td>{{ $c->ui_comp_name }}</td>
+
                 <td class="text-leftt">{{ date('d-m-Y', strtotime($c->ui_from_date)) }} to
                   {{ date('d-m-Y', strtotime($c->ui_to_date)) }}
                 </td>
                 <td class="text-left">{{ $c->ui_inv_no}}</td>
                 <td class="text-left">{{ date('d-m-Y', strtotime($c->created_at))}}</td>
+
+                <td>{{ $c->ui_omr }}</td>
+                <td>{{ $c->ui_cmr }}</td>
+                <td>{{ $c->ui_consumed }}</td>
+
 
 
 
@@ -116,10 +123,13 @@
               <tr>
                 <th> Batch ID </th>
                 <th> Brand Name </th>
-                <th> Company Name </th>
+
                 <th> Duration </th>
                 <th> Invoice # </th>
                 <th> Invoice Date</th>
+                <th> OMR</th>
+                <th> CMR</th>
+                <th> Consumed</th>
 
                 <th> Net Amount</th>
                 <th>Payment Status</th>
