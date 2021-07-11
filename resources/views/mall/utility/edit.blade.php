@@ -278,6 +278,16 @@ class toWords{
                               </tr>
 
                               <tr>
+                                <td class="font-weight-bold text-left">VAT :
+
+                                  <input class="form-control" name="ui_vat_no" value="{{ $utility->ui_vat_no}}"
+                                    type="text">
+
+
+                                </td>
+                              </tr>
+
+                              <tr>
                                 <td colspan="9" class="font-weight-bold text-left">Narration:
 
                                   <input class="form-control" name="ui_remarks" value="{{ $utility->ui_remarks}}"

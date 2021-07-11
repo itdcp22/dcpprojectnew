@@ -390,6 +390,7 @@ class UtilitiesController extends Controller
      */
     public function update(Request $request, Utility $utility)
     {
+        $utility->ui_vat_no = $request->ui_vat_no;
         $utility->ui_remarks = $request->ui_remarks;
         $utility->ui_payment_status = $request->ui_payment_status;
         $utility->ui_payment_mode = $request->ui_payment_mode;

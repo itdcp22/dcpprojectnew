@@ -189,7 +189,29 @@
           </div>
           <label class="col-lg-2" for="">Company Name</label>
           <div class="col-lg-3">
-            <input type="text" class="form-control" id="validationCustom02" value="{{$brand->bm_tm_name}}" readonly>
+
+            <select class="custom-select" name="bm_tm_id" id="bm_tm_id" required>
+              <option value="{{ $brand->bm_tm_name}}" selected>{{ $brand->bm_tm_name}}</option>
+              @foreach($tenant as $t)
+              <option value="{{ $t->id}}">{{ $t->tm_name}}</option>
+              @endforeach
+            </select>
+            <input type="hidden" id="bm_tm_name" name="bm_tm_name">
+            <script>
+              $('#bm_tm_id').on('change', function() 
+                                           {
+                                             var selectedName = $('#bm_tm_id option:selected').text();
+                                            $('#bm_tm_name').val(selectedName);
+                                                      }
+                                            )
+            </script>
+
+
+
+
+
+
+
 
 
 

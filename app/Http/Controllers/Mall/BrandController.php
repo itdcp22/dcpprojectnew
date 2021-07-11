@@ -177,6 +177,16 @@ class BrandController extends Controller
 
         $brand->bm_status = $request->bm_status;
 
+        if (!empty($request->bm_tm_name)) {
+
+            $brand->bm_tm_name = $request->bm_tm_name;
+            $brand->bm_tm_id = $request->bm_tm_id;
+        }
+
+
+
+
+
 
 
         $opendate  = Carbon::createFromFormat('d-m-Y', $request->bm_open_date);

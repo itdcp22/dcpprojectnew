@@ -360,7 +360,7 @@ class toWords{
                   Account Name &nbsp; &nbsp;&nbsp; &nbsp;: Tamani Global Development and Investment L.L.C <br>
                   Account Number &nbsp;: 010 20153 08002 <br>
                   Branch &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;: Ghala Branch <br>
+                  &nbsp;&nbsp;&nbsp;: Wattaya Branch <br>
                 </p>
                 <a onclick="myFunction()" class="btn btn-secondary btn-sm">Print</a>
               </div>
