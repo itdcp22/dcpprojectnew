@@ -235,7 +235,7 @@
           <div class="inner">
             <h3>
 
-              @if($user->user_type =='mall')
+              @if($user->user_type =='mall' || $user->user_type =='admin')
 
               {{number_format($ui_paid,3) }}
               @else
@@ -257,7 +257,7 @@
             <i class="fas fa-receipt"></i>
           </div>
 
-          @if($user->user_type =='mall')
+          @if($user->user_type =='mall' || $user->user_type =='admin')
 
 
           <a href="{{route('ui_paid')}}" class="small-box-footer">More info <i
@@ -279,7 +279,7 @@
         <div class="small-box bg-warning">
           <div class="inner">
             <h3>
-              @if($user->user_type =='mall')
+              @if($user->user_type =='mall' || $user->user_type =='admin')
               {{$rejectedwpmall}}
               @else
               {{$rejectedwp}}
