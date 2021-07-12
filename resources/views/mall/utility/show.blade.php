@@ -356,7 +356,7 @@ class toWords{
             <div class="row">
               <div class="col text-left">
                 <label class="col text-left" for="">Company Bank Details:</label>
-                <p>Bank Name &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;: Al Hilal Bank <br>
+                <p>Bank Name &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;: Ahli Bank SAOG <br>
                   Account Name &nbsp; &nbsp;&nbsp; &nbsp;: Tamani Global Development and Investment L.L.C <br>
                   Account Number &nbsp;: 010 20153 08002 <br>
                   Branch &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;

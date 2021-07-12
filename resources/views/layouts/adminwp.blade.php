@@ -492,6 +492,15 @@
                   </li>
 
                   <li class="nav-item">
+                    <a href="{{route('bills_unconfirmed')}}" class="nav-link">
+
+
+                      <i class="far fa-dot-circle nav-icon text-info"></i>
+                      <p>Unconfirmed</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
                     <a href="{{route('utility_email_home')}}" class="nav-link">
 
 

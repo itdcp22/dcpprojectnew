@@ -148,6 +148,22 @@ class UtilitiesController extends Controller
         return view('mall.utility.summary_ui_type')->with($arr);
     }
 
+    public function bills_unconfirmed()
+    {
+
+        $arr['utility'] = Utility::where('ui_lock', '0')->get();
+
+        return view('mall.utility.bills_unconf')->with($arr);
+    }
+
+    public function bills_confirmed()
+    {
+
+        $arr['utility'] = Utility::where('ui_lock', '0')->get();
+
+        return view('mall.utility.bills_unconf')->with($arr);
+    }
+
 
 
 

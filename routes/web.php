@@ -182,6 +182,9 @@ Route::get('/mall/summary_ui_type', 'Mall\UtilitiesController@summary_ui_type')-
 
 Route::get('/mall/utilitycust', 'Mall\UtilitiesController@utilitycust')->name('utilitycust');
 
+Route::get('/mall/bills_unconfirmed', 'Mall\UtilitiesController@bills_unconfirmed')->name('bills_unconfirmed');
+Route::get('/mall/bills_confirmed', 'Mall\UtilitiesController@bills_confirmed')->name('bills_confirmed');
+
 Route::get('/mall/cwater_create', 'Mall\UtilitiesController@cwater_create')->name('cwater_create');
 Route::get('/mall/water_create', 'Mall\UtilitiesController@water_create')->name('water_create');
 Route::get('/mall/sewage_create', 'Mall\UtilitiesController@sewage_create')->name('sewage_create');

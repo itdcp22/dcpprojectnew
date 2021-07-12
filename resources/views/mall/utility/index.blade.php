@@ -56,9 +56,9 @@
                 <td class="text-left">{{ $c->ui_inv_no}}</td>
                 <td class="text-left">{{ date('d-m-Y', strtotime($c->created_at))}}</td>
 
-                <td>{{ $c->ui_omr }}</td>
-                <td>{{ $c->ui_cmr }}</td>
-                <td>{{ $c->ui_consumed }}</td>
+                <td class="text-right">{{ $c->ui_omr }}</td>
+                <td class="text-right">{{ $c->ui_cmr }}</td>
+                <td class="text-right">{{ $c->ui_consumed }}</td>
 
 
 
