@@ -782,9 +782,9 @@
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- DataTables -->
 
-  <script src="{{ asset('plugins/datatables/jquery.dataTables.js')}}"></script>
+  <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.js')}}"></script>
 
-  <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <script src="{{ asset('dist/js/adminlte.js')}}"></script>
