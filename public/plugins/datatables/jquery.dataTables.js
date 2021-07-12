@@ -1,4 +1,5 @@
 /*! DataTables 1.10.20
+This is test to confirm the correct jquary datatable
  * ©2008-2019 SpryMedia Ltd - datatables.net/license
  */
 
