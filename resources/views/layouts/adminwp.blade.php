@@ -12,7 +12,7 @@
 
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
@@ -678,7 +678,7 @@
 
   <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.js')}}"></script>
 
-  <script src="{{ asset('adminlte.plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <script src="{{ asset('dist/js/adminlte.js')}}"></script>
