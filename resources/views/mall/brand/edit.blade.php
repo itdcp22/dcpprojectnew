@@ -287,9 +287,9 @@
 
               <div class="p-2 flex-fill ">
 
-                <input name="bm_sewage" type="checkbox" class="form-check-input" value="Sewage"
-                  {{ ($brand->bm_sewage == "Sewage" ? 'checked' : '')}}>
-                Sewage
+                <input name="bm_rent" type="checkbox" class="form-check-input" value="Rent"
+                  {{ ($brand->bm_rent == "Rent" ? 'checked' : '')}}>
+                Rent
 
 
               </div>
@@ -311,14 +311,20 @@
               name="bm_eb_meter1_no">
           </div>
           <label class="col-lg-1" for="">C.Water Meter #</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_meter_no}}"
               name="bm_cwater_meter_no">
           </div>
           <label class="col-lg-1" for="">Water Meter #</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_meter_no}}"
               name="bm_water_meter_no">
+          </div>
+
+          <label class="col-lg-1" for="">Base Rent</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_base_rent}}"
+              name="bm_base_rent">
           </div>
 
         </div>
@@ -332,14 +338,20 @@
               name="bm_eb_rate">
           </div>
           <label class="col-lg-1" for="">C.Water Rate</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_rate}}"
               name="bm_cwater_rate">
           </div>
           <label class="col-lg-1" for="">Water Rate</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_rate}}"
               name="bm_water_rate">
+          </div>
+
+          <label class="col-lg-1" for="">Service Charge</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_fixed_service}}"
+              name="bm_fixed_service">
           </div>
 
         </div>
@@ -353,14 +365,20 @@
               name="bm_eb_ob">
           </div>
           <label class="col-lg-1" for="">C.Water OB</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_cwater_ob}}"
               name="bm_cwater_ob">
           </div>
           <label class="col-lg-1" for="">Water OB</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
             <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_water_ob}}"
               name="bm_water_ob">
+          </div>
+
+          <label class="col-lg-1" for="">Chilled Water</label>
+          <div class="col-lg-1">
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_fixed_cwater}}"
+              name="bm_fixed_cwater">
           </div>
 
         </div>
@@ -387,7 +405,7 @@
 
           </div>
           <label class="col-lg-1" for="">C.Water Type</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
 
             <select class="custom-select select2" name="bm_cwater_bill_type" id="bm_cwater_bill_type">
               <option value="{{ $brand->bm_cwater_bill_type}}">{{ $brand->bm_cwater_bill_type}}
@@ -401,7 +419,7 @@
 
           </div>
           <label class="col-lg-1" for="">Water Type</label>
-          <div class="col-lg-2">
+          <div class="col-lg-1">
 
             <select class="custom-select select2" name="bm_water_bill_type" id="bm_water_bill_type">
               <option value="{{ $brand->bm_water_bill_type}}">{{ $brand->bm_water_bill_type}}
@@ -411,6 +429,15 @@
               <option value="Reading">Flat</option>
 
             </select>
+
+
+          </div>
+
+          <label class="col-lg-1" for="">Marketing</label>
+          <div class="col-lg-1">
+
+            <input type="text" class="form-control" id="validationCustom02" value="{{ $brand->bm_fixed_marketing}}"
+              name="bm_fixed_marketing">
 
 
           </div>

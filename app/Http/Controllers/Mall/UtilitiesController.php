@@ -65,6 +65,13 @@ class UtilitiesController extends Controller
         return view('mall.utility.water')->with($arr);
     }
 
+    public function rent()
+    {
+        $arr['utility'] = Utility::where('ui_type', 'Rent')->get();
+
+        return view('mall.utility.rent')->with($arr);
+    }
+
     public function consolidate()
     {
         $arr['utility'] = Utility::All();
@@ -81,7 +88,7 @@ class UtilitiesController extends Controller
 
     public function ui_unpaid_cust()
     {
-        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', '0')->get();
+        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', '0')->whereNotIn('ui_type', ['Rent'])->get();
 
         return view('mall.utility.utilitycust')->with($arr);
     }
@@ -95,7 +102,7 @@ class UtilitiesController extends Controller
 
     public function ui_paid_cust()
     {
-        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', '1')->get();
+        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_payment_status', '1')->whereNotIn('ui_type', ['Rent'])->get();
 
         return view('mall.utility.utilitycust')->with($arr);
     }
@@ -104,7 +111,7 @@ class UtilitiesController extends Controller
     public function utilitycust()
     {
 
-        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_online', 1)->get();
+        $arr['utility'] = Utility::where('ui_comp_id', auth()->user()->company)->where('ui_online', 1)->whereNotIn('ui_type', ['Rent'])->get();
 
         return view('mall.utility.utilitycust')->with($arr);
     }
@@ -201,6 +208,13 @@ class UtilitiesController extends Controller
         return view('mall.utility.sewage_create')->with($arr);
     }
 
+    public function rent_create()
+    {
+        $arr['utility'] = Utility::where('ui_type', 'Rent')->max('ui_to_date');
+        $arr['brand'] = Brand::where('bm_rent', 'Rent')->get();
+        return view('mall.utility.rent_create')->with($arr);
+    }
+
     public function utility_email_home()
     {
 
@@ -265,6 +279,8 @@ class UtilitiesController extends Controller
                 $utility->ui_consumed = $request->ui_consumed[$key];
                 $utility->ui_amount = $request->ui_amount[$key];
 
+                $utility->ui_rent_per_day = $request->ui_rent_per_day[$key];
+
                 $utility->ui_month = $request->ui_month;
                 $utility->ui_type = $request->ui_type;
                 $utility->ui_remarks = $request->ui_remarks;
@@ -286,15 +302,19 @@ class UtilitiesController extends Controller
                 $new_id = sprintf("%0+4u%0+6u", $year, $seq + 1);
                 $utility->ui_inv_no = $new_id;
 
-
-                $fromdate  = Carbon::createFromFormat('d-m-Y', $request->ui_from_date);
-                $utility->ui_from_date = $fromdate;
-
-                $todate  = Carbon::createFromFormat('d-m-Y', $request->ui_to_date);
-                $utility->ui_to_date = $todate;
-
                 $todayDate = Carbon::now()->format('ymdHi');
                 $utility->ui_tran_no = $todayDate;
+
+
+                $fromdate  = Carbon::createFromFormat('m-d-Y', $request->ui_from_date);
+                $utility->ui_from_date = $fromdate;
+
+                $todate  = Carbon::createFromFormat('m-d-Y', $request->ui_to_date);
+                $utility->ui_to_date = $todate;
+
+
+                //$diff_in_days = $todate->diffInDays($fromdate);
+                $utility->ui_rent_days = $request->ui_rent_days;
 
 
 
@@ -347,6 +367,8 @@ class UtilitiesController extends Controller
             return redirect('mall/water')->with('success', 'Transaction created successfully!');
         } elseif ($utility->ui_type  == 'Sewage') {
             return redirect('mall/sewage')->with('success', 'Transaction created successfully!');
+        } elseif ($utility->ui_type  == 'Rent') {
+            return redirect('mall/rent')->with('success', 'Transaction created successfully!');
         }
 
 
@@ -382,6 +404,12 @@ class UtilitiesController extends Controller
     {
         return view('mall.utility.watershow', compact('utility'));
     }
+
+    public function rentshow(Utility $utility)
+    {
+        return view('mall.utility.rent_show', compact('utility'));
+    }
+
 
 
 

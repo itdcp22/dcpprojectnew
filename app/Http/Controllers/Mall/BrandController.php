@@ -219,10 +219,11 @@ class BrandController extends Controller
         $brand->bm_cwater_bill_type = $request->bm_cwater_bill_type;
         $brand->bm_sewage_bill_type = $request->bm_sewage_bill_type;
 
-
-
-
-
+        $brand->bm_rent = $request->bm_rent;
+        $brand->bm_base_rent = $request->bm_base_rent;
+        $brand->bm_fixed_cwater = $request->bm_fixed_cwater;
+        $brand->bm_fixed_service = $request->bm_fixed_service;
+        $brand->bm_fixed_marketing = $request->bm_fixed_marketing;
 
 
         $brand->save();

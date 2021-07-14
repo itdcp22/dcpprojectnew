@@ -168,6 +168,7 @@ Route::resource('/mall/utility', 'Mall\UtilitiesController', ['as' => 'mall'])->
 Route::get('/mall/cwater', 'Mall\UtilitiesController@cwater')->name('cwater');
 Route::get('/mall/water', 'Mall\UtilitiesController@water')->name('water');
 Route::get('/mall/consolidate', 'Mall\UtilitiesController@consolidate')->name('consolidate');
+Route::get('/mall/rent', 'Mall\UtilitiesController@rent')->name('rent');
 
 Route::get('/mall/ui_unpaid', 'Mall\UtilitiesController@ui_unpaid')->name('ui_unpaid');
 Route::get('/mall/ui_paid', 'Mall\UtilitiesController@ui_paid')->name('ui_paid');
@@ -187,7 +188,8 @@ Route::get('/mall/bills_confirmed', 'Mall\UtilitiesController@bills_confirmed')-
 
 Route::get('/mall/cwater_create', 'Mall\UtilitiesController@cwater_create')->name('cwater_create');
 Route::get('/mall/water_create', 'Mall\UtilitiesController@water_create')->name('water_create');
-Route::get('/mall/sewage_create', 'Mall\UtilitiesController@sewage_create')->name('sewage_create');
+//Route::get('/mall/sewage_create', 'Mall\UtilitiesController@sewage_create')->name('sewage_create');
+Route::get('/mall/rent_create', 'Mall\UtilitiesController@rent_create')->name('rent_create');
 
 Route::get('/mall/utility_email_home', 'Mall\UtilitiesController@utility_email_home')->name('utility_email_home');
 Route::get('/mall/utility_email_trigger', 'Mall\UtilitiesController@utility_email_trigger')->name('utility_email_trigger');
@@ -196,6 +198,8 @@ Route::get('/mall/utility_email_trigger', 'Mall\UtilitiesController@utility_emai
 
 
 Route::get('/mall/utility/{utility}/watershow', 'Mall\UtilitiesController@watershow')->name('mall.utility.watershow');
+
+Route::get('/mall/utility/{utility}/rentshow', 'Mall\UtilitiesController@rentshow')->name('mall.utility.rentshow');
 
 //Route::get('/mall/utility/insertSchedule', 'Mall\UtilitiesController@insertSchedule')->name('insertSchedule');
 

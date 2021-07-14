@@ -227,7 +227,7 @@
           </div>
           <label class="col-lg-2" for="">Amount</label>
           <div class="col-lg-3">
-            <input type="number" class="form-control" name="pay_supp_amount" placeholder="Enter amount" required>
+            <input type="text" class="form-control" name="pay_supp_amount" placeholder="Enter amount" required>
           </div>
         </div>
       </div>

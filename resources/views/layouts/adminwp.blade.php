@@ -439,6 +439,14 @@
                   </li>
 
                   <li class="nav-item">
+                    <a href="{{route('rent')}}" class="nav-link">
+
+                      <i class="nav-icon far fa-circle text-primary"></i>
+                      <p>Rent</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
                     <a href="{{route('consolidate')}}" class="nav-link">
 
                       <i class="nav-icon far fa-circle text-warning"></i>
