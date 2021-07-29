@@ -212,6 +212,9 @@ Route::get("addmore", "ProductAddMoreController@addMore");
 //Route::post("addmore", "ProductAddMoreController@addMorePost")->name('addmorePost');
 
 
+//Gift Voucher
+Route::resource('/gift/giftsale', 'Mall\GiftsalesController', ['as' => 'gift'])->middleware('auth');
+
 
 
 

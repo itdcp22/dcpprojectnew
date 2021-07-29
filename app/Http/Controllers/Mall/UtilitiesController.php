@@ -279,7 +279,7 @@ class UtilitiesController extends Controller
                 $utility->ui_consumed = $request->ui_consumed[$key];
                 $utility->ui_amount = $request->ui_amount[$key];
 
-                $utility->ui_rent_per_day = $request->ui_rent_per_day[$key];
+                // $utility->ui_rent_per_day = $request->ui_rent_per_day[$key];
 
                 $utility->ui_month = $request->ui_month;
                 $utility->ui_type = $request->ui_type;
