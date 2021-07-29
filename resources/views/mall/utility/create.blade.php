@@ -153,12 +153,12 @@
           <label class="col-lg-1" for="">From</label>
           <div class="col-lg-2">
 
-            <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date"
-              value="{{ date('d-m-Y', strtotime($utility. ' + 1 days'))  }}" placeholder="dd-mm-yyyy" required readonly>
+            <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date" value=""
+              placeholder="dd-mm-yyyy" required readonly>
 
             <script>
               $('#datepicker').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'mm-dd-yyyy',
           uiLibrary: 'bootstrap4'
       });
             </script>
@@ -173,11 +173,11 @@
           <div class="col-lg-2">
 
             <input class="form-control datepicker" tabindex="2" id="datepicker2" name="ui_to_date"
-              placeholder="dd-mm-yyyy" required readonly>
+              placeholder="mm-dd-yyyy" required readonly>
 
             <script>
               $('#datepicker2').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'mm-dd-yyyy',
           uiLibrary: 'bootstrap4'
       });
             </script>
