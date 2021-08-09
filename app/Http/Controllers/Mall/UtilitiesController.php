@@ -273,7 +273,8 @@ class UtilitiesController extends Controller
                 $utility->ui_brand_name = $request->ui_brand_name[$key];
                 $utility->ui_rate = $request->ui_rate[$key];
                 $utility->ui_vat_no = $request->ui_vat_no[$key];
-                // $utility->ui_rate = $request->ui_rate[$key];
+                $utility->ui_unit_no = $request->ui_unit_no[$key];
+                $utility->ui_flex1 = $request->ui_flex1[$key]; //Area
                 $utility->ui_omr = $request->ui_omr[$key];
                 $utility->ui_cmr = $request->ui_cmr[$key];
                 $utility->ui_consumed = $request->ui_consumed[$key];
@@ -408,6 +409,11 @@ class UtilitiesController extends Controller
     public function watershow(Utility $utility)
     {
         return view('mall.utility.watershow', compact('utility'));
+    }
+
+    public function cwatershow(Utility $utility)
+    {
+        return view('mall.utility.cwatershow', compact('utility'));
     }
 
     public function rentshow(Utility $utility)

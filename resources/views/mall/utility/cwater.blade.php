@@ -80,7 +80,7 @@
 
                                 <td>
 
-                                    <a href="{{ route('mall.utility.show',$c->id) }}">
+                                    <a href="{{ route('mall.utility.cwatershow',$c->id) }}">
                                         <i class="fa fa-print text-green"></i>
 
                                     </a>

@@ -159,13 +159,12 @@ function myFunction(item, index) {
                     <label class="col-lg-1" for="">From</label>
                     <div class="col-lg-2">
 
-                        <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date"
-                            value="{{ date('d-m-Y', strtotime($utility. ' + 1 days'))  }}" placeholder="dd-mm-yyyy"
-                            tabindex="-1" required readonly>
+                        <input class="form-control datepicker" tabindex="1" id="datepicker" name="ui_from_date" value=""
+                            placeholder="dd-mm-yyyy" tabindex="-1" required readonly>
 
                         <script>
                             $('#datepicker').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'mm-dd-yyyy',
           uiLibrary: 'bootstrap4'
       });
                         </script>
@@ -182,7 +181,7 @@ function myFunction(item, index) {
 
                         <script>
                             $('#datepicker2').datepicker({
-        format: 'dd-mm-yyyy',
+        format: 'mm-dd-yyyy',
           uiLibrary: 'bootstrap4'
       });
                         </script>
@@ -248,13 +247,18 @@ function myFunction(item, index) {
                                     value="{{ $brand->bm_tm_name}}">
                                 <input class="form-control" type="hidden" name="ui_vat_no[]"
                                     value="{{ $brand->bm_vat}}">
+                                <input class="form-control" type="hidden" name="ui_unit_no[]"
+                                    value="{{ $brand->bm_unit_no}}">
+                                <input class="form-control" type="hidden" name="ui_flex1[]"
+                                    value="{{ $brand->bm_size}}">
+                                <input class="form-control" type="hidden" name="ui_flex2[]"
+                                    value="{{ $brand->bm_cwater_bill_type}}">
                             </td>
 
                             <td>
 
                                 <input class="form-control" id="{{ 'rate_' . ($brand->id+1) }}" type="number"
-                                    tabindex="-1" name="ui_rate[]" value="{{ number_format($brand->bm_cwater_rate,3)}}"
-                                    readonly>
+                                    tabindex="-1" name="ui_rate[]" value="{{ $brand->bm_cwater_rate}}" readonly>
 
 
 

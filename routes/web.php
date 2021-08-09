@@ -198,6 +198,7 @@ Route::get('/mall/utility_email_trigger', 'Mall\UtilitiesController@utility_emai
 
 
 Route::get('/mall/utility/{utility}/watershow', 'Mall\UtilitiesController@watershow')->name('mall.utility.watershow');
+Route::get('/mall/utility/{utility}/cwatershow', 'Mall\UtilitiesController@cwatershow')->name('mall.utility.cwatershow');
 
 Route::get('/mall/utility/{utility}/rentshow', 'Mall\UtilitiesController@rentshow')->name('mall.utility.rentshow');
 

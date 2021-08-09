@@ -250,6 +250,8 @@ function myFunction(item, index) {
                                     value="{{ $brand->bm_tm_name}}">
                                 <input class="form-control" type="hidden" name="ui_vat_no[]"
                                     value="{{ $brand->bm_vat}}">
+                                <input class="form-control" type="hidden" name="ui_unit_no[]"
+                                    value="{{ $brand->bm_unit_no}}">
                             </td>
 
 

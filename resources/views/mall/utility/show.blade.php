@@ -156,7 +156,8 @@ class toWords{
               <div class="col text-left">
                 <label class="col-lg-1 text-left" for="">Bill To :</label>
                 <P>{{ $utility->ui_brand_name }} - {{ $utility->ui_comp_name }} <br>
-                  VAT: {{ $utility->ui_vat_no}}</P>
+                  VAT: {{ $utility->ui_vat_no}}<br>
+                  Unit No: {{ $utility->ui_unit_no}}</P>
 
               </div>
             </div>

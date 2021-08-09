@@ -223,6 +223,7 @@
               <option value="AED">AED</option>
               <option value="USD">USD</option>
               <option value="GBP">GBP</option>
+              <option value="EURO">EURO</option>
             </select>
           </div>
           <label class="col-lg-2" for="">Amount</label>
