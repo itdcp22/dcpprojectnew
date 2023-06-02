@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('company')->nullable();
             $table->string('dept')->nullable();
             $table->string('status')->default('1');
-            $table->string('last_seen')->nullable();
+           // $table->string('last_seen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

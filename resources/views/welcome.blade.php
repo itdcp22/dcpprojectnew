@@ -132,12 +132,12 @@
     <br class="line-break">
 
     <div align="center">
-        <img src="mallhome12.PNG" style="max-width:100%;height:auto;">
+        <img src="dcplogo.jpg" style="max-width:100%;height:auto;">
     </div>
     <div align="center">
 
 
-        <h2>Work Permit</h2>
+        
     </div>
 </body>
 
