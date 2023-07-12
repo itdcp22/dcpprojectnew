@@ -10,7 +10,7 @@
 </div>
 
 <div style="text-align:center">
-    <img src={{asset('dist/img/printaqua.png')}}>
+    <img src={{asset('dist/img/dcplogo11.jpg')}}>
 </div>
 
 
