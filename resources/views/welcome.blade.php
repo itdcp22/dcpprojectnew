@@ -27,7 +27,7 @@
 
 
 
-    <title>Welcome - MOM</title>
+    <title>Welcome - DCP</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -132,7 +132,7 @@
     <br class="line-break">
 
     <div align="center">
-        <img src="dcplogo.jpg" style="max-width:100%;height:auto;">
+        <img src="dcplogo.JPG" style="max-width:100%;height:auto;">
     </div>
     <div align="center">
 
