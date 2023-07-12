@@ -426,7 +426,7 @@
             </td>
             <td>
               <input type="text" class="form-control text-center" id="tb_student_price" name="tb_student_price"
-                onkeypress="return isNumberKey(event)" onkeyup="calc1()" value="4" placeholder="4">
+                onkeypress="return isNumberKey(event)" onkeyup="calc1()" value="55" placeholder="55">
             </td>
             <td>
               <input type="text" class="form-control text-right" id="student_amount" name="student_amount"
@@ -436,7 +436,7 @@
 
           <tr>
             <td>
-              Teachers
+              Teachers - Paid
             </td>
             <td>
               <input type="text" class="form-control text-center" id="tb_teacher_qty" name="tb_teacher_qty"
@@ -444,7 +444,7 @@
             </td>
             <td>
               <input type="text" class="form-control text-center" id="tb_teacher_price" name="tb_teacher_price"
-                onkeypress="return isNumberKey(event)" onkeyup="calc2()" value="7.5" placeholder="7.5">
+                onkeypress="return isNumberKey(event)" onkeyup="calc2()" value="55" placeholder="55">
             </td>
             <td>
               <input type="text" class="form-control text-right" id="teacher_amount" name="teacher_amount"
@@ -454,7 +454,7 @@
 
           <tr>
             <td>
-              Adult
+              Teachers - Free
             </td>
             <td>
               <input type="text" class="form-control text-center" id="tb_adult_qty" name="tb_adult_qty"
@@ -462,7 +462,7 @@
             </td>
             <td>
               <input type="text" class="form-control text-center" id="tb_adult_price" name="tb_adult_price"
-                onkeypress="return isNumberKey(event)" onkeyup="calc3()" value="7.5" placeholder="">
+                onkeypress="return isNumberKey(event)" onkeyup="calc3()" value="0" placeholder="">
             </td>
             <td>
               <input type="text" class="form-control text-right" id="adult_amount" name="adult_amount"
