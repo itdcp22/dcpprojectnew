@@ -67,7 +67,7 @@
           
           
           
-          <img src={{asset('dist/img/dcplogo11.JPG')}}>
+          <img src={{asset('dist/img/dcplogo11.jpg')}}>
           
         </div>
       </div>  
