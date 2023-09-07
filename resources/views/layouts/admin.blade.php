@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tamani</title>
+  <title>DCP</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -108,7 +108,7 @@
 
             <img src={{asset('dist/img/jarwani.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
 
-            <span>Jarwani Group</span>
+            <span>WOA</span>
           </a>
 
           <!-- Sidebar -->
@@ -752,7 +752,7 @@
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.0.0
       </div>
-      <strong>Copyright &copy; 2019-2021 <a href="http://momcrm.com">Tamani</a>.</strong> All rights
+      <strong>Copyright &copy; 2023-2024 <a href="http://momcrm.com">WOA</a>.</strong> All rights
       reserved.
     </footer>
 

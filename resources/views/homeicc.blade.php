@@ -267,7 +267,7 @@
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Aquarium Visitors</h3>
+                  <h3 class="card-title">Visitors</h3>
                   <a href="javascript:void(0);">View Report</a>
                 </div>
               </div>
@@ -452,7 +452,7 @@
               <div class="card-body">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
-                    <span class="text-bold text-lg"> OMR. {{ number_format($booking_total_amount,3) }}</span>
+                    <span class="text-bold text-lg"> AED. {{ number_format($booking_total_amount,3) }}</span>
 
                     
 

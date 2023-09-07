@@ -311,10 +311,9 @@
 
             <select class="custom-select" name="tb_reference" required>
               <option value="" selected disabled hidden>Please select</option>
-              <option value="ICC">ICC</option>
-              <option value="Manal">Manal</option>
-              <option value="Gelan">Gelan</option>
+                           
               <option value="FOH">FOH</option>
+              <option value="ICC">Others</option>
 
 
             </select>
@@ -519,7 +518,7 @@
             </td>
             <td></td>
             <td class="font-weight-bold text-right">
-              Total OMR
+              Total AED
             </td>
             <td>
               <input type="text" class="form-control font-weight-bold  text-right" id="tb_total" name="tb_total"

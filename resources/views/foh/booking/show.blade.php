@@ -59,15 +59,15 @@
           <img src={{asset('dist/img/printjarwani.png')}}>
         </div>
         <div class = "col">
-        <h1 class="m-0 text-dark text-center">Al Jarwani Group</h1>
-        <h2 class="m-0 text-dark text-center">Oman Aquarium</h2>
+        <h1 class="m-0 text-dark text-center">White Oryx Aquarium Co LLC</h1>
+        <h2 class="m-0 text-dark text-center">Dubai Crocodile Park</h2>
         
         </div>
         <div class = "col text-center">
           
           
           
-          <img src={{asset('dist/img/printaqua.png')}}>
+          <img src={{asset('dist/img/dcplogo.jpg')}}>
           
         </div>
       </div>  
