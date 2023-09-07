@@ -56,7 +56,7 @@
 
     <div class = "row">
         <div class = "col text-center">
-          <img src={{asset('dist/img/printjarwani.png')}}>
+          <img src={{asset('dist/img/white_english.jpg')}}>
         </div>
         <div class = "col">
         <h1 class="m-0 text-dark text-center">White Oryx Aquarium Co LLC</h1>
@@ -67,7 +67,7 @@
           
           
           
-          <img src={{asset('dist/img/dcplogo.jpg')}}>
+          <img src={{asset('dist/img/dcplogo.JPG')}}>
           
         </div>
       </div>  

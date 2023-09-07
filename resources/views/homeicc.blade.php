@@ -354,7 +354,7 @@
                   <tr>
                     <td>
                       <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      ICC
+                      FOH
                     </td>
                     <td>{{$booking_icc_count}}</td>
                     <td>
@@ -363,7 +363,7 @@
                         
                       </small>
                       
-                      {{ number_format($booking_icc_amount,3) }}
+                      {{ number_format($booking_foh_amount,3) }}
                     </td>
                     <td>
                       <a href="#" class="text-muted">
@@ -371,50 +371,12 @@
                       </a>
                     </td>
                   </tr>
+                
+               
                   <tr>
                     <td>
                       <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Manal Al Balushi
-                    </td>
-                    <td>{{$booking_manal_count}}</td>
-                    <td>
-                      <small class="text-warning mr-1">
-                        <i class="fas fa-arrow-up"></i>
-                        
-                      </small>
-                      
-                      {{ number_format($booking_manal_amount,3) }}
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                     Gelan
-                    </td>
-                    <td>{{$booking_gelan_count}}</td>
-                    <td>
-                      <small class="text-danger mr-1">
-                        <i class="fas fa-arrow-up"></i>
-                        
-                      </small>
-                      
-                      {{ number_format($booking_gelan_amount,3) }}
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      FOH
+                      Others
                       <span class="badge bg-danger">NEW</span>
                     </td>
                     <td>{{$booking_foh_count}}</td>
