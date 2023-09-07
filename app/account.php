@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class account extends Model
+class Account extends Model
 {
     
     protected $dates = ['th_bill_dt'];
