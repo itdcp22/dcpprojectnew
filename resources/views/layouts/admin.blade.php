@@ -106,7 +106,7 @@
             @endif
 
 
-            <img src={{asset('dist/img/jarwani.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
+            <img src={{asset('dist/img/logo1122.png class=brand-image img-circle elevation-3 style=opacity: .8')}}>
 
             <span>WOA</span>
           </a>
@@ -119,12 +119,12 @@
               <div class="image">
 
                 @if(auth()->user()->company =='3')
-                <img src={{asset('dist/img/logo.png class=img-circle elevation-2 alt=Logo')}}>
+                <img src={{asset('dist/img/logo1122.png class=img-circle elevation-2 alt=Logo')}}>
                 @elseif(auth()->user()->company =='2')
 
-                <img src={{asset('dist/img/malllogonew.PNG class=img-circle elevation-2 alt=MallLogo')}}>
+                <img src={{asset('dist/img/logo1122.png class=img-circle elevation-2 alt=MallLogo')}}>
                 @else
-                <img src={{asset('dist/img/jarwani.png class=img-circle elevation-2 alt=Logo')}}>
+                <img src={{asset('dist/img/logo1122.png class=img-circle elevation-2 alt=Logo')}}>
                 @endif
 
 
@@ -484,92 +484,13 @@
                 </li>
 
 
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-chart-pie"></i>
-                    <p>
-                      KPI
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="{{route('kpi.objective.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p>Objective</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{route('kpi.info.index')}}" class="nav-link">
+              
 
-                        <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>KPI</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{route('kpi.initiative.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Initiatives</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
+              
 
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-shopping-cart"></i>
+             
 
-                    <p>
-                      Procurement
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="{{route('purchase.purchaserequest.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p>Purchase Request</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{route('kpi.info.index')}}" class="nav-link">
-
-                        <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Purchase Order</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{route('kpi.initiative.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Goods Receipt Note</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-cog"></i>
-
-                    <p>
-                      Others
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="{{route('circtent')}}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p>Circular</p>
-                      </a>
-                    </li>
-
-
-                  </ul>
-                </li>
-
-
-                @can('isAdmin')
+                @can('isGuest')
 
                 <li class="nav-item has-treeview">
                   <a href="#" class="nav-link">
@@ -622,72 +543,9 @@
                   </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p>
-                      BOH
-                      <i class="fas fa-angle-left right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="pages/forms/general.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Schedule</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/forms/advanced.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fish Movement</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/forms/editors.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fish Collection</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
+             
 
-                <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-table"></i>
-                    <p>
-                      IT
-                      <i class="fas fa-angle-left right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="pages/tables/simple.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Support</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/tables/data.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Access Request</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/tables/jsgrid.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Policy</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href=" {{ route('users') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>Users</p>
-                      </a>
-                    </li>
-
-                  </ul>
-                </li>
+             
                 @endcan
 
                 @can('isAccess')

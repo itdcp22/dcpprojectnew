@@ -40,7 +40,7 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <img src={{asset('dist/img/malllogonew123.png class=img-circle elevation-2 alt=Logo')}}>
+                <img src={{asset('dist/img/dcplogo11.jpg class=img-circle elevation-2 alt=Logo')}}>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Register a new membership</p>
