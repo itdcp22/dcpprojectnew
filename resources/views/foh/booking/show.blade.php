@@ -42,7 +42,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>              
+              <li class="breadcrumb-item"><a href="{{route('homeicc')}}">Dashboard</a></li>              
               
                   <li class="breadcrumb-item"><a href="{{route('foh.booking.index')}}">Booking</a></li>
 

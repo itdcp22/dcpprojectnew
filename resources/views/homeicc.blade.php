@@ -356,14 +356,14 @@
                       <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
                       FOH
                     </td>
-                    <td>{{$booking_icc_count}}</td>
+                    <td>{{$booking_foh_count}}</td>
                     <td>
                       <small class="text-success mr-1">
                         <i class="fas fa-arrow-up"></i>
                         
                       </small>
                       
-                      {{ number_format($booking_foh_amount,3) }}
+                      {{ number_format($booking_foh_amount,2) }}
                     </td>
                     <td>
                       <a href="#" class="text-muted">
@@ -379,7 +379,7 @@
                       Others
                       <span class="badge bg-danger">NEW</span>
                     </td>
-                    <td>{{$booking_foh_count}}</td>
+                    <td>0</td>
                     <td>
                       <small class="text-success mr-1">
                         <i class="fas fa-arrow-up"></i>
@@ -387,7 +387,7 @@
                       </small>
                       
 
-                      {{ number_format($booking_foh_amount,3) }}
+                      0
 
                     </td>
                     <td>
@@ -414,7 +414,7 @@
               <div class="card-body">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
-                    <span class="text-bold text-lg"> AED. {{ number_format($booking_total_amount,3) }}</span>
+                    <span class="text-bold text-lg"> AED. {{ number_format($booking_total_amount,2) }}</span>
 
                     
 

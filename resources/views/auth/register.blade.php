@@ -96,7 +96,7 @@
 
                         <input id="mobile" type="text" onkeypress="return isNumberKey(event)"
                             class="form-control @error('name') is-invalid @enderror" name="mobile"
-                            value="{{ old('mobile') }}" maxlength="8" required autocomplete="name" placeholder="Mobile"
+                            value="{{ old('mobile') }}" maxlength="10" required autocomplete="name" placeholder="Mobile"
                             autofocus>
 
                         @error('mobile')
