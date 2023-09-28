@@ -15,7 +15,7 @@
 
 
 
-<h3 style="text-align:center">Booking Calendar</h3>
+<h3 style="text-align:center">School Booking Calendar</h3>
 
 <div id='calendar'></div>
 
@@ -32,7 +32,7 @@
             events : [
                 @foreach($booking as $booking)
                 {
-                    title : '{{ $booking->tb_cust_name }} - {{ $booking->tb_time }}',
+                    title : '{{ $booking->tb_cust_name }} - {{ $booking->tb_time }} - {{ $booking->tb_student_qty }}',
                     start : '{{ $booking->tb_date }}',
                     url : '{{ route('foh.booking.show', $booking->id) }}'
                     
